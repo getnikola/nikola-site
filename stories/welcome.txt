@@ -1,0 +1,41 @@
+.. class:: hero-unit span6
+
+Nikola is a Static Site and Blog Generator
+------------------------------------------
+
+In goes content, out comes a website, ready to deploy.
+
+
+**Why Static Websites?**
+
+Static websites are safer, use fewer resources, and avoid vendor and platform lock-in.
+You can read more about this in the `Nikola Handbook. </handbook.html#why-static>`__
+
+.. class:: btn
+
+`Get Nikola (v5.1) <http://nikola-generator.googlecode.com/files/nikola-5.1.zip>`_
+
+
+.. class:: span5
+
+What Can Nikola Do?
+-------------------
+
+It has many features, but here are some of the nicer ones:
+
+.. class:: nav-list
+
+* `Blogs, with tags, feeds, archives, comments, etc. <some-sites-using-nikola.html>`_
+* `Themable <theming.html>`_
+* Fast builds, thanks to `doit <http://python-doit.sf.net>`_
+* Flexible, extensible via plugins
+* Small codebase (programmers can understand all of Nikola in a day)
+* `reStructuredText <quickstart.html>`_ [`Cheatsheet <http://ubuntuone.com/1M7C5fdbLkggF7ptoUvTq8>`_] or Markdown as input language
+* Easy `image galleries </galleries/demo/>`_ (just drop files in a folder!)
+* Syntax highlighting for almost any programming language or markup
+* Multilingual sites
+* Doesn't reinvent wheels, leverages existing tools.
+
+.. raw:: html
+
+   </div>

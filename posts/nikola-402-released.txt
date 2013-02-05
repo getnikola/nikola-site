@@ -1,0 +1,25 @@
+New bugfix release `available for download <http://code.google.com/p/nikola-generator/downloads/detail?name=nikola-4.0.2.zip>`_. Here are the changes in this version:
+
+Features
+--------
+
+* Updated to bootstrap 2.1.0
+* Italian translation by Pierpaolo Da Fieno
+* Index-like tag pages with the TAG_PAGES_ARE_INDEXES option
+
+Bugfixes
+--------
+
+* Handle broken EXIF dates
+* Ignore .pyc files in the listings folder
+* Don't fail on render_pages when there is no content at all
+* Don't fail on render_posts when there is no content at all
+* Don't fail on render_sources when there is no content at all
+* Don't fail on build_bundles when there are no bundles
+* Added missing listing.tmpl to jinja-default theme
+* Added default for DEFAULT_LANG
+* Added default for TRANSLATIONS
+* Fixed getting metadata from post file.
+* More resistence to broken EXIF data.
+* Made jinja-default follow default more closely.
+* Don't say "reSt", say "Source" since it can be markdown or other stuff.

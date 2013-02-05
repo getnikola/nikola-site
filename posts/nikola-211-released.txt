@@ -1,0 +1,1 @@
+Version 2.1 was missing a couple of files in the site theme. Please accept `version 2.1.1 <http://code.google.com/p/nikola-generator/downloads/list>`_ as an apology!

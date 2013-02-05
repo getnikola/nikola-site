@@ -1,0 +1,58 @@
+.. title: Some Sites Using Nikola
+.. slug: some-sites-using-nikola
+.. date: 2012/12/15 10:25:30
+.. tags: 
+.. link: 
+.. description: 
+
+These are some sites and blogs using Nikola, in no particular order. 
+If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
+
+* `Marcos Alcazar's Blog <http://blog.marcosalcazar.com.ar/>`_
+* `@rtnpro <http://www.rtnpro.com/>`_
+* `Intellectual Web <http://sayanchowdhury.dgplug.org/>`_
+* `The Eyegrade BLog <http://www.it.uc3m.es/jaf/eyegrade/blog/>`_
+* `Tryton <http://www.tryton.org>`_
+* `OpenERP to Tryton <http://www.openerptotryton.org>`_
+* `Null Cortex <http://nullcortex.com/>`_
+* `Secret Weblog <http://blog.startifact.com/>`_
+* `①＝③ <http://www.oneis3.com/>`_
+* `Frogblog <http://blog.vfrog.es/>`_
+* `Roman Imankulov <http://www.imankulov.name>`_
+* `Rail's Blog <http://rail.merail.ca/>`_
+* `Crapmuffins <http://www.crapmuffins.com/>`_
+* `uwe.ambloggen.de <http://uwe.ambloggen.de/>`_
+* `Rok's occasional blog <http://rok.mocnik.me/>`_
+* `José Matos Home Page <http://webapps.fep.up.pt/jamatos/>`_
+* `Teddy's World <http://tedyin.com/>`_
+* `Carlos Enrique Rodriguez <http://cerodriguez.com.ar/>`_
+* `Living the Appian Way <http://appianway.altervista.org/>`_
+* `roblog <http://robertfw.github.com/>`_
+* `FOSS and life <http://kushaldas.in/>`_
+* `QTPC <http://qtpc.com.ar>`_
+* `flexion.org <http://flexion.org>`_
+* `Mariano Guerra's Log <http://www.marianoguerra.org/>`_
+* `Damian's blog <http://www.damian.oquanta.info/>`_
+* `Rounder Wheels <http://blog.schettino72.net/>`_
+* `Patrick Wildt <http://www.patrick-wildt.de/blog/>`_
+* `Gekwetter <http://barometz.name/>`_
+* `Ivan Teoh <http://www.ivanteoh.com/>`_
+* `Procoders <http://www.procoders.net/>`_
+* `Felipe Lerena <http://www.felipelerena.com.ar/>`_
+* `Juan Rodriguez Monti <http://www.juanrodriguezmonti.com.ar/>`_
+* `Nuitka Home and Blog of Kay Hayen <http://nuitka.net/>`_
+* `Brian Curtin <http://blog.briancurtin.com/>`_
+* `tin_nqn <http://mgaitan.github.com/>`_
+* `Piffey Parlance <http://piffey.net/>`_
+* `Majority of One <http://majorityofone.co.il/stories/intro.html>`_
+* `El Jose Blog <http://jose.rebeldes.org.ar/>`_
+* `Ninjas, Pythones y Samurais! <http://www.edvm.com.ar/>`_
+* `madumlao <http://madumlao.is-a-geek.org/blog/>`_
+* `Planeta PyAr <http://planeta.python.org.ar>`_
+* `Thorsten's Blog <http://blog.aero2k.de/>`_
+
+And of course, my sites:
+
+* `Lateral Opinion <http://lateral.netmanagers.com.ar>`_
+* `Nikola <http://nikola.ralsina.com.ar>`_
+* `Rst2pdf <http://rst2pdf.ralsina.com.ar>`_

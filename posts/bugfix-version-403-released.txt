@@ -1,0 +1,13 @@
+Version `4.0.3 is released <http://nikola-generator.googlecode.com/files/nikola-4.0.3.zip>`_
+
+This is strictly a bugfix release, which fixes the following issues:
+
+* Handle empty posts without crashing.
+* Treat wordpress imported posts as Markdown.
+* Download attachments from wordpress
+* Fix links to attachments so they work
+* Change the global/local order of contexts on templates.
+* Link tag's feed in tag's pages.
+* Fix empty tag feeds.
+* Refactored Post out of nikola.py
+

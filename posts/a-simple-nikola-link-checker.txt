@@ -1,0 +1,65 @@
+One of the most important things when you are building a static site
+generator like `Nikola <http://nikola.ralsina.com.ar>`_  is that your
+site should not be broken. So, I really should have done this earlier ;-)
+
+This is a very simple link checker that ensures the pages `Nikola <http://nikola.ralsina.com.ar>`_ generates
+have no broken links. I will make it part of `Nikola <http://nikola.ralsina.com.ar>`_ proper once it's more
+polished and doit supports
+`getting a list of targets <https://bitbucket.org/schettino72/doit/issue/21/getargs-support-to-get-task-metadata>`_
+
+To try it, `get it <http://lateral.netmanagers.com.ar/static/nikola_linkcheck.py>`_ and run it from the same place where you
+have your conf.py, right after you run ``doit``.
+
+.. code-block:: python
+
+    import os
+    import urllib
+    from urlparse import urlparse
+
+    import lxml.html
+
+    def analyze(filename):
+        try:
+            # Use LXML to parse the HTML
+            d = lxml.html.fromstring(open(filename).read())
+            for l in d.iterlinks():
+                # Get the target link
+                target = l[0].attrib[l[1]]
+                if target == "#":  # These are always valid
+                    continue
+                parsed = urlparse(target)
+                # We only handle relative links.
+                # TODO: check if the URL points to inside the generated
+                # site and check it anyway
+                if parsed.scheme:
+                    continue
+                # Ignore the fragment, since the link will still work
+                # TODO: check that the fragment is valid
+                if parsed.fragment:
+                    target = target.split('#')[0]
+                # Calculate what file or folder this points to
+                target_filename = os.path.abspath(
+                    os.path.join(os.path.dirname(filename), urllib.unquote(target)))
+                # Check if it exists, or report it
+                if not os.path.exists(target_filename):
+                    print "In %s broken link: " % filename, target
+        except Exception as exc:
+            # Something bad happened, report
+            print "Error with:", filename, exc
+
+    # This is hackish: we use doit to get a list of all
+    # generated files. Minor modifications would let you check
+    # the non-generated files as well.
+
+    for task in os.popen('doit list --all', 'r').readlines():
+        task = task.strip()
+        if task.split(':')[0] in (
+            'render_tags',
+            'render_archive',
+            'render_galleries',
+            'render_indexes',
+            'render_pages',
+            'render_site') and '.html' in task:
+                # It looks like a generated HTML file
+                analyze(task.split(":")[-1])
+

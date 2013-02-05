@@ -1,0 +1,23 @@
+A simple yet powerful and flexible static website and blog generator, based on doit,
+mako, docutils and bootstrap.
+
+I built this to power this very site you are reading, but decided it may be useful
+to others. The main goals of Nikola are:
+
+* Small codebase: because I don't want to maintain a big thing for my blog
+* Fast page generation: Adding a post should not take more that 5 seconds to build.
+* Static output: Deployment using rsync is smooth.
+* Flexible page generation: you can decide where everything goes in the final site.
+* Powerful templates: Uses `Mako <http://www.makotemplates.org/>`_
+* Clean markup for posts: Uses `Docutils <http://docutils.sourceforge.net/>`_
+* Don't do stupid builds: Uses `doit <http://python-doit.sourceforge.net/>`_
+* Clean HTML output by default: Uses `bootstrap <http://twitter.github.com/bootstrap/>`_
+* Comments out of the box: Uses `Disqus <http://disqus.com/>`_
+* Tags, with their own RSS feeds
+* Easy way to do a blog
+* Static pages outside the blog
+* Multilingual blog support (my own blog is english + spanish)
+
+I think this initial version achieves all of those goals, but of course, it can be improved. Feedback is very welcome!
+
+Nikola's home page is currently http://nikola-generator.googlecode.com

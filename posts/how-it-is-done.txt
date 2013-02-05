@@ -1,0 +1,12 @@
+I added a very minor feature to the site. Up here ^ you should be able to see a link that says "reSt".
+If you click on it, it will show you the "source code" for the page.
+
+I did this for a few reasons: 
+
+1) Because a comment seemed to suggest it ;-) 
+2) Because it seems like a nice thing to do. Since I so like reSt, I would like others to use it, too. And showing how easy it is
+   to write using it, is cool.
+3) It's the "free software-y" thing to do. I am providing you the preferred way to modify my posts.
+4) It was ridiculously easy to add.
+
+Also, if you see something missing, or something you would like to have on the site, please comment, I will try to add it.

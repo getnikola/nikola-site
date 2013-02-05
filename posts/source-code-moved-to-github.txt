@@ -1,0 +1,3 @@
+By popular request, I have moved Nikola's source code to `GitHub <https://github.com/ralsina/nikola>`_.
+
+So, fork at will!

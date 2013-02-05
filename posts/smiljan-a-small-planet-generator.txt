@@ -1,0 +1,183 @@
+I maintain a couple of small "planet" sites. If you are not familiar with planets,
+they are sites that aggregate RSS/Atom feeds for a group of people related
+somehow. It makes for a nice, single, thematic feed.
+
+Recently, when changing them from one server to another, everything broke.
+Old posts were new, feeds that had not been updated in 2 years were
+always with all its posts on top... a disaster.
+
+I could have gone to the old server, and started debugging why rawdog was
+doing that, or switch to planet, or look for other software, or use an
+online aggregator.
+
+Instead, I started thinking... I had written a few RSS aggregators in the past...
+Feedparser is again under active development... rawdog and planet seem to be
+pretty much abandoned... how *hard* could it be to implement the minimal
+planet software?
+
+Well, not all that hard, that's how hard it was. Like it took me 4 hours, and was
+not even difficult.
+
+One reason why this was easier than what planet and rawdog achieved is that I am
+not doing a static site generator, because `I already have one <http://nikola.ralsina.coma.r>`_
+so all I need this program (I called it Smiljan) to do is:
+
+* Parse a list of feeds and store it in a database if needed.
+* Download those feeds (respecting etag and modified-since).
+* Parse those feeds looking for entries (feedparser does that).
+* Load those entries (or rather, a tiny subset of their data) in the database.
+* Use the entries to generate a set of files to feed Nikola
+* Use nikola to generate and deploy the site.
+
+So, here is the final result: http://planeta.python.org.ar which still needs theming
+and a lot of other stuff, but works.
+
+I implemented Smiljan as 3 doit tasks, which makes it very easy to integrate with Nikola
+(if you know Nikola: add "from smiljan import \*" in your dodo.py and a feeds file with the
+feed list in rawdog format) and voilá, running this updates the planet::
+
+    doit load_feeds update_feeds generate_posts deploy
+
+Here is the code for smiljan.py, currently at the "gross hack that kinda works" stage. Enjoy!
+
+.. code-block:: python
+
+    # -*- coding: utf-8 -*-
+    import codecs
+    import datetime
+    import glob
+    import os
+    import sys
+
+    import feedparser
+    import peewee
+
+    class Feed(peewee.Model):
+        name = peewee.CharField()
+        url = peewee.CharField(max_length = 200)
+        last_status = peewee.CharField()
+        etag = peewee.CharField(max_length = 200)
+        last_modified = peewee.DateTimeField()
+
+    class Entry(peewee.Model):
+        date = peewee.DateTimeField()
+        feed = peewee.ForeignKeyField(Feed)
+        content = peewee.TextField(max_length = 20000)
+        link = peewee.CharField(max_length = 200)
+        title = peewee.CharField(max_length = 200)
+        guid = peewee.CharField(max_length = 200)
+
+    Feed.create_table(fail_silently=True)
+    Entry.create_table(fail_silently=True)
+
+    def task_load_feeds():
+
+        def add_feed(name, url):
+            f = Feed.create(
+                name=name,
+                url=url,
+                etag='caca',
+                last_modified=datetime.datetime(1970,1,1),
+                )
+            f.save()
+
+        feed = name = None
+        for line in open('feeds'):
+            line = line.strip()
+            if line.startswith('feed'):
+                feed = line.split(' ')[2]
+            if line.startswith('define_name'):
+                name = ' '.join(line.split(' ')[1:])
+            if feed and name:
+                f = Feed.select().where(name=name, url=feed)
+                if not list(f):
+                    yield {
+                        'name': name,
+                        'actions': ((add_feed,(name, feed)),),
+                        'file_dep': ['feeds'],
+                        }
+                    name = feed = None
+
+    def task_update_feeds():
+
+        def update_feed(feed):
+            modified = feed.last_modified.timetuple()
+            etag = feed.etag
+            parsed = feedparser.parse(feed.url,
+                etag=etag,
+                modified=modified
+            )
+            try:
+                feed.last_status = str(parsed.status)
+            except:  # Probably a timeout
+                # TODO: log failure
+                return
+            if parsed.feed.get('title'):
+                print parsed.feed.title
+            else:
+                print feed.url
+            feed.etag = parsed.get('etag', 'caca')
+            modified = tuple(parsed.get('date_parsed', (1970,1,1)))[:6]
+            print "==========>", modified
+            modified = datetime.datetime(*modified)
+            feed.last_modified = modified
+            feed.save()
+            # No point in adding items from missinfg feeds
+            if parsed.status > 400:
+                # TODO log failure
+                return
+            for entry_data in parsed.entries:
+                print "========================================="
+                date = entry_data.get('updated_parsed', None)
+                if date is None:
+                    date = entry_data.get('published_parsed', None)
+                if date is None:
+                    print "Can't parse date from:"
+                    print entry_data
+                    return False
+                date = datetime.datetime(*(date[:6]))
+                title = "%s: %s" %(feed.name, entry_data.get('title', 'Sin título'))
+                content = entry_data.get('description',
+                        entry_data.get('summary', 'Sin contenido'))
+                guid = entry_data.get('guid', entry_data.link)
+                link = entry_data.link
+                print repr([date, title])
+                entry = Entry.get_or_create(
+                    date = date,
+                    title = title,
+                    content = content,
+                    guid=guid,
+                    feed=feed,
+                    link=link,
+                )
+                entry.save()
+        for feed in Feed.select():
+            yield {
+                'name': feed.name.encode('utf8'),
+                'actions': ((update_feed,(feed,)),),
+                }
+
+    def task_generate_posts():
+
+        def generate_post(entry):
+            meta_path = os.path.join('posts',str(entry.id)+'.meta')
+            post_path = os.path.join('posts',str(entry.id)+'.txt')
+            with codecs.open(meta_path, 'wb+', 'utf8') as fd:
+                fd.write(u'%s\n' % entry.title.replace('\n', ' '))
+                fd.write(u'%s\n' % entry.id)
+                fd.write(u'%s\n' % entry.date.strftime('%Y/%m/%d %H:%M'))
+                fd.write(u'\n')
+                fd.write(u'%s\n' % entry.link)
+            with codecs.open(post_path, 'wb+', 'utf8') as fd:
+                fd.write(u'.. raw:: html\n\n')
+                content = entry.content
+                if not content:
+                    content = 'Sin contenido'
+                for line in content.splitlines():
+                    fd.write(u'    %s' % line)
+
+        for entry in Entry.select().order_by(('date', 'desc')):
+            yield {
+                'name': entry.id,
+                'actions': ((generate_post, (entry,)),),
+                }

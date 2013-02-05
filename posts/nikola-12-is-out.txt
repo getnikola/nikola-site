@@ -1,0 +1,36 @@
+Version 1.2 of Nikola, my static site generator and the software behind
+`this very site <http://lateral.netmanagers.com.ar>`_, is out!
+
+Why build static sites? Because they are light in resources, they are
+future-proof, because it's easy, because they are safe, and because you
+avoid lockin.
+
+New Features:
+
+* Image gallery (just drop pics on a folder)
+* Built-in webserver for previews (``doit -a serve``)
+* Helper commands to create new posts (``doit -a new_post``)
+* Google Sitemap support
+* A Handbook!
+* Full demo site included
+* Support for automatic deployment (``doit -a deploy``)
+* Client-side redirections
+
+And of course the *old* features:
+
+* Write your posts in reStructured text
+* Clean, customizable page design (via bootstrap)
+* Comments via Disqus
+* Support any analytics you want
+* Build blogs with tags, feeds, feeds for your tags, indexes, and more
+* Works like a simple CMS for things outside your blog
+* Clean customizable templates using Mako
+* Pure python, and not a lot of it (about 600 lines)
+* Smart builds (doit only rebuilds changed pages)
+* Easy to extend and improve
+* Code displayed with syntax highlighting
+
+Right now Nikola does literally everything I need, so if you try it and need
+something else... it's a good time to ask!
+
+More info at http://nikola-generator.googlecode.com

@@ -1,0 +1,37 @@
+A fast-loading site is a good thing. Your site's speed matters. Which is why
+creating fast sites is one of Nikola's design goals.
+
+Sure, it's not meant to create e-commerce sites, but if you are doing just a
+simple corporate site, or a personal blog, why would you not make it as fast
+as possible anyway?
+
+So, here's `one data point, from Kay Hayen <http://www.nuitka.net/posts/nikola-speed-improvements.html>`_
+
+.. figure:: http://www.nuitka.net/posts/images/nikola-speed-improvements.png
+
+   Guess when Kay switched to Nikola.
+
+But you don't have to just believe that graph. Here's Yahoo's YSlow report on
+`my personal blog <http://lateral.netmanagers.com.ar>`_, which is hosted in a `$5 VPS <http://burst.net/linvps.shtml>`_
+(as is this site, BTW. The *same* VPS. As is a bunch of services. And my
+`Quassel <http://quassel-irc.org/>`_ core)
+
+.. figure:: http://ubuntuone.com/6Xsg1blhiJK7nEcnhPFOM7
+   :target: http://ubuntuone.com/6Xsg1blhiJK7nEcnhPFOM7
+   :width: 80%
+
+It scores **94** on that test. That's 94 out of 100 possible points in the
+"Small Site or Blog" ruleset.
+
+How much server tuning was needed? I added one line to the `Apache <http://httpd.apache.org>`_ config::
+
+   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+
+That makes it compress those files before sending it to the user and improved
+the third item from F to A.
+
+So, when I say Nikola makes your site fast, don't take my word for it, just check
+it out.
+
+
+

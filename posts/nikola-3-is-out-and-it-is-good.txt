@@ -1,0 +1,36 @@
+I just released version 3 of my static site generator, `Nikola <http://nikola.ralsina.com.ar>`_
+
+It's a *major* release, there is hardly any code from the previous version that was not
+moved, prodded, broken or fixed!
+
+The main features of Nikola:
+
+* Blogs, with tags, feeds, archives, comments, etc.
+* Themable
+* Fast builds, thanks to doit
+* Flexible
+* Small codebase (programmers can understand all of Nikola in a few hours)
+* reStructuredText and Markdown as input languages
+* Easy image galleries (just drop files in a folder!)
+* Syntax highlighting for almost any programming language or markup
+* Multilingual sites
+* Doesn't reinvent wheels, leverages existing tools.
+
+Changes for this release (not exhaustive!):
+
+* New optional template argument for "nikola init"
+* New "install_theme" task
+* Optional address option for the "serve" task
+* Better looking codeblocks
+* Russian translation
+* Use markdown/reSt compiler based on post extension
+* Don't fail when there are no posts/stories/galleries/tags
+* Use configuration options as dependencies
+* Use more relative links for easier site rellocation
+* Syntax highlight for markdown
+* Better multicore builds (make the -n 2 or -n 4 options work)
+* Configurable output folder
+* Don't fail on posts with periods in the name
+* Different page names for different languages
+* Recognize (some) Mako template dependencies
+* Is now a more "normal" python package.

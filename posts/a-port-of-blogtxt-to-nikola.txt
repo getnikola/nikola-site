@@ -1,0 +1,28 @@
+If you want a very minimalistic theme for a Nikola-based site, I just did a quick and dirty
+port of Scott Wallick's `blog.txt theme <http://wordpress.org/extend/themes/blogtxt>`_
+
+
+If there is anything nice here, he did it. If there is something wrong
+or broken, I did it instead.
+
+I did it basically to see if it was possible to port wordpress themes to Nikola.
+And it is, but it involves reading php files and loosely reinterpreting them
+into Mako templates.
+
+While the port is far from perfect, it's a reasonable starting point for someone who
+is really interested in it.
+
+Here is how it looks:
+
+.. class:: thumbnail
+
+.. image:: http://lateral.netmanagers.com.ar/galleries/random/blogtxt.png
+   :target: http://lateral.netmanagers.com.ar/weblog/posts/a-port-of-blogtxt-to-nikola.html
+   :width: 50%
+
+And `here is the download <http://lateral.netmanagers.com.ar/static/nikola-blogtxt-theme.zip>`_. To use it, just unzip it in your
+themes folder, set THEME to "blogtxt" in your dodo.py file, and rebuild the site.
+
+At least the CSS files are easily adapted.
+
+This theme is under a LGPL license (see included license.txt), enjoy!
