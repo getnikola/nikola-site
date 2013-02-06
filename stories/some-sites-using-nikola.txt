@@ -8,6 +8,7 @@
 These are some sites and blogs using Nikola, in no particular order. 
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
+* `Unlogic <http://unlogic.co.uk/>`_
 * `APU CSFC <http://apu-csfc.github.com/>`_
 * `Marcos Alcazar's Blog <http://blog.marcosalcazar.com.ar/>`_
 * `@rtnpro <http://www.rtnpro.com/>`_
