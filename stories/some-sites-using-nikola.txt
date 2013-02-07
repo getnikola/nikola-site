@@ -8,6 +8,7 @@
 These are some sites and blogs using Nikola, in no particular order. 
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
+* `No Comments <http://nocomments.nigdy.com.ar/>`_
 * `Unlogic <http://unlogic.co.uk/>`_
 * `APU CSFC <http://apu-csfc.github.com/>`_
 * `Marcos Alcazar's Blog <http://blog.marcosalcazar.com.ar/>`_
@@ -45,7 +46,6 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 * `Nuitka Home and Blog of Kay Hayen <http://nuitka.net/>`_
 * `Brian Curtin <http://blog.briancurtin.com/>`_
 * `tin_nqn <http://mgaitan.github.com/>`_
-* `Piffey Parlance <http://piffey.net/>`_
 * `Majority of One <http://majorityofone.co.il/stories/intro.html>`_
 * `El Jose Blog <http://jose.rebeldes.org.ar/>`_
 * `Ninjas, Pythones y Samurais! <http://www.edvm.com.ar/>`_

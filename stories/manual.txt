@@ -1,7 +1,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 5.1
+:Version: 5.2
 :Author: Roberto Alsina <ralsina@netmanagers.com.ar>
 
 .. class:: alert alert-info pull-right
@@ -121,7 +121,7 @@ Obsolescense
     You may say those are long term issues, or that they won't matter for years. Well,
     I believe things should work forever, or as close to it as we can make them.
     Nikola's static output and its input files will work as long as you can install
-    a Python > 2.5 (soon 3.x) in a Linux, Windows, or Mac and can find a server
+    a Python > 2.6 in a Linux, Windows, or Mac and can find a server
     that sends files over HTTP. That's probably 10 or 15 years at least.
 
     Also, static sites are easily handled by the Internet Archive.
@@ -186,7 +186,7 @@ This is currently lacking on detail. Considering the niche Nikola is aimed at,
 I suspect that's not a problem yet. So, when I say "get", the specific details
 of how to "get" something for your specific operating system are left to you.
 
-The short version is: ``pip install https://github.com/ralsina/nikola/zipball/master``
+The short version is: ``pip install https://github.com/ralsina/nikola/archive/master.zip``
 
 Longer version:
 
@@ -199,19 +199,19 @@ Longer version:
    #. Get all of these manually (but why?, use requirements.txt):
 
       #. Get python, if you don't have it.
-      #. Get `doit <http://python-doit.sf.net>`_
+      #. Get `doit <http://pydoit.org>`_
       #. Get `docutils <http://docutils.sf.net>`_
       #. Get `Mako <http://makotemplates.org>`_
       #. Get `PIL <http://www.pythonware.com/products/pil/>`_ (or Pillow)
       #. Get `Pygments <http://pygments.org/>`_
       #. Get `unidecode <http://pypi.python.org/pypi/Unidecode/>`_
       #. Get `lxml <http://lxml.de/>`_
-      #. Get `yapsy <http://yapsy.sourceforge.com>`_
+      #. Get `yapsy <http://yapsy.sourceforge.net>`_
       #. Get `configparser <http://pypi.python.org/pypi/configparser/3.2.0r3>`_
 
 #. run ``python setup.py install``
 
-After that, run ``nikola init sitename`` and that will create a folder called
+After that, run ``nikola init --demo sitename`` and that will create a folder called
 ``sitename`` containing a functional demo site.
 
 Nikola is packaged for some Linux distributions, you may get that instead.
@@ -219,13 +219,16 @@ Nikola is packaged for some Linux distributions, you may get that instead.
 Getting Started
 ---------------
 
-To create posts and pages in Nikola, you write them in restructured text or Markdown, light
-markups that are later converted to HTML (I may add support for textile or other
-markups later). There is a great `quick tutorial to learn restructured text. <quickstart.html>`_
+To create posts and pages in Nikola, you write them in one of the supported input formats. 
+Those source files are later converted to HTML
+The recommended formats are restructured text and Markdown, but there is also support
+for textile and WikiCreole and even for just writing HTML.
+
+.. note:: There is a great `quick tutorial to learn restructured text. <quickstart.html>`_
 
 First, let's see how you "build" your site. Nikola comes with a minimal site to get you started.
 
-The tool used to do builds is called `doit <http://python-doit.sf.net>`_, and it rebuilds the
+The tool used to do builds is called `doit <http://pydoit.org>`_, and it rebuilds the
 files that are not up to date, so your site always reflects your latest content. To do our
 first build, just run "nikola build"::
 
@@ -252,7 +255,7 @@ will be much much shorter::
     $ nikola build
     Scanning posts  . . done!
 
-That is because `doit <http://python-doit.sf.net>`_ is smart enough not to generate
+That is because `doit <http://pydoit.org>`_ is smart enough not to generate
 all the pages again, unless you changed something that the page requires. So, if you change
 the text of a post, or its title, that post page, and all index pages where it is mentioned,
 will be recreated. If you change the post page template, then all the post pages will be rebuilt.
@@ -392,15 +395,19 @@ with the contents, generate the pages as explained in `Getting Started`_
 
 Currently supported languages are
 
+* Catalan
 * English
-* Spanish
 * French
 * German
+* Greek
+* Italian
+* Polish
 * Russian
-* Greek.
+* Simplified Chinese.
+* Spanish
 
 If you wish to add support for more languages, check out the instructions
-at the `theming guide <http://nikola.ralsina.com.ar/theming.html>`.
+at the `theming guide <http://nikola.ralsina.com.ar/theming.html>`_.
 
 The post page is generated using the ``post.tmpl`` template, which you can use
 to customize the output.
@@ -455,8 +462,10 @@ The ``new_post`` command supports some options::
 Teasers
 ~~~~~~~
 
-If for any reason you want to provide feeds that only display the beginning of
-your post, you only need to add a "magical comment" in your post.
+You may not want to show the complete content of your posts either on your
+index page or in RSS feeds, but to display instead only the beginning of them.
+
+If it's the case, you only need to add a "magical comment" in your post.
 
 In restructuredtext::
 
@@ -466,8 +475,11 @@ In Markdown::
 
    <!-- TEASER_END -->
 
-Additionally, if you want also the "index" pages to show only the teasers, you can
-set the variable ``INDEX_TEASERS`` to ``True`` in ``conf.py``.
+By default all your RSS feeds will be shortened (they'll contain only teasers)
+whereas your index page will still show complete posts. You can change
+this behaviour with your ``conf.py``: ``INDEX_TEASERS`` defines whether index
+page should display the whole contents or only teasers. ``RSS_TEASERS``
+works the same way for your RSS feeds.
 
 Drafts
 ~~~~~~
@@ -755,8 +767,10 @@ different ones, or about other webservers, please share!
 
       AddType text/css .css
 
-In the future we will be adding HTML/CSS/JS minimization and image recompression but
-that's not there yet, so you may want to use 3rd party tools to achieve that.
+#. The webassets Nikola plugin can drastically decrease the number of CSS and JS files your site fetches.
+
+#. Through the filters feature, you can run your files through arbitrary commands, so that images
+   are recompressed, Javascript is minimized, etc.
 
 Restructured Text Extensions
 ----------------------------
@@ -774,6 +788,26 @@ URL of the video is http://www.youtube.com/watch?v=8N_tupPBtWQ what you need is
 Once you have that, all you need to do is::
 
     .. youtube:: 8N_tupPBtWQ
+
+Vimeo
+~~~~~~~
+
+To link to a vimeo video, you need the id of the video. For example, if the
+URL of the video is http://www.vimeo.com/20241459 then the id is **20241459**
+
+Once you have that, all you need to do is::
+
+    .. vimeo:: 20241459
+
+If you are running python 2.6 or later, or have the json module installed and
+have internet connectivity when generating your site, the height and width of
+the embedded player will be set to the native height and width of the video.
+You can override this if you wish::
+
+    .. vimeo:: 20241459
+        height=240
+        width=320
+
 
 code-block
 ~~~~~~~~~~
@@ -821,6 +855,19 @@ linenos_offset
 tab-width
     Size of the tabs (default 4)
 
+gist
+~~~~
+
+You can easily embed GitHub gists with this directive, like this::
+
+    .. gist:: 2395294
+
+Producing this:
+
+.. gist:: 2395294
+
+This degrades gracefully if the browser doesn't support javascript.
+
 Slideshows
 ~~~~~~~~~~
 
@@ -851,7 +898,7 @@ If you like Nikola, and want to start using it, but you have a Wordpress blog, N
 supports importing it. Here's the steps to do it:
 
 1) Get a XML dump of your site [#]_
-2) nikola import_wordpress mysite.wordpress.2012-12-20.xml
+2) nikola import_wordpress -f mysite.wordpress.2012-12-20.xml
 
 After some time, this will crate a ``new_site`` folder with all your data. It currently supports
 the following:
@@ -882,7 +929,20 @@ about it.
        wordpress before dumping.
 
        Other versions may or may not work.
-  
+
+Importing To A Custom Location Or Into An Existing Site
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is possible to either import into a location you desire or into an already existing Nikola site.
+To do so you can specify a location after the dump.::
+
+    $ nikola import_wordpress -f mysite.wordpress.2012-12-20.xml -o import_location
+
+With this command Nikola will import into the folder ``import_location``.
+
+If the folder already exists Nikola will not overwrite an existing ``conf.py``.
+Instead a new file with a timestamp at the end of the filename will be created.
+
 License
 -------
 
