@@ -1,0 +1,74 @@
+.. title: Nikola 5.2 released!
+.. slug: nikola-52-released
+.. date: 2013/02/06 20:37:56
+.. tags:
+.. link:
+.. description:
+
+I am thrilled to announce that you can now `download Nikola 5.2. <http://nikola.ralsina.com.ar>`_
+
+What's new in this version? *A LOT*. Don't let the minor version tick fool you, this version
+is *packed* with goodness. Let's start with features:
+
+You can easily embed more content:
+
+* New vimeo directive for restructured text.
+* Custom "gist" directive providing reStructured text support for GitHub gists.
+
+You can write your content in almost any markup:
+
+* Textile markup support.
+* Creole Wiki markup support.
+* txt2tags markup support.
+* bbcode markup support.
+* And of course, it still supports reStructured text, Markdown and HTML.
+
+More languages:
+
+* New Catalá translation
+* New polish translation.
+* New Simplified Chinese translation.
+* Use multilingual Disqus (although it doesn't seem to work)
+
+You can import your data:
+
+* New Blogger/Blogspot importer
+* Much improved Wordpress importer
+* Extract metadata from filename by using regexp (helpful for importing from octopress or other systems).
+
+You can do fancier and more configurable sites:
+
+* One-page, dynamic-loading, client-rendered site plugin (task_mustache)
+* Recursive post/story folders
+* New COMMENTS_IN_GALLERIES and COMMENTS_IN_STORIES options.
+* Local search based on Tipue (extra_plugins/task_localsearch)
+* Added comments to image galleries
+* New option RSS_TEASERS
+* New STORY_INDEX option to generate index.html in story folders.
+* Add multi size favicon support.
+
+You can use Python 2.6 or higher ... **including Python 3.**
+The only missing bit for full Python 3 support is Google sitemap generation.
+
+And of course, a lot of bugs got smashed:
+
+* Added sane defaults for most options, so you can have a lean config file.
+* Made layout of the site theme responsive, with collapsing navbar.
+* Use timeline instead of parsing post_pages in generic_page_renderer and task_render_pages.
+* Updated disqus integration code, added identifiers so it works on any URL.
+* Make sure folder links end in "/" in the gallery code.
+* Removed copy of PyRSS2Gen, made it a dependency.
+* Detect "namespace" dependencies for Mako templates.
+* Use consistent encodings in RSS feeds.
+* Refactored disqus code into separate helpers
+* Use the correct extension (or raise an error) on new_post
+* Fix titles that include quotes
+* Updated to current CSS from docutils (was using version from 2005)
+* Avoid needless regeneration of gallery indexes.
+* Always ensure the folder for the new post exists.
+* Get title from filename if not available in metadata.
+* Don't copy sources if they end in ".html"
+* Don't link to unexisting translations.
+* Sort tags case insensitive.
+
+Enjoy!
