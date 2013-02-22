@@ -1,0 +1,15 @@
+.. title: New Nikola Tutorial
+.. slug: new-nikola-tutorial
+.. date: 2013/02/21 17:41:38
+.. tags: 
+.. link: 
+.. description: 
+
+Tim van der Linden has written a **impressive** tutorial about how he used Nikola to 
+create his new site `shisaa.jp <http://shisaa.jp/>`_
+
+It documents the whole process from scratch, starting by downloading Nikola up to
+building your own theme.
+
+Even if you are already using `Nikola <http://nikola.ralsina.com.ar>`_ you may find some
+new stuff there, so take a read (also, his theme is *so* pretty :-)

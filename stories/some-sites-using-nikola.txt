@@ -8,6 +8,9 @@
 These are some sites and blogs using Nikola, in no particular order. 
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
+* `shisaa.jp <http://shisaa.jp/>`_
+* `Fatiando a Terra <http://leouieda.github.com/fatiando.org/>`_ [they are testing it ;-]
+* `Ink & incapability <http://blog.duncancreek.net/>`_
 * `男单618 <http://www.ai7.org/blog/>`_
 * `Kw's Blog <kwpolska.tk>`_
 * `The journey that counts <http://blog.journeythatcounts.nl/>`_
