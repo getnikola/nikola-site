@@ -8,6 +8,8 @@
 These are some sites and blogs using Nikola, in no particular order. 
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
+* `优格猫 <http://yogurtcat.com/>`_
+* `Wordspeak <http://wordspeak.org/>`_
 * `shisaa.jp <http://shisaa.jp/>`_
 * `Fatiando a Terra <http://leouieda.github.com/fatiando.org/>`_ [they are testing it ;-]
 * `Ink & incapability <http://blog.duncancreek.net/>`_
