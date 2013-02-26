@@ -8,6 +8,8 @@
 These are some sites and blogs using Nikola, in no particular order. 
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
+* `I me mine <http://sergiusens.github.com/>`_
+* `CodeSpeak <http://codespeak.cc/>`_
 * `优格猫 <http://yogurtcat.com/>`_
 * `Wordspeak <http://wordspeak.org/>`_
 * `shisaa.jp <http://shisaa.jp/>`_
