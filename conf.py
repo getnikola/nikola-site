@@ -183,3 +183,5 @@ GLOBAL_CONTEXT = {
         }
     }
 
+
+GZIP_FILES = True
