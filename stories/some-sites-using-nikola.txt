@@ -8,6 +8,7 @@
 These are some sites and blogs using Nikola, in no particular order. 
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
+* `Kill -9 <http://www.cs.put.poznan.pl/ddwornikowski/blog/>`_
 * `Tinkering with stuff <http://tinkeringwithstuff.com/>`_
 * `fredy's blog <http://adamkalis.github.com/>`_
 * `Bworth Says <http://blog.bworth.com/bworthsays/>`_
