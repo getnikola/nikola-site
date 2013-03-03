@@ -21,3 +21,7 @@ Nikola has several pieces of documentation:
 
 `Tutorial en español de Diego Leonardo Puente <http://diegoduncan21.github.com/posts/asi-lo-hice.html>`_
     Instalación y deployment a GitHub
+
+`Tutorial by RCA (in Chinese) <http://rca.is-programmer.com/2013/2/5/using-nikola-write-static-blog.37513.html>`_
+    Covers installation and getting started 
+   
