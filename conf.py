@@ -97,7 +97,7 @@ THUMBNAIL_SIZE = 180
 
 # Data about this site
 BLOG_TITLE = "Nikola"
-BLOG_URL = "http://nikola.ralsina.com.ar"
+BLOG_URL = "http://nikola.ralsina.com.ar/"
 BLOG_EMAIL = "ralsina@netmanagers.com.ar"
 BLOG_DESCRIPTION = "A blog about Nikola, the static website generator."
 BLOG_AUTHOR = "Roberto Alsina"
