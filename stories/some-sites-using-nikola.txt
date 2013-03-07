@@ -8,6 +8,8 @@
 These are some sites and blogs using Nikola, in no particular order. 
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
+* `Perseo's Blog <http://www.perseosblog.com/>`_
+* `Pejibaye Blog <http://kaeruct.github.com/>`_
 * `Corleonis <http://swind.code-life.info/>`_
 * `Kill -9 <http://www.cs.put.poznan.pl/ddwornikowski/blog/>`_
 * `Tinkering with stuff <http://tinkeringwithstuff.com/>`_
