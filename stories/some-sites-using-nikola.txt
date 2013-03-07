@@ -34,7 +34,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 * `Marcos Alcazar's Blog <http://blog.marcosalcazar.com.ar/>`_
 * `@rtnpro <http://www.rtnpro.com/>`_
 * `Intellectual Web <http://sayanchowdhury.dgplug.org/>`_
-* `The Eyegrade BLog <http://www.it.uc3m.es/jaf/eyegrade/blog/>`_
+* `The Eyegrade Blog <http://www.it.uc3m.es/jaf/eyegrade/blog/>`_
 * `Tryton <http://www.tryton.org>`_
 * `Null Cortex <http://nullcortex.com/>`_
 * `Secret Weblog <http://blog.startifact.com/>`_
