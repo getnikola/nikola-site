@@ -8,6 +8,8 @@
 These are some sites and blogs using Nikola, in no particular order. 
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
+.. class:: bricks
+
 * `Perseo's Blog <http://www.perseosblog.com/>`_
 * `Pejibaye Blog <http://kaeruct.github.com/>`_
 * `Corleonis <http://swind.code-life.info/>`_
@@ -15,7 +17,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 * `Tinkering with stuff <http://tinkeringwithstuff.com/>`_
 * `fredy's blog <http://adamkalis.github.com/>`_
 * `Bworth Says <http://blog.bworth.com/bworthsays/>`_
-* `Planeta Ubuntu Hispano <http://planethispano.com/ubuntu/>`_
+* `Planeta Hispano <http://planethispano.com/>`_
 * `I me mine <http://sergiusens.github.com/>`_
 * `CodeSpeak <http://codespeak.cc/>`_
 * `优格猫 <http://yogurtcat.com/>`_
@@ -68,9 +70,6 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 * `madumlao <http://madumlao.is-a-geek.org/blog/>`_
 * `Planeta PyAr <http://planeta.python.org.ar>`_
 * `Thorsten's Blog <http://blog.aero2k.de/>`_
-
-And of course, my sites:
-
 * `Lateral Opinion <http://lateral.netmanagers.com.ar>`_
 * `Nikola <http://nikola.ralsina.com.ar>`_
 * `Rst2pdf <http://rst2pdf.ralsina.com.ar>`_
