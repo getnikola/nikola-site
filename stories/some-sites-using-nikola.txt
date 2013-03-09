@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `Tamedbeast <http://www.tamedbeast.de/>`_
 * `Perseo's Blog <http://www.perseosblog.com/>`_
 * `Pejibaye Blog <http://kaeruct.github.com/>`_
 * `Corleonis <http://swind.code-life.info/>`_
