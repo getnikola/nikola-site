@@ -28,3 +28,5 @@ Nikola has several pieces of documentation:
 `Tutorial by RCA (in Chinese) <http://rca.is-programmer.com/2013/2/5/using-nikola-write-static-blog.37513.html>`_
     Covers installation and getting started 
    
+`Wordpress migration tutorial by Niko Wenselowski (in German) <http://blog.nerdno.de/posts/20130314-wordpress_zu_nikola.html>`_
+    He wrote most of the Wordpress importer so he knows ;-)
