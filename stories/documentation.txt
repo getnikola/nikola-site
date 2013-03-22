@@ -13,7 +13,7 @@ Nikola has several pieces of documentation:
 `Theming Tutorial <creating-a-theme.html>`_ and `Theming reference <theming.html>`_
     Useful if you want to create or customize a theme.
 
-`Extending Nikola <extending.html>`_
+`Extending Nikola <extending.html>`_ and `Nikola Internals <internals.html>`_
     Aimed at those wanting to add new functionality.
 
 `Creating a Site that is not a blog <creating-a-site.html>`_
