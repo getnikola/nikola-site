@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `Untested things never work <http://www.markus-ullmann.de/>`_
 * `Atokgeekz <http://atokgeekz.comyr.com/>`_
 * `Blog Maya <http://diegoduncan21.github.com/>`_
 * `Startafire <http://blog.nerdno.de/>`_
