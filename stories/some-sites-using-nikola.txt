@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `serialized.net <http://serialized.net>`_
 * `Simeon Visser <http://simeonvisser.com/>`_
 * `Untested things never work <http://www.markus-ullmann.de/>`_
 * `Atokgeekz <http://atokgeekz.comyr.com/>`_
