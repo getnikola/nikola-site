@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `ventolin.org <http://blog.ventolin.org/>`_
 * `serialized.net <http://serialized.net>`_
 * `Simeon Visser <http://simeonvisser.com/>`_
 * `Untested things never work <http://www.markus-ullmann.de/>`_
