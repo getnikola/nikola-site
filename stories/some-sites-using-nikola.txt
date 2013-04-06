@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `Bl4ckB1rd <http://www.bl4ckb1rd.com.ar/>`_
 * `Infraconsulting <http://www.infraconsulting.it/>`_
 * `Owl Motion <http://www.owlmotion.com/>`_
 * `ventolin.org <http://blog.ventolin.org/>`_
