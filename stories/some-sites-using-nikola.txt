@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `digitalbrains.com <http://digitalbrains.com/>`_
 * `Cases <http://blog.fizyk.net.pl/>`_
 * `Bl4ckB1rd <http://www.bl4ckb1rd.com.ar/>`_
 * `Infraconsulting <http://www.infraconsulting.it/>`_
