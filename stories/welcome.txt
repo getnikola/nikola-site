@@ -11,10 +11,9 @@ In goes content, out comes a website, ready to deploy.
 Static websites are safer, use fewer resources, and avoid vendor and platform lock-in.
 You can read more about this in the `Nikola Handbook. </handbook.html#why-static>`__
 
-.. class:: btn
+.. raw:: html
 
-`Get Nikola (v5.4.3) <http://nikola-generator.googlecode.com/files/nikola-5.4.3.zip>`_
-
+   <a class="btn btn-danger btn-large" href="http://nikola-generator.googlecode.com/files/nikola-5.4.3.zip"><i class="icon-download-alt icon-white"></i> Get Nikola (v5.4.3)</a>
 
 .. class:: span5
 
