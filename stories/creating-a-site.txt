@@ -1,9 +1,11 @@
-.. title: Creating a Site (Not a Blog) with Nikola
-.. slug: creating-a-site
+.. slug: creating-a-site-not-a-blog-with-nikola
 .. date: 2013/03/01 12:49:41
-.. tags: 
+.. tags: nikola, python
 .. link:
 .. description:
+
+Creating a Site (Not a Blog) with Nikola
+========================================
 
 One of the most frequent questions I get about Nikola is "but how do 
 I create a site that's not a blog?". And of course, that's because the

@@ -1,7 +1,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 5.4.1
+:Version: 5.4.3
 :Author: Roberto Alsina <ralsina@netmanagers.com.ar>
 
 .. class:: alert alert-info pull-right
@@ -17,7 +17,7 @@ After you have Nikola installed:
 Create a empty site:
     ``nikola init mysite``
 
-You can create a site with demo files in it with ``nikola init mysite --demo``
+You can create a site with demo files in it with ``nikola init --demo mysite``
 
 The rest of these commands have to be executed inside the new ``mysite`` folder.
 
@@ -398,6 +398,24 @@ source for the content, and ``description`` is mostly useful for SEO.
 You can add your own metadata fields in the same manner, if you use a theme that
 supports them (for example: ``.. author: John Doe``)
 
+.. sidebar:: Other Metadata Fields
+
+   Nikola will also use other metadata fields:
+
+   nocomments
+       Set to "True" to disable comments. Example::
+
+           .. nocomments: True
+
+   template
+       Will change the template used to render this page/post specific page. Example::
+
+           .. template: story.tmpl
+
+   password
+       The post will be encrypted and invisible until the reader enters the password.
+       Also, the post's sourcecode will not be available.
+
 
 .. note:: The Two-File Format
 
@@ -470,10 +488,10 @@ one in the list if all of them have it set to False.
 
 The ``new_post`` command supports some options::
 
-    $ nikola help new_post 
+    $ nikola help new_post
     Purpose: Create a new blog post or site page.
     Usage:   nikola new_post [options] [path]
-    
+
     Options:
       -p, --page                Create a page instead of a blog post.
       -t ARG, --title=ARG       Title for the page/post.
@@ -572,7 +590,7 @@ You surely want to edit these options::
 
     # Data about this site
     BLOG_TITLE = "Demo Site"
-    BLOG_URL = "http://nikola.ralsina.com.ar"
+    SITE_URL = "http://nikola.ralsina.com.ar"
     BLOG_EMAIL = "joe@demo.site"
     BLOG_DESCRIPTION = "This is a demo site for Nikola."
 
@@ -718,6 +736,10 @@ Disqus is a good option because:
 3) It's free.
 4) It's damn nice.
 
+You can disable comments for a post by adding a "nocomments" metadata field to it::
+
+    .. nocomments: True
+
 .. admonition:: Important
 
    In some cases, when you run the test site, you won't see the comments.
@@ -801,7 +823,7 @@ different ones, or about other webservers, please share!
       AddType text/css .css
 
 #. Optionally you can greate static compressed copies and save some CPU on your server
-   with the GZIP_FILES option in Nikola. 
+   with the GZIP_FILES option in Nikola.
 
 #. The webassets Nikola plugin can drastically decrease the number of CSS and JS files your site fetches.
 
@@ -844,8 +866,8 @@ the embedded player will be set to the native height and width of the video.
 You can override this if you wish::
 
     .. vimeo:: 20241459
-        height=240
-        width=320
+       :height: 240
+       :width: 320
 
 Soundcloud
 ~~~~~~~~~~
@@ -860,22 +882,19 @@ The ID is 78131362 and you can embed the audio with this::
 
     .. soundcloud:: 78131362
 
-code-block
-~~~~~~~~~~
+Code
+~~~~
 
-This is a somewhat complicated directive to display code nicely. You can just
-embed code like this::
+The ``code`` directive has been included in docutils since version 0.9 and now
+replaces Nikola's ``code-block`` directive. To ease the transition, two aliases
+for ``code`` directive are provided: ``code-block`` and ``sourcecode``::
 
-    .. code-block:: python
+    .. code:: python
+       :number-lines:
 
-        print "Hello World!"
+       print("Our virtues and our failings are inseparable")
 
-Or you can include the code from a file::
-
-    .. code-block:: python
-       :include: /foo/bar/baz.py
-
-listing
+Listing
 ~~~~~~~
 
 To use this, you have to put your source code files inside ``listings`` or whatever your
@@ -886,27 +905,22 @@ To use this, you have to put your source code files inside ``listings`` or whate
 Will include the source code from ``foo.py``, highlight its syntax in python mode,
 and also create a ``listings/foo.py.html`` page and the listing will have a title linking to it.
 
-Advanced Code Options
-~~~~~~~~~~~~~~~~~~~~~
-
-Both code-block and listing support a number of options, including these:
+Listings support a few extra options so that you can display a fragment instead of the whole
+file in a document:
 
 start-at
-    A string, the diplayed code will start when it finds this
+    Takes a string, and starts displaying the code at the first line that matches it.
+start-before
+    Takes a string, and starts displaying the code right before the first line that matches it.
 end-at
-    A string, the diplayed code will end when it finds this
-start-after
-    A string, the diplayed code will start in the line after this
+    Takes a string, and stops displaying the code at the first line that matches it.
 end-before
-    A string, the diplayed code will end in the line before this
-linenos
-    Display line numbers
-linenos_offset
-    Use the original file's line numbers (warning: broken)
-tab-width
-    Size of the tabs (default 4)
+    Takes a string, and stops displaying the code right before the first line that matches it.
 
-gist
+If you set start-at and start-before, start-at wins. If you set end-at and end-before, end-at wins.
+If you make it so your listing ends before it starts, it's frowned upon and nothing will be shown.
+
+Gist
 ~~~~
 
 You can easily embed GitHub gists with this directive, like this::
@@ -925,8 +939,6 @@ Slideshows
 To create an image slideshow, you can use the ``slides`` directive. For example::
 
     .. slides::
-       :preload:
-       :play: 350
 
        /galleries/demo/tesla_conducts_lg.jpg
        /galleries/demo/tesla_lightning2_lg.jpg
@@ -934,13 +946,6 @@ To create an image slideshow, you can use the ``slides`` directive. For example:
        /galleries/demo/tesla_lightning1_lg.jpg
        /galleries/demo/tesla_tower1_lg.jpg
 
-This is based on `slidejs <http://slidesjs.com/>`_ and it supports
-`the options described there <http://slidesjs.com/#options>`_ with one minor tweak to make them
-fit in docutils convention: If the option takes a boolean value, you just have to add it or not. For example,
-to enable preloading, just use the ``:preload:`` option.
-
-If the option takes any other kind of argument, just use it after the option, like ``play`` in the
-above example.
 
 Importing Your Wordpress Site Into Nikola
 -----------------------------------------
@@ -1021,6 +1026,98 @@ and the authors Twitter user ID is found below.
         # 'creator': '@username',  # Username for the content creator / author.
         'creator:id': 654321,  # Same as creator, but the Twitter user's ID.
     }
+
+
+Extra Plugins
+-------------
+
+These are plugins that may not be widely used or that are a bit too radical or
+experimental for the general public.
+
+To enable them for your site please look for `ENABLED_EXTRAS` in your ``conf.py``.
+
+Planetoid
+~~~~~~~~~
+
+This plugin converts Nikola into the equivalent of `Planet <http://www.planetplanet.org/>`_
+a feed aggregator. It requires `PeeWee <https://github.com/coleifer/peewee>`_ and
+`Feedparser <http://code.google.com/p/feedparser/>`_ to work.
+
+It has a configuration option: PLANETOID_REFRESH which is the number of minutes
+before retrying a feed (defaults to 60).
+
+You need to create a ``feeds`` file containing the data of which feeds you want to
+aggregate. The format is very simple::
+
+   # Roberto Alsina
+   http://feeds2.feedburner.com/PostsInLateralOpinionAboutPython
+   Roberto Alsina
+
+#. Lines that start with ``#`` are comments and ignored.
+#. Lines that start with http are feed URLs.
+#. URL lines have to be followed by the "real name" of the feed.
+
+FIXME: explain the planetoid theme stuff
+
+After all that is in place, just run ``nikola build`` and you'll get
+a planet.
+
+Local Search
+~~~~~~~~~~~~
+
+If you don't want to depend on google or duckduckgo to implement search for you,
+or just want it to wok even if you are offline, enable this plugin and the
+search will be performed client side.
+
+This plugin implements a Tipue-based local search for your site.
+
+To use it, copy task_localsearch.plugin and task_localsearch
+into a plugins/ folder in your nikola site.
+
+After you build your site, you will have several new files in assets/css and assets/js
+and a tipue_search.html that you can use as a basis for using this in your site.
+
+For more information about how to customize it and use it, please refer to the tipue
+docs at http://www.tipue.com/search/
+
+Tipue is under an MIT license (see MIT-LICENSE.txt)
+
+Here's a set of example settings for conf.py that should work nicely with the "site" theme::
+
+    SEARCH_FORM = """
+    <span class="navbar-form pull-left">
+    <input type="text" id="tipue_search_input">
+    </span>"""
+
+    ANALYTICS = """
+    <script type="text/javascript" src="/assets/js/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="/assets/js/tipuesearch.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch({
+            'mode': 'json',
+            'contentLocation': '/assets/js/tipuesearch_content.json',
+            'showUrl': false
+        });
+    });
+    </script>
+    """
+
+    EXTRA_HEAD_DATA = """
+    <link rel="stylesheet" type="text/css" href="/assets/css/tipuesearch.css">
+    <div id="tipue_search_content" style="margin-left: auto; margin-right: auto; padding: 20px;"></div>
+    """
+
+The <div> in EXTRA_HEAD_DATA is a hack but it will migrate into the <body> of the
+documents thanks to magic, and will hold the search results after the user searches.
+
+Mustache
+~~~~~~~~
+
+This task gives you a ``mustache.html`` file which lets you access your whole
+blog without reloading the page, using client-side templates. Makes it much
+faster and modern ;-)
+
 
 License
 -------
