@@ -9,7 +9,8 @@ These are some sites and blogs using Nikola, in no particular order.
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
-
+            
+* `Блог Андрея Смирнова<http://www.smira.ru/>`_
 * `cowlicks <http://cwl.cx/>`_
 * `digitalbrains.com <http://digitalbrains.com/>`_
 * `Cases <http://blog.fizyk.net.pl/>`_
