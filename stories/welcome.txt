@@ -13,7 +13,7 @@ You can read more about this in the `Nikola Handbook. </handbook.html#why-static
 
 .. raw:: html
 
-   <a class="btn btn-danger btn-large" href="http://nikola-generator.googlecode.com/files/nikola-5.4.3.zip"><i class="icon-download-alt icon-white"></i> Get Nikola (v5.4.3)</a>
+   <a class="btn btn-danger btn-large" href="http://nikola-generator.googlecode.com/files/nikola-5.4.4.zip"><i class="icon-download-alt icon-white"></i> Get Nikola (v5.4.4)</a>
 
 .. class:: span5
 

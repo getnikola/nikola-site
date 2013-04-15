@@ -1,8 +1,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 5.4.3
-:Author: Roberto Alsina <ralsina@netmanagers.com.ar>
+:Version: 5.4.4
 
 .. class:: alert alert-info pull-right
 
@@ -197,10 +196,10 @@ Longer version:
 #. Get `Nikola <http://nikola.ralsina.com.ar/>`_
 #. Install dependencies. To do that, either:
 
-   #. ``pip install -r requirements.txt`` or...
+   #. ``pip install -r requirements.txt`` and ``pip install .`` or...
    #. Install your distribution's packages for all the things
       mentioned below, if they exist, or...
-   #. Get all of these manually (but why?, use requirements.txt):
+   #. Get all of these manually (but why?, use pip):
 
       #. Get python, if you don't have it.
       #. Get `doit <http://pydoit.org>`_
@@ -276,9 +275,9 @@ all the pages again, unless you changed something that the page requires. So, if
 the text of a post, or its title, that post page, and all index pages where it is mentioned,
 will be recreated. If you change the post page template, then all the post pages will be rebuilt.
 
-Nikola is mostly a series of doit *tasks*, and you can see them by doing ``nikola build list``::
+Nikola is mostly a series of doit *tasks*, and you can see them by doing ``nikola list``::
 
-    $ nikola build list
+    $ nikola list
     Scanning posts  . . done!
     build_bundles
     copy_assets
@@ -428,11 +427,11 @@ supports them (for example: ``.. author: John Doe``)
         2012/09/15 19:52:05
 
 If you are writing a multilingual site, you can also create a per-language
-post file (for example: ``how-to-make-money.txt.es``). This one can have two
-lines of metadata:
+post file (for example: ``how-to-make-money.txt.es``). This one can replace
+metadata of the default language, for example:
 
-1) The translated title for the post or page
-2) A translated version of the pagename
+* The translated title for the post or page
+* A translated version of the pagename
 
 You can edit these files with your favourite text editor, and once you are happy
 with the contents, generate the pages as explained in `Getting Started`_
@@ -538,6 +537,12 @@ If you add a "draft" tag to a post, then it will not be shown in indexes and fee
 It *will* be compiled, and if you deploy it it *will* be made available, so use
 with care.
 
+Retired Posts
+~~~~~~~~~~~~~
+
+If you add a "retired" tag to a post, then it will not be shown in indexes and feeds.
+It *will* be compiled, and if you deploy it it *will* be made available, so it will
+not generate 404s for people who had linked to it.
 
 Creating a Page
 ---------------
@@ -1057,10 +1062,15 @@ aggregate. The format is very simple::
 #. Lines that start with http are feed URLs.
 #. URL lines have to be followed by the "real name" of the feed.
 
-FIXME: explain the planetoid theme stuff
-
 After all that is in place, just run ``nikola build`` and you'll get
 a planet.
+If you run ``nikola build`` for the first time you need to actually issue
+the command three times until the planet is build.
+
+There is a special theme for the planets called `site-planetoid`. To use
+this set `THEME` in your ``conf.py`` to ``'site-planetoid'``.
+This is special in the case that it redirects users to the original URL of the post
+when they try to open a post.
 
 Local Search
 ~~~~~~~~~~~~
