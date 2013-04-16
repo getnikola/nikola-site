@@ -11,7 +11,7 @@ The Nikola Handbook
 All You Need to Know
 --------------------
 
-After you have Nikola installed:
+After you have Nikola `installed <#installing-nikola>`_:
 
 Create a empty site:
     ``nikola init mysite``
@@ -410,6 +410,9 @@ supports them (for example: ``.. author: John Doe``)
        Will change the template used to render this page/post specific page. Example::
 
            .. template: story.tmpl
+
+       That template needs to either be part of the theme, or be placed in a ``templates/``
+       folder inside your site.
 
    password
        The post will be encrypted and invisible until the reader enters the password.
