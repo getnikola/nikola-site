@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Stochastic Scholastics <http://stochastics.komodo.re/>`_
 * `Planet Python Deutschland <http://planet-python.de/>`_
 * `eduardocollado.com <http://eduardocollado.com>`_
 * `Блог Андрея Смирнова <http://www.smira.ru/>`_
