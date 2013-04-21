@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `PronexDengue <http://claudia-codeco.github.io/pronex/>`_
 * `Chaos Affinity Werx <http://chaosaffinitywerx.com/>`_
 * `chris' random ramblings <http://atlee.ca/blog/>`_
 * `Ultimate! <http://ultimatesport.in/>`_
