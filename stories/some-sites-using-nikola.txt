@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Dígame licenciado <http://www.kirkner.com.ar/>`_
 * `PronexDengue <http://claudia-codeco.github.io/pronex/>`_
 * `Chaos Affinity Werx <http://chaosaffinitywerx.com/>`_
 * `chris' random ramblings <http://atlee.ca/blog/>`_
