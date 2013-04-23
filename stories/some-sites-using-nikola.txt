@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `MEDIACORE <http://mediacorecommunity.org/blog/>`_
 * `vaa's personal page <http://vaa.sk/>`_
 * `Dígame licenciado <http://www.kirkner.com.ar/>`_
 * `PronexDengue <http://claudia-codeco.github.io/pronex/>`_
