@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `synesthesiam <http://synesthesiam.github.io/>`_
 * `Troy Story <http://blog.tomanator.com/>`_
 * `MEDIACORE <http://mediacorecommunity.org/blog/>`_
 * `vaa's personal page <http://vaa.sk/>`_
