@@ -10,6 +10,9 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Gavim M. Roy <http://gavinroy.com/>`_
+* `tommyvn's blog <http://tomvn.com/>`_
+* `/Home <http://slashome.zapto.org/>`_
 * `meldh <http://meldh.com>`_
 * `synesthesiam <http://synesthesiam.github.io/>`_
 * `Troy Story <http://blog.tomanator.com/>`_
