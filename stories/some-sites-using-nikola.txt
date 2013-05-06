@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `sahiga <http://stephaniehiga.com/>`_
 * `Perlitas Matemáticas <http://mate.dm.uba.ar/~pdenapo/blog/>`_
 * `Gavim M. Roy <http://gavinroy.com/>`_
 * `tommyvn's blog <http://tomvn.com/>`_
