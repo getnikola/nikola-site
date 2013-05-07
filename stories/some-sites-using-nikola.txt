@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `hbprotoss的博客 <http://hbprotoss.github.io/>`_
 * `sahiga <http://stephaniehiga.com/>`_
 * `Perlitas Matemáticas <http://mate.dm.uba.ar/~pdenapo/blog/>`_
 * `Gavim M. Roy <http://gavinroy.com/>`_
