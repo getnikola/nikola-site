@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Curious Efficiency <http://www.curiousefficiency.org/>`_ 
 * `cuerty's <http://blog.cuerty.com/>`_
 * `Ocupaciones Raras <http://ocupacionesraras.com.ar/>`_
 * `Jeremy's Pages <http://jerenept.github.io/>`_
