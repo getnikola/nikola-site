@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Dhrub Baldawa's Web Log <http://www.dhruvb.com/blog/>`_
 * `M-x and other things... <http://ivoarch.github.io/>`_
 * `Curious Efficiency <http://www.curiousefficiency.org/>`_ 
 * `cuerty's <http://blog.cuerty.com/>`_
