@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `JC Martin <http://www.jcmartin.org/>`_
 * `Amr Elroumy's Blog <http://amrelroumy.github.io/>`_
 * `Dhruv Baldawa's Web Log <http://www.dhruvb.com/blog/>`_
 * `M-x and other things... <http://ivoarch.github.io/>`_
