@@ -10,6 +10,8 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `This Week in Fedora <http://ambre.pingoured.fr/thisweekinfedora/>`_
+* `What a n00b! <http://www.whatan00b.com/>`_
 * `JC Martin <http://www.jcmartin.org/>`_
 * `Amr Elroumy's Blog <http://amrelroumy.github.io/>`_
 * `Dhruv Baldawa's Web Log <http://www.dhruvb.com/blog/>`_
