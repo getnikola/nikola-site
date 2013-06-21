@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `X421 <http://x421.de/>`_
 * `This Week in Fedora <http://ambre.pingoured.fr/thisweekinfedora/>`_
 * `What a n00b! <http://www.whatan00b.com/>`_
 * `JC Martin <http://www.jcmartin.org/>`_
