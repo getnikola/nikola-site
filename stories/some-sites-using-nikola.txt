@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Planet Pi <http://planetpi.org/>`_
 * `Zato Blog <https://zato.io/blog/>`_
 * `Astynax's Blog <http://astynax.github.io/>`_
 * `X421 <http://x421.de/>`_
