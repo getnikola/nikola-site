@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `VocalBit <http://vocalbit.com/>`_
 * `Planet Pi <http://planetpi.org/>`_
 * `Zato Blog <https://zato.io/blog/>`_
 * `Astynax's Blog <http://astynax.github.io/>`_
