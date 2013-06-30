@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Unprivileged User <http://teythoon.cryptobitch.de/>`_
 * `VocalBit <http://vocalbit.com/>`_
 * `Planet Pi <http://planetpi.org/>`_
 * `Zato Blog <https://zato.io/blog/>`_
