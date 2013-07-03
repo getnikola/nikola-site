@@ -81,7 +81,7 @@ REDIRECTIONS = []
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
 DEPLOY_COMMANDS = [
-    r'rsync -rav --delete output/* ralsina@direct.ralsina.com.ar:/srv/www/nikola',
+    r'rsync -rav --delete output/* ralsina@oceanic.ralsina.com.ar:/srv/www/nikola',
 ]
 
 ##############################################################################
