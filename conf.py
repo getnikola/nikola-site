@@ -157,6 +157,17 @@ src="http://c.statcounter.com/7842875/0/3421486a/1/"
 alt="tumblr statistics"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
     """
+# Locale-dependent links for the sidebar
+SIDEBAR_LINKS = {
+    DEFAULT_LANG: (
+        ('/documentation.html', 'Documentation'),
+        ('/blog/index.html', 'Blog'),
+        ('http://groups.google.com/group/nikola-discuss', 'Forum'),
+        ('https://github.com/ralsina/nikola', 'Source Code'),
+        ('/changes.html', 'Changelog'),
+        ('https://github.com/ralsina/nikola/issues', 'Report a Bug'),
+        )
+    }
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
@@ -172,17 +183,6 @@ GLOBAL_CONTEXT = {
     'content_footer': CONTENT_FOOTER,
     'rss_path': RSS_PATH,
     'rss_link': RSS_LINK,
-    # Locale-dependent links for the sidebar
-    'sidebar_links': {
-        'en': (
-            ('/documentation.html', 'Documentation'),
-            ('/blog/index.html', 'Blog'),
-            ('http://groups.google.com/group/nikola-discuss', 'Forum'),
-            ('https://github.com/ralsina/nikola', 'Source Code'),
-            ('/changes.html', 'Changelog'),
-            ('https://github.com/ralsina/nikola/issues', 'Report a Bug'),
-            )
-        }
     }
 
 
