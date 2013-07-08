@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Pleasant Programmer <http://thatsmydoing.github.io/>`_
 * `Bert McDowell <http://bertmcdowell.com/>`_
 * `frangor.info <http://frangor.info/>`_
 * `Unprivileged User <http://teythoon.cryptobitch.de/>`_
