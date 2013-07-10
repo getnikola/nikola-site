@@ -161,6 +161,7 @@ alt="tumblr statistics"></a></div></noscript>
 SIDEBAR_LINKS = {
     DEFAULT_LANG: (
         ('/documentation.html', 'Documentation'),
+        ('http://themes.nikola.ralsina.com.ar', 'Themes'),
         ('/blog/index.html', 'Blog'),
         ('http://groups.google.com/group/nikola-discuss', 'Forum'),
         ('https://github.com/ralsina/nikola', 'Source Code'),
