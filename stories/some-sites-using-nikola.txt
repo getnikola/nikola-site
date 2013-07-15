@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Bruno Carlin <http://bcarlin.net/index.html>`_
 * `Dillahunty Family Web <http://www.dillahunty.com/>`_
 * `Tales of a Python coded [...] <http://people.ksp.sk/~johnny64/blog/>`_
 * `Pleasant Programmer <http://thatsmydoing.github.io/>`_
