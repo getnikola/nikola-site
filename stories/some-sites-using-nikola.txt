@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `小小驿站 <http://iefan.github.io/>`_
 * `Dgplug Summer Training 2013 <http://dgplug.org/summertraining/2013/>`_
 * `Crowdfunded Free Software <http://cffsw.modernthings.org/>`_
 * `Stefan Antoni I/O <http://blog.antoni.io/>`_
