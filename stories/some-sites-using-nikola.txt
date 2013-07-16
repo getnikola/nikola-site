@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Crowdfunded Free Software <http://cffsw.modernthings.org/>`_
 * `Stefan Antoni I/O <http://blog.antoni.io/>`_
 * `chensy's blog <http://chensy0203.github.io/>`_
 * `Bruno Carlin <http://bcarlin.net/index.html>`_
