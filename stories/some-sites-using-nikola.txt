@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Consciousness Riven <http://halosghost.github.io/>`_
 * `@mattoc <http://mattoc.com/>`_
 * `Big Data and Public Health 2013 <http://emap.fgv.br/BDPH2013/>`_
 * `小小驿站 <http://iefan.github.io/>`_
