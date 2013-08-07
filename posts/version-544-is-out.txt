@@ -1,0 +1,39 @@
+.. link: 
+.. description: 
+.. tags: 
+.. date: 2013/04/15 11:04:43
+.. title: Version 5.4.4 is out!
+.. slug: version-544-is-out
+
+Yes, version 5.4.4 is just published at `the usual place <http://nikola.ralsina.com.ar>`_, including the following improvements:
+
+Features
+--------
+
+* New Japanese translation.
+* Nikola check exists with 1 if there is an error
+* New HIDE_UNTRANSLATED_POSTS option that ensures you don't have mixed-language pages (Issue #373)
+* New theme "site-planetoid" for use with the planetoid plugin.
+* New 'retired' tag for posts that should no longer be in feeds.
+
+Bugfixes
+--------
+
+* Added post data as a uptodate check for mustache (Issue #456)
+* Rebuild post pages when the post's translation list changes (Issue #458)
+* Handle "-h" (Issue #460)
+* Added correct help for console command (Issue #460)
+* Escape twittercard data (Issue #452)
+* Added missing "twittercard" in story template
+* Added support for per-language tags (Issue #450)
+* Fix wrong path splitting (Issue #434)
+* Remember locale even when set_locale failes (Issue #446)
+* Decode path argument in new_post (Issue #442)
+* task_indexes had missing config dependencies (Issue #441)
+* Removed bogus links to slides assets that were removed
+* Compressed files were seen as unknown by "nikola check"
+* local search and mustache plugins must be disabled by default (Issue #437)
+* Avoid failure if there are no tags and USE_GZIP is enabled (Issue #439)
+* Fix aspect ratio detection in Vimeo videos (Issue #440)
+* Blogger importer was passing wrong options to "nikola init" (Issue #408)
+

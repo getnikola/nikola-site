@@ -1,0 +1,72 @@
+.. link: 
+.. description: 
+.. tags: 
+.. date: 2013/07/10 19:41:58
+.. title: Version 5.5 released
+.. slug: version-55-released
+
+After a longer-than-desired wait, version 5.5 of Nikola is out!
+
+You can get it `here <http://nikola.ralsina.com.ar>`_ and here is a not exhaustive list of changes:
+
+Features
+--------
+
+* New HIDE_SOURCELINK option (defaults to False)
+* Switched theme repo to http://themes.nikola.ralsina.com.ar (Issue #411)
+* New (untested) ASCIIDoc compiler
+* Display very annoying warning when deploying the nikolademo Disqus account
+* New Bulgarian translation
+* New man page (created with help2man nikola -N --version-string=5.5) (Issue #460)
+* Added "nikola version" command (Issue #504)
+* Added more search form examples in conf.py.in (Issue #515)
+* Template dependency support for Jinja (by koniiiik, Issue #511)
+* New --clean-files option for nikola check
+* Support --version on "run" command (Issue #504)
+* New Turkish translation.
+* New MARKDOWN_EXTENSIONS option, defaults to previopus behaviour (Issue #496)
+* Posts with dates in the future will be treated as drafts (Implemented by punchagan)
+* New "TaskMultiplier" plugin category, takes a task, returns 0 or more new tasks (Issue #483)
+* New 'LINK_CHECK_WHITELIST' option for link checker (Issue #477)
+* New Croatian translation.
+* Jinja-default and jinja-site themes now automatically generated from the Mako versions.
+* New Persian translation
+* RSS feed now includes post tags (Issue #462)
+* Experimental generic RSS/Atom importer (Issue #347)
+* PHP support (Issue #313)
+* New PRETTY_URLS option (generates slug/index.html instead of slug.html) (Issue #429)
+* Added "templates/" folder to template path.
+* Keyword metadata support in post pages (Issue #451)
+
+Bugfixes
+--------
+
+* Improve custom.css detection (Issue #526)
+* Fixed bad interaction between 2-file-format and untranslated posts in multilingual sites (Issue #525)
+* Workaround in site theme for navbar hiding targets
+* Flip index pages order (Issue #521)
+* Make txt2tags work again (Issue #520)
+* Updated to latest colorbox
+* Skip metadata when compiling one-file posts (Issue #508)
+* Use schema-relative URL for addthis to avoid insecure page warnings on HTTPS sites (Issue #510)
+* Made the gzip plugin generate less confusing task names (no more double colon)
+* Made "nikola check -f" respect OUTPUT_DIR
+* Customizable teasers were broken (Issue #502)
+* Be less invasive when processing rendered HTML (Issue #500)
+* Run all tasks that should run (Issue #494, #493)
+* Handle timezones in posterous imports (Issue #475)
+* Actually ensure LateTasks are run later than Tasks
+* Don't add drafts and retired posts to the sitemap (Issue #476)
+* Avoid __future__ in setup.py because it breaks buildout (Issue #478)
+* Use correct source links with PRETTY_URL=True (Issue #474)
+* Handle non-ascii path in bundles (Issue #473)
+* Handle non-ascii path in plugin loader (Issue #471)
+* Handle non-ascii arguments in main (Issue #470)
+* Make sitemap depend on file dates (reported by Kay Hayen)
+* Better support for non-ascii urlencoded paths in the wp importer (Issue #468)
+* Avoid crashing if user does a deploy with no commands
+* Strip HTML and BODY tags in Post.text() (Issue #464)
+* -f option broken in HTML compiler (Issue #463)
+* Don't map empty folders, map folders with index.html, and don't map index.html (Issue #430)
+* Wordpress import: write correct redirections for URLs not ending in an / (Issue #459)
+
