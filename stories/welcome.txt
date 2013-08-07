@@ -13,7 +13,7 @@ You can read more about this in the `Nikola Handbook. </handbook.html#why-static
 
 .. raw:: html
 
-   <a class="btn btn-danger btn-large" href="https://github.com/ralsina/nikola/releases/5.5"><i class="icon-download-alt icon-white"></i> Get Nikola (v5.5)</a>
+   <a class="btn btn-danger btn-large" href="https://github.com/ralsina/nikola/releases/5.5.1"><i class="icon-download-alt icon-white"></i> Get Nikola (v5.5.1)</a>
 
 .. class:: span5
 

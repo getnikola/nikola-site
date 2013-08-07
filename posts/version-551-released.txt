@@ -1,0 +1,42 @@
+.. link: 
+.. description: Nikola version 5.5.1 is out
+.. tags: python, nikola
+.. date: 2013/08/07 20:11:46
+.. title: Version 5.5.1 released
+.. slug: version-551-released
+
+I am happy to share the latest release of `Nikola <http://nikola.ralsina.com.ar>`_ a static site and blog generator.
+
+This version includes several bugfixes and new features, including but not limited to:
+
+Features
+--------
+
+* New FEED_LENGTH option, defaults to 10 (Issue #549)
+* Added no-cache headers to ``nikola serve`` (Issue #545)
+* New mincss command, removes unused and redundant CSS (Issue #364)
+* New chart directive based on pygal
+* Update of IPython plugin to work with the upcoming IPython 1.0
+
+Bugfixes
+--------
+
+* Remove cache/ when running ``nikola clean`` (Issue #558)
+* Mark bundles as "cleanable" (Issue #558)
+* Made ``nikola help`` much more resilient against broken conf.py (Issue #550)
+* Show docinfo part of docutils output (Issue #556)
+* Exit with error code when there is an error (Issue #543)
+* Revamped ``requirements.txt`` — now ``requirements.txt`` contains the
+  required dependencies and ``requirements-full.txt`` contains the
+  optional ones (Issue #547)
+* Fixed bug in example usage of install_theme.
+* Better help text for bootswatch command.
+* Fixed installation under pip 1.4 or later (pytz and yapsy versions must be
+  hardcoded due to crazy versioning schemes)
+* Added .rst to the default reStructuredText extensions (via Issue #542)
+* Moved the sample site to the new one-file format (Issue #542)
+* Escape HTML in titles (Issue #537)
+* Fixed issues with index pages indices (Issue #532)
+* Fixed IPython plugin to work with the latest IPython.nbconvert machinery
+* Fixed failing build because of hidden folders and files inside post folder
+
