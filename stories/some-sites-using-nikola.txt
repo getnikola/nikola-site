@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `bluehat.us <http://bluehat.us>`_
 * `U. Maine Hydrogeology <http://hydro16.geology.um.maine.edu/>`_
 * `a mingled cup <http://dave.dkjones.org/>`_
 * `howlanderson's blog <http://howlanderson.bitbucket.org/>`_
