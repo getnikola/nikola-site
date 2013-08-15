@@ -51,12 +51,12 @@ It has many features, but here are some of the nicer ones:
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">What People Say About Nikola Lately</h3>
     </div>
-        <div style="text-align: center;">
-        <a class="modal-body twitter-timeline" href="https://twitter.com/search?q=nikola.ralsina.com.ar" data-widget-id="367821843849158656">Tweets about "nikola.ralsina.com.ar"</a>
+        <div style="text-align: center; height: 450px;">
+        <a class="modal-body twitter-timeline" height=450 href="https://twitter.com/search?q=nikola.ralsina.com.ar" data-widget-id="367821843849158656">Tweets about "nikola.ralsina.com.ar"</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
     <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>
     </div>
 
