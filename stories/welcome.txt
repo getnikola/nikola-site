@@ -9,7 +9,7 @@ In goes content, out comes a website, ready to deploy.
 **Why Static Websites?**
 
 Static websites are safer, use fewer resources, and avoid vendor and platform lock-in.
-You can read more about this in the `Nikola Handbook. </handbook.html#why-static>`__
+You can read more about this in the `Nikola Handbook. </handbook.html#why-static>`__ or see |buzz|
 
 .. raw:: html
 
@@ -39,6 +39,27 @@ It has many features, but here are some of the nicer ones:
 
 .. |status| image:: https://travis-ci.org/ralsina/nikola.png?branch=master
             :target: https://travis-ci.org/ralsina/nikola
+
+.. |buzz| raw:: html
+
+    <!-- Button to trigger modal -->
+    <a href="#myModal" data-toggle="modal">what people are saying about Nikola right now.</a>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">What People Say About Nikola Lately</h3>
+    </div>
+        <div style="text-align: center;">
+        <a class="modal-body twitter-timeline" href="https://twitter.com/search?q=nikola.ralsina.com.ar" data-widget-id="367821843849158656">Tweets about "nikola.ralsina.com.ar"</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+    </div>
+
 
 .. raw:: html
 
