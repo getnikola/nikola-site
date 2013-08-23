@@ -10,6 +10,8 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `麦客园 <http://mc.basebb.com/>`_
+* `David Beath <http://www.davidbeath.com/>`_
 * `Content Musings <http://contentmusings.ddevnet.net/>`_ 
 * `bluehat.us <http://bluehat.us>`_
 * `U. Maine Hydrogeology <http://hydro16.geology.um.maine.edu/>`_
