@@ -1,0 +1,8 @@
+.. link: 
+.. description: 
+.. tags: 
+.. date: 2013/08/27 20:00:02
+.. title: New in Nikola v6 part I: Typography
+.. slug: new-in-nikola-v6-part-i-typography
+
+`A first peek at what's coming in version 6. <http://ralsina.com.ar/weblog/posts/new-in-nikola-v6-typography.html>`_
