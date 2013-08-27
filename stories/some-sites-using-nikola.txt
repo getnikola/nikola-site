@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
             
+* `Nicola Gramola <http://gramola.net>`_
 * `麦客园 <http://mc.basebb.com/>`_
 * `David Beath <http://www.davidbeath.com/>`_
 * `Content Musings <http://contentmusings.ddevnet.net/>`_ 
