@@ -1,0 +1,8 @@
+.. link: 
+.. description: You can do crazy stuff with JS, man!
+.. tags: 
+.. date: 2013/08/28 20:40:55
+.. title: New in Nikola v6 part II: We love Javascript
+.. slug: new-in-nikola-v6-part-ii-we-love-javascript
+
+`Second peek at what's coming <http://ralsina.com.ar/weblog/posts/new-in-nikola-v6-part-ii-we-love-javascript.html>`_
