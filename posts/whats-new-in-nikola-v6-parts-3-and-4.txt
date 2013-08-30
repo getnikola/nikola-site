@@ -1,0 +1,8 @@
+.. link: 
+.. description: 
+.. tags: 
+.. date: 2013/08/30 19:24:36
+.. title: What's new in Nikola v6: Parts 3 and 4
+.. slug: whats-new-in-nikola-v6-parts-3-and-4
+
+Here is `part 3 with comment system alternatives <http://ralsina.com.ar/weblog/posts/new-in-nikola-v6-iii-comment-alternatives.html>`_ and here is `part 4 with the new auto mode <http://ralsina.com.ar/weblog/posts/new-in-nikola-v6-part-iv-awesome-auto-mode.html>`_
