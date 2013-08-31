@@ -1,0 +1,8 @@
+.. link: 
+.. description: 
+.. tags: 
+.. date: 2013/08/31 15:03:50
+.. title: New in Nikola v6 part V: LESS is more
+.. slug: new-in-nikola-v6-part-v-less-is-more
+
+nother sneak peek at new features: `LESS is more <http://ralsina.com.ar/weblog/posts/new-in-nikola-v6-part-v-less-is-more.html>`_
