@@ -1,3 +1,11 @@
+.. link:
+.. description: Beta of version 6.0.0 out...
+.. tags:
+.. date: 2013/08/31 22:12:55
+.. title: Nikola
+.. slug: index
+.. template: notitle.tmpl
+
 .. class:: hero-unit span6
 
 Nikola is a Static Site and Blog Generator
