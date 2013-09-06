@@ -1,0 +1,10 @@
+.. link: 
+.. description: Beta of version 6.0.0 out...
+.. tags: 
+.. date: 2013/08/31 22:12:55
+.. title: Version 6.0.0+beta1 available
+.. slug: version-600beta1-available
+
+Get this pre release at `github <https://github.com/ralsina/nikola/releases/tag/6.0.0-beta1>`_ 
+
+Feedback welcome!

@@ -153,5 +153,5 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 * `Planeta PyAr <http://planeta.python.org.ar>`_
 * `Thorsten's Blog <http://blog.aero2k.de/>`_
 * `Lateral Opinion <http://lateral.netmanagers.com.ar>`_
-* `Nikola <http://nikola.ralsina.com.ar>`_
+* `Nikola <http://getnikola.com>`_
 * `Rst2pdf <http://rst2pdf.ralsina.com.ar>`_

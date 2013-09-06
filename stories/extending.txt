@@ -61,7 +61,7 @@ First, the ``command_serve.plugin`` file:
     [Documentation]
     Author = Roberto Alsina
     Version = 0.1
-    Website = http://nikola.ralsina.com.ar
+    Website = http://getnikola.com
     Description = Start test server.
 
 For your own plugin, just change the values in a sensible way. The
@@ -153,7 +153,7 @@ First, you have to create a .plugin file. Here's the one for the Mako plugin:
     [Documentation]
     Author = Roberto Alsina
     Version = 0.1
-    Website = http://nikola.ralsina.com.ar
+    Website = http://getnikola.com
     Description = Support for Mako templates.
 
 You will have to replace "mako" with your template system's name, and other data
@@ -249,7 +249,7 @@ in the logical ways:
     [Documentation]
     Author = Roberto Alsina
     Version = 0.1
-    Website = http://nikola.ralsina.com.ar
+    Website = http://getnikola.com
     Description = Copy theme assets into output.
 
 And the ``task_copy_assets.py`` file, in its entirety:
