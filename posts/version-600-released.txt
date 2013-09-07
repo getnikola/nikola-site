@@ -1,0 +1,75 @@
+.. link: 
+.. description: I am thrilled to announce the immediate release of Nikola version 6.0.0
+.. tags: 
+.. date: 2013/09/07 18:21:22
+.. title: Version 6.0.0 Released!
+.. slug: version-600-released
+
+I am thrilled to announce the immediate release of Nikola version 6.0.0.
+
+This is a major feature release. If you have an existing site, you will get a number of warnings about deprecated options. Don't worry, things most likely will still work, and you can take your time fixing them.
+
+Some of the new features are described in a series of blog posts: `1 <http://ralsina.me/weblog/posts/new-in-nikola-v6-typography.html>`_ `2 <http://ralsina.me/weblog/posts/new-in-nikola-v6-part-ii-we-love-javascript.html>`_ `3 <http://ralsina.me/weblog/posts/new-in-nikola-v6-iii-comment-alternatives.html>`_ `4 <http://ralsina.me/weblog/posts/new-in-nikola-v6-part-iv-awesome-auto-mode.html>`_ `5 <http://ralsina.me/weblog/posts/new-in-nikola-v6-part-v-less-is-more.html>`_
+
+Here is the (probably incomplete) changelog:
+
+Features
+--------
+
+* Deprecated post_compilers for COMPILERS (Issue #601)
+* Replaced post_pages option with POSTS and PAGES (Issue #601)
+* Support for bootswatch in boostrap 2 and 3 (Issue #599)
+* New ADDITIONAL_METADATA option to set extra metadata on all posts.
+* All reStructuredText extensions are now plugins (Issue #621)
+* New multiple comment system support (Issue #606, #634)
+
+  * Deprecated DISQUS_FORUM option for COMMENT_SYSTEM_ID
+  * New COMMENT_SYSTEM option to change comment systems, defaults to disqus
+
+* New bootstrap3 theme (by areski)
+* Added docs/upgrading-to-v6.txt for upgrade tips.
+* Theme cleanup (Issue #599)
+* Support for nested navigation links (Issue #104)
+* New media directive for reStructuredText (Issue #608)
+* New DEPLOY_DRAFTS and DEPLOY_FUTURE options (Issue #583)
+* New Dutch translation
+* Optional hyphenation (HYPHENATE option, Issue #576)
+* Made AddThis support replaceable through new SOCIAL_BUTTONS_CODE option.
+* categories
+* Added a FUTURE_IS_NOW option for publishing future-dated posts now (Issues #486, #577)
+* New typogrify filter (Issue #576)
+* New COPY_SOURCES option, defaults to True (Issue #544)
+* Customizable Read More (Issues #412, #533, #574)
+* Support for LESS/RECESS CSS compilers
+* Updated to Colorbox 1.4.27
+* New pandoc compiler.
+* Separate slides.tmpl template so that non-bootstrap themes can support them.
+* New ADDITIONAL_METADATA option to specify metadata to include in the new_post
+  command, alongside with the defaults (Issue #622)
+* Schedule new posts automatically by specifying an iCal recursive rule as
+  SCHEDULE_RULE (Issue #602)
+
+Bugfixes
+--------
+
+* Added missing rel="self" link suggested by feedvalidator.org (Issue #264)
+* Switched to semantic versioning (Issue #614)
+* Better figure styling (Issue #626)
+* Switched docutils math rendering to MathJax (Issue #620)
+* Refactored crumb bar into a separate tmpl to avoid code duplication (Issue #612)
+* Fix broken config dep for tags when NAVIGATION_LINKS is not set (Issue #610)
+* Fixed bundles in base theme
+* Deprecated ANALYTICS, replaced with BODY_END (Issue #601)
+* Deprecated SIDEBAR_LINKS, replaced with NAVIGATION_LINKS (Issue #104 #601)
+* Solve site theme's navbar overlapping Issues (Issue #585)
+* Deprecated ADD_THIS_BUTTONS option.
+* Show warning if unable to thumbnail an image (Issue #551)
+* Use absolute URLs in feeds (Issue #590)
+* Fix for mincss path munging (Issues #570 #589)
+* Added missing dependency in gallery indexes (Issue #536)
+* Anchors in listings had wrong filename slugs
+* Only warn about incomplete translations once (Issue #580)
+* Right-align image title in colorbox to avoid overlapping so much (Mentioned in Issue #570)
+* Added LICENSE in the footer (Issue #528)
+* Use random IDs for slides so you can have more than one in a page (Issue #572)
+

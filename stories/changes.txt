@@ -1,3 +1,164 @@
+New in 6.0.0
+============
+
+Features
+--------
+
+* Deprecated post_compilers for COMPILERS (Issue #601)
+* Replaced post_pages option with POSTS and PAGES (Issue #601)
+* Support for bootswatch in boostrap 2 and 3 (Issue #599)
+* New ADDITIONAL_METADATA option to set extra metadata on all posts.
+* All reStructuredText extensions are now plugins (Issue #621)
+* New multiple comment system support (Issue #606, #634)
+
+  * Deprecated DISQUS_FORUM option for COMMENT_SYSTEM_ID
+  * New COMMENT_SYSTEM option to change comment systems, defaults to disqus
+
+* New bootstrap3 theme (by areski)
+* Added docs/upgrading-to-v6.txt for upgrade tips.
+* Theme cleanup (Issue #599)
+* Support for nested navigation links (Issue #104)
+* New media directive for reStructuredText (Issue #608)
+* New DEPLOY_DRAFTS and DEPLOY_FUTURE options (Issue #583)
+* New Dutch translation
+* Optional hyphenation (HYPHENATE option, Issue #576)
+* Made AddThis support replaceable through new SOCIAL_BUTTONS_CODE option.
+* categories
+* Added a FUTURE_IS_NOW option for publishing future-dated posts now (Issues #486, #577)
+* New typogrify filter (Issue #576)
+* New COPY_SOURCES option, defaults to True (Issue #544)
+* Customizable Read More (Issues #412, #533, #574)
+* Support for LESS/RECESS CSS compilers
+* Updated to Colorbox 1.4.27
+* New pandoc compiler.
+* Separate slides.tmpl template so that non-bootstrap themes can support them.
+* New ADDITIONAL_METADATA option to specify metadata to include in the new_post
+  command, alongside with the defaults (Issue #622)
+* Schedule new posts automatically by specifying an iCal recursive rule as
+  SCHEDULE_RULE (Issue #602)
+
+Bugfixes
+--------
+
+* Added missing rel="self" link suggested by feedvalidator.org (Issue #264)
+* Switched to semantic versioning (Issue #614)
+* Better figure styling (Issue #626)
+* Switched docutils math rendering to MathJax (Issue #620)
+* Refactored crumb bar into a separate tmpl to avoid code duplication (Issue #612)
+* Fix broken config dep for tags when NAVIGATION_LINKS is not set (Issue #610)
+* Fixed bundles in base theme
+* Deprecated ANALYTICS, replaced with BODY_END (Issue #601)
+* Deprecated SIDEBAR_LINKS, replaced with NAVIGATION_LINKS (Issue #104 #601)
+* Solve site theme's navbar overlapping Issues (Issue #585)
+* Deprecated ADD_THIS_BUTTONS option.
+* Show warning if unable to thumbnail an image (Issue #551)
+* Use absolute URLs in feeds (Issue #590)
+* Fix for mincss path munging (Issues #570 #589)
+* Added missing dependency in gallery indexes (Issue #536)
+* Anchors in listings had wrong filename slugs
+* Only warn about incomplete translations once (Issue #580)
+* Right-align image title in colorbox to avoid overlapping so much (Mentioned in Issue #570)
+* Added LICENSE in the footer (Issue #528)
+* Use random IDs for slides so you can have more than one in a page (Issue #572)
+
+New in 5.5.1
+============
+
+Features
+--------
+
+* New FEED_LENGTH option, defaults to 10 (Issue #549)
+* Added no-cache headers to ``nikola serve`` (Issue #545)
+* New mincss command, removes unused and redundant CSS (Issue #364)
+* New chart directive based on pygal
+* Update of IPython plugin to work with the upcoming IPython 1.0
+
+Bugfixes
+--------
+
+* Remove cache/ when running ``nikola clean`` (Issue #558)
+* Mark bundles as "cleanable" (Issue #558)
+* Made ``nikola help`` much more resilient against broken conf.py (Issue #550)
+* Show docinfo part of docutils output (Issue #556)
+* Exit with error code when there is an error (Issue #543)
+* Revamped ``requirements.txt`` — now ``requirements.txt`` contains the
+  required dependencies and ``requirements-full.txt`` contains the
+  optional ones (Issue #547)
+* Fixed bug in example usage of install_theme.
+* Better help text for bootswatch command.
+* Fixed installation under pip 1.4 or later (pytz and yapsy versions must be
+  hardcoded due to crazy versioning schemes)
+* Added .rst to the default reStructuredText extensions (via Issue #542)
+* Moved the sample site to the new one-file format (Issue #542)
+* Escape HTML in titles (Issue #537)
+* Fixed issues with index pages indices (Issue #532)
+* Fixed IPython plugin to work with the latest IPython.nbconvert machinery
+* Fixed failing build because of hidden folders and files inside post folder
+
+New in 5.5
+==========
+
+Features
+--------
+
+* New HIDE_SOURCELINK option (defaults to False)
+* Switched theme repo to http://themes.nikola.ralsina.com.ar (Issue #411)
+* New (untested) ASCIIDoc compiler
+* Display very annoying warning when deploying the nikolademo Disqus account
+* New Bulgarian translation
+* New man page (created with help2man nikola -N --version-string=5.5) (Issue #460)
+* Added "nikola version" command (Issue #504)
+* Added more search form examples in conf.py.in (Issue #515)
+* Template dependency support for Jinja (by koniiiik, Issue #511)
+* New --clean-files option for nikola check
+* Support --version on "run" command (Issue #504)
+* New Turkish translation.
+* New MARKDOWN_EXTENSIONS option, defaults to previopus behaviour (Issue #496)
+* Posts with dates in the future will be treated as drafts (Implemented by punchagan)
+* New "TaskMultiplier" plugin category, takes a task, returns 0 or more new tasks (Issue #483)
+* New 'LINK_CHECK_WHITELIST' option for link checker (Issue #477)
+* New Croatian translation.
+* Jinja-default and jinja-site themes now automatically generated from the Mako versions.
+* New Persian translation
+* RSS feed now includes post tags (Issue #462)
+* Experimental generic RSS/Atom importer (Issue #347)
+* PHP support (Issue #313)
+* New PRETTY_URLS option (generates slug/index.html instead of slug.html) (Issue #429)
+* Added "templates/" folder to template path.
+* Keyword metadata support in post pages (Issue #451)
+
+Bugfixes
+--------
+
+* Improve custom.css detection (Issue #526)
+* Fixed bad interaction between 2-file-format and untranslated posts in multilingual sites (Issue #525)
+* Workaround in site theme for navbar hiding targets
+* Flip index pages order (Issue #521)
+* Make txt2tags work again (Issue #520)
+* Updated to latest colorbox
+* Skip metadata when compiling one-file posts (Issue #508)
+* Use schema-relative URL for addthis to avoid insecure page warnings on HTTPS sites (Issue #510)
+* Made the gzip plugin generate less confusing task names (no more double colon)
+* Made "nikola check -f" respect OUTPUT_DIR
+* Customizable teasers were broken (Issue #502)
+* Be less invasive when processing rendered HTML (Issue #500)
+* Run all tasks that should run (Issue #494, #493)
+* Handle timezones in posterous imports (Issue #475)
+* Actually ensure LateTasks are run later than Tasks
+* Don't add drafts and retired posts to the sitemap (Issue #476)
+* Avoid __future__ in setup.py because it breaks buildout (Issue #478)
+* Use correct source links with PRETTY_URL=True (Issue #474)
+* Handle non-ascii path in bundles (Issue #473)
+* Handle non-ascii path in plugin loader (Issue #471)
+* Handle non-ascii arguments in main (Issue #470)
+* Make sitemap depend on file dates (reported by Kay Hayen)
+* Better support for non-ascii urlencoded paths in the wp importer (Issue #468)
+* Avoid crashing if user does a deploy with no commands
+* Strip HTML and BODY tags in Post.text() (Issue #464)
+* -f option broken in HTML compiler (Issue #463)
+* Don't map empty folders, map folders with index.html, and don't map index.html (Issue #430)
+* Wordpress import: write correct redirections for URLs not ending in an / (Issue #459)
+
 New in 5.4.4
 ============
 

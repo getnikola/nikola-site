@@ -104,7 +104,7 @@ BLOG_EMAIL = "ralsina@netmanagers.com.ar"
 BLOG_DESCRIPTION = "A blog about Nikola, the static website generator."
 BLOG_AUTHOR = "Roberto Alsina"
 
-THEME = 'custom'
+THEME = 'bootstrap'
 
 # A HTML fragment describing the license, for the sidebar.
 # I recomment using Creative Commons' wizard: http://creativecommons.org/choose/
@@ -161,7 +161,7 @@ alt="tumblr statistics"></a></div></noscript>
 SIDEBAR_LINKS = {
     DEFAULT_LANG: (
         ('/documentation.html', 'Documentation'),
-        ('http://themes.nikola.ralsina.com.ar', 'Themes'),
+        ('http://themes.getnikola.com', 'Themes'),
         ('/blog/index.html', 'Blog'),
         ('http://groups.google.com/group/nikola-discuss', 'Forum'),
         ('https://github.com/ralsina/nikola', 'Source Code'),

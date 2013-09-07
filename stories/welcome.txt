@@ -21,7 +21,7 @@ You can read more about this in the `Nikola Handbook. </handbook.html#why-static
 
 .. raw:: html
 
-   <a class="btn btn-danger btn-large" href="https://github.com/ralsina/nikola/releases/5.5.1"><i class="icon-download-alt icon-white"></i> Get Nikola (v5.5.1)</a>
+   <a class="btn btn-danger btn-large" href="https://github.com/ralsina/nikola/releases/6.0.0"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.0.0)</a>
 
 .. class:: span5
 
@@ -33,7 +33,7 @@ It has many features, but here are some of the nicer ones:
 .. class:: nav-list
 
 * `Blogs, with tags, feeds, archives, comments, etc. <some-sites-using-nikola.html>`_
-* `Themable <http://themes.nikola.ralsina.com.ar>`_
+* `Themable <http://themes.getnikola.com>`_
 * Fast builds, thanks to `doit <http://python-doit.sf.net>`_
 * Flexible, extensible via plugins
 * Small codebase (programmers can understand all of Nikola core in a day)
