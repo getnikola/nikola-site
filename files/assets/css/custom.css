@@ -1,5 +1,8 @@
 h1 {text-align: center; margin-bottom: 15px;}
 
+ul.bricks {
+    text-align: justify;
+}
 ul.bricks > li {
     display: inline;
     background-color: lightblue;
