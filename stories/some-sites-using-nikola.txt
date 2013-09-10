@@ -9,7 +9,14 @@ These are some sites and blogs using Nikola, in no particular order.
 If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
-            
+
+* `lkhj <https://f.lkjh.nl/>`_
+* `Lan, Yi-Tin's Notes <http://lanyitin.tw/>`_
+* `AG Technik Niedersachsen <http://datenbunker.biz/>`_
+* `Software <http://mattdietz.net/>`_
+* `thewolfeway <http://thewolfeway.net/>`_
+* `Javier Cordero <http://corderomartinez.es/>`_
+* `LaNAIS de RMS <http://www.lanais.famaf.unc.edu.ar/>`_
 * `bits and bytes <http://rmrn.net/>`_
 * `Domink Schacht <http://www.dominik-schacht.com/>`_
 * `David Beath <http://aulasparticulares.com>`_
