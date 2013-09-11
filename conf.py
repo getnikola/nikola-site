@@ -100,7 +100,7 @@ THUMBNAIL_SIZE = 180
 # Data about this site
 BLOG_TITLE = "Nikola"
 BLOG_URL = "http://getnikola.com/"
-BLOG_EMAIL = "ralsina@netmanagers.com.ar"
+BLOG_EMAIL = "info@getnikola.com"
 BLOG_DESCRIPTION = "A blog about Nikola, the static website generator."
 BLOG_AUTHOR = "Roberto Alsina"
 
@@ -114,7 +114,7 @@ LICENSE = """
     src="http://i.creativecommons.org/l/by-nc-sa/2.5/ar/88x31.png"></a>"""
 
 # A small copyright notice for the page footer
-CONTENT_FOOTER = '''Contents © 2012-2013 <a href="mailto:ralsina@kde.org">Roberto Alsina</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://getnikola.com">Powered by Nikola</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+CONTENT_FOOTER = '''Contents © 2012-2013 <a href="mailto:info@getnikola.com">Roberto Alsina</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://getnikola.com">Powered by Nikola</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fplatform.twitter.com%2Fwidgets%2Ffollow_button.1333526973.html&region=follow_link&screen_name=nikolagenerator&source=followbutton&variant=2.0">Follow Nikola on twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme is <a href="http://bootswatch.com/cerulean/">Cerulean</a>
 '''
 
@@ -164,9 +164,9 @@ SIDEBAR_LINKS = {
         ('http://themes.getnikola.com', 'Themes'),
         ('/blog/index.html', 'Blog'),
         ('http://groups.google.com/group/nikola-discuss', 'Forum'),
-        ('https://github.com/ralsina/nikola', 'Source Code'),
+        ('https://github.com/getnikola/nikola', 'Source Code'),
         ('/changes.html', 'Changelog'),
-        ('https://github.com/ralsina/nikola/issues', 'Report a Bug'),
+        ('https://github.com/getnikola/nikola/issues', 'Report a Bug'),
         )
     }
 
