@@ -5,6 +5,6 @@
 .. title: Version 6.0.0+beta1 available
 .. slug: version-600beta1-available
 
-Get this pre release at `github <https://github.com/ralsina/nikola/releases/tag/6.0.0-beta1>`_ 
+Get this pre release at `github <https://github.com/getnikola/nikola/releases/tag/6.0.0-beta1>`_ 
 
 Feedback welcome!
