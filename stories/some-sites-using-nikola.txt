@@ -10,6 +10,8 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `Hanskalabs <http://www.hanskalabs.net/>`_
+* `Deploshark <http://www.pampati.com.ar/>`_
 * `Gotham Blog <http://gothamblog.nemocorp.info/>`_
 * `lkhj <https://f.lkjh.nl/>`_
 * `Lan, Yi-Tin's Notes <http://lanyitin.tw/>`_
