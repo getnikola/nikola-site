@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `Synalp site <http://talc1.loria.fr/synalp/>`_
 * `LOGE <http://loge.github.io/>`_
 * `Hanskalabs <http://www.hanskalabs.net/>`_
 * `Deploshark <http://www.pampati.com.ar/>`_
