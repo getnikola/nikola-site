@@ -115,7 +115,7 @@ LICENSE = """
 
 # A small copyright notice for the page footer
 CONTENT_FOOTER = '''Contents © 2012-2013 <a href="mailto:info@getnikola.com">Roberto Alsina</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://getnikola.com">Powered by Nikola</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fplatform.twitter.com%2Fwidgets%2Ffollow_button.1333526973.html&region=follow_link&screen_name=nikolagenerator&source=followbutton&variant=2.0">Follow Nikola on twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme is <a href="http://bootswatch.com/cerulean/">Cerulean</a>
+<a href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fplatform.twitter.com%2Fwidgets%2Ffollow_button.1333526973.html&region=follow_link&screen_name=getnikola&source=followbutton&variant=2.0">Follow Nikola on twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme is <a href="http://bootswatch.com/cerulean/">Cerulean</a>
 '''
 
 # To enable comments via Disqus, you need to create a forum at http://disqus.com,
