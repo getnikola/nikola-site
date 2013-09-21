@@ -11,3 +11,14 @@ ul.bricks > li {
     line-height: 3;
     white-space:nowrap;
 }
+
+.postbox { max-width: 60em; margin-left: auto; margin-right: auto; }
+
+blockquote p, blockquote {
+    text-align: justify;
+    font-size: 16px;
+}
+
+.previous a,.next a{border-radius:4px}
+
+p {text-align:justify; font-size: 16px }
