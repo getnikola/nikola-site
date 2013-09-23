@@ -19,7 +19,7 @@ Nikola has several pieces of documentation:
 `Extending Nikola <extending.html>`_ and `Nikola Internals <internals.html>`_
     Aimed at those wanting to add new functionality.
 
-`Creating a Site that is not a blog <creating-a-site.html>`_
+`Creating a Site that is not a blog <creating-a-site-not-a-blog.html>`_
     Not everything is a blog!
 
 `Using Social Buttons <social_buttons.html>`_
