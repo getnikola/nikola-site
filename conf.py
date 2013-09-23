@@ -73,7 +73,7 @@ INPUT_FORMAT = "rest"
 #
 # If you don't need any of these, just set to []
 
-REDIRECTIONS = [('creating-a-site.html', 'creating-a-site-not-a-blog.html')] 
+REDIRECTIONS = [('creating-a-site.html', 'creating-a-site-not-a-blog-with-nikola.html')] 
 
 # Commands to execute to deploy. Can be anything, for example,
 # you may use rsync:
