@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `Write it before I forget it <http://wibfi.virtua-peanuts.net/>`_
 * `This is Not a Blog <http://peterhansen.ca>`_
 * `Synalp site <http://talc1.loria.fr/synalp/>`_
 * `LOGE <http://loge.github.io/>`_
