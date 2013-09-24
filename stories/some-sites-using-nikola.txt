@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `Data Daydreams <http://datadaydreams.com/>`_
 * `Opbeat blog <http://blog.opbeat.com/>`_
 * `Write it before I forget it <http://wibfi.virtua-peanuts.net/>`_
 * `This is Not a Blog <http://peterhansen.ca>`_
