@@ -10,6 +10,7 @@ If you want yours added, `mail me <mailto:ralsina@netmanagers.com.ar>`_!
 
 .. class:: bricks
 
+* `Nerd Theater <http://nerd-theater.com/>`_
 * `Lucas Daddiego <http://lucas.daddiego.com.ar/>`_
 * `Data Daydreams <http://datadaydreams.com/>`_
 * `Opbeat blog <http://blog.opbeat.com/>`_
