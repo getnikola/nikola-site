@@ -32,7 +32,7 @@ It has many features, but here are some of the nicer ones:
 
 .. class:: nav-list
 
-* `Blogs, with tags, feeds, archives, comments, etc. <some-sites-using-nikola.html>`_
+* `Blogs, with tags, feeds, archives, comments, etc. <http://users.getnikola.com/>`_
 * `Themable <http://themes.getnikola.com>`_
 * Fast builds, thanks to `doit <http://python-doit.sf.net>`_
 * Flexible, extensible via plugins
