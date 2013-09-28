@@ -74,7 +74,7 @@ INPUT_FORMAT = "rest"
 # If you don't need any of these, just set to []
 
 REDIRECTIONS = [('creating-a-site.html', 'creating-a-site-not-a-blog-with-nikola.html'),
-                ('some-sites-using-nikola.html', 'http://users.getnikola.com/')] 
+                ('some-sites-using-nikola.html', 'http://users.getnikola.com/')]
 
 # Commands to execute to deploy. Can be anything, for example,
 # you may use rsync:
@@ -145,9 +145,9 @@ SEARCH_FORM = """ """
 ANALYTICS = """
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
-var sc_project=7842875; 
-var sc_invisible=1; 
-var sc_security="3421486a"; 
+var sc_project=7842875;
+var sc_invisible=1;
+var sc_security="3421486a";
 </script>
 <script type="text/javascript"
 src="http://www.statcounter.com/counter/counter.js"></script>
