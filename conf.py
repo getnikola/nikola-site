@@ -163,6 +163,8 @@ SIDEBAR_LINKS = {
     DEFAULT_LANG: (
         ('/documentation.html', 'Documentation'),
         ('http://themes.getnikola.com', 'Themes'),
+        ('http://plugins.getnikola.com', 'Plugins'),
+        ('http://users.getnikola.com', 'Users'),
         ('/blog/index.html', 'Blog'),
         ('http://groups.google.com/group/nikola-discuss', 'Forum'),
         ('https://github.com/getnikola/nikola', 'Source Code'),
