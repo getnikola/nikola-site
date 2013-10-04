@@ -8,7 +8,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 6.0.4
+:Version: 6.1.0
 
 .. class:: alert alert-info pull-right
 
@@ -78,7 +78,7 @@ Nikola can't do:
 * Twitter
 * Facebook
 * An Issue tracker
-* Anything with forms, really (except for comments_!)
+* Anything with forms, really (except for `comments <#comments-and-annotations>`_!)
 
 Keep in mind that "static" doesn't mean **boring**. You can have animations, slides
 or whatever fancy CSS/HTML5 thingie you like. It only means all that HTML is
@@ -196,7 +196,14 @@ This is currently lacking on detail. Considering the niche Nikola is aimed at,
 I suspect that's not a problem yet. So, when I say "get", the specific details
 of how to "get" something for your specific operating system are left to you.
 
-The short version is: ``pip install https://github.com/getnikola/nikola/archive/master.zip``
+The short version is: ``pip install nikola``
+
+For some features it may give you an error message telling you that you need to
+install something else. For example, if it tells you you need ``requests``::
+
+   pip install requests
+
+And so on.
 
 Longer version:
 
@@ -447,6 +454,13 @@ to your configuration ::
    category
        Like tags, except each post can have only one, and they usually have
        more descriptive names.
+
+   annotations / noannotations
+       Override the value of the ``ANNOTATIONS`` option for this specific post or page.
+
+   author
+       Author of the post, will be used in the RSS feed and possibly in the post
+       display (theme-dependent)
 
 .. note:: The Two-File Format
 
@@ -855,8 +869,8 @@ Other interesting ideas are using
 for that matter), using `lftp mirror <http://lftp.yar.ru/>`_ or unison, or dropbox, or
 Ubuntu One. Any way you can think of to copy files from one place to another is good enough.
 
-Comments
---------
+Comments and Annotations
+------------------------
 
 While Nikola creates static sites, there is a minimum level of user interaction you
 are probably expecting: comments.
@@ -915,7 +929,7 @@ You can disable comments for a post by adding a "nocomments" metadata field to i
    Moot doesn't support comment counts on index pages, and it requires adding
    this to your ``conf.py``:
 
-   .. code:: python
+   .. code-block:: python
 
         BODY_END = """
         <script src="//cdn.moot.it/1/moot.min.js"></script>
@@ -930,6 +944,18 @@ You can disable comments for a post by adding a "nocomments" metadata field to i
 
     You need jQuery, but not because Facebook wants it (see Issue
     #639).
+
+An alternative or complement to comments are annotations. Nikola integrates
+the annotation service provided by `AnnotateIt. <annotateit.org>`_
+To use it, set the ``ANNOTATIONS`` option to True. This is specially useful
+if you want feedback on specific parts of your writing.
+
+You can enable or disable annotations for specific posts or pages using the
+``annotations`` and ``noannotations`` metadata.
+
+Annotations require JQuery and are therefore not supported in the base theme.
+You can check bootstrap theme's ``base.html`` for details on how to handle them in
+custom themes.
 
 Image Galleries
 ---------------
@@ -998,7 +1024,7 @@ The currently available filters are:
    If your program doesn't run in-place, then you can use Nikola's runinplace function.
    For example, this is how the yui_compressor filter is implemented:
 
-   .. code:: python
+   .. code-block:: python
 
       def yui_compressor(infile):
           return runinplace(r'yui-compressor --nomunge %1 -o %2', infile)
@@ -1007,7 +1033,7 @@ The currently available filters are:
    As a silly example, this would make everything uppercase and totally break
    your website:
 
-   .. code:: python
+   .. code-block:: python
 
       import string
       from nikola.filters import apply_to_file
@@ -1063,7 +1089,7 @@ different ones, or about other webservers, please share!
 Restructured Text Extensions
 ----------------------------
 
-Nikola includes support for a few directives that are not part of docutils, but which
+Nikola includes support for a few directives and roles that are not part of docutils, but which
 we think are handy for website development.
 
 Media
@@ -1127,7 +1153,7 @@ The ``code`` directive has been included in docutils since version 0.9 and now
 replaces Nikola's ``code-block`` directive. To ease the transition, two aliases
 for ``code`` directive are provided: ``code-block`` and ``sourcecode``::
 
-    .. code:: python
+    .. code-block:: python
        :number-lines:
 
        print("Our virtues and our failings are inseparable")
@@ -1210,6 +1236,27 @@ You can use any option described in `the pygal docs <http://pygal.org/basic_cust
 
 Finally, the content of the directive is the actual data, in the form of a label and
 a list of values, one series per line.
+
+Doc
+~~~
+
+This role is useful to make links to other post or page inside the same site.
+
+Here's an example::
+
+    Take a look at :doc:`my other post <creating-a-theme>` about theme creating.
+
+In this case we are giving the portion of text we want to link. So, the result will be:
+
+    Take a look at :doc:`my other post <creating-a-theme>` about theme creating.
+
+If we want to use the post's title as the link's text, just do::
+
+    Take a look at :doc:`creating-a-theme` to know how to do it.
+
+and it will produce:
+
+    Take a look at :doc:`creating-a-theme` to know how to do it.
 
 
 Importing Your WordPress Site Into Nikola
@@ -1351,7 +1398,7 @@ docs at http://www.tipue.com/search/
 
 Tipue is under an MIT license (see MIT-LICENSE.txt)
 
-Here's a set of example settings for conf.py that should work nicely with the "site" theme::
+Here's a set of example settings for conf.py that should work nicely with the "bootstrap" theme::
 
     SEARCH_FORM = """
     <span class="navbar-form pull-left">
@@ -1389,6 +1436,13 @@ Mustache
 This task gives you a ``mustache.html`` file which lets you access your whole
 blog without reloading the page, using client-side templates. Makes it much
 faster and modern ;-)
+
+Custom Plugins
+--------------
+
+You can create your own plugins (see :doc:`extending`) and use them in your own
+site by putting them in a ``plugins/`` folder.
+
 
 License
 -------
