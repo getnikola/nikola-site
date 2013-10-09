@@ -21,7 +21,7 @@ You can read more about this in the `Nikola Handbook. </handbook.html#why-static
 
 .. raw:: html
 
-   <a class="btn btn-danger btn-large" href="https://github.com/getnikola/nikola/releases/tag/v6.0.4"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.0.4)</a>
+   <a class="btn btn-danger btn-large" href="https://github.com/getnikola/nikola/releases/tag/v6.1.1"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.1.1)</a>
 
 .. class:: col-md-5
 
