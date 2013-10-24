@@ -27,9 +27,12 @@ from __future__ import unicode_literals
 # rss feeds.
 #
 
-post_pages = (
-    ("posts/*.txt", "blog", "post.tmpl", True),
-    ("stories/*.txt", "", "story.tmpl", False),
+POSTS = (
+    ("posts/*.txt", "blog", "post.tmpl"),
+)
+
+PAGES = (
+    ("stories/*.txt", "", "story.tmpl"),
 )
 
 # What is the default language?
@@ -122,7 +125,8 @@ CONTENT_FOOTER = '''Contents © 2012-2013 <a href="mailto:info@getnikola.com">Ro
 # To enable comments via Disqus, you need to create a forum at http://disqus.com,
 # and set DISQUS_FORUM to the short name you selected.
 # If you want to disable comments, set it to False.
-DISQUS_FORUM = "nikolaweb"
+COMMENT_SYSTEM = "disqus"
+COMMENT_SYSTEM_ID = "nikolaweb"
 
 # RSS_LINK is a HTML fragment to link the RSS or Atom feeds. If set to None,
 # the base.tmpl will use the feed Nikola generates. However, you may want to
@@ -142,7 +146,7 @@ SEARCH_FORM = """ """
 
 # Google analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
-ANALYTICS = """
+BODY_END = """
 <!-- Start of StatCounter Code for Default Guide -->
 <script type="text/javascript">
 var sc_project=7842875;
@@ -159,7 +163,7 @@ alt="tumblr statistics"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
     """
 # Locale-dependent links for the sidebar
-SIDEBAR_LINKS = {
+NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/documentation.html', 'Documentation'),
         ('https://github.com/getnikola/nikola', 'GitHub'),
@@ -175,19 +179,6 @@ SIDEBAR_LINKS = {
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
-GLOBAL_CONTEXT = {
-    'analytics': ANALYTICS,
-    'blog_title': BLOG_TITLE,
-    'blog_url': BLOG_URL,
-    'blog_author': BLOG_AUTHOR,
-    'translations': TRANSLATIONS,
-    'license': LICENSE,
-    'search_form': SEARCH_FORM,
-    'disqus_forum': DISQUS_FORUM,
-    'content_footer': CONTENT_FOOTER,
-    'rss_path': RSS_PATH,
-    'rss_link': RSS_LINK,
-    }
-
+GLOBAL_CONTEXT = {}
 
 GZIP_FILES = True
