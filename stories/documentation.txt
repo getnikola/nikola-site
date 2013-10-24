@@ -5,7 +5,10 @@
 .. link:
 .. description:
 
-Nikola has several pieces of documentation:
+Here is all the documentation for Nikola.  Note that the documents may
+not always be up-to-date.  If you want to read the documentation for
+the current GitHub master, check out `Nikola on ReadTheDocs
+<http://nikola.readthedocs.org/en/latest/>`_.
 
 `The Handbook <handbook.html>`_
     Aimed at those wanting to *use* Nikola to build a site.
