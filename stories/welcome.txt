@@ -21,7 +21,7 @@ You can read more about this in the `Nikola Handbook. </handbook.html#why-static
 
 .. raw:: html
 
-   <a class="btn btn-danger btn-large" href="https://github.com/getnikola/nikola/releases/tag/v6.1.1"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.1.1)</a>
+   <a class="btn btn-danger btn-large" href="https://github.com/getnikola/nikola/releases/tag/v6.2.0"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.2.0)</a>
 
 .. class:: col-md-5
 
@@ -42,7 +42,7 @@ It has many features, but here are some of the nicer ones:
   Misaka, Pandoc, txt2tags, and HTML)
 * Easy `image galleries </galleries/demo/>`_ (just drop files in a folder!)
 * Syntax highlighting for almost any programming language or markup
-* Multilingual sites, `translated to 17 languages <https://www.transifex.com/projects/p/nikola/>`_.
+* Multilingual sites, `translated to 18 languages <https://www.transifex.com/projects/p/nikola/>`_.
 * Doesn't reinvent wheels, leverages existing tools.
 * Python 2 and 3 compatible.
 * Is it a good idea to try github master today? |status|

@@ -1,0 +1,13 @@
+.. link: 
+.. description: 
+.. tags: 
+.. date: 2013/10/25 13:09:45
+.. title: Nikola version 6.2.0 released
+.. slug: nikola-version-620-released
+
+Continuing with the idea of a regular-ish release cadence, version 6.2.0 of Nikola is out.
+
+This release includes large code cleanups, some features and a bunch of bugfixes, and is 
+fully compatible with the previous version.
+
+Full changelog and downloads at `github <https://github.com/getnikola/nikola/releases/tag/v6.2.0>`_ and `PyPI <https://pypi.python.org/pypi/Nikola>`_

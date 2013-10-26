@@ -1,0 +1,44 @@
+.. link:
+.. description:
+.. tags:
+.. date: 2013/10/04 17:54:39
+.. title: Nikola v6.1.0 released!
+.. slug: nikola-v610-released
+
+Version 6.1.0 is out and available in the usual places!
+(`github <https://github.com/getnikola/nikola/releases/tag/v6.1.0>`__ ,
+`PyPI <https://pypi.python.org/pypi/Nikola/6.1.0>`__)
+
+One cool thing about this release: it's the first one to support `downloadable plugins! <http://plugins.getnikola.com>`__
+
+Here is a somewhat incomplete changelog:
+
+.. raw:: html
+
+    <h2>Features</h2>
+
+    <ul>
+    <li>Added slug support to the magic link:// URLs</li>
+    <li>New Esperanto translation.</li>
+    <li>New -q flag for quiet running (Issue <a href="https://github.com/getnikola/nikola/issues/762" class="issue-link" title="Nikola needs a -q (quiet) switch for testing and other automated tasks">#762</a>)</li>
+    <li>Added author field in RSS items (Issue <a href="https://github.com/getnikola/nikola/issues/767" class="issue-link" title="Generated rss.xml doesn't include author">#767</a>)</li>
+    <li>Annotations using annotateit.org (Issue <a href="https://github.com/getnikola/nikola/issues/623" class="issue-link" title="Figure out how http://annotateit.org/ would work">#623</a>)</li>
+    <li>New GALLERY_SORT_BY_DATE option, defaulting to True.
+    If set to False, sorts by name (Issue <a href="https://github.com/getnikola/nikola/issues/667" class="issue-link" title="Add option to sort images in a gallery by name instead of by date,">#667</a>)</li>
+    </ul><h2>Bugfixes</h2>
+
+    <ul>
+    <li>Fixed compatibility with Windows’ multiple partitions (Issues <a href="https://github.com/getnikola/nikola/issues/776" class="issue-link" title="if nikola package and nikola site are in different partitions some commands crash (windows)">#776</a>, <a href="https://github.com/getnikola/nikola/pull/784" class="issue-link" title="Remove relative paths">#784</a>)</li>
+    <li>Added language in the RSS feeds (Issue <a href="https://github.com/getnikola/nikola/issues/777" class="issue-link" title="Generated RSS feed does not include language.">#777</a>)</li>
+    <li>Don't fail for empty bundles.</li>
+    <li>Fix USE_BUNDLES compatibility with Python 3 (Issue <a href="https://github.com/getnikola/nikola/pull/760" class="issue-link" title="USE_BUNDLES, attribute 'file_dep' must be {list, tuple}">#760</a>)</li>
+    <li>Compatibility with doit 0.23.0 (Issues <a href="https://github.com/getnikola/nikola/issues/756" class="issue-link" title="If two tags differ only in case, they generate conflicts">#756</a> <a href="https://github.com/getnikola/nikola/issues/758" class="issue-link" title="Doit 0.23 is incompatible with some PAGES/STORY_INDEX combinations">#758</a>)</li>
+    <li>Install enough of the theme chain to ensure themes are usable (Issue <a href="https://github.com/getnikola/nikola/issues/748" class="issue-link" title="install_theme installs unusable themes">#748</a>)</li>
+    <li>Support Gist URLs in the gist directive for compatibility with sphinx-gist-embed (Issue <a href="https://github.com/getnikola/nikola/issues/754" class="issue-link" title="Make gist directives compatible with sphinx's">#754</a>)</li>
+    <li>windows, dev - fix point pth to clone and run nikola without install (Issue <a href="https://github.com/getnikola/nikola/pull/751" class="issue-link" title="fix demo and install problems with symlinks in windows">#751</a>)</li>
+    <li>windows - fix install from clone or from a Github download (Issue <a href="https://github.com/getnikola/nikola/issues/747" class="issue-link" title="The sample site cannot be built if installing with the method recommended in the manual">#747</a>, Windows)</li>
+    <li>Make Listings directive inherit Include making it simpler and more powerful (Issue <a href="https://github.com/getnikola/nikola/issues/744" class="issue-link" title="Using Listing">#744</a>)</li>
+    <li>Install builtin themes (Issue <a href="https://github.com/getnikola/nikola/issues/741" class="issue-link" title="When you try to install a builtin theme, it gives an error">#741</a>)</li>
+    <li>LOGGER was incorrectly imported in planetoid.py</li>
+    <li>Order Monthly Archive properly, descending order (Issue <a href="https://github.com/getnikola/nikola/issues/740" class="issue-link" title="Monthly Archives">#740</a>)</li>
+    </ul>

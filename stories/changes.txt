@@ -1,5 +1,58 @@
+New in 6.2.0
+============
+
+Features
+--------
+
+* RSS feeds for galleries (Issue #786)
+* New EXTRA_IMAGE_EXTENSIONS option, and support most common image extensions by default (Issue #857)
+* Add reStructuredText directive post_list (Issue #815)
+* Galleries support translations
+* Support a single archive per site (optional; instead of per-year or per-month archives) (Issue #853)
+* The locales used in testing can be specified in environment variables (Issue #818)
+* The locale to use with each language can be explicitly set (Issue #818)
+* Initial support for signals/hooks using Blinker (Issue #764)
+* Path/Link resolution mechanism for plugins (Issue #790)
+* Sass compiling (Issue #642)
+* Emit a signal when a new post is created (Issue #831)
+* New Finnish translation.
+
+Bugfixes
+--------
+
+* Don't create empty author elements, use dc:creator if author is not an email (Issue #868)
+* Added striphtml filter in mako templates, strip tags from titles (Issue #865)
+* Major refactoring of post creation (Issue #800)
+* Major refactoring of galleries (Ongoing, Issue #786)
+* Locale support in windows fixed (Issue #818)
+* Fix logging incompatibility in Yapsy (Issue #826)
+* Workaround for Mako cache folder unicode bug (Issue #825)
+* Ensure folder creation when importing wordpress (Issue #812)
+* Handle empty stories better and avoid Tipue crash (Issue #811)
+* Trigger conflict if two posts generate the same output (Issue #806)
+* Compilers now accept two of any line endings (\n, \r\n) instead of only Unix (\n) (Issue #832)
+* Include RSS feeds in sitemap (Issue #804)
+* Removed optional priority element from sitemap (Issue #838)
+* Avoid duplicate entries in the sitemap (Issue #836)
+* Include .xml in GZIP_EXTENSIONS (for RSS, sitemap) (Issue #844)
+* Post.base_path is now using forward slashes on Windows (Issue #856)
+* Custom CSS not detected in the files folder (Issue #862)
+* Exclude non-RSS XML files in sitemap (Issue #864)
+* Exclude "html" files without a doctype decleration in sitemap (Issue #864)
+* Do not include "Read more" links at the end of teasers when stripping HTML
+
+Other
+-----
+
+* the bpython console is now “slightly deprecated”
+
 New in 6.1.1
 ============
+
+Features
+--------
+
+* New Slovenian translation
 
 Bugfixes
 --------
@@ -481,7 +534,7 @@ Features
 * When using import_wordpress users can exclude drafts with the ``-d`` switch.
 * New STORY_INDEX option to generate index.html in story folders.
 * Sort tags case insensitive.
-* New polish translation.
+* New Polish translation.
 * Add multi size favicon support.
 * Use multilingual Disqus (although it doesn't seem to work)
 * Add Simplified Chinese translations.
