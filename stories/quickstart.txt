@@ -96,7 +96,7 @@ __ quickref.html#escaping
    middle of a word won't be recognized.  See the `markup spec`__ for
    full details.
 
-__ ../../ref/rst/restructuredtext.html#inline-markup
+__ http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#inline-markup
 
 
 Lists
@@ -381,8 +381,8 @@ you wish to supply additional information, you may::
 
 See the full `image directive documentation`__ for more info.
 
-__ ../../ref/rst/directives.html
-__ ../../ref/rst/directives.html#images
+__ http://docutils.sourceforge.net/docs/ref/rst/directives.html
+__ http://docutils.sourceforge.net/docs/ref/rst/directives.html#images
 
 
 What Next?
@@ -400,7 +400,6 @@ list.
 .. [#] If that relative link doesn't work, try the master document:
    http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html.
 
-.. _reStructuredText Markup Specification:
-   ../../ref/rst/restructuredtext.html
-.. _Docutils-users: ../mailing-lists.html#docutils-users
+.. _reStructuredText Markup Specification: http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
+.. _Docutils-users: http://docutils.sourceforge.net/docs/user/mailing-lists.html#docutils-users
 .. _Docutils project web site: http://docutils.sourceforge.net/
