@@ -1,6 +1,3 @@
-.. link:
-.. description: 
-.. tags:
 .. date: 2013/08/31 22:12:55
 .. title: Nikola
 .. slug: index
@@ -21,7 +18,7 @@ You can read more about this in the `Nikola Handbook. </handbook.html#why-static
 
 .. raw:: html
 
-   <a class="btn btn-danger btn-large" href="https://github.com/getnikola/nikola/releases/tag/v6.2.0"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.2.0)</a>
+   <a class="btn btn-danger btn-large" href="https://github.com/getnikola/nikola/releases/tag/v6.2.1"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.2.1)</a>
 
 .. class:: col-md-5
 
