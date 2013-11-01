@@ -1,0 +1,27 @@
+.. date: 2013/11/01 06:28:00
+.. title: Nikola version 6.2.1 released
+.. slug: nikola-version-621-released
+
+Version 6.2.1 of Nikola is out.  This is a partially-unplanned bugfix release
+to fix issues with locales and address some more bugs, also adding a few
+little features.
+
+Downloads at `GitHub <https://github.com/getnikola/nikola/releases/tag/v6.2.1>`_ and `PyPI <https://pypi.python.org/pypi/Nikola>`_
+
+Changelog
+=========
+
+Features
+--------
+
+* Default themes adds semantic meanings to posts using h-entry (a microformats2) and HTML 5 microdata (Issue #867)
+* New "hidetitle" metadata to suppress printing a title as heading (Issue #584)
+* Template systems can now render to and from a string. (Issue #881)
+* New event for newly deployed posts (Issue #882)
+
+
+Bugfixes
+--------
+
+* Fixed some locale problems in posix systems (Issues #886, #884, #875)
+* Don’t include BLOG_DESCRIPTION as meta tag on tag and gallery pages (Issue #876)
