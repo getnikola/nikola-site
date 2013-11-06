@@ -166,7 +166,7 @@ alt="tumblr statistics"></a></div></noscript>
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/documentation.html', 'Documentation'),
-        ('/contact.html', 'Get Help/Contact'),
+        ('/contact.html', 'Help/Bugs/Contact'),
         ('https://github.com/getnikola/nikola', 'GitHub'),
         ('http://themes.getnikola.com', 'Themes'),
         ('http://plugins.getnikola.com', 'Plugins'),
