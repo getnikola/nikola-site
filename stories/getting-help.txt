@@ -3,6 +3,12 @@
 .. date: 1970-01-01 15:00:00
 .. description: Get help using Nikola, or contact us.
 
+:Version: 6.2.1
+
+.. class:: alert alert-info pull-right
+
+.. contents::
+
 Help and Support
 ================
 
@@ -10,7 +16,9 @@ Help and Support
 2. There is an IRC channel, #nikola on Freenode.  You can find many
    developers and volunteers (users) there which are there to provide
    help, if they are around and read your message.
-3. If you are experiencing a bug, [1]_ you should report it on GitHub (see
+3. You can also contact `@GetNikola <http://twitter.com/GetNikola>`_ on
+   Twitter.
+4. If you are experiencing a bug, [1]_ you should report it on GitHub (see
    below).
 
 Plugins and Themes
