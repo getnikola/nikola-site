@@ -8,7 +8,7 @@
 Theming Nikola
 ==============
 
-:Version: 6.2.1
+:Version: 6.3.0
 :Author: Roberto Alsina <ralsina@netmanagers.com.ar>
 
 .. class:: alert alert-info pull-right
@@ -171,6 +171,10 @@ These are the templates that come with the included themes:
 ``tags.tmpl``
     Used to display the list of tags and categories. ``tag.tmpl`` is used to show the contents
     of a single tag or category.
+
+``tagindex.tmpl``
+    Used to display tag indexes, if ``TAG_PAGES_ARE_INDEXES`` is True.
+    By default, it just inherits ``index.tmpl``.
 
 You can add other templates for specific pages, which the user can then use in his ``POSTS``
 or ``PAGES`` option in ``conf.py``. Also, keep in mind that your theme is yours,
