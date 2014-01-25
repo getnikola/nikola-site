@@ -1,3 +1,64 @@
+New in 6.3.0
+============
+
+Features
+--------
+
+* Added translations:
+
+  - Basque by aitorp
+  - Czech by Ondřej Grover
+  - Estonian by Lauri Võsandi
+  - Norwegian Bokmål by Daniel Aleksandersen
+
+* TIMEZONE now defaults to UTC (via Issue #893)
+* Added a DEMOTE_HEADERS option (on by default; previously implemented by
+  the Markdown and reST compilers) to have consenting compilers produce
+  documents with headers lower by one than the one defined (Issue #891)
+* isso comments are now supported (Issue #905)
+* Gallery titles are used in more places (Issue #902)
+* Gallery titles also are used in breadcrumbs (Issue #902)
+* ``tagindex.tmpl`` is used for tag indexes instead of ``index.tmpl`` (Issues #930, #933)
+* Added SASS_COMPILER option (defaults to sass) to add support for alternate compilers like sassc (Issue #940)
+* Added LESS_COMPILER option (defaults to lessc) to add support for alternate compilers like recess (via Issue #940)
+* sass/less files and targets file will be processed from site root (Issue #941)
+* Added a list of posts for each tag in tag_cloud_data.json
+* Added EXTRA_PLUGINS_DIRS option, for specifying additional plugin directories (Issue #953)
+* Expose original doit "auto" command as "doit_auto" (Issue #955)
+* New "type" metadata to make differences for posts (Issue #927)
+* New Post.is_post attribute to differentiate posts and pages without bias
+  (Post.use_in_feeds is False if the post is retired/unpublished/a draft)
+* Add rel=canonical <link> elements (Issue #449)
+* Add rel=alternate <link> elements to translations of the current page (Issues #988, #989)
+* Added a INDEXES_PAGES_MAIN setting to show the page number on the index page
+  if desired (True) (Issues #210, #987)
+* Added a TRANSLATIONS_PATTERN setting to specify the format for
+  language-dependent filenames (Issue #990)
+
+Bugfixes
+--------
+
+* Support livereload 2.0 (Issue #968)
+* Don't crash when docutils exception have no line number (Issue #920)
+* Forced permalinks in active menu items (Issue #916)
+* Remind the user to set THEME to use a downloaded theme
+* Fix crash when using USE_FILENAME_AS_TITLE = False (Issue #892)
+* Fixed deploy events if there is no TIMEZONE set (Issue #893 via #822)
+* Modified translation strings: "Posted", "Also available in", "More posts
+  about" — may break backwards compatibility (Issue #905)
+  Details: https://groups.google.com/forum/#!topic/nikola-discuss/ABXKk9G0_u0
+* Facebook comments are now showing properly
+* Added a warning/error when lessc/sass are missing (via Issue themes#24)
+* Fixed sass/less under Windows (Issue #939, themes#24)
+* Fix URL rewriting of fragment-only links (Issue #945)
+* Fixed the deploy rsync example (rsync --delete doesn't work with '/\*' as
+  source) (Issue #959)
+* Added a notice for the user if webassets is not installed and
+  USE_BUNDLES is True (Issue #965)
+* Support livereload 2.0 (Issue #968)
+* Remove some unnecessary elements (Issues #969, #970)
+* abs_link should return absolute URI
+
 New in 6.2.1
 ============
 

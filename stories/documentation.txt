@@ -5,6 +5,8 @@
 .. link:
 .. description:
 
+.. class:: lead
+
 Here is all the documentation for Nikola.  Note that the documents may
 not always be up-to-date.  If you want to read the documentation for
 the current GitHub master, check out `Nikola on ReadTheDocs
