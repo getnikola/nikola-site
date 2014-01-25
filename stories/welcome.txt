@@ -8,13 +8,15 @@
 Nikola is a Static Site and Blog Generator
 ------------------------------------------
 
+.. class:: lead
+
 In goes content, out comes a website, ready to deploy.
 
 
 **Why Static Websites?**
 
 Static websites are safer, use fewer resources, and avoid vendor and platform lock-in.
-You can read more about this in the `Nikola Handbook. </handbook.html#why-static>`__ or see |buzz|
+You can read more about this in the `Nikola Handbook </handbook.html#why-static>`__ or see |buzz|
 
 .. raw:: html
 
@@ -24,6 +26,8 @@ You can read more about this in the `Nikola Handbook. </handbook.html#why-static
 
 What Can Nikola Do?
 -------------------
+
+.. class:: lead
 
 It has many features, but here are some of the nicer ones:
 
