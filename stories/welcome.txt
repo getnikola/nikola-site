@@ -64,7 +64,7 @@ It has many features, but here are some of the nicer ones:
         <h3 id="myModalLabel">What People Say About Nikola Lately</h3>
     </div>
         <div style="text-align: center; height: 450px;">
-        <a class="modal-body twitter-timeline" height=450 href="https://twitter.com/search?q=getnikola.com" data-widget-id="367821843849158656">Tweets about "getnikola.com"</a>
+        <a class="modal-body twitter-timeline" href="https://twitter.com/search?q=getnikola.com" data-widget-id="428975760171233280">Tweets about "getnikola.com"</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
     <div class="modal-footer">
