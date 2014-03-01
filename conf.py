@@ -29,10 +29,12 @@ from __future__ import unicode_literals
 
 POSTS = (
     ("posts/*.txt", "blog", "post.tmpl"),
+    ("posts/*.rst", "blog", "post.tmpl"),
 )
 
 PAGES = (
     ("stories/*.txt", "", "story.tmpl"),
+    ("stories/*.rst", "", "story.tmpl"),
 )
 
 # What is the default language?

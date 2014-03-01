@@ -2,8 +2,7 @@
 .. slug: nikola-v6-4-0-released
 .. date: 2014-03-01 12:00:00
 
-On behalf of the Nikola team, I’m pleased to announce the release of
-Nikola v6.4.0.
+We’re pleased to announce the release of Nikola v6.4.0.
 
 What is Nikola?
 ===============
