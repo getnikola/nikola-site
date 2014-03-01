@@ -1,0 +1,114 @@
+.. title: Nikola v6.4.0 released!
+.. slug: nikola-v6-4-0-released
+.. date: 2014-03-01 12:00:00
+
+On behalf of the Nikola team, I’m pleased to announce the release of
+Nikola v6.4.0.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.  It can
+use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+IPython Notebooks into blog posts! It also supports image galleries,
+and is multilingual.  Nikola is flexible, and page builds are extremely fast,
+courtesy of doit (rebuilding only what has been changed).
+
+Find out more at the website: http://getnikola.com/
+
+Key Changes since v6.3.0
+========================
+
+* The ``code.css`` (and ``all*.css``) files have been revamped to support
+  dark themes and Markdown properly.  Please remove those files from
+  your output directory and run ``nikola build`` to get the fixes.
+* ``nikola auto`` supports livereload v2.1.0.
+* Added ``nikola new_page``, equivalent to ``nikola new_post -p``.
+* Deploys to sub-directories (eg. ``http://example.com/blog/``) are
+  now fully supported and bug-free.
+
+Get it!
+=======
+
+Nikola is available for download at `GitHub`_ and `PyPI`_.
+
+.. _GitHub: https://github.com/getnikola/nikola/releases/tag/v6.4.0
+.. _PyPI: https://pypi.python.org/pypi/Nikola
+
+Debian Packages
+===============
+
+In the v6.3.0 announcement, it was promised that an ``install_bs3``
+command would be added to the Debian packages.  The v6.3.0 packages
+were released yesterday and they contain the promised patch.  Please
+use it to install the theme if you need it.
+
+Committers
+==========
+
+
+::
+
+    $ git log v6.3.0..v6.4.0 --pretty='format:%an'|sort|uniq -c|sort \
+    > --reverse
+        144 Chris “Kwpolska” Warrick
+         83 Roberto Alsina
+         19 Ramiro Morales
+         12 Thibauld Nion
+         11 Daniel Aleksandersen
+          9 Eric Meaney
+          8 Ondrej Grover
+          4 Evgeni Golov
+          3 Tim Chase
+          2 Casey M. Bessette
+          1 Puneeth Chaganti
+          1 Ivan Teoh
+          1 Dav Clark
+
+Changelog
+=========
+
+Features
+--------
+
+* Add ``nikola new_page`` command (equivalent to ``nikola new_post -p``) (Issue #1060)
+* Add ``LESS_OPTIONS`` and ``SASS_OPTIONS`` for specifying additional parameters to LESS/Sass compilers (Issue #1020)
+* Warn users about bootswatch_theme being incompatible with bootstrap3-gradients
+* Add ``link://filename/foo/bar.rst`` syntax to refer to the post generated from foo/bar.rst (Issue #1035)
+* Log messages are colorized (colorama is required under Windows) (Issue #1044)
+* Template filters are configurable via the ``TEMPLATE_FILTERS`` config variable (Issue #1038)
+* Added Hindi translation by Sean Pue
+* Livereload v2.1.0 is supported and frozen as the version to use due to backwards-incompatible updates (Issue #1023)
+* Support ``:linenos:`` and ``:number-lines:`` in listings (Issue #1010)
+* Support ``:linenos:`` in code blocks for Sphinx compatibility (Issue #1010)
+* New ``link:///foo`` links which always point to absolute paths (/foo in that case) (Issue #986)
+* Bootstrap 3 has been updated to v3.1.1 (Issue #1015)
+* New ``--browser/-b`` option on the serve command to open instantly in a web browser (Issue #997)
+* SASS/LESS files and targets file will be processed from site root (Issue #941)
+
+Bugfixes
+--------
+
+* lastdeploy time recording was broken, changed to ISO format (Issue #1083)
+* Avoid undefined behaviour if ``NAVIGATION_LINKS`` is missing keys for a translation (Issue #1082)
+* Make livereload actually rebuild the site when changes are made (Issue #1067)
+* Fix filename encodings in WordPress imports (Issue #1053)
+* nikola check supports ``URL_TYPE="absolute"`` and ``URL_TYPE="full_path"`` (Issue #1046)
+* Fix ``URL_TYPE="absolute"`` and ``URL_TYPE="full_path"`` on non-root sites (Issue #1046)
+* Avoid running bundle tasks twice (Issue #1032)
+* Fix post links in RSS feeds for sites outside of webserver root (Issue #986)
+* Only run sitemap once (Issue #1032)
+* Fix a bug with some multilingual pages
+* Normalize paths (Issue #1028)
+* Fix drafts being leaked in feeds (Issues #934, #971)
+* If two tags generate the same slug, they are the same tag (Issue #1022)
+* Assume UTF-8 if user's locale doesn't have any encodings attached (Issue #1026 via #1021)
+* Support ``PRETTY_URLS`` for tag files (Issue #655)
+* Change ``code.css`` and ``rst.css`` to have sane output everywhere (Issues #913, #1009, #1050)
+* Fix image URLs in galleries for sites outside of webserver root (Issue #986)
+* Fix ``link://`` in RSS contents (Issue #952)
+* ``HIDE_SOURCELINK`` was set to True sometimes (Issue #1004)
+* Properly import cool URIs from WordPress, instead of just slugify-ing the path (Issue #693)
+* Fixed SASS/LESS errors when more than one theme in chain has a targets file (Issue #941)
+* Guard against empty list-items in base templates (Issue #936)

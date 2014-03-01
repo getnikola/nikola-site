@@ -20,7 +20,7 @@ You can read more about this in the `Nikola Handbook </handbook.html#why-static>
 
 .. raw:: html
 
-   <a class="btn btn-danger btn-large" href="https://github.com/getnikola/nikola/releases/tag/v6.3.0"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.3.0)</a>
+   <a class="btn btn-danger btn-large" href="https://github.com/getnikola/nikola/releases/tag/v6.4.0"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.4.0)</a>
 
 .. class:: col-md-5
 
