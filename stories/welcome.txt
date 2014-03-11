@@ -3,6 +3,10 @@
 .. slug: index
 .. template: notitle.tmpl
 
+.. class:: alert alert-danger title h2
+
+We are looking for a logo! Check out `the contest <http://99designs.com/logo-design/contests/create-logo-nikola-website-creation-tool-363020>`_
+
 .. class:: jumbotron col-md-6
 
 Nikola is a Static Site and Blog Generator
