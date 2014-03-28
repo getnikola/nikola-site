@@ -44,7 +44,7 @@ It has many features, but here are some of the nicer ones:
 * Small codebase (programmers can understand all of Nikola core in a day)
 * `reStructuredText <quickstart.html>`_ [`Cheatsheet <https://github.com/getnikola/rst-cheatsheet/blob/dfaf3e283ee5df9d4c4b50ff9be2fa7db93c0427/rst-cheatsheet.pdf?raw=true>`_]
   or Markdown as input language (also Wiki, BBCode, Textile, AsciiDoc, Python Notebooks,
-  Misaka, Pandoc, txt2tags, and HTML)
+  Misaka, Pandoc, txt2tags, orgmode, and HTML)
 * Easy `image galleries </galleries/demo/>`_ (just drop files in a folder!)
 * Syntax highlighting for almost any programming language or markup
 * Multilingual sites, `translated to 18 languages <https://www.transifex.com/projects/p/nikola/>`_.
