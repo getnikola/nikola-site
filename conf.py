@@ -87,7 +87,7 @@ REDIRECTIONS = [('creating-a-site.html', 'creating-a-site-not-a-blog-with-nikola
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
 DEPLOY_COMMANDS = [
-    r'rsync -rav --delete output/* getnikola@oceanic.ralsina.com.ar:/srv/www/nikola',
+    r'rsync -rav --delete output/* getnikola@direct.getnikola.com:/srv/www/nikola',
 ]
 
 ##############################################################################
