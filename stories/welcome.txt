@@ -7,6 +7,10 @@
 
 We are looking for a logo! Check out `the contest <http://99designs.com/logo-design/contests/create-logo-nikola-website-creation-tool-363020>`_
 
+.. class:: alert alert-success title h6
+
+Would you like to help us out financially?  `We’re on Gittip. <https://www.gittip.com/GetNikola/>`_
+
 .. class:: jumbotron col-md-6
 
 Nikola is a Static Site and Blog Generator
@@ -26,7 +30,7 @@ You can read more about this in the `Nikola Handbook </handbook.html#why-static>
 
    <a class="btn btn-danger btn-large" href="https://github.com/getnikola/nikola/releases/tag/v6.4.0"><i class="icon-download-alt icon-white"></i> Get Nikola (v6.4.0)</a>
 
-.. class:: col-md-5
+.. class:: col-md-4
 
 What Can Nikola Do?
 -------------------
@@ -79,4 +83,8 @@ It has many features, but here are some of the nicer ones:
 
 .. raw:: html
 
+   </div>
+
+   <div class="col-md-2">
+   <script data-gittip-username="GetNikola" src="//gttp.co/v1.js"></script>
    </div>
