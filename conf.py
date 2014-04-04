@@ -90,7 +90,7 @@ DEPLOY_COMMANDS = [
     r'rsync -rav --delete output/* getnikola@direct.getnikola.com:/srv/www/nikola',
 ]
 
-LOGO_URL = '/assets/img/logo.png'
+LOGO_URL = '/assets/img/logo.svg'
 SHOW_BLOG_TITLE = False
 
 ##############################################################################
