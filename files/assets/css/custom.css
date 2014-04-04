@@ -28,3 +28,6 @@ blockquote p, blockquote, p {
 }
 
 .previous a,.next a{border-radius:4px}
+.navbar-inverse .navbar-nav > li > a {
+    color: #cccfd5;
+}
