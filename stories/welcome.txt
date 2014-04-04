@@ -3,10 +3,6 @@
 .. slug: index
 .. template: notitle.tmpl
 
-.. class:: alert alert-danger title h2
-
-We are looking for a logo! Check out `the contest <http://99designs.com/logo-design/contests/create-logo-nikola-website-creation-tool-363020>`_
-
 .. class:: alert alert-success title h6
 
 Would you like to help us out financially?  `We’re on Gittip. <https://www.gittip.com/GetNikola/>`_
