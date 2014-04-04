@@ -28,3 +28,10 @@ blockquote p, blockquote, p {
 }
 
 .previous a,.next a{border-radius:4px}
+
+/* Workaround for bootstrap bug */
+@media (min-width: 768px) {
+  .navbar-nav.navbar-right:last-child {
+    margin-right: 0px !important;
+  }
+}
