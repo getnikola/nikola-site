@@ -1,0 +1,191 @@
+.. title: Nikola v7.0.0 released!
+.. slug: nikola-v700-released
+.. date: 2014-05-16T20:00:00+02:00
+.. link:
+.. description: Nikola v7 is out!
+.. tags: nikola, planet, python, programming, release
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the release of Nikola v7.0.0 (after 10 days of testing in RC1).
+
+Nikola v7.0.0 is the first major release since 8 months.  As such, we had many things that could be changed.  There are some things that you might need to change on your site, especially if you have a custom theme. Here is a short and incomplete list of the most important changes:
+
+Key Changes since v6.4.0
+========================
+
+* New dependencies: ``natsort`` (natural sorting in galleries) and ``dateutil`` (replaces ``pytz``)
+* Many deprecated options were removed.
+* SCHEDULE_FORCE_TODAY, EXTRA_PLUGINS and ENABLED_EXTRAS are now removed and have no effect.
+
+* Two options were changed:
+
+    - HIDE_SOURCELINK → SHOW_SOURCELINK (inverted)
+    - HIDE_UNTRANSLATED_POSTS → SHOW_UNTRANSLATED_POSTS (inverted)
+
+* READ_MORE_LINK is split into INDEX_READ_MORE_LINK and RSS_READ_MORE_LINK.
+  Moreover, new tags, like ``(remaining_)reading_time`` and ``(remaining_)paragraph_count``, were added.
+* Added options: FORCE_ISO8601, LOGO_URL, SHOW_BLOG_TITLE (logo support), GENERATE_RSS, ROBOTS_EXCLUSIONS, CONTENT_FOOTER_FORMATS, RSS_PLAIN, UNSLUGIFY_TITLES (for meta extraction from filenames).
+* Certain settings are now translatable.  As of now, the settings are:
+
+    BLOG_AUTHOR, BLOG_TITLE, BLOG_DESCRIPTION, LICENSE, CONTENT_FOOTER,
+    SOCIAL_BUTTONS_CODE, SEARCH_FORM, BODY_END, EXTRA_HEAD_DATA,
+    NAVIGATION_LINKS, READ_MORE_LINK.
+
+* There are many changes to themes.  The ``base`` theme now offers a stylish look and is usable on sites, through a new stylesheet.  The HTML code is now more semantic and sectioned, making it easier to style sites. Some templates are also renamed or removed.
+* The basic Jinja themes (base-jinja, bootstrap-jinja, bootstrap3-jinja) are now shipped with Nikola.  Please remove any leftover copies from your themes/ folders.
+* You now can (and should!) specify a timezone offset in post dates, using a ``UTC±00:00`` syntax. (warning: ``UTC-03:00`` means *3 hours east of UTC* and not *west*, as is done in some Unix tools!)  You can also use ISO 8601 dates (and if you want to do that, you can set ``FORCE_ISO8601=True`` to get those in new_post and new_page)
+* You now can use the reST metadata format in .meta files, allowing for greater flexibility.
+
+Get it!
+=======
+
+Nikola v7.0.0 is available for download at `GitHub`_ and `PyPI`_.
+
+.. _GitHub: https://github.com/getnikola/nikola/releases/tag/v7.0.0
+.. _PyPI: https://pypi.python.org/pypi/Nikola
+
+Changelog
+=========
+
+Features
+--------
+
+* Added ``UNSLUGIFY_TITLES`` option for making titles fetched via the
+  filename regexp prettier (Issue #1282)
+* New dependencies: ``natsort`` (natural sorting in galleries)
+  and ``dateutil`` (replaces ``pytz``)
+* Nikola.commands are now the user-friendly wrappers from console (Issue #1177)
+* Add a ``github_deploy`` command to deploy to GitHub pages (Issue #1208)
+* Remove tidy filter (it was broken due to tidy being ancient) (Issue #1164)
+* Added ``GENERATE_RSS`` setting to allow disabling RSS in Nikola (Issue #1236)
+* Link listings raw sources if COPY_SOURCES is True (Issue #1214)
+* Much more powerful ``nikola plugin`` command (Issue #1189)
+* More powerful console mode allows access to all nikola commands (Issue #830)
+* New ```ROBOTS_EXCLUSIONS``` option listing resources to exclude from sitemap
+  and include in new generated /robots.txt (Issue #804)
+* Generate sitemapindex containing RSS and sitemap files (Issue #804)
+* Support hooks in templates, for use by plugins (Issue #896)
+* Use readline if available (Issue #1238)
+* Replaced ``READ_MORE_LINK`` with ``INDEX_READ_MORE_LINK`` and
+  ``RSS_READ_MORE_LINK`` (Issue #1222)
+* Added reading_time, remaining_reading_time, paragraph_count,
+  remaining_paragraph_count tags for READ_MORE_LINK (Issue #1220)
+* Add canonical link in listings.
+* Added support for new meta files that are the same format as 1-file metadata,
+  allowing for greater flexibility (Issue #954)
+* Colorbox is now internationalized (Issue #1205)
+* Added LOGO_URL and SHOW_BLOG_TITLE=True settings to facilitate showing off logos (Issue #1122)
+* Create automatic story index pages for subfolders, too (Issue #793)
+* New Slovak translation by Tomáš Prékop
+* Created a MarkdownExtension plugin class (Issue #1175)
+* The base theme produces properly sectioned and semantic HTML5 (Issues #1123, #1137)
+* The base theme comes with a new stylish look by default (Issue #1137)
+* The base theme supports Right-to-Left by using ::dir(rtl) CSS4 rules and
+  <html dir="rtl"> tags where valid (Issue #1146)
+* Bootstrap 2 updated to 2.3.2 (via Issue #1137)
+* Added FORCE_ISO8601 setting that currently makes new_post use ISO 8601 dates (via Issue #1156)
+* Added support for TZ specified in post date (Issue #1118)
+* Make ``nikola init`` ask about the site’s settings (Issue #1080)
+* Use natural sorting for files and folders list in listings and galleries (Issue #1144)
+* Added invariance testing (Issue #672)
+* Plugins can inject templates in the system (Issue #1139)
+* ``nikola import_wordpress`` now has a ``--qtranslate`` option, to parse posts
+  in the qtranslate wordpress plugin format and turn them into multilingual
+  Nikola posts (Issue #1072)
+* ``nikola console`` allows for interpreter choice via -b, -i, -p; moreover,
+  support for bpython is not deprecated anymore (Issue #1126)
+* ``retired`` tag for posts has been replaced with ``private`` (via Issue #686)
+* Changed the default TRANSLATIONS_PATTERN to "{path}.{lang}.{ext}". (Issues
+  #990, #829)
+* Backwards compatibility with v5 is broken.  Added backwards-incompatible
+  changes. (Issue #829)
+* Added a ``CONTENT_FOOTER_FORMATS`` config option.  It is used to format
+  the ``CONTENT_FOOTER`` variable properly, for compatibility with
+  the Translatable Settings feature.  The variable takes a dict, the keys
+  of which are languages, and values are (args, kwargs). (Issue #1112)
+* Certain settings are now translatable.  As of now, the settings are:
+  BLOG_AUTHOR, BLOG_TITLE, BLOG_DESCRIPTION, LICENSE, CONTENT_FOOTER,
+  SOCIAL_BUTTONS_CODE, SEARCH_FORM, BODY_END, EXTRA_HEAD_DATA,
+  NAVIGATION_LINKS, READ_MORE_LINK (the up-to-date list is available in
+  SITE.TRANSLATABLE_SETTINGS) (Issues #851, #1057, #1061, #1112)
+* New Post.author() returns meta 'author' or BLOG_AUTHOR (Issue #1117)
+* Ship base-jinja, bootstrap-jinja, bootstrap3-jinja with Nikola (Issue #1104)
+* Invert ``HIDE_SOURCELINK`` and ``HIDE_UNTRANSLATED_POSTS`` into
+  ``SHOW_SOURCELINK`` and ``SHOW_UNTRANSLATED_POSTS`` (Issue #1076)
+* Remove old messages left over for backwards compatibility: (Issues #829, #1105)
+
+  - "More posts about", replaced by "More posts about %s"
+  - "Posted", replaced by "Posted:"
+  - "Also available in", replaced by "Also available in:"
+
+* Remove old "sl_SI", "tr_TR" locale aliases (use "sl" and "tr") (Issue #829, #1105)
+* New option RSS_PLAIN to optionally strip HTML from RSS feeds (Issue #1107)
+* Support content key in compilers' create_post (Issue #1098)
+* Use setuptools’ extras feature.  Use ``pip install nikola[extras]`` to
+  install Nikola with extras (``requirements-extras.txt``, formerly
+  ``requirements-full.txt`` -- note the name change!) (Issue #1089)
+
+Bugfixes
+--------
+
+* Markdown now outputs code in a reST-like fashion (Issue #1063)
+* code.css is back to supporting only ``pre.code`` (Issue #1063)
+* Links in monthly archives did not have ``/index.html`` if STRIP_INDEXES
+  was set to False (Issue #1263)
+* Fix lxml adding extra root tags being added by lxml by lxml.html.tostring
+* Not having typogrify installed now produces a valid error (Issue #1262)
+* Pages were not rebuilt when DEMOTE_HEADERS was changed (Issue #1261)
+* Removed SCHEDULE_FORCE_TODAY option (Issue #984)
+* Give better error for unknown subcommands (Issue #1233)
+* Handle conf.py for import plugins more generically (Issue #1235)
+* Remove RSS files from the sitemap (Issue #804)
+* ``nikola deploy`` works with DEPLOY_FUTURE = True (Issue #1249)
+* Removed EXTRA_PLUGINS and ENABLED_EXTRAS options (Issue #1247)
+* ``nikola COMMAND -h/--help`` now outputs command help and not Nikola
+  help (showing the command help is standard behavior) (Issue #1245)
+* Redirect pages should have a body linking to the new location
+* The typogrify filter is now Python 3-compatible (Issue #1244)
+* Fix ``nikola auto`` not watching changes in FILES_FOLDERS (Issue #1241)
+* Vimeo and YouTube embedding in reStructuredText is now protocol-relative
+* Don't crash if a unknown kind of path/link is requested (Issue #1236)
+* Don't run ``clean`` and ``list`` outside sites (Issue #1232)
+* If an invalid language is specified, Nikola now shows a helpful error message
+  instead of a traceback (via Issue #1225)
+* Ensure the locale is set correctly when compiling posts (Issue #1219)
+* Fix site-dependent commands (they tried to run anyways) (Issue #1223)
+* Follow symlinks when walking trees (Issue #1206)
+* bootswatch_theme works again and does not try using server hostname=swatch (Issue #1202)
+* Make markdown extensions not break when markdown is not installed (Issue #1201)
+* hidetitle now works in posts, too (Issue #1188)
+* Refactoring of post translation checking (Issue #1194)
+* Trigger rebuild on gallery changes in auto mode (Issue #1180)
+* Galleries are more usable in non-Bootstrap-based themes (Issue #1137)
+* Removed dependency on pytz because mixing it with dateutil breaks things.
+* Use current system TZ for current_time (Issue #1161)
+* Fix links with full path in RSS for files outside root (Issue #1162)
+* ``nikola new_post`` now always outputs a newline at the end of file (Issue #1169)
+* Gallery code cleanup (Issue #1121)
+* USE_FILENAME_AS_TITLE works again (Issue #1073)
+* Rebuild CSS bundles when files change, and also when files are removed (Issue #1153)
+* Don't call links to SITE_URL bad on check when URL_TYPE is 'absolute' (Issue #1147)
+* Trigger rebuilds if URL_TYPE changes (Issue #1095)
+* Eliminate repeated tags in posts (Issue #1142)
+* custom.css not included in bundles
+* Don’t publish email addresses in RSS, use author name via Dublin Core
+* Rebuild a lot of files when TIMEZONE changes (Issue #1110)
+* The ``init`` command and the importers now always output to the CWD.
+  Previously, if you had a ``conf.py`` file higher in the directory structure,
+  Nikola would put the output of those commands in the directory that contained
+  the file. (Issue #1132)
+* Files with non-ASCII characters in filenames are copied only when needed, and
+  not every build (Issue #1129)
+* Split Twitter Cards and Open Graph, enable the latter by default
+* Load html5shiv.js from remote or local server depending on USE_CDN option
+* Fix dependency issue in listings (Issue #1032)
+* Logging configuration has been fixed.  The stderr handler can now
+  only be set to DEBUG or INFO (any higher levels are corrected as INFO), and
+  unwanted (i.e. DEBUG) messages are not shown, as intended. (Issue #1111)
+* Catch keyboard exit while serving so traceback does not show (Issue #1124)
+* Support rescanning posts in the Nikola class (Issue #1100)
+* Use TIMEZONE with ``nikola new_post`` and ``nikola new_page``. (Issue #1088)

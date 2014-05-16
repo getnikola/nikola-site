@@ -1,6 +1,7 @@
 .. date: 2013/11/01 19:00:00
 .. title: Nikola version 6.3.0 released
 .. slug: nikola-version-630-released
+.. author: Chris Warrick
 
 Version 6.3.0 of Nikola is out.  This is a large improvement, with many
 features and bugfixes (it is also over a month late, sorry!)

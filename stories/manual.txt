@@ -8,7 +8,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 6.4.0
+:Version: 7.0.0
 
 .. class:: alert alert-info pull-right
 
@@ -20,7 +20,7 @@ All You Need to Know
 
 After you have Nikola `installed <#installing-nikola>`_:
 
-Create a empty site:
+Create a empty site (with a setup wizard):
     ``nikola init mysite``
 
 You can create a site with demo files in it with ``nikola init --demo mysite``
@@ -151,7 +151,7 @@ Cost and Performance
     probably serve a bazillion (technical term) pageviews from a phone using
     static sites.
 
-Lockin
+Lock-in
     On server-side blog platforms, sometimes you can't export your own data, or
     it's in strange formats you can't use in other services. I have switched
     blogging platforms from Advogato to PyCs to two homebrew systems, to Nikola,
@@ -201,51 +201,23 @@ This is currently lacking on detail. Considering the niche Nikola is aimed at,
 I suspect that's not a problem yet. So, when I say "get", the specific details
 of how to "get" something for your specific operating system are left to you.
 
-The short version is: ``pip install nikola``
+The short version is::
+
+    pip install nikola
 
 Note that you need Python v2.6 or newer OR v3.3 or newer.
 
-For some features it may give you an error message telling you that you need to
-install something else. For example, if it tells you you need ``requests``::
+Some features require **extra dependencies**.  You can install them all in bulk
+by doing::
 
-   pip install requests
+    pip install nikola[extras]
 
-And so on.  Alternatively, you can install the ``requirements-full.txt`` file
-shipped with the full source tree to get everything.  (or `see the file
-online
-<https://github.com/getnikola/nikola/blob/master/requirements-full.txt>`_)
+Alternatively, you can install those packages one-by-one, when required (Nikola
+will tell you what packages are needed)
 
-Longer version:
-
-#. Get `Nikola <http://getnikola.com/>`_
-#. Install dependencies. To do that, either:
-
-   #. ``pip install -r requirements.txt`` (or ``requirements-full.txt``
-      for extra stuff) and ``pip install .`` or...
-   #. Install your distribution's packages for all the things
-      mentioned below, if they exist, or...
-   #. Get all of these manually (but why?, use pip):
-
-      #. Get Python, if you don't have it.
-      #. Get `doit <http://pydoit.org>`_
-      #. Get `docutils <http://docutils.sf.net>`_
-      #. Get `Mako <http://makotemplates.org>`_
-      #. Get `Pillow <http://python-imaging.github.io/>`_
-      #. Get `Pygments <http://pygments.org/>`_
-      #. Get `unidecode <http://pypi.python.org/pypi/Unidecode/>`_
-      #. Get `lxml <http://lxml.de/>`_
-      #. Get `yapsy <http://yapsy.sourceforge.net>`_
-      #. Get `PyRSS2Gen <http://www.dalkescientific.com/Python/PyRSS2Gen.html>`_
-      #. Get `pytz <http://pytz.sourceforge.net/>`_
-      #. Get `Logbook <http://pythonhosted.org/Logbook/>`_
-      #. Get `blinker <http://pythonhosted.org/blinker/>`_
-      #. Get `Setuptools <http://pythonhosted.org/setuptools/>`_
-      #. If using Python 2, get `configparser <http://pypi.python.org/pypi/configparser/3.2.0r3>`_
-
-#. run ``python setup.py install``
-
-After that, run ``nikola init --demo sitename`` and that will create a folder called
-``sitename`` containing a functional demo site.
+After that, run ``nikola init --demo sitename`` and that will run the setup
+wizard, which will create a folder called ``sitename`` containing a functional
+demo site.
 
 Nikola is packaged for some Linux distributions, you may get that instead. e.g.
 If you are running Arch Linux, there are AUR packages, available in Python 2/3
@@ -415,19 +387,17 @@ Nikola also has other commands besides ``build``::
       nikola doit_auto            automatically execute tasks when a dependency changes
       nikola dumpdb               dump dependency DB
       nikola forget               clear successful run status from internal DB
+      nikola github_deploy        deploy the site to GitHub pages
       nikola help                 show help
       nikola ignore               ignore task (skip) on subsequent runs
-      nikola import_blogger       import a blogger dump
-      nikola import_feed          import a RSS/Atom dump
       nikola import_wordpress     import a WordPress dump
       nikola init                 create a Nikola site in the specified folder
-      nikola install_plugin       install plugin into current site
       nikola install_theme        install theme into current site
       nikola list                 list tasks from dodo file
-      nikola mincss               apply mincss to the generated site
+      nikola new_page             create a new page in the site
       nikola new_post             create a new blog post or site page
       nikola orphans              list all orphans
-      nikola run                  run tasks
+      nikola plugin               manage plugins
       nikola serve                start the test webserver
       nikola strace               use strace to list file_deps and targets
       nikola tabcompletion        generate script for tab-complention
@@ -439,11 +409,11 @@ Nikola also has other commands besides ``build``::
 
 The ``serve`` command starts a web server so you can see the site you are creating::
 
-    $ nikola serve
+    $ nikola serve -b
     Serving HTTP on 127.0.0.1 port 8000 ...
 
 
-After you do this, you can point your web browser to http://localhost:8000 and you should see
+After you do this, a web browser opens at http://127.0.0.1:8000/ and you should see
 the sample site. This is useful as a "preview" of your work.
 
 By default, the ``serve`` command runs the web server on port 8000 on the IP address 127.0.0.1.
@@ -466,9 +436,11 @@ It can be placed in a separate file by using the ``-2`` option, but it's general
 easier to keep it in a single location.
 
 The contents of your post have to be written (by default) in `reStructuredText <http://docutils.sf.net>`__
-but you can use a lot of different markups using the ``-f`` option. Currently
-Nikola supports bbcode, wiki, markdown, html, txt2tags and textile in addition
-to reStructuredText.
+but you can use a lot of different markups using the ``-f`` option.
+
+Currently Nikola supports reStructuredText, Markdown, IPython Notebooks, HTML as input,
+can also use Pandoc for conversion, and has support for BBCode, CreoleWiki, txt2tags, Textile
+and more via `plugins <http://plugins.getnikola.com>`__.
 
 You can control what markup compiler is used for each file extension with the ``COMPILERS``
 option. The default configuration expects them to be placed in ``posts`` but that can be
@@ -564,8 +536,16 @@ to your configuration::
         how-to-make-money
         2012/09/15 19:52:05
 
+   However, starting with Nikola v7, you can now use ``.meta`` files and put
+   all metadata you want, complete with the explanations — they look just like
+   the beginning of our reST files.
+
+        .. title: How to make money
+        .. slug: how-to-make-money
+        .. date: 2012/09/15 19:52:05
+
 If you are writing a multilingual site, you can also create a per-language
-post file (for example: ``how-to-make-money.txt.es`` with the default TRANSLATIONS_PATTERN, see below).
+post file (for example: ``how-to-make-money.es.txt`` with the default TRANSLATIONS_PATTERN, see below).
 This one can replace metadata of the default language, for example:
 
 * The translated title for the post or page
@@ -574,19 +554,12 @@ This one can replace metadata of the default language, for example:
 The pattern used for finding translations is controlled by the
 TRANSLATIONS_PATTERN variable in your configuration file.
 
-The default as in the example above is to append the language code to the
-filename path to identify a translation of a file, so the German translation
-of ``some_file.rst`` should be named ``some_file.rst.de``. This is because
-the TRANSLATIONS_PATTERN variable is by default set to::
-
-    TRANSLATIONS_PATTERN = "{path}.{ext}.{lang}"
-
-However, if you don't want your Polish input files to be considered
-Perl code (e.g. ``some_file.rst.pl``), you could use this pattern::
+The default is to put the language code before the file extension,
+so the German translation of ``some_file.rst`` should be named
+``some_file.de.rst``. This is because the TRANSLATIONS_PATTERN variable is by
+default set to::
 
     TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
-
-Note that this pattern will become the default in v7.0.0.
 
 .. note:: Considered languages
 
@@ -596,7 +569,7 @@ Note that this pattern will become the default in v7.0.0.
 You can edit these files with your favourite text editor, and once you are happy
 with the contents, generate the pages as explained in `Getting Started`_
 
-Currently supported languages are
+Currently supported languages are:
 
 * Basque
 * Bulgarian
@@ -612,14 +585,16 @@ Currently supported languages are
 * French
 * German
 * Greek
+* Hindi
 * Italian
 * Japanese
 * Norwegian Bokmål
 * Persian
 * Polish
-* Portuguese
+* Portuguese (Brasil)
 * Russian
-* Slovenian
+* Slovak
+* Slovene
 * Spanish
 * Turkish
 * Urdu
@@ -640,7 +615,7 @@ and ``PAGES`` configuration options::
     #
     # That fragment could have an associated metadata file (whatever/thing.meta),
     # and optionally translated files (example for Spanish, with code "es"):
-    #     whatever/thing.txt.es and whatever/thing.meta.es
+    #     whatever/thing.es.txt and whatever/thing.es.meta
     #
     #     This assumes you use the default TRANSLATIONS_PATTERN.
     #
@@ -744,10 +719,10 @@ published immediately.  Posts dated in the future are *not* deployed by default
 deployed site, you can set ``DEPLOY_FUTURE = True`` in your configuration.
 Generally, you want FUTURE_IS_NOW and DEPLOY_FUTURE to be the same value.
 
-Retired Posts
-~~~~~~~~~~~~~
+Private (formerly retired) Posts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you add a "retired" tag to a post, then it will not be shown in indexes and feeds.
+If you add a "private" tag to a post, then it will not be shown in indexes and feeds.
 It *will* be compiled, and if you deploy it it *will* be made available, so it will
 not generate 404s for people who had linked to it.
 
@@ -791,15 +766,6 @@ you want::
 All these posts get queued up according to your schedule, but note
 that you will anyway need to build and deploy your site for the posts
 to appear online.  You can have a cron job that does this regularly.
-
-An additional setting (``SCHEDULE_FORCE_TODAY = True``) lets you tell
-Nikola to make the post today, if you run the ``new_post --schedule``
-after the scheduled hour has passed, and there is no other post
-at/after the scheduled hour.  Concretely, say, you run the ``nikola
-new_post -s`` command at 10am on a Monday (with the schedule rule set
-to the same as above), with no other post on Monday, at/after 7am,
-setting ``SCHEDULE_FORCE_TODAY = True`` will have your post scheduled
-to Monday, instead of being scheduled to Wednesday 7am.
 
 Post Types
 ~~~~~~~~~~
@@ -865,11 +831,17 @@ commented.
 You surely want to edit these options::
 
     # Data about this site
-    BLOG_TITLE = "Demo Site"
-    SITE_URL = "http://getnikola.com"
+    BLOG_AUTHOR = "Your Name"  # (translatable)
+    BLOG_TITLE = "Demo Site"  # (translatable)
+    SITE_URL = "http://getnikola.com/"
     BLOG_EMAIL = "joe@demo.site"
-    BLOG_DESCRIPTION = "This is a demo site for Nikola."
+    BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 
+Some options are demarked with a (translatable) comment above or right next to
+them.  For those options, two types of values can be provided:
+
+ * a string, which will be used for all languages
+ * a dict of language-value pairs, to have different values in each language
 
 Customizing Your Site
 ---------------------
@@ -887,11 +859,11 @@ CSS tweaking
     with a `custom theme <theming.html>`__.
 
     If you want to use LESS_ or Sass_ for your custom CSS, or the theme you use
-    contains LESS or Sass code that you want to override, create a ``less`` or
+    contains LESS or Sass code that you want to override, you will need to install
+    the `LESS plugin <http://plugins.getnikola.com/#less>`__ or
+    `SASS plugin <http://plugins.getnikola.com/#sass>`__ create a ``less`` or
     ``sass`` directory in your site root, put your ``.less`` or ``.scss`` files
-    there and a targets file containing the files you want compiled. Any
-    ``.less`` or ``.scss`` files from the theme chain that you want to use will
-    need to be included in your files.
+    there and a targets file containing the list of files you want compiled.
 
 .. _LESS: http://lesscss.org/
 .. _Sass: http://sass-lang.com/
@@ -931,7 +903,9 @@ Navigation Links
 Footer
     ``CONTENT_FOOTER`` is displayed, small at the bottom of all pages, I use it for
     the copyright notice. The default shows a text formed using ``BLOG_AUTHOR``,
-    ``BLOG_EMAIL``, the date and ``LICENSE``.
+    ``BLOG_EMAIL``, the date and ``LICENSE``.  Note you need to use
+    ``CONTENT_FOOTER_FORMATS`` instead of regular str.format or %-formatting,
+    for compatibility with the translatable settings feature.
 
 BODY_END
     This option lets you define a HTML snippet that will be added at the bottom of body.
@@ -975,8 +949,8 @@ Nikola has a built-in theme download/install mechanism to install those themes �
     $ nikola install_theme -l
     Themes:
     -------
-    base-jinja
     blogtxt
+    bootstrap3-gradients
     ⋮
     ⋮
 
@@ -1031,6 +1005,34 @@ Other interesting ideas are using
 `git as a deployment mechanism <http://toroid.org/ams/git-website-howto>`_ (or any other VCS
 for that matter), using `lftp mirror <http://lftp.yar.ru/>`_ or unison, or Dropbox, or
 Ubuntu One. Any way you can think of to copy files from one place to another is good enough.
+
+Deploying to GitHub
+~~~~~~~~~~~~~~~~~~~
+
+Nikola provides a separate command ``github_deploy`` to deploy your
+site to GitHub pages.  The command builds the site, commits the
+output to a gh-pages branch and pushes the output to GitHub.
+
+The branch to use for committing the sources can be changed using the
+``GITHUB_DEPLOY_BRANCH`` option in your config.  For a
+user.github.io/organization.github.io, this MUST be set to ``master``,
+and the branch containing the sources must be changed to something
+else, like ``deploy``, using the ``GITHUB_SOURCE_BRANCH`` option.  The
+remote name to which the changes are pushed is ``origin`` by default,
+and can be changed using the ``GITHUB_REMOTE_NAME`` option.  You also,
+obviously, need to have ``git`` on your PATH, and should be able to
+push to the repository specified as the remote.
+
+This command performs the following actions, when it is run:
+
+1. Ensure that your site is a git repository, and git is on the PATH.
+2. Check for changes, and prompt the user to continue, if required.
+3. Build the site
+4. Clean any files that are "unknown" to Nikola.
+5. Create a deploy branch, if one doesn't exist.
+6. Commit the output to this branch.  (NOTE: Any untracked source
+   files, may get committed at this stage, on the wrong branch!)
+7. Push and deploy!
 
 Comments and Annotations
 ------------------------
@@ -1219,9 +1221,6 @@ optipng
 jpegoptim
    Compress JPEG files using `jpegoptim <http://www.kokkonen.net/tjko/projects.html>`_
 
-tidy
-   Apply `tidy <http://tidy.sourceforge.net/>`_ to HTML files
-
 typogrify
    Improve typography using `typogrify <https://github.com/mintchaos/typogrify>`_
 
@@ -1238,7 +1237,7 @@ different ones, or about other web servers, please share!
 
 #. Enable compression in Apache::
 
-      AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+      AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
 
 #. If even after you did the previous step the CSS files are not sent compressed::
 
@@ -1513,103 +1512,6 @@ and the authors Twitter user ID is found below.
     }
 
 
-Extra Plugins
--------------
-
-These are plugins that may not be widely used or that are a bit too radical or
-experimental for the general public.
-
-To enable them for your site please look for `ENABLED_EXTRAS` in your ``conf.py``.
-
-Planetoid
-~~~~~~~~~
-
-This plugin converts Nikola into the equivalent of `Planet <http://www.planetplanet.org/>`_
-a feed aggregator. It requires `PeeWee <https://github.com/coleifer/peewee>`_ and
-`Feedparser <http://code.google.com/p/feedparser/>`_ to work.
-
-It has a configuration option: PLANETOID_REFRESH which is the number of minutes
-before retrying a feed (defaults to 60).
-
-You need to create a ``feeds`` file containing the data of which feeds you want to
-aggregate. The format is very simple::
-
-   # Roberto Alsina
-   http://feeds2.feedburner.com/PostsInLateralOpinionAboutPython
-   Roberto Alsina
-
-#. Lines that start with ``#`` are comments and ignored.
-#. Lines that start with http are feed URLs.
-#. URL lines have to be followed by the "real name" of the feed.
-
-After all that is in place, just run ``nikola build`` and you'll get
-a planet.
-If you run ``nikola build`` for the first time you need to actually issue
-the command three times until the planet is build.
-
-There is a special theme for the planets called `site-planetoid`. To use
-this set `THEME` in your ``conf.py`` to ``'site-planetoid'``.
-This is special in the case that it redirects users to the original URL of the post
-when they try to open a post.
-
-Local Search
-~~~~~~~~~~~~
-
-If you don't want to depend on Google or DuckDuckGo to implement search for you,
-or just want it to work even if you are offline, enable this plugin and the
-search will be performed client side.
-
-This plugin implements a Tipue-based local search for your site.
-
-To use it, enable local_search in ENABLED_EXTRAS in your sites conf.py
-
-After you build your site, you will have several new files in assets/css and assets/js
-and a tipue_search.html that you can use as a basis for using this in your site.
-
-For more information about how to customize it and use it, please refer to the tipue
-docs at http://www.tipue.com/search/
-
-Tipue is under an MIT license (see MIT-LICENSE.txt)
-
-Here's a set of example settings for conf.py that should work nicely with the "bootstrap" theme::
-
-    SEARCH_FORM = """
-    <span class="navbar-form pull-left">
-    <input type="text" id="tipue_search_input">
-    </span>"""
-
-    BODY_END = """
-    <script type="text/javascript" src="/assets/js/tipuesearch_set.js"></script>
-    <script type="text/javascript" src="/assets/js/tipuesearch.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('#tipue_search_input').tipuesearch({
-            'mode': 'json',
-            'contentLocation': '/assets/js/tipuesearch_content.json',
-            'showUrl': false
-        });
-    });
-    </script>
-    """
-
-    EXTRA_HEAD_DATA = """
-    <link rel="stylesheet" type="text/css" href="/assets/css/tipuesearch.css">
-    <div id="tipue_search_content" style="margin-left: auto; margin-right: auto; padding: 20px;"></div>
-    """
-
-    ENABLED_EXTRAS = [ 'local_search' ]
-
-
-The <div> in EXTRA_HEAD_DATA is a hack but it will migrate into the <body> of the
-documents thanks to magic, and will hold the search results after the user searches.
-
-Mustache
-~~~~~~~~
-
-This task gives you a ``mustache.html`` file which lets you access your whole
-blog without reloading the page, using client-side templates. Makes it much
-faster and modern ;-)
-
 Custom Plugins
 --------------
 
@@ -1623,10 +1525,10 @@ Getting Extra Plugins
 
 If you want extra plugins, there is also the `Plugins Index <http://plugins.getnikola.com/>`_.
 
-Similarly to themes, there is a nice, built-in command to install them —
-``install_plugin``::
+Similarly to themes, there is a nice, built-in command to manage them —
+``plugin``::
 
-    $ nikola install_plugin -l
+    $ nikola plugin -l
     Plugins:
     --------
     helloworld
@@ -1634,7 +1536,7 @@ Similarly to themes, there is a nice, built-in command to install them —
     ⋮
     ⋮
 
-    $ nikola install_plugin helloworld
+    $ nikola plugin --install helloworld
     [2013-10-12T16:51:56Z] NOTICE: install_plugin: Downloading: http://plugins.getnikola.com/v6/helloworld.zip
     [2013-10-12T16:51:58Z] NOTICE: install_plugin: Extracting: helloworld into plugins
     plugins/helloworld/requirements.txt
@@ -1649,6 +1551,29 @@ Similarly to themes, there is a nice, built-in command to install them —
         # Should the Hello World plugin say “BYE” instead?
         BYE_WORLD = False
 
+Then you also can uninstall your plugins::
+
+    $ nikola plugin --uninstall tags
+    [2014-04-15T08:59:24Z] WARNING: plugin: About to uninstall plugin: tags
+    [2014-04-15T08:59:24Z] WARNING: plugin: This will delete /home/ralsina/foo/plugins/tags
+    Are you sure? [y/n] y
+    [2014-04-15T08:59:26Z] WARNING: plugin: Removing /home/ralsina/foo/plugins/tags
+
+And upgrade them::
+
+    $ nikola plugin --upgrade
+    [2014-04-15T09:00:18Z] WARNING: plugin: This is not very smart, it just reinstalls some plugins and hopes for the best
+    Will upgrade 1 plugins: graphviz
+    Upgrading graphviz
+    [2014-04-15T09:00:20Z] INFO: plugin: Downloading: http://plugins.getnikola.com/v7/graphviz.zip
+    [2014-04-15T09:00:20Z] INFO: plugin: Extracting: graphviz into /home/ralsina/.nikola/plugins/
+    [2014-04-15T09:00:20Z] NOTICE: plugin: This plugin has third-party dependencies you need to install manually.
+    Contents of the requirements-nonpy.txt file:
+
+        Graphviz
+            http://www.graphviz.org/
+
+    You have to install those yourself or through a package manager.
 
 You can also share plugins you created with the community!  Visit the
 `GitHub repository <https://github.com/getnikola/plugins>`__ to find out more.
@@ -1656,6 +1581,19 @@ You can also share plugins you created with the community!  Visit the
 You can use the plugins in this repository without installing them into your
 site, by cloning the repository and adding the path of the plugins directory to
 the ``EXTRA_PLUGINS_DIRS`` list in your configuration.
+
+Shell Tab Completion
+--------------------
+
+Since Nikola is a command line tool, and this is the 21st century, it's handy to have smart tab-completion
+so that you don't have to type the full commands.
+
+To enable this, you can use the ``nikola tabcompletion`` command like this, depending on your shell::
+
+    $ nikola tabcompletion --shell bash --hardcode-tasks > _nikola_bash
+    $ nikola tabcompletion --shell zsh --hardcode-tasks > _nikola_zsh
+
+The ``--hardcode-tasks`` adds tasks to the completion and may need updating periodically.
 
 License
 -------

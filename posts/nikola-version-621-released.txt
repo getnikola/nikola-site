@@ -1,6 +1,7 @@
 .. date: 2013/11/01 06:28:00
 .. title: Nikola version 6.2.1 released
 .. slug: nikola-version-621-released
+.. author: Chris Warrick
 
 Version 6.2.1 of Nikola is out.  This is a partially-unplanned bugfix release
 to fix issues with locales and address some more bugs, also adding a few
