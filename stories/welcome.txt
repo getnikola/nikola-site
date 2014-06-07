@@ -3,10 +3,6 @@
 .. slug: index
 .. template: notitle.tmpl
 
-.. class:: alert alert-success title h6
-
-Would you like to help us out financially?  `We’re on Gittip. <https://www.gittip.com/GetNikola/>`_
-
 .. class:: jumbotron col-md-6
 
 Nikola is a Static Site and Blog Generator
@@ -24,7 +20,7 @@ You can read more about this in the `Nikola Handbook </handbook.html#why-static>
 
 .. raw:: html
 
-   <a class="btn btn-danger btn-lg" href="https://github.com/getnikola/nikola/releases/tag/v7.0.0"><i class="glyphicon glyphicon-download-alt"></i> Get Nikola (v7.0.0)</a>
+   <a class="btn btn-danger btn-lg" href="https://github.com/getnikola/nikola/releases/tag/v7.0.1"><i class="glyphicon glyphicon-download-alt"></i> Get Nikola (v7.0.1)</a>
 
 .. class:: col-md-4
 
