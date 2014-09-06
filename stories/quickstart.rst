@@ -1,3 +1,10 @@
+.. title: A reStructuredText Primer
+.. slug: quickstart
+.. date: 2012-03-30 23:00:00 UTC-03:00
+.. tags: 
+.. link: 
+.. description: 
+
 A ReStructuredText Primer
 =========================
 
@@ -362,18 +369,18 @@ __ quickref.html#directives
 To include an image in your document, you use the the ``image`` directive__.
 For example::
 
-  .. image:: images/biohazard.png
+  .. image:: /images/nikola.png
 
 results in:
 
-.. image:: images/biohazard.png
+.. image:: /images/nikola.png
 
-The ``images/biohazard.png`` part indicates the filename of the image
+The ``/images/nikola.png`` part indicates the filename of the image
 you wish to appear in the document. There's no restriction placed on
 the image (format, size etc).  If the image is to appear in HTML and
 you wish to supply additional information, you may::
 
-  .. image:: images/biohazard.png
+  .. image:: /images/nikola.png
      :height: 100
      :width: 200
      :scale: 50
@@ -400,6 +407,7 @@ list.
 .. [#] If that relative link doesn't work, try the master document:
    http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html.
 
-.. _reStructuredText Markup Specification: http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
+.. _reStructuredText Markup Specification:
+   http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html
 .. _Docutils-users: http://docutils.sourceforge.net/docs/user/mailing-lists.html#docutils-users
 .. _Docutils project web site: http://docutils.sourceforge.net/

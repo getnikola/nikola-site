@@ -8,7 +8,7 @@
 Theming Nikola
 ==============
 
-:Version: 7.0.1
+:Version: 7.1.0
 :Author: Roberto Alsina <ralsina@netmanagers.com.ar>
 
 .. class:: alert alert-info pull-right
@@ -200,8 +200,8 @@ then your theme will need a custom ``messages`` folder.
 -------------------------------------------------------------------
 
 .. note::
-    The LESS and Sass compilers were moved to the Plugins Index in
-    Nikola v7.0.0.  Use ``nikola plugin -i less`` or ``nikola plugin -i sass``.
+    The LESS and Sass compilers will be moved to the Plugins Index in
+    Nikola v7.0.0.
 
 If you want to use those CSS extensions, you can — just store your files
 in the ``less`` or ``sass`` directory of your theme.

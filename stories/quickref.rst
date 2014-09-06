@@ -1,3 +1,10 @@
+.. title: A reStructuredText Reference
+.. slug: quickref
+.. date: 2012-03-30 23:00:00 UTC-03:00
+.. tags: 
+.. link: 
+.. description: 
+
 .. raw:: html
 
         <div class="alert alert-info pull-right" style="margin-left: 2em;">
@@ -1235,11 +1242,11 @@
         <tr valign="top">
         <td><samp>For&nbsp;instance:</samp>
 
-            <p><samp>..&nbsp;image::&nbsp;images/ball1.gif</samp>
+            <p><samp>..&nbsp;image::&nbsp;images/nikola.png</samp>
 
         <td>
             For instance:
-            <p><img src="images/ball1.gif" alt="ball1">
+            <p><img src="/images/nikola.png" alt="ball1">
         </table>
 
         <h3><a href="#contents" name="substitution-references-and-definitions"
@@ -1259,17 +1266,16 @@
         <tbody>
         <tr valign="top">
         <td><samp>
-    The&nbsp;|biohazard|&nbsp;symbol&nbsp;must&nbsp;be
-    used&nbsp;on&nbsp;containers&nbsp;used&nbsp;to
-    dispose&nbsp;of&nbsp;medical&nbsp;waste.</samp>
+    The&nbsp;|Nikola|&nbsp;static&nbsp;site&nbsp;generator
+    is&nbsp;named&nbsp;after&nbsp;Nikola&nbsp;Tesla.</samp>
 
             <p><samp>
-    ..&nbsp;|biohazard|&nbsp;image::&nbsp;biohazard.png</samp>
+    ..&nbsp;|Nikola|&nbsp;image::&nbsp;nikola.png</samp>
 
         <td>
 
-            <p>The <img src="images/biohazard.png" align="bottom" alt="biohazard"> symbol
-            must be used on containers used to dispose of medical waste.
+            <p>The <img src="/images/nikola.png" align="bottom" alt="Nikola"> static
+            site generator is named after Nikola Tesla.
 
         </table>
 
