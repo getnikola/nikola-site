@@ -5,6 +5,7 @@
 .. link: 
 .. description: Nikola v7.1.0 is out!
 .. type: text
+.. author: Chris Warrick
 
 On behalf of the Nikola team, I am pleased to announce the release of
 Nikola v7.1.0.
