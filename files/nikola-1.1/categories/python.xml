@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rss version="2.0"><channel><title>Demo Site (python)</title><link>http://getnikola.com/nikola-1.1</link><description>This is a demo site for Nikola.</description><lastBuildDate>Sun, 21 Sep 2014 10:26:53 GMT</lastBuildDate><generator>nikola 1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Welcome to Nikola</title><link>/posts/welcome-to-nikola.html</link><description>&lt;a href="http://www.flickr.com/photos/75108495@N00/352972944/" title="Nikola Tesla Corner by nicwest, on Flickr"&gt;&lt;img src="http://farm1.staticflickr.com/138/352972944_4f9d568680.jpg" width="500" height="334" alt="Nikola Tesla Corner"&gt;&lt;/a&gt;&lt;p&gt;If you can see this in a web browser, it means you have managed to install Nikola,
+and build a site using it. Congratulations!&lt;/p&gt;
+&lt;p&gt;Sorry about the docs not existing at the moment, I will write them shortly.&lt;/p&gt;
+&lt;p&gt;Send feedback to &lt;a class="reference external" href="mailto:ralsina&amp;#64;netmanagers.com.ar"&gt;ralsina&amp;#64;netmanagers.com.ar&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;To create your own posts, you need to create two files insite posts/&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;whatever.meta&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;This is some information about your post. It has to include (one on each line):&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Title (example: How to become rich)&lt;/li&gt;
+&lt;li&gt;URL filename (example: how-to-become-rich)&lt;/li&gt;
+&lt;li&gt;Publication date (example: 2012/03/13 02:17)&lt;/li&gt;
+&lt;li&gt;Tags (example: programming, happiness, linux)&lt;/li&gt;
+&lt;li&gt;Link to original source (example: &lt;a class="reference external" href="http://boingboing.net/2012/01/14/boing-boing-will-go-dark-on-ja.html"&gt;http://boingboing.net/2012/01/14/boing-boing-will-go-dark-on-ja.html&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p class="last"&gt;The 4th and 5th lines are optional.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;whatever.txt&lt;/dt&gt;
+&lt;dd&gt;The contents of your post, written in &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html"&gt;Restructured Text&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;You can also add the same kind of things in stories/. The difference between posts and stories in the default configuration
+is that posts will be added to RSS feeds and the front page of the site, while stories will generate pages that you
+have to link to manually.&lt;/p&gt;
+&lt;p&gt;The templates are quite simple and are inside templates/&lt;/p&gt;
+&lt;p&gt;After you change things, run &amp;quot;doit&amp;quot; and that's it, an updated site in output/.&lt;/p&gt;
+&lt;p&gt;Before you publish this site anywhere, you should edit dodo.py (it has extensive comments) so it
+says all the right things for your site. Upload to any server that can serve static files, and
+you are done :-)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You will want to edit post.tmpl and delete the line that says disqus_developer.&lt;/p&gt;
+</description><guid>/posts/welcome-to-nikola.html</guid><pubDate>Fri, 30 Mar 2012 23:00:00 GMT</pubDate></item></channel></rss>
