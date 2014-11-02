@@ -1,0 +1,78 @@
+.. title: Nikola v7.2.0 is out!
+.. slug: nikola-v720-is-out
+.. date: 2014-11-02 17:17:39 UTC
+.. tags: nikola, planet, python, programming, release
+.. link: 
+.. description: Version 7.2.0 of Nikola is out!
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.2.0.  It features many bugfixes, and also
+some new useful features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.  It can
+use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+IPython Notebooks into blog posts! It also supports image galleries,
+and is multilingual.  Nikola is flexible, and page builds are
+extremely fast, courtesy of doit (which is rebuilding only what has
+been changed).
+
+Find out more at the website: http://getnikola.com/
+
+Downloads
+=========
+
+Get it on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.2.0
+__ https://pypi.python.org/pypi/Nikola
+
+Changes
+=======
+
+Features
+--------
+
+* Added support for fancy dates via moment.js (Issue #1256)
+* Updates: jQuery v1.11.1, Bootstrap v3.3.0
+* Allow presets usage with ``nikola deploy`` — ``DEPLOY_COMMANDS`` is
+  now a dict of {preset: commands} (Issue #1452)
+* New ``GLOBAL_CONTEXT_FILLER`` setting, functions listed there will
+  be called with the local context and the template name before
+  template rendering. (Issue #1451)
+* New ``USE_CDN_WARNING`` setting to block warnings about potential
+  ``USE_CDN`` misuse (defaults to True)
+* ``nikola check -l`` will warn about mixed-security (HTTP on HTTPS)
+* New ``ConfigPlugin`` category (without any specific behavior by default)
+* New meta property “previewimage” for use with Open Graph (Issue #1421)
+* Expose publishing date, tags, and more in Open Graph
+* XSL Transform RSS into pretty and helpful webpages when opened in browsers (Issue #1411)
+
+Bugfixes
+--------
+
+* Don’t pull by default in ``github_deploy`` (Issue #1464)
+* disabled hyphenation for paragraphs with inline math (Issue #1461)
+* Support filters for all tasks (Issue #1459)
+* Don’t check cache/ in ``nikola check -l`` (Issue #1447)
+* Fix new_post for pandoc format (Issue #1445)
+* Fix STORY_INDEX generation (Issue #1444)
+* Fix bootswatch creation version check (Issue #1441)
+* Never rebase while pulling in ``github_deploy``
+* Handle better ``new_post --format=pandoc`` when pandoc is not defined (Issue #1422)
+* Open Graph properly uses latest RDFa in HTML – fixes validation
+* Fix sitemap generation (Issue #1397 via #1032)
+* Use destination folder names as titles for titleless listings
+* Fixed problems with installation from .tar.gz under Windows (Issue #1417)
+* Fixed encoding problems in WordPress urlmap writer (Issue #1416)
+* Added back atom:link in RSS feeds
+* Fixed Nikola-based page redirects in Python 2 (Issue #1414)
+* Fixed files/\*.php (skip post/story-specific filters) (Issue #1403)
+* Warn about missing / in BASE_URL differently (explicit request to
+  fix the config file)
+* Fix broken ``auto -b`` option (Issue #1437)

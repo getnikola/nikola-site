@@ -86,9 +86,9 @@ REDIRECTIONS = [('creating-a-site.html', 'creating-a-site-not-a-blog-with-nikola
 # "rsync -rav output/* joe@my.site:/srv/www/site"
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
-DEPLOY_COMMANDS = [
-    r'rsync -rav --delete output/* getnikola@direct.getnikola.com:/srv/www/nikola',
-]
+DEPLOY_COMMANDS = {'default': [
+    'rsync -rav --delete output/* getnikola@direct.getnikola.com:/srv/www/nikola',
+]}
 
 LOGO_URL = '/assets/img/logo.svg'
 SHOW_BLOG_TITLE = False

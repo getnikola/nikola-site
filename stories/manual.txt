@@ -8,7 +8,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.1.0
+:Version: 7.2.0
 
 .. class:: alert alert-info pull-right
 
@@ -263,10 +263,10 @@ Note that many other distros/operating systems (including Arch Linux,
 \*BSD and OS X) do not require such packages, as C headers are included
 with the base distribution of Python.
 
-Installation on Linux, Mac OS X, \*BSD, and any other POSIX-compatible OS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installation on Linux/Mac OS X/etc.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(we obviously support all.)
+(any POSIX-compatible OS will do.)
 
 Using ``pip`` should suffice.  You may also want to use distribution- or
 system-specific packages for our dependencies.
@@ -505,8 +505,8 @@ to your configuration::
        more descriptive names.
 
    hidetitle
-       Set "True" if you do not want to see the **story** title as a
-       heading of the page (does not work for posts).
+       Set "True" if you do not want to see the **page** title as a
+       heading of the output html file (does not work for posts).
 
    nocomments
        Set to "True" to disable comments. Example::
@@ -939,6 +939,60 @@ SOCIAL_BUTTONS_CODE
     at the bottom of body. It defaults to a snippet for AddThis, but you can
     really put anything there. See `social_buttons.html` for more details.
 
+Fancy Dates
+-----------
+
+Nikola can use various styles for presenting dates.
+
+DATE_FORMAT
+    The date format to use if there is no JS or fancy dates are off.  Compatible with Python’s ``strftime()`` syntax.
+
+JS_DATE_FORMAT
+    The date format to use if fancy dates are on.  Compatible with ``moment.js` syntax.
+
+DATE_FANCINESS = 0
+    Fancy dates are off, and DATE_FORMAT is used.
+
+DATE_FANCINESS = 1
+    Dates are recalculated in user’s timezone.  Requires JavaScript.
+
+DATE_FANCINESS = 2
+    Dates are recalculated as relative time (eg. 2 days ago).  Requires JavaScript.
+
+In order to use fancy dates, your theme must support them.  The built-in Bootstrap family supports it, but other themes might not by default.
+
+For Mako:
+
+.. code:: html
+
+    <!-- required scripts -- best handled with bundles -->
+    <script src="/assets/js/moment-with-locales.min.js"></script>
+    <script src="/assets/js/fancydates.js"></script>
+
+    <!-- fancy dates code -->
+    <script>
+    moment.locale("${momentjs_locales[lang]}");
+    fancydates(${date_fanciness}, ${js_date_format});
+    </script>
+    <!-- end fancy dates code -->
+
+
+For Jinja2:
+
+.. code:: html
+
+    <!-- required scripts -- best handled with bundles -->
+    <script src="/assets/js/moment-with-locales.min.js"></script>
+    <script src="/assets/js/fancydates.js"></script>
+
+    <!-- fancy dates code -->
+    <script>
+    moment.locale("{{ momentjs_locales[lang] }}");
+    fancydates({{ date_fanciness }}, {{ js_date_format }});
+    </script>
+    <!-- end fancy dates code -->
+
+
 Adding Files
 ------------
 
@@ -1013,15 +1067,19 @@ Nikola doesn't really have a concept of deployment. However, if you can specify 
 deployment procedure as a series of commands, you can put them in the ``DEPLOY_COMMANDS``
 option, and run them with ``nikola deploy``.
 
+You can have multiple deployment presets.  If you run ``nikola deploy``, the
+``default`` preset is executed.  You can also specify the names of presets
+you want to run (eg. ``nikola deploy default``, multiple presets are allowed).
+
 One caveat is that if any command has a % in it, you should double them.
 
 Here is an example, from my own site's deployment script::
 
-    DEPLOY_COMMANDS = [
+    DEPLOY_COMMANDS = {'default': [
         'rsync -rav --delete output/ ralsina@lateral.netmanagers.com.ar:/srv/www/lateral',
         'rdiff-backup output ~/blog-backup',
         "links -dump 'http://www.twingly.com/ping2?url=lateral.netmanagers.com.ar'",
-    ]
+    ]}
 
 Other interesting ideas are using
 `git as a deployment mechanism <http://toroid.org/ams/git-website-howto>`_ (or any other VCS
