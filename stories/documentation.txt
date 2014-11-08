@@ -15,6 +15,11 @@ the current GitHub master, check out `Nikola on ReadTheDocs
 `The Handbook <handbook.html>`_
     Aimed at those wanting to *use* Nikola to build a site.
 
+`The conf.py file <conf.html>`_
+    This is the default configuration file for the latest version of Nikola.
+    It contains some useful documentation not mentioned in the manual, and can
+    be used for people upgrading to compare with their existing config files.
+
 `Upgrading to Nikola v6 <upgrading-to-v6.html>`_
     Useful if you were using version 5.
 
