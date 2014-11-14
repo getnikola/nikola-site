@@ -127,6 +127,11 @@ CONTENT_FOOTER = '''Contents © 2012–2014 <a href="/contact.html">Roberto Alsi
 <a href="https://twitter.com/intent/user?screen_name=GetNikola">Follow Nikola on Twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme is <a href="http://bootswatch.com/cerulean/">Cerulean</a>
 '''
 
+TWITTER_CARD = {
+    'use_twitter_cards': True,  # enable Twitter Cards
+    'site': '@GetNikola',  # twitter nick for the website
+}
+
 # To enable comments via Disqus, you need to create a forum at http://disqus.com,
 # and set DISQUS_FORUM to the short name you selected.
 # If you want to disable comments, set it to False.
