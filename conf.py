@@ -97,10 +97,10 @@ SHOW_BLOG_TITLE = False
 # Image Gallery Options
 ##############################################################################
 
-# Galleries are folders in galleries/
-# Final location of galleries will be output / GALLERY_PATH / gallery_name
-GALLERY_PATH = "galleries"
+GALLERY_FOLDERS = {'galleries': 'galleries'}
 THUMBNAIL_SIZE = 180
+
+WRITE_TAG_CLOUD = True
 
 ##############################################################################
 # HTML fragments and diverse things that are used by the templates
@@ -123,7 +123,7 @@ LICENSE = """
     src="http://i.creativecommons.org/l/by-nc-sa/2.5/ar/88x31.png"></a>"""
 
 # A small copyright notice for the page footer
-CONTENT_FOOTER = '''Contents © 2012–2014 <a href="/contact.html">Roberto Alsina and the Nikola contributors</a>&nbsp;&nbsp;|&nbsp;&nbsp;Powered by Nikola itself&nbsp;&nbsp;|&nbsp;&nbsp;
+CONTENT_FOOTER = '''Contents © 2012–2015 <a href="/contact.html">Roberto Alsina and the Nikola contributors</a>&nbsp;&nbsp;|&nbsp;&nbsp;Powered by Nikola itself&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="https://twitter.com/intent/user?screen_name=GetNikola">Follow Nikola on Twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme is <a href="http://bootswatch.com/cerulean/">Cerulean</a>
 '''
 
