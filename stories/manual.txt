@@ -8,7 +8,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.2.0
+:Version: 7.3.0
 
 .. class:: alert alert-info pull-right
 
@@ -136,7 +136,7 @@ Obsolescense
     You may say those are long term issues, or that they won't matter for years. Well,
     I believe things should work forever, or as close to it as we can make them.
     Nikola's static output and its input files will work as long as you can install
-    a Python > 2.6 in a Linux, Windows, or Mac and can find a server
+    a Python 2.7/3.3 or newer under Linux, Windows, or OS X and can find a server
     that sends files over HTTP. That's probably 10 or 15 years at least.
 
     Also, static sites are easily handled by the Internet Archive.
@@ -205,7 +205,7 @@ The short version is::
 
     pip install nikola
 
-Note that you need Python v2.6 or newer OR v3.3 or newer.
+Note that you need Python v2.7 or newer OR v3.3 or newer.
 
 Some features require **extra dependencies**.  You can install them all in bulk
 by doing::
@@ -230,20 +230,18 @@ __ https://aur.archlinux.org/packages/python2-nikola/
 __ https://aur.archlinux.org/packages/python-nikola-git/
 __ https://aur.archlinux.org/packages/python2-nikola-git/
 
-libxml/libxslt errors
-~~~~~~~~~~~~~~~~~~~~~
+libxml/libxslt (files missing) errors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you get a ``ERROR: /bin/sh: 1: xslt-config: not found`` or ``fatal error:
-libxml/xmlversion.h: No such file or directory`` when running ``pip install -r requirements.txt``, install *libxml* and *libxslt* libraries, like so:
+If you get errors about various files missing while compiling ``lxml``, you must install headers for the ``libxml``, ``libxslt`` and ``zlib`` libraries, like so:
 
 Debian systems::
 
-    sudo apt-get install libxml2-dev
-    sudo apt-get install libxslt1-dev
+    sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
 
 Red Hat/RPM-based systems::
 
-    sudo yum install libxslt-devel libxml2-devel
+    sudo yum install libxslt-devel libxml2-devel zlib-devel
 
 Python.h not found
 ~~~~~~~~~~~~~~~~~~
@@ -517,6 +515,10 @@ to your configuration::
        The post will be encrypted and invisible until the reader enters the password.
        Also, the post's sourcecode will not be available.
 
+       WARNING: **DO NOT** use for real confidential data.  The algorithm used (RC4) is insecure.  The implementation may also be easily brute-forced.  Please consider using something else if you need *real* encryption!
+
+       More information: `Issue #1547 <https://github.com/getnikola/nikola/issues/1547>`_
+
    previewimage
        Designate a preview or other representative image path relative to BASE_URL
        for use with Open Graph for posts. Adds the image when sharing on social
@@ -657,7 +659,7 @@ and ``PAGES`` configuration options::
 
 ``new_post`` will use the *first* path in ``POSTS`` (or ``PAGES`` if ``-p`` is
 supplied) that ends with the extension of your desired markup format (as
-defined in ``COMPILERS`` in conf.py) as the directory that the new post will be
+defined in ``COMPILERS`` in ``conf.py``) as the directory that the new post will be
 written into.  If no such entry can be found, the post won’t be created.
 
 The ``new_post`` command supports some options::
@@ -856,6 +858,11 @@ them.  For those options, two types of values can be provided:
  * a string, which will be used for all languages
  * a dict of language-value pairs, to have different values in each language
 
+.. note:: It is possible to load the configuration from another file by specifying
+          ``--conf=path/to/other.file`` on Nikola's command line. For example, to
+          build your blog using the configuration file ``configurations/test.config``,
+          you have to execute ``nikola build --conf=configurations/test.config``.
+
 Customizing Your Site
 ---------------------
 
@@ -864,9 +871,9 @@ the easy ones!
 
 CSS tweaking
     Using the default configuration, you can create a ``assets/css/custom.css``
-    file and then it will be loaded from the ``<head>`` blocks of your site
-    pages.  Create it and put your CSS code there, for minimal disruption of the
-    provided CSS files.
+    file under ``files/`` or in your theme and then it will be loaded from the
+    ``<head>`` blocks of your site pages.  Create it and put your CSS code there,
+    for minimal disruption of the provided CSS files.
 
     If you feel tempted to touch other files in assets, you probably will be better off
     with a `custom theme <theming.html>`__.
@@ -955,7 +962,7 @@ DATE_FORMAT
     The date format to use if there is no JS or fancy dates are off.  Compatible with Python’s ``strftime()`` syntax.
 
 JS_DATE_FORMAT
-    The date format to use if fancy dates are on.  Compatible with ``moment.js` syntax.
+    The date format to use if fancy dates are on.  Compatible with ``moment.js`` syntax.
 
 DATE_FANCINESS = 0
     Fancy dates are off, and DATE_FORMAT is used.
@@ -1096,9 +1103,10 @@ Any way you can think of to copy files from one place to another is good enough.
 Deploying to GitHub
 ~~~~~~~~~~~~~~~~~~~
 
-Nikola provides a separate command ``github_deploy`` to deploy your
-site to GitHub pages.  The command builds the site, commits the
-output to a gh-pages branch and pushes the output to GitHub.
+Nikola provides a separate command ``github_deploy`` to deploy your site to
+GitHub pages.  The command builds the site, commits the output to a gh-pages
+branch and pushes the output to GitHub.  Nikola uses the `ghp-import command
+<https://github.com/davisp/ghp-import>`_ for this.
 
 The branch to use for committing the sources can be changed using the
 ``GITHUB_DEPLOY_BRANCH`` option in your config.  For a
@@ -1112,14 +1120,9 @@ push to the repository specified as the remote.
 
 This command performs the following actions, when it is run:
 
-1. Ensure that your site is a git repository, and git is on the PATH.
-2. Check for changes, and prompt the user to continue, if required.
-3. Build the site
-4. Clean any files that are "unknown" to Nikola.
-5. Create a deploy branch, if one doesn't exist.
-6. Commit the output to this branch.  (NOTE: Any untracked source
-   files, may get committed at this stage, on the wrong branch!)
-7. Push and deploy!
+1. Builds the site
+2. Commit the output folder to the ``GITHUB_DEPLOY_BRANCH`` to this branch.
+3. Push the branch to the remote specified in ``GITHUB_REMOTE_NAME``!
 
 Comments and Annotations
 ------------------------
@@ -1225,15 +1228,31 @@ The gallery pages are generated using the ``gallery.tmpl`` template, and you can
 customize it there (you could switch to another lightbox instead of colorbox, change
 its settings, change the layout, etc.).
 
-The ``conf.py`` options affecting gallery pages are these::
+Images to be used in normal posts can be placed in the ``images`` folder. These
+images will be processed and have thumbnails created just as for galleries, but will
+then be copied directly to the corresponding path in the ``output`` directory, so you
+can reference it from whatever page you like, most easily using the ``thumbnail``
+reST extension. If you don't want thumbnails, just use the ``files`` folder instead.
 
-    # Galleries are folders in galleries/
-    # Final location of galleries will be output / GALLERY_PATH / gallery_name
-    GALLERY_PATH = "galleries"
+The ``conf.py`` options affecting images and gallery pages are these::
+
+    # One or more folders containing galleries. The format is a dictionary of
+    # {"source": "relative_destination"}, where galleries are looked for in
+    # "source/" and the results will be located in
+    # "OUTPUT_PATH/relative_destination/gallery_name"
+    # Default is:
+    GALLERY_FOLDERS = {"galleries": "galleries"}
+    # One or more folders containing images. The format is again a dictionary of
+    # {"source": "relative_destination"}. Images will be scaled down if necessary so
+    # that neither width nor height is greater than MAX_IMAGE_SIZE and copied to
+    # destination folder. A thumbnail will also be created in the same folder with
+    # ``.thumbnail`` inserted in the file name before the file extension
+    # (e.g. ``tesla.thumbnail.jpg``).
+    IMAGE_FOLDERS = {'images': ''}
+    # More image/gallery options:
     THUMBNAIL_SIZE = 180
     MAX_IMAGE_SIZE = 1280
     USE_FILENAME_AS_TITLE = True
-    GALLERY_SORT_BY_DATE = False
     EXTRA_IMAGE_EXTENSIONS = []
 
 If you add a file in ``galleries/gallery_name/index.txt`` its contents will be
@@ -1300,7 +1319,7 @@ The currently available filters are:
       }
 
 minify_lines
-   Strips leading whitespace and blank lines. Useful for compacting HTML but pre-formatted text must be escaped manually.
+   **THIS FILTER HAS BEEN TURNED INTO A NOOP** and currently does nothing. 
 
 yui_compressor
    Compress CSS/JavaScript using `YUI compressor <http://yui.github.io/yuicompressor/>`_
@@ -1456,17 +1475,27 @@ for ``code`` directive are provided: ``code-block`` and ``sourcecode``::
 Listing
 ~~~~~~~
 
-To use this, you have to put your source code files inside ``listings`` or whatever your
-``LISTINGS_FOLDER`` variable is set to. Assuming you have a ``foo.py`` inside that folder::
+To use this, you have to put your source code files inside ``listings`` or whatever folders
+your ``LISTINGS_FOLDERS`` variable is set to fetch files from. Assuming you have a ``foo.py``
+inside one of these folders::
 
     .. listing:: foo.py python
 
 Will include the source code from ``foo.py``, highlight its syntax in python mode,
-and also create a ``listings/foo.py.html`` page and the listing will have a title linking to it.
+and also create a ``listings/foo.py.html`` page (or in another directory, depending on
+``LISTINGS_FOLDER``) and the listing will have a title linking to it.
 
 Listings support the same options `reST includes`__ support (including
 various options for controlling which parts of the file are included), and also
 a ``linenos`` option for Sphinx compatibility.
+
+The ``LISTINGS_FOLDER`` configuration variable allows to specify a list of folders where
+to fetch listings from together with subfolder of the ``output`` folder where the
+processed listings should be put in. The default is, ``LISTINGS_FOLDERS = {'listings': 'listings'}``,
+which means that all source code files in ``listings`` will be taken and stored in ``output/listings``.
+Extending ``LISTINGS_FOLDERS`` to ``{'listings': 'listings', 'code': 'formatted-code'}``
+will additionally process all source code files in ``code`` and put the results into
+``output/formatted-code``.
 
 __ http://docutils.sourceforge.net/docs/ref/rst/directives.html#including-an-external-document-fragment
 
@@ -1489,6 +1518,27 @@ Producing this:
 .. gist:: 2395294
 
 This degrades gracefully if the browser doesn't support JavaScript.
+
+Thumbnails
+~~~~~~~~~~
+
+To include an image placed in the ``images`` folder, use the
+``thumbnail`` directive, like this::
+
+    .. thumbnail:: tesla.jpg
+
+The small thumbnail will be placed in the page, and it will be linked to the bigger
+version of the image when clicked, using
+`colorbox <http://www.jacklmoore.com/colorbox>`_ by default. All options supported by
+the reST `image <http://docutils.sourceforge.net/docs/ref/rst/directives.html#image>`_
+directive are supported (except ``target``). If a body element is provided, the
+thumbnail will mimic the behavior of the
+`figure <http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure>`_
+directive instead::
+
+    .. thumbnail:: tesla.jpg
+
+       Nikola Tesla, the man that invented the 20th century.
 
 Slideshows
 ~~~~~~~~~~
@@ -1637,6 +1687,8 @@ Instead a new file with a timestamp at the end of the filename will be created.
 Using Twitter Cards
 -------------------
 
+Nikola supports Twitter Card summaries, but they are disabled by default.
+
 Twitter Cards enable you to show additional information in Tweets that link
 to you content.
 Nikola supports `Twitter Cards <https://dev.twitter.com/docs/cards>`_.
@@ -1645,23 +1697,24 @@ They are implemented to use *Open Graph* tags whenever possible.
 .. admonition:: Important
 
     To use Twitter Cards you need to opt-in on Twitter.
-    To do so please use the form that can be found at https://dev.twitter.com/form/participate-twitter-cards
+    To do so, please visit https://cards-dev.twitter.com/validator
 
-To enable and configure your use of Twitter Cards please modify the
-corresponding lines in your ``conf.py``.
-An example configuration that uses the Twitter nickname of the website
-and the authors Twitter user ID is found below.
+Images displayed come from the `previewimage` meta tag.
+
+You can specify the card type by using the `card` parameter in TWITTER_CARD.
+
+To enable and configure your use of Twitter Cards, please modify the
+corresponding lines in your ``conf.py``:
 
 .. code-block:: python
 
     TWITTER_CARD = {
-        'use_twitter_cards': True,  # enable Twitter Cards / Open Graph
-        'site': '@website',  # twitter nick for the website
-        # 'site:id': 123456,  # Same as site, but the website's Twitter user ID instead.
-        # 'creator': '@username',  # Username for the content creator / author.
-        'creator:id': 654321,  # Same as creator, but the Twitter user's ID.
+        'use_twitter_cards': True,  # enable Twitter Cards
+        'card': 'summary',          # Card type, you can also use 'summary_large_image',
+                                    # see https://dev.twitter.com/cards/types
+        'site': '@website',         # twitter nick for the website
+        'creator': '@username',     # Username for the content creator / author.
     }
-
 
 Custom Plugins
 --------------
