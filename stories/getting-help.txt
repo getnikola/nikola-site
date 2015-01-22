@@ -15,7 +15,7 @@ Help and Support
 1. A `mailing list`_, nikola-discuss on Google Groups exists.
 2. There is an IRC channel, #nikola on Freenode.  You can find many
    developers and volunteers (users) there which are there to provide
-   help, if they are around and read your message.
+   help, if they are around and read your message. `Logs from IRC`_.
 3. You can also contact `@GetNikola <http://twitter.com/GetNikola>`_ on
    Twitter.
 4. If you are experiencing a bug, [1]_ you should report it on GitHub (see
@@ -70,6 +70,7 @@ Administrators
 .. [2] `administrative matters <http://en.wiktionary.org/wiki/administrativia>`_
 
 .. _mailing list: http://groups.google.com/group/nikola-discuss
+.. _Logs from IRC: https://irclogs.getnikola.com/
 .. _Issue tracker: https://github.com/getnikola/nikola/issues
 .. _plugins issue tracker: https://github.com/getnikola/plugins/issues
 .. _themes issue tracker: https://github.com/getnikola/nikola-themes/issues
