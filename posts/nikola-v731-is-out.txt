@@ -1,0 +1,62 @@
+.. title: Nikola v7.3.1 is out!
+.. slug: nikola-v731-is-out
+.. date: 2015-03-07 08:50:00 UTC
+.. tags: nikola, planet, python, programming, release
+.. link: 
+.. description: Version 7.3.1 of Nikola is out!
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.3.1.  It features some bugfixes and new
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.  It can
+use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+IPython Notebooks into blog posts! It also supports image galleries,
+and is multilingual.  Nikola is flexible, and page builds are
+extremely fast, courtesy of doit (which is rebuilding only what has
+been changed).
+
+Find out more at the website: http://getnikola.com/
+
+Downloads
+=========
+
+Get it on GitHub__ and PyPI__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.3.1
+__ https://pypi.python.org/pypi/Nikola/7.3.1
+
+Changes
+=======
+
+Features
+--------
+
+* Separate new option IMAGE_THUMBNAIL_SIZE for setting size of
+  thumbnails created by scale_images plugin (Issue #1606)
+* Don't create larger thumbnails for panorama images in scale_images
+  (Issue #1606)
+* Added ``root`` path handler (via Issues #1008, #1573)
+* Added RSS feeds to gallery HEAD (part of Issue #786)
+
+Bugfixes
+--------
+
+* Use pyphen properly when there are no dictionaries for this language
+  (Issue #1613)
+* Fix ``nikola deploy`` when there is no cache (Issue #1615)
+* Report issues in scale_images properly (Issue #1598)
+* Correctly read sub-timezones in ``nikola init`` (via Issue #1599)
+* Fix zoneinfo reading in ``nikola init`` (Issue #1599)
+* Fix ``.islink`` detection for galleries (via Issue #1536)
+* Links to languages point to site root and not the blog (Issue #1008)
+* Brand link is now language-specific (Issue #1573)
+* Fixed compatibility with IPython 3.x (Issue #1581)
+* Compilers mark tasks as out of date if compiler-specific options and
+  plugins change (Issue #1523)

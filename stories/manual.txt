@@ -8,7 +8,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.3.0
+:Version: 7.3.1
 
 .. class:: alert alert-info pull-right
 
@@ -305,7 +305,8 @@ Getting Started
 To create posts and pages in Nikola, you write them in one of the supported input formats.
 Those source files are later converted to HTML
 The recommended formats are reStructuredText and Markdown, but there is also support
-for textile and WikiCreole and even for just writing HTML.
+for Textile and WikiCreole and even for just writing HTML.  For more details,
+read  `Configuring other input formats`_.
 
 .. note:: There is a great `quick tutorial to learn reStructuredText. <http://getnikola.com/quickstart.html>`__
 
@@ -439,6 +440,7 @@ but you can use a lot of different markups using the ``-f`` option.
 Currently Nikola supports reStructuredText, Markdown, IPython Notebooks, HTML as input,
 can also use Pandoc for conversion, and has support for BBCode, CreoleWiki, txt2tags, Textile
 and more via `plugins <http://plugins.getnikola.com>`__.
+For more details, read  `Configuring other input formats`_.
 
 You can control what markup compiler is used for each file extension with the ``COMPILERS``
 option. The default configuration expects them to be placed in ``posts`` but that can be
@@ -798,6 +800,24 @@ styles the following types in the default themes:
 | micro           | “small” (short) posts      | big serif font   |
 +-----------------+----------------------------+------------------+
 
+Configuring other input formats
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to use input formats other than reStructuredText, you need some extra
+setup.
+
+1. Make sure you have the compiler for the input format you want.  Some
+   input formats are supported out-of-the-box, but others must be installed from
+   the Plugins repository.  You may also need some extra dependencies.  You
+   will get helpful errors if you try to build when missing something.
+2. You must ensure the compiler and your desired input file extension is included
+   in the ``COMPILERS`` dict and does not conflict with any other format.  This
+   is extremely important for the pandoc compiler.
+3. Finally, you must configure the ``POSTS`` and ``PAGES`` tuples.  Follow the
+   instructions and the format set by pre-existing entries.  Make sure to use
+   the same extension as is set in ``COMPILERS`` and configure the outputs
+   properly.
+
 Creating a Page
 ---------------
 
@@ -1141,8 +1161,8 @@ Nikola supports several third party comment systems:
 * `isso <http://posativ.org/isso/>`_
 
 By default it will use DISQUS, but you can change by setting ``COMMENT_SYSTEM``
-to one of "disqus", "intensedebate", "livefyre", "moot", "googleplus" or
-"facebook"
+to one of "disqus", "intensedebate", "livefyre", "moot", "googleplus",
+"facebook" or "isso"
 
 .. sidebar:: ``COMMENT_SYSTEM_ID``
 
@@ -1251,6 +1271,7 @@ The ``conf.py`` options affecting images and gallery pages are these::
     IMAGE_FOLDERS = {'images': ''}
     # More image/gallery options:
     THUMBNAIL_SIZE = 180
+    IMAGE_THUMBNAIL_SIZE = 400
     MAX_IMAGE_SIZE = 1280
     USE_FILENAME_AS_TITLE = True
     EXTRA_IMAGE_EXTENSIONS = []
@@ -1522,10 +1543,12 @@ This degrades gracefully if the browser doesn't support JavaScript.
 Thumbnails
 ~~~~~~~~~~
 
-To include an image placed in the ``images`` folder, use the
+To include an image placed in the ``images`` folder (or other folders defined in ``IMAGE_FOLDERS``), use the
 ``thumbnail`` directive, like this::
 
-    .. thumbnail:: tesla.jpg
+    .. thumbnail:: ../tesla.jpg
+
+(make sure to check the file paths!)
 
 The small thumbnail will be placed in the page, and it will be linked to the bigger
 version of the image when clicked, using
@@ -1536,7 +1559,7 @@ thumbnail will mimic the behavior of the
 `figure <http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure>`_
 directive instead::
 
-    .. thumbnail:: tesla.jpg
+    .. thumbnail:: ../tesla.jpg
 
        Nikola Tesla, the man that invented the 20th century.
 
@@ -1618,13 +1641,48 @@ with the tag ``nikola``::
    .. post-list::
       :tags: nikola
 
-Note that you can give the ``tags`` option a comma-separated list of tags, in
-which case the list will show all posts that have at least one of those tags.
-Other interesting options include ``start`` (set it to ``1``, for example, to
-show all but the last post); ``reverse`` (set to ``True`` to sort the list in
-chronological order, instead of the default latest-post-first); ``lang``
-(language to use for post titles and links); and ``slugs`` (allows you to filter
-by post slugs, instead of tags).
+The following options are recognized:
+
+* ``start`` : integer
+      The index of the first post to show.
+      A negative value like ``-3`` will show the *last* three posts in the
+      post-list.
+      Defaults to None.
+
+* ``stop`` : integer
+      The index of the last post to show.
+      A value negative value like ``-1`` will show every post, but not the
+      *last* in the post-list.
+      Defaults to None.
+
+* ``reverse`` : flag
+      Reverse the order of the post-list.
+      Defaults is to not reverse the order of posts.
+
+* ``tags`` : string [, string...]
+      Filter posts to show only posts having at least one of the ``tags``.
+
+      Defaults to None.
+
+* ``slugs`` : string [, string...]
+      Filter posts to show only posts having at least one of the ``slugs``.
+      Defaults to None.
+
+* ``all`` : flag
+      Shows all posts and pages in the post list.
+      Defaults to show only posts with set *use_in_feeds*.
+
+* ``lang`` : string
+      The language of post *titles* and *links*.
+      Defaults to default language.
+
+* ``template`` : string
+      The name of an alternative template to render the post-list.
+      Defaults to ``post_list_directive.tmpl``
+
+* ``id`` : string
+      A manual id for the post list.
+      Defaults to a random name composed by ``'post_list_' + uuid.uuid4().hex``.
 
 The post list directive uses the ``post_list_directive.tmpl`` template file (or
 another one, if you use the ``template`` option) to generate the list's HTML. By
