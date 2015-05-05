@@ -8,7 +8,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.3.1
+:Version: 7.4.0
 
 .. class:: alert alert-info pull-right
 
@@ -539,6 +539,9 @@ to your configuration::
        That template needs to either be part of the theme, or be placed in a ``templates/``
        folder inside your site.
 
+    enclosure
+        Add an enclosure to this post when it's used in RSS. See `more information about enclosures <http://en.wikipedia.org/wiki/RSS_enclosure>`__
+
 .. note:: The Two-File Format
 
    Nikola originally used a separate ``.meta`` file. That will still work!
@@ -726,10 +729,11 @@ Drafts
 If you add a "draft" tag to a post, then it will not be shown in indexes and feeds.
 It *will* be compiled, and if you deploy it it *will* be made available, so use
 with care. If you wish your drafts to be not available in your deployed site, you
-can set ``DEPLOY_DRAFTS = False`` in your configuration.
+can set ``DEPLOY_DRAFTS = False`` in your configuration. This will not work if
+lazily include ``nikola build`` in your ``DEPLOY_COMMANDS``.
 
 Also if a post has a date in the future, it will not be shown in indexes until
-you rebuild after that date. This behaviour can be disabled by setting
+you rebuild after that date. This behavior can be disabled by setting
 ``FUTURE_IS_NOW = True`` in your configuration, which will make future posts be
 published immediately.  Posts dated in the future are *not* deployed by default
 (when ``FUTURE_IS_NOW = False``).  To make future posts available in the
@@ -1178,7 +1182,8 @@ to one of "disqus", "intensedebate", "livefyre", "moot", "googleplus",
    * For Facebook, you need to `create an app
      <https://developers.facebook.com/apps>` (turn off sandbox mode!)
      and get an **App ID**
-   * For isso, it is the URL of isso (must be world-accessible and **have a trailing slash**,
+   * For isso, it is the URL of isso (must be world-accessible, encoded with
+     Punycode (if using Internationalized Domain Names) and **have a trailing slash**,
      default ``http://localhost:8080/``)
 
 To use comments in a visible site, you should register with the service and
@@ -1224,7 +1229,7 @@ You can disable comments for a post by adding a "nocomments" metadata field to i
     #639).
 
 An alternative or complement to comments are annotations. Nikola integrates
-the annotation service provided by `AnnotateIt. <annotateit.org>`_
+the annotation service provided by `AnnotateIt. <http://annotateit.org/>`_
 To use it, set the ``ANNOTATIONS`` option to True. This is specially useful
 if you want feedback on specific parts of your writing.
 
@@ -1235,14 +1240,16 @@ Annotations require JQuery and are therefore not supported in the base theme.
 You can check bootstrap theme's ``base.html`` for details on how to handle them in
 custom themes.
 
-Image Galleries
----------------
+Images and Galleries
+--------------------
 
 To create an image gallery, all you have to do is add a folder inside ``galleries``,
 and put images there. Nikola will take care of creating thumbnails, index page, etc.
 
-If you click on images on a gallery, you should see a bigger image, thanks to
-the excellent `colorbox <http://www.jacklmoore.com/colorbox>`_
+If you click on images on a gallery, or on images with links in post, you will
+see a bigger image, thanks to the excellent `colorbox
+<http://www.jacklmoore.com/colorbox>`_.  If don’t want this behavior, add an
+``.islink`` class to your image or link.
 
 The gallery pages are generated using the ``gallery.tmpl`` template, and you can
 customize it there (you could switch to another lightbox instead of colorbox, change
@@ -1262,19 +1269,23 @@ The ``conf.py`` options affecting images and gallery pages are these::
     # "OUTPUT_PATH/relative_destination/gallery_name"
     # Default is:
     GALLERY_FOLDERS = {"galleries": "galleries"}
-    # One or more folders containing images. The format is again a dictionary of
-    # {"source": "relative_destination"}. Images will be scaled down if necessary so
-    # that neither width nor height is greater than MAX_IMAGE_SIZE and copied to
-    # destination folder. A thumbnail will also be created in the same folder with
-    # ``.thumbnail`` inserted in the file name before the file extension
-    # (e.g. ``tesla.thumbnail.jpg``).
-    IMAGE_FOLDERS = {'images': ''}
-    # More image/gallery options:
+    # More gallery options:
     THUMBNAIL_SIZE = 180
-    IMAGE_THUMBNAIL_SIZE = 400
     MAX_IMAGE_SIZE = 1280
     USE_FILENAME_AS_TITLE = True
     EXTRA_IMAGE_EXTENSIONS = []
+
+    # If set to False, it will sort by filename instead. Defaults to True
+    GALLERY_SORT_BY_DATE = True
+
+    # Folders containing images to be used in normal posts or pages. Images will be
+    # scaled down according to IMAGE_THUMBNAIL_SIZE and MAX_IMAGE_SIZE options, but
+    # will have to be referenced manually to be visible on the site
+    # (the thumbnail has ``.thumbnail`` added before the file extension).
+    # The format is a dictionary of {source: relative destination}.
+
+    IMAGE_FOLDERS = {'images': 'images'}
+    IMAGE_THUMBNAIL_SIZE = 400
 
 If you add a file in ``galleries/gallery_name/index.txt`` its contents will be
 converted to HTML and inserted above the images in the gallery page. The
@@ -1327,20 +1338,35 @@ The currently available filters are:
       def yui_compressor(infile):
           return runinplace(r'yui-compressor --nomunge %1 -o %2', infile)
 
-   You can turn any function into a filter using ``apply_to_file``.
+   You can turn any function into a filter using ``apply_to_text_file`` (for
+   text files to be read in UTF-8) and ``apply_to_binary_file`` (for files to
+   be read in binary mode).
+
    As a silly example, this would make everything uppercase and totally break
    your website:
 
    .. code-block:: python
 
       import string
-      from nikola.filters import apply_to_file
+      from nikola.filters import apply_to_text_file
       FILTERS = {
-        ".html": [apply_to_file(string.upper)]
+        ".html": [apply_to_text_file(string.upper)]
       }
 
+html_tidy_nowrap
+   Prettify HTML 5 documents with `tidy5 <http://www.html-tidy.org/>`_
+
+html_tidy_wrap
+   Prettify HTML 5 documents wrapped at 80 characters with `tidy5 <http://www.html-tidy.org/>`_
+
+html_tidy_wrap_attr
+   Prettify HTML 5 documents and wrap lines and attributes with `tidy5 <http://www.html-tidy.org/>`_
+
+html_tidy_mini
+   Minify HTML 5 into smaller documents with `tidy5 <http://www.html-tidy.org/>`_
+
 minify_lines
-   **THIS FILTER HAS BEEN TURNED INTO A NOOP** and currently does nothing. 
+   **THIS FILTER HAS BEEN TURNED INTO A NOOP** and currently does nothing.
 
 yui_compressor
    Compress CSS/JavaScript using `YUI compressor <http://yui.github.io/yuicompressor/>`_
@@ -1431,7 +1457,7 @@ URL of the page.  For example here are two random videos::
 
     .. media:: http://vimeo.com/72425090
 
-    .. youtube:: http://www.youtube.com/watch?v=wyRpAat5oz0
+    .. media:: http://www.youtube.com/watch?v=wyRpAat5oz0
 
 It supports Instagram, Flickr, Github gists, Funny or Die, and dozens more, thanks to `Micawber <https://github.com/coleifer/micawber>`_
 
@@ -1627,6 +1653,13 @@ and it will produce:
 Post List
 ~~~~~~~~~
 
+.. WARNING::
+
+   Any post or page that uses this directive will **never** be considered up-to-date,
+   meaning that every time you build the site, that post/page and everything that
+   depends on it (tag pages, RSS feeds, sitemap, etc.) will be rebuilt.
+
+
 This directive can be used to generate a list of posts. You could use it, for
 example, to make a list of the latest 5 blog posts, or a list of all blog posts
 with the tag ``nikola``::
@@ -1659,6 +1692,10 @@ The following options are recognized:
       Reverse the order of the post-list.
       Defaults is to not reverse the order of posts.
 
+* ``sort``: string
+      Sort post list by one of each post's attributes, usually ``title`` or a
+      custom ``priority``.  Defaults to None (chronological sorting).
+
 * ``tags`` : string [, string...]
       Filter posts to show only posts having at least one of the ``tags``.
 
@@ -1689,6 +1726,11 @@ another one, if you use the ``template`` option) to generate the list's HTML. By
 default, this is an unordered list with dates and clickable post titles. See
 the template file in Nikola's base theme for an example of how this works.
 
+The list may fail to update in some cases, please run ``nikola build -a`` with
+the appropriate path if this happens.
+
+We recommend using stories with dates in the past (1970-01-01) to avoid
+dependency issues.
 
 Importing Your WordPress Site Into Nikola
 -----------------------------------------
