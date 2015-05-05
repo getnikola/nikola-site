@@ -21,10 +21,10 @@ BLOG_AUTHOR = "Your Name"  # (translatable)
 BLOG_TITLE = "Demo Site"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://getnikola.com/"
+SITE_URL = "https://example.com/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
-# BASE_URL = "http://getnikola.com/"
+# BASE_URL = "https://example.com/"
 BLOG_EMAIL = "joe@demo.site"
 BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 
@@ -34,6 +34,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 #
 # en     English
 # ar     Arabic
+# az     Azerbaijani
 # bg     Bulgarian
 # ca     Catalan
 # cs     Czech [ALTERNATIVELY cz]
@@ -46,6 +47,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # eu     Basque
 # fa     Persian
 # fi     Finnish
+# fil    Filipino
 # fr     French
 # hi     Hindi
 # hr     Croatian
@@ -62,8 +64,11 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # sl     Slovene
 # sr     Serbian (Cyrillic)
 # sv     Swedish
+# tl     Tagalog
 # tr     Turkish [NOT tr_TR]
+# uk     Ukrainian
 # ur     Urdu
+# zh_TW  Chinese (Taiwan)
 # zh_cn  Chinese (Simplified)
 #
 # If you want to use Nikola with a non-supported language you have to provide
@@ -293,6 +298,12 @@ WRITE_TAG_CLOUD = True
 #    },
 #}
 
+
+# If you do not want to display a tag publicly, you can mark it as hidden.
+# The tag will not be displayed on the tag list page, the tag cloud and posts.
+# Tag pages will still be generated.
+HIDDEN_TAGS = ['mathjax']
+
 # Only include tags on the tag list/overview page if there are at least
 # TAGLIST_MINIMUM_POSTS number of posts or more with every tag. Every tag
 # page is still generated, linked from posts, and included in the sitemap.
@@ -319,6 +330,11 @@ WRITE_TAG_CLOUD = True
 #        "open source": "My contributions to my many, varied, ever-changing, and eternal libre software projects."
 #    },
 #}
+
+# If you do not want to display a category publicly, you can mark it as hidden.
+# The category will not be displayed on the category list page.
+# Category pages will still be generated.
+HIDDEN_CATEGORIES = []
 
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
@@ -439,7 +455,7 @@ REDIRECTIONS = []
 # side optimization for very high traffic sites or low memory servers.
 # GZIP_FILES = False
 # File extensions that will be compressed
-# GZIP_EXTENSIONS = ('.txt', '.htm', '.html', '.css', '.js', '.json', '.xml')
+# GZIP_EXTENSIONS = ('.txt', '.htm', '.html', '.css', '.js', '.json', '.atom', '.xml')
 # Use an external gzip command? None means no.
 # Example: GZIP_COMMAND = "pigz -k {filename}"
 # GZIP_COMMAND = None
@@ -481,13 +497,13 @@ REDIRECTIONS = []
 # If set to False, it will sort by filename instead. Defaults to True
 # GALLERY_SORT_BY_DATE = True
 #
-# Folders containing images to be used in normal posts or
-# pages. Images will be scaled down according to IMAGE_THUMBNAIL_SIZE
-# and MAX_IMAGE_SIZE options, but will have to be referenced manually
-# to be visible on the site. The format is a dictionary of {source:
-# relative destination}.
-#
-# IMAGE_FOLDERS = {'images': ''}
+# Folders containing images to be used in normal posts or pages. Images will be
+# scaled down according to IMAGE_THUMBNAIL_SIZE and MAX_IMAGE_SIZE options, but
+# will have to be referenced manually to be visible on the site
+# (the thumbnail has ``.thumbnail`` added before the file extension).
+# The format is a dictionary of {source: relative destination}.
+
+IMAGE_FOLDERS = {'images': 'images'}
 # IMAGE_THUMBNAIL_SIZE = 400
 
 # #############################################################################
@@ -539,8 +555,35 @@ REDIRECTIONS = []
 
 # Color scheme to be used for code blocks. If your theme provides
 # "assets/css/code.css" this is ignored.
-# Can be any of autumn borland bw colorful default emacs friendly fruity manni
-# monokai murphy native pastie perldoc rrt tango trac vim vs
+# Can be any of:
+# algol
+# algol_nu
+# arduino
+# autumn
+# borland
+# bw
+# colorful
+# default
+# emacs
+# friendly
+# fruity
+# igor
+# lovelace
+# manni
+# monokai
+# murphy
+# native
+# paraiso_dark
+# paraiso_light
+# pastie
+# perldoc
+# rrt
+# tango
+# trac
+# vim
+# vs
+# xcode
+# This list MAY be incomplete since pygments adds styles every now and then.
 # CODE_COLOR_SCHEME = 'default'
 
 # If you use 'site-reveal' theme you can select several subthemes
@@ -553,12 +596,12 @@ REDIRECTIONS = []
 # You can also use: page/concave/linear/none/default
 
 # FAVICONS contains (name, file, size) tuples.
-# Used for create favicon link like this:
+# Used to create favicon link like this:
 # <link rel="name" href="file" sizes="size"/>
-# FAVICONS = {
+# FAVICONS = (
 #     ("icon", "/favicon.ico", "16x16"),
 #     ("icon", "/icon_128x128.png", "128x128"),
-# }
+# )
 
 # Show only teasers in the index pages? Defaults to False.
 # INDEX_TEASERS = False
@@ -580,10 +623,14 @@ INDEX_READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
 # 'Read more...' for the RSS_FEED, if RSS_TEASERS is True (translatable)
 RSS_READ_MORE_LINK = '<p><a href="{link}">{read_more}…</a> ({min_remaining_read})</p>'
 
-# Append a URL query to the RSS_READ_MORE_LINK and the //rss/item/link in
-# RSS feeds. Minimum example for Piwik "pk_campaign=rss" and Google Analytics
-# "utm_source=rss&utm_medium=rss&utm_campaign=rss". Advanced option used for
-# traffic source tracking.
+# Append a URL query to the RSS_READ_MORE_LINK in Atom and RSS feeds. Advanced
+# option used for traffic source tracking.
+# Minimum example for use with Piwik: "pk_campaign=feed"
+# The following tags exist and are replaced for you:
+# {feedRelUri}                  A relative link to the feed.
+# {feedFormat}                  The name of the syndication format.
+# Example using replacement for use with Google Analytics:
+# "utm_source={feedRelUri}&utm_medium=nikola_feed&utm_campaign={feedFormat}_feed"
 RSS_LINKS_APPEND_QUERY = False
 
 # A HTML fragment describing the license, for the sidebar.
@@ -742,7 +789,8 @@ COMMENT_SYSTEM_ID = "nikolademo"
 # PANDOC_OPTIONS = []
 
 # Social buttons. This is sample code for AddThis (which was the default for a
-# long time). Insert anything you want here, or even make it empty.
+# long time). Insert anything you want here, or even make it empty (which is
+# the default right now)
 # (translatable)
 # SOCIAL_BUTTONS_CODE = """
 # <!-- Social buttons -->
@@ -773,12 +821,21 @@ COMMENT_SYSTEM_ID = "nikolademo"
 # links to it.  Set this to False to disable everything RSS-related.
 # GENERATE_RSS = True
 
+# By default, Nikola does not generates Atom files for indexes and links to
+# them. Generate Atom for tags by setting TAG_PAGES_ARE_INDEXES to True.
+# Atom feeds are built based on INDEX_DISPLAY_POST_COUNT and not FEED_LENGTH
+# Switch between plain-text summaries and full HTML content using the
+# RSS_TEASER option. RSS_LINKS_APPEND_QUERY is also respected. Atom feeds
+# are generated even for old indexes and have pagination link relations
+# between each other. Old Atom feeds with no changes are marked as archived.
+# GENERATE_ATOM = False
+
 # RSS_LINK is a HTML fragment to link the RSS or Atom feeds. If set to None,
 # the base.tmpl will use the feed Nikola generates. However, you may want to
 # change it for a FeedBurner feed or something else.
 # RSS_LINK = None
 
-# Show only teasers in the RSS feed? Default to True
+# Show only teasers in the RSS and Atom feeds? Default to True
 # RSS_TEASERS = True
 
 # Strip HTML in the RSS feed? Default to False
