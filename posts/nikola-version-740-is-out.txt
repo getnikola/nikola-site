@@ -24,7 +24,7 @@ Features
 
 * Substitutions for RSS_LINKS_APPEND_QUERY for identifying
   the source feed (feedRelUri) and  the kind of feed (feedFormat).
-* New option GENERATE_ATOM, off by default
+* New option GENERATE_ATOM, off by default – `learn more about Atom feeds in Nikola`__
 * Current and archive Atom feeds for indexes; category, tag, and archive indexes (RFC-4287 and RFC-5005)
 * Atom feed auto-discovery in HTML indexes and category/tag indexes
 * .atom included in the sitemap index
@@ -75,3 +75,5 @@ Bugfixes
 * Fix code.css bundling in Windows
 * Listings in posts now work in Windows (Issue #1631)
 * Add 20 seconds to reading time per embedded media
+
+__ https://www.aeyoun.com/posts/nikola-atom-feeds.html
