@@ -108,7 +108,7 @@ WRITE_TAG_CLOUD = True
 
 # Data about this site
 BLOG_TITLE = "Nikola"
-BLOG_URL = "http://getnikola.com/"
+SITE_URL = "http://getnikola.com/"
 BLOG_EMAIL = "info@getnikola.com"
 BLOG_DESCRIPTION = "A blog about Nikola, the static website generator."
 BLOG_AUTHOR = "Roberto Alsina"

@@ -1,0 +1,77 @@
+.. title: Nikola version 7.4.0 is out!
+.. slug: nikola-version-740-is-out
+.. date: 2015-05-05 14:44:38 UTC
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate availability of Nikola v7.4.0.  It features some bugfixes and new features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.  It can use Mako and Jinja2 templates, and input in many popular markup formats, such as reStructuredText and Markdown — and can even turn IPython Notebooks into blog posts! It also supports image galleries, and is multilingual.  Nikola is flexible, and page builds are extremely fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: http://getnikola.com/
+
+Changes
+=======
+
+Features
+--------
+
+* Substitutions for RSS_LINKS_APPEND_QUERY for identifying
+  the source feed (feedRelUri) and  the kind of feed (feedFormat).
+* New option GENERATE_ATOM, off by default
+* Current and archive Atom feeds for indexes; category, tag, and archive indexes (RFC-4287 and RFC-5005)
+* Atom feed auto-discovery in HTML indexes and category/tag indexes
+* .atom included in the sitemap index
+* New post metadata "updated", inherits "date" if unset
+* Allow IPv6 in `nikola auto` (Issue #1682)
+* Allow IPv6 in `nikola serve` (Issue #1682)
+* Set default new site URL to https://example.com/
+* Plugins can manipulate task dependencies (Issue #1679)
+* LINK_CHECK_WHITELIST now works with output relative and full fs paths
+* Four new filters: html_tidy_nowrap, html_tidy_wrap, html_tidy_wrap_attr,
+  and html_tidy_mini for prettification and minification. Requires tidy5.
+* Multilingual sitemaps (Issue #1610)
+* Compatibility with doit v0.28.0 (Issue #1655)
+* AddThis is no longer added by default to users’ sites
+* New translations (az, fil, tl, uk, zh_TW)
+* Add reStructuredText transform support (Issue #1647)
+* Produce Unicode output in ``nikola init`` (via Issue #1644)
+* Add ``HIDDEN_TAGS`` and ``HIDDEN_CATEGORIES`` settings to hide some
+  tags and categories (eg. ``mathjax``) from view (Issue #1640)
+* Instruct browsers to prefetch newest post when visiting the front page
+* Add a ``sort`` parameter to the post-list directive to sort posts in
+  the list using natsort. (Issue #1635)
+
+Bugfixes
+--------
+
+* Make ``.islink`` work properly (via Issue #1536)
+* RSS_LINKS_APPEND_QUERY not working in RSS feeds for tags
+* `nikola check -l` didn’t scan posts
+* Don’t use sets for ``FAVICONS`` (Issue #1674)
+* Posts/Pages that use post-list will never be up to date (Issue #1671)
+* Support using post.text() in post_list_directive.tmpl (Issue #1671)
+* Avoid recursive dep when using post-list in a post (Issue #1671)
+* Encode IDNs to Punycode in ``nikola init`` and in links;
+  show an error if the site URL is not Punycode (Issue #1644)
+* Make ``images`` the default output directory for IMAGE_FOLDERS
+  (Issue #1663)
+* Don't default to any swatch in bootswatch_theme (Issue #1656)
+* Fix ``nikola check -l`` for absolute and full-path URL styles
+  (Issue #1650)
+* Really add missing trailing slashes in ``BASE_URL`` (Issue #1651)
+* Check if files exists before adding them as post-list dependencies
+  (Issue #1646)
+* Fix build command in ``nikola auto`` (Issue #1641)
+* Update Bootstrap to v3.3.4
+* Update jquery-colorbox
+* Fix symlinks for moment.js in Windows
+* Fix code.css bundling in Windows
+* Listings in posts now work in Windows (Issue #1631)
+* Add 20 seconds to reading time per embedded media
