@@ -103,7 +103,7 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 # This is a dict.  The keys are languages, and values are tuples.
 #
 # For regular links:
-#     ('http://getnikola.com/', 'Nikola Homepage')
+#     ('https://getnikola.com/', 'Nikola Homepage')
 #
 # For submenus:
 #     (
@@ -442,7 +442,7 @@ REDIRECTIONS = []
 # Nikola’s templates. All other filters must be enabled through FILTERS.
 #
 # Many filters are shipped with Nikola. A list is available in the manual:
-# <http://getnikola.com/handbook.html#post-processing-filters>
+# <https://getnikola.com/handbook.html#post-processing-filters>
 #
 # from nikola import filters
 # FILTERS = {
@@ -646,7 +646,7 @@ LICENSE = ""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         {license}'
+CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         {license}'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
