@@ -29,8 +29,8 @@ Downloads
 
 Get it on GitHub__ and PyPI__.
 
-__ https://github.com/getnikola/nikola/releases/tag/v7.3.1
-__ https://pypi.python.org/pypi/Nikola/7.3.1
+__ https://github.com/getnikola/nikola/releases/tag/v7.4.1
+__ https://pypi.python.org/pypi/Nikola/7.4.1
 
 Changes
 =======
