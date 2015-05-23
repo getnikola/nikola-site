@@ -3,7 +3,7 @@ The Nikola website
 
 This is the Nikola website.
 
-Live page: <http://getnikola.com/>
+Live page: <https://getnikola.com/>
 
 Update instructions (for maintainers)
 -------------------------------------

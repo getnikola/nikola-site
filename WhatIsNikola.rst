@@ -15,4 +15,4 @@ and is multilingual.  Nikola is flexible, and page builds are
 extremely fast, courtesy of doit (which is rebuilding only what has
 been changed).
 
-Find out more at the website: http://getnikola.com/
+Find out more at the website: https://getnikola.com/

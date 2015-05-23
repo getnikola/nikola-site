@@ -79,7 +79,7 @@ INPUT_FORMAT = "rest"
 # If you don't need any of these, just set to []
 
 REDIRECTIONS = [('creating-a-site.html', 'creating-a-site-not-a-blog-with-nikola.html'),
-                ('some-sites-using-nikola.html', 'http://users.getnikola.com/')]
+                ('some-sites-using-nikola.html', 'https://users.getnikola.com/')]
 
 # Commands to execute to deploy. Can be anything, for example,
 # you may use rsync:
@@ -182,9 +182,9 @@ NAVIGATION_LINKS = {
         ('/documentation.html', 'Documentation'),
         ('/contact.html', 'Help/Bugs/Contact'),
         ('https://github.com/getnikola/nikola', 'GitHub'),
-        ('http://themes.getnikola.com', 'Themes'),
-        ('http://plugins.getnikola.com', 'Plugins'),
-        ('http://users.getnikola.com', 'Users'),
+        ('https://themes.getnikola.com', 'Themes'),
+        ('https://plugins.getnikola.com', 'Plugins'),
+        ('https://users.getnikola.com', 'Users'),
         ('/blog/index.html', 'Blog'),
         ('/changes.html', 'Changelog'),
         )
