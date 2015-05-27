@@ -22,7 +22,7 @@ You can read more about this in the `Nikola Handbook </handbook.html#why-static>
 
    <a class="btn btn-danger btn-lg" href="https://github.com/getnikola/nikola/releases/latest"><i class="glyphicon glyphicon-download-alt"></i> Get Nikola (v7.4.1)</a>
 
-.. class:: col-md-4
+.. class:: col-md-6
 
 What Can Nikola Do?
 -------------------
@@ -75,8 +75,4 @@ It has many features, but here are some of the nicer ones:
 
 .. raw:: html
 
-   </div>
-
-   <div class="col-md-2">
-   <script data-gittip-username="GetNikola" src="//gttp.co/v1.js"></script>
    </div>
