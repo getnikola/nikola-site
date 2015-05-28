@@ -66,7 +66,7 @@ Why start from that instead of from a clean slate? Because theme inheritance is 
 that's why. If you start from scratch you won't be able to build **anything** until you have a bunch of
 templates written. Starting from base, you just need to hack on the things you **need** to change.
 
-First, we create a site with some content in it::
+First, we create a site with some content in it. We’ll use the ``nikola init`` wizard (with the ``--demo`` option) for that::
 
     $ nikola init --demo lanyon-port
     Creating Nikola Site
