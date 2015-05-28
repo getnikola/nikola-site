@@ -739,6 +739,11 @@ And then we can put the options in conf.py's ``GLOBAL_CONTEXT``:
 
 Doing the same for layout-reverse, sidebar-overlay and the rest is left as an excercise for the reader.
 
+Bundles
+-------
+
+I promised to get to bundles. Sadly I ran out of steam. To be done soon.
+
 The End
 -------
 
