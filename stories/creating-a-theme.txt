@@ -115,7 +115,8 @@ Edit conf.py and set ``THEME = 'lanyon'``. Also set ``USE_BUNDLES = False`` (jus
 
 You can now build that site using ``nikola build`` and it will look like this:
 
-.. figure:: /images/lanyon-0.png
+.. figure:: /images/lanyon-0.thumbnail.png
+   :target: /images/lanyon-0.png
 
    This is just the base theme.
 
@@ -148,7 +149,7 @@ First let's look at the head element:
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
     <!-- Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.thumbnail.png">
     <link rel="shortcut icon" href="/public/favicon.ico">
 
     <!-- RSS -->
@@ -247,7 +248,8 @@ And we will change it so it uses the lanyon styles instead of theme.css (again, 
         %endif
     </%def>
 
-.. figure:: /images/lanyon-1.png
+.. figure:: /images/lanyon-1.thumbnail.png
+   :target: /images/lanyon-1.png
 
    You may say this looks like crap. Don't worry, we are just starting :-)
 
@@ -379,7 +381,8 @@ So, first, lets change that base template to be more lanyon-like:
     </body>
     </html>
 
-.. figure:: /images/lanyon-2.png
+.. figure:: /images/lanyon-2.thumbnail.png
+   :target: /images/lanyon-2.png
 
    And that's after I exposed the sidebar by clicking on an invisible widget!
 
@@ -418,7 +421,8 @@ Another problem is that the contents of the nav element are wrong. They are not 
 
 **Note: this means this theme will not support submenus in navigation. If you want that, I'll happily take a patch.**
 
-.. figure:: /images/lanyon-3.png
+.. figure:: /images/lanyon-3.thumbnail.png
+   :target: /images/lanyon-3.png
 
    Starting to see a resemblance?
 
@@ -479,7 +483,8 @@ and at the bottom a label for the sidebar's toggle. Easy to do in ``base.tmpl`` 
     </body>
     </html>
 
-.. figure:: /images/lanyon-4.png
+.. figure:: /images/lanyon-4.thumbnail.png
+   :target: /images/lanyon-4.png
 
    Getting there!
 
@@ -532,7 +537,8 @@ Also, the accessibility link on top is visible when it should not. That's becaus
             clip: auto;
     }
 
-.. figure:: /images/lanyon-5.png
+.. figure:: /images/lanyon-5.thumbnail.png
+   :target: /images/lanyon-5.png
 
    Little by little, things look better.
 
@@ -675,7 +681,8 @@ Some of the typography problems were caused by loading ``lanyon.css`` and ``pool
 
 With these changes, it looks ... similar?
 
-.. figure:: /images/lanyon-6.png
+.. figure:: /images/lanyon-6.thumbnail.png
+   :target: /images/lanyon-6.png
 
    It does!
 
@@ -733,7 +740,8 @@ And then we can put the options in conf.py's ``GLOBAL_CONTEXT``:
         "lanyon_subtheme": "theme-base-08"
     }
 
-.. figure:: /images/lanyon-7.png
+.. figure:: /images/lanyon-7.thumbnail.png
+   :target: /images/lanyon-7.png
 
    Look at it, all themed up.
 
@@ -749,4 +757,4 @@ The End
 
 And that's it, that's a whole theme. Eventually, once people start using it, they will notice small broken details, which will need handling one at a time.
 
-This theme should be available in http://themes.getnikola.com#lanyon
+This theme should be available in http://themes.getnikola.com#lanyon and you can see it in action at https://themes.getnikola.com/v7/lanyon/index.html
