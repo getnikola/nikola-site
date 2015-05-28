@@ -205,7 +205,7 @@ That file is a **template** used to generate parts of the pages. It's large and 
 
 The part we want to change is this:
 
-.. code:: mako
+.. code:: html+mako
 
     <%def name="html_stylesheets()">
         %if use_bundles:
@@ -226,7 +226,7 @@ The part we want to change is this:
 
 And we will change it so it uses the lanyon styles instead of theme.css (again, ignore the bundles for now!):
 
-.. code:: mako
+.. code:: html+mako
 
     <%def name="html_stylesheets()">
         %if use_bundles:
@@ -299,12 +299,12 @@ If we look for the equivalent code in Nikola's side, we see this:
 So Nikola has the "masthead" above the nav element, and uses list elements in nav instead of bare links.
 Not all that different is it?
 
-Let's make it lanyon-like! We will need 2 more templates: `base.tmpl <https://github.com/getnikola/nikola/blob/master/nikola/data/themes/base/templates/base.tmpl>`__ and `base_header.tmpl`<https://github.com/getnikola/nikola/blob/master/nikola/data/themes/base/templates/base_header.tmpl>`__. Get them and put them in your ``themes/lanyon/templates`` folder.
+Let's make it lanyon-like! We will need 2 more templates: `base.tmpl <https://github.com/getnikola/nikola/blob/master/nikola/data/themes/base/templates/base.tmpl>`__ and `base_header.tmpl <https://github.com/getnikola/nikola/blob/master/nikola/data/themes/base/templates/base_header.tmpl>`__. Get them and put them in your ``themes/lanyon/templates`` folder.
 
 Let's look at ``base.tmpl`` first. It's short and nice, it looks like a webpage without
 all the interesting stuff:
 
-.. code:: mako
+.. code:: html+mako
 
     ## -*- coding: utf-8 -*-
     <%namespace name="base" file="base_helper.tmpl" import="*"/>
@@ -340,7 +340,7 @@ by the ``html_navigation_links`` function out of the ``NAVIGATION_LINKS`` option
 
 So, first, lets change that base template to be more lanyon-like:
 
-.. code:: mako
+.. code:: html+mako
 
     ## -*- coding: utf-8 -*-
     <%namespace name="base" file="base_helper.tmpl" import="*"/>
@@ -404,7 +404,7 @@ feature of your web browser is your best friend for these situations.
 Another problem is that the contents of the nav element are wrong. They are not bare links. We will fix that in
 ``base_header.html``, like this:
 
-.. code:: mako
+.. code:: html+mako
 
     <%def name="html_navigation_links()">
         <nav id="menu" role="navigation" class="sidebar-nav">
@@ -453,7 +453,7 @@ Now let's look at the content. In Lanyon, this is how the "main" content looks:
 Everything inside the "container content" div is ...  the content. The rest is a masthead with the site title
 and at the bottom a label for the sidebar's toggle. Easy to do in ``base.tmpl`` (only showing relevant part):
 
-.. code:: mako
+.. code:: html+mako
 
         <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
             content to avoid any CSS collisions with our real content. -->
@@ -539,7 +539,7 @@ Also, the accessibility link on top is visible when it should not. That's becaus
 One clear problem is that the title "Lanyon A Jekyll theme" is set in the theme itself. We don't do that sort of things
 in Nikola, we have settings for that. So, let's use it. There is a ``html_site_title`` function in ``base_helper.tmpl`` which is just the thing. So we change base.tmpl to use it:
 
-.. code:: mako
+.. code:: html+mako
 
     <div class="wrap">
       <div class="masthead">
@@ -576,7 +576,7 @@ Versus our port:
 
 So, it looks like we will have to fix ``html_site_title`` after all:
 
-.. code:: mako
+.. code:: html+mako
 
     <%def name="html_site_title()">
         <h3 id="brand" class="masthead-title">
@@ -589,7 +589,7 @@ As for the actual content, that's not in any of the templates we have seen so fa
 things in the way the Lanyon CSS expects it to. Here's the original, which you can find in Nikola's source
 code:
 
-.. code:: mako
+.. code:: html+mako
 
     ## -*- coding: utf-8 -*-
     <%namespace name="helper" file="index_helper.tmpl"/>
@@ -638,7 +638,7 @@ code:
 And this is how it looks after I played with it for a while, making it generate code that looks closer to
 the Lanyon original:
 
-.. code:: mako
+.. code:: html+mako
 
     <%block name="content">
     <%block name="content_header"></%block>
@@ -681,7 +681,7 @@ With these changes, it looks ... similar?
 
 Similar changes (basically adding classnames to elements) needed to be done in ``post_header.tmpl``:
 
-.. code:: mako
+.. code:: html+mako
 
     <%def name="html_post_header()">
         <header>
@@ -717,7 +717,7 @@ Let's see the color schemes first. They apply easily, just tweak your ``body`` e
 
 We can tweak ``base.tmpl`` to do just that:
 
-.. code:: mako
+.. code:: html+mako
 
     % if lanyon_subtheme:
     <body class="${lanyon_subtheme}">
