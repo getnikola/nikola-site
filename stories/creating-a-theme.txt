@@ -196,6 +196,8 @@ Notice we renamed ``syntax.css`` as ``code.css``? That's because Nikola handles 
 in a particular way, because we have a setting called ``CODE_COLOR_SCHEME`` where you can configure
 what color scheme the syntax highlighter uses. Having your own ``assets/css/code.css`` just makes it work.
 
+**FIXME:** The syntax highlighting is broken, needs fixing.
+
 But how do I tell **our** lanyon theme to use those CSS files instead of whatever it's using now?
 By giving our theme its own base_helper.tmpl
 
@@ -512,7 +514,7 @@ The sidebar looks bad because of yet more CSS conflicts with rst.css. By adding 
             transition: all .3s ease-in-out;
     }
 
-Also, the accessibility link on top is visible when it should not. That's because we removed "theme.css" from the base theme, and with it, we lost a cople of classes. We can add them in lanyon.css:
+Also, the accessibility link on top is visible when it should not. That's because we removed "theme.css" from the base theme, and with it, we lost a couple of classes. We can add them in lanyon.css:
 
 .. code:: css
 
