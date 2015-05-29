@@ -1,0 +1,22 @@
+.. title: New Theming Tutorial
+.. slug: new-theming-tutorial
+.. date: 2015-05-29 01:35:30 UTC
+.. tags:
+.. category:
+.. link:
+.. description:
+.. type: text
+
+I wrote a new theming tutorial for `Nikola (a static website generator!) <http://getnikola.com>`__ which
+focuses in porting the awesome `Lanyon <http://lanyon.getpoole.com/>`__ theme from Jekyll.
+
+You can `see more information about the theme, <https://themes.getnikola.com/#lanyon>`__ `read the tutorial <https://getnikola.com/creating-a-theme.html>`__ or see `how the theme looks in action. <https://themes.getnikola.com/v7/lanyon/index.html>`__
+
+Hopefully this will encourage users to create and share more themes!
+
+.. figure:: https://themes.getnikola.com/v7/lanyon.jpg
+   :width: 50%
+
+   The Lanyon Jekyll theme, ported to Nikola
+
+
