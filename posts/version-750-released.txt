@@ -1,0 +1,59 @@
+.. title: Version 7.5.0 Released
+.. slug: version-750-released
+.. date: 2015-06-08 15:07:14 UTC
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.5.0.  It features several bugfixes and features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.  It can
+use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+IPython Notebooks into blog posts! It also supports image galleries,
+and is multilingual.  Nikola is flexible, and page builds are
+extremely fast, courtesy of doit (which is rebuilding only what has
+been changed).
+
+Find out more at the website: http://getnikola.com/
+
+Changes
+=======
+
+Features
+--------
+
+* Make default themes more accessible (Issue #377)
+* Add ipython support to the default themes (Issue #1782)
+* Automatically mark ipynb posts/pages as requiring mathjax (Issue #1782)
+* New --get-path option for ``nikola install_theme`` (Issue #1762)
+* New `nikola rst2html` command (Issue #1710)
+* New `nikola status` command (Issue #1740)
+* Support [code] in wordpress importers (Issue #1186)
+* Cleaner formatting of HTML output
+* Allowing category hierarchies via new option CATEGORY_ALLOW_HIERARCHIES
+  (Issue #1520)
+
+Bugfixes
+--------
+
+* Dropped empty languages (fil, tl, zh_TW)
+* Extract ``nikola check`` target list from actual task list instead of parsing (Issue #1758)
+* Treat special-purpose “draft” tag case-insensitive
+* Avoid some rebuild loops (Issue #1747)
+* Better error if two posts/pages output conflict (Issue #1749)
+* Scanning of posts refactored out of core (Issue #1700)
+* github_deploy records lastdeploy timestamp like regular deploy
+* Use a global directory for gallery images, ignoring translations (Issue #1726)
+* The post-list directive only triggers rebuilds if timeline changes (Issue #1688)
+* Don’t check the same remote URL more than once (Issue #1732)
+* All remotely checked links resulted in incorrect warnings (`nikola check -lr`)
+* Exclude `<meta content="noindex" name="robots">` from sitemaps
+* new_post paths are now relative to CWD (Issue #1325)
+
