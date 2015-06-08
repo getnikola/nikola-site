@@ -47,7 +47,6 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # eu     Basque
 # fa     Persian
 # fi     Finnish
-# fil    Filipino
 # fr     French
 # hi     Hindi
 # hr     Croatian
@@ -64,11 +63,9 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # sl     Slovene
 # sr     Serbian (Cyrillic)
 # sv     Swedish
-# tl     Tagalog
 # tr     Turkish [NOT tr_TR]
 # uk     Ukrainian
 # ur     Urdu
-# zh_TW  Chinese (Taiwan)
 # zh_cn  Chinese (Simplified)
 #
 # If you want to use Nikola with a non-supported language you have to provide
@@ -316,6 +313,16 @@ HIDDEN_TAGS = ['mathjax']
 # output / TRANSLATION[lang] / CATEGORY_PATH / CATEGORY_PREFIX category.xml (RSS feed for a category)
 # CATEGORY_PATH = "categories"
 # CATEGORY_PREFIX = "cat_"
+
+# If CATEGORY_ALLOW_HIERARCHIES is set to True, categories can be organized in
+# hierarchies. For a post, the whole path in the hierarchy must be specified,
+# using a forward slash ('/') to separate paths. Use a backslash ('\') to escape
+# a forward slash or a backslash (i.e. '\//\\' is a path specifying the
+# subcategory called '\' of the top-level category called '/').
+# CATEGORY_ALLOW_HIERARCHIES = False
+# If CATEGORY_OUTPUT_FLAT_HIERARCHY is set to True, the output written to output
+# contains only the name of the leaf category and not the whole path.
+# CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 
 # If CATEGORY_PAGES_ARE_INDEXES is set to True, each category's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
@@ -781,7 +788,8 @@ COMMENT_SYSTEM_ID = "nikolademo"
 # done in the code, hope you don't mind ;-)
 # Note: most Nikola-specific extensions are done via the Nikola plugin system,
 #       with the MarkdownExtension class and should not be added here.
-# MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']
+# The default is ['fenced_code', 'codehilite']
+MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extras']
 
 # Extra options to pass to the pandoc comand.
 # by default, it's empty, is a list of strings, for example

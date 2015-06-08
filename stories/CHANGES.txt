@@ -1,3 +1,37 @@
+New in v7.5.0
+=============
+
+Features
+--------
+
+* Make default themes more accessible (Issue #377)
+* Add ipython support to the default themes (Issue #1782)
+* Automatically mark ipynb posts/pages as requiring mathjax (Issue #1782)
+* New --get-path option for ``nikola install_theme`` (Issue #1762)
+* New `nikola rst2html` command (Issue #1710)
+* New `nikola status` command (Issue #1740)
+* Support [code] in wordpress importers (Issue #1186)
+* Cleaner formatting of HTML output
+* Allowing category hierarchies via new option CATEGORY_ALLOW_HIERARCHIES
+  (Issue #1520)
+
+Bugfixes
+--------
+
+* Dropped empty languages (fil, tl, zh_TW)
+* Extract ``nikola check`` target list from actual task list instead of parsing (Issue #1758)
+* Treat special-purpose “draft” tag case-insensitive
+* Avoid some rebuild loops (Issue #1747)
+* Better error if two posts/pages output conflict (Issue #1749)
+* Scanning of posts refactored out of core (Issue #1700)
+* github_deploy records lastdeploy timestamp like regular deploy
+* Use a global directory for gallery images, ignoring translations (Issue #1726)
+* The post-list directive only triggers rebuilds if timeline changes (Issue #1688)
+* Don’t check the same remote URL more than once (Issue #1732)
+* All remotely checked links resulted in incorrect warnings (`nikola check -lr`)
+* Exclude `<meta content="noindex" name="robots">` from sitemaps
+* new_post paths are now relative to CWD (Issue #1325)
+
 New in v7.4.1
 =============
 
