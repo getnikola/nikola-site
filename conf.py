@@ -113,7 +113,7 @@ BLOG_EMAIL = "info@getnikola.com"
 BLOG_DESCRIPTION = "A blog about Nikola, the static website generator."
 BLOG_AUTHOR = "Roberto Alsina"
 
-THEME = 'custom'
+THEME = 'cerulean'
 
 # A HTML fragment describing the license, for the sidebar.
 # I recomment using Creative Commons' wizard: http://creativecommons.org/choose/
