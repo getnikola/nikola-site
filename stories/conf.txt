@@ -1,9 +1,9 @@
-.. title: Nikola v7.5.0 configuration file
+.. title: Nikola v7.5.1 configuration file
 .. slug: conf
 .. date: 2014-11-08 18:51:30 UTC
 .. description: The Nikola configuration file.
 .. type: text
 
-The default config file for Nikola v7.5.0 is reproduced below.
+The default config file for Nikola v7.5.1 is reproduced below.
 
 .. listing:: conf.py python

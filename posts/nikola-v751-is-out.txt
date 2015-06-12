@@ -1,0 +1,57 @@
+.. title: Nikola v7.5.1 is out!
+.. slug: nikola-v751-is-out
+.. date: 2015-06-12 15:36:45 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. author: Chris Warrick
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.5.1.  It features some bugfixes and new
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.  It can
+use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+IPython Notebooks into blog posts! It also supports image galleries,
+and is multilingual.  Nikola is flexible, and page builds are
+extremely fast, courtesy of doit (which is rebuilding only what has
+been changed).
+
+Find out more at the website: http://getnikola.com/
+
+Downloads
+=========
+
+Get it on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.5.1
+__ https://pypi.python.org/pypi/Nikola/7.5.1
+
+Changes
+=======
+
+Features
+--------
+
+* Suggest misspelled commands (Issue #1807)
+* New implementation of the ``nikola auto`` command.
+* ``requests`` is now required for all Nikola sites
+* New ``nikola version --check`` option (Issue #1767)
+
+Bugfixes
+--------
+
+* Support pure markdown posts in WP import (Issue #484)
+* Make auto shutdown with ctrl-c (Issue #1811)
+* Log properly in ``nikola auto`` (Issue #1812)
+* Handle rare gettz failure (Issue #1806)
+* Handle missing dependencies better in auto plugin (Issues #1803, #1809)
+* IDNA mixing unicode/bytes in python 3 (Issue #1802)
+* Cleaner splitting of metadata in onefile posts (Issue #973)
+* It's markdown extra, not extras (Issue #1799)

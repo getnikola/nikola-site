@@ -1,3 +1,26 @@
+New in v7.5.1
+=============
+
+Features
+--------
+
+* Suggest misspelled commands (Issue #1807)
+* New implementation of the ``nikola auto`` command.
+* ``requests`` is now required for all Nikola sites
+* New ``nikola version --check`` option (Issue #1767)
+
+Bugfixes
+--------
+
+* Support pure markdown posts in WP import (Issue #484)
+* Make auto shutdown with ctrl-c (Issue #1811)
+* Log properly in ``nikola auto`` (Issue #1812)
+* Handle rare gettz failure (Issue #1806)
+* Handle missing dependencies better in auto plugin (Issues #1803, #1809)
+* IDNA mixing unicode/bytes in python 3 (Issue #1802)
+* Cleaner splitting of metadata in onefile posts (Issue #973)
+* It's markdown extra, not extras (Issue #1799)
+
 New in v7.5.0
 =============
 
