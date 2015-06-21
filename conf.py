@@ -180,7 +180,7 @@ SOCIAL_BUTTONS_CODE = ''
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/documentation.html', 'Documentation'),
-        ('/contact.html', 'Help/Bugs/Contact'),
+        ('/contact.html', 'Support/Contact'),
         ('https://github.com/getnikola/nikola', 'GitHub'),
         ('https://themes.getnikola.com', 'Themes'),
         ('https://plugins.getnikola.com', 'Plugins'),
