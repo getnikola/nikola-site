@@ -179,8 +179,27 @@ SOCIAL_BUTTONS_CODE = ''
 # Locale-dependent links for the sidebar
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ('/documentation.html', 'Documentation'),
-        ('/contact.html', 'Support & Contact'),
+        (
+            (
+                ('/documentation.html', '<strong>Documentation Index</strong>'),
+                ('/handbook.html', '<strong>Handbook</strong>'),
+                ('/conf.html', 'conf.py'),
+                ('/creating-a-theme.html', 'Theming Tutorial'),
+                ('/extending.html', 'Extending'),
+                ('/internals.html', 'Internals'),
+                ('/creating-a-site-not-a-blog-with-nikola.html', 'Creating a Site (Not a Blog)')
+            ),
+            'Documentation',
+        ),
+        (
+            (
+                ('https://github.com/getnikola/nikola/issues', 'Issue Tracker'),
+                ('https://groups.google.com/group/nikola-discuss', 'Mailing List'),
+                ('https://twitter.com/GetNikola', 'Twitter'),
+                ('/contact.html', '<strong>All support options</strong>'),
+            ),
+            'Support & Contact'
+        ),
         ('https://github.com/getnikola/nikola', 'GitHub'),
         ('https://themes.getnikola.com', 'Themes'),
         ('https://plugins.getnikola.com', 'Plugins'),
