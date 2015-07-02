@@ -1,0 +1,80 @@
+.. title: Nikola v7.6.0 is out!
+.. slug: nikola-v760-is-out
+.. date: 2015-07-02 12:11:48 UTC
+.. tags: nikola, planet, python, programming, release
+.. author: Chris Warrick
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.6.0. It fixes some bugs and adds new
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Key Changes since v7.5.1
+========================
+
+* ``nikola auto`` fixed for Python 3 and while rebuilding
+* ``nikola auto`` now uses watchdog and supports **Windows**
+* Support for Jupyter Notebooks: you can now use non-Python ``.ipynb``
+  files with Nikola (``ipynb@KERNEL`` to pick a kernel)
+* Added ``nikola new_post -F`` to list available compilers
+* Better print CSS
+* Per-post filters via metadata
+
+Downloads
+=========
+
+Get it on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.6.0
+__ https://pypi.python.org/pypi/Nikola/7.6.0
+
+Changes
+=======
+
+Features
+--------
+
+* Translate ``Write your post here.`` to default language (Issue #1621)
+* Enable ``PRETTY_URLS`` by default on new sites created by the wizard
+  (Issue #1838)
+* Add ``-F``, ``--available-compilers`` option to ``nikola new_post``
+  and ``nikola new_page`` (Issue #1837)
+* Add print CSS to all default themes (Issue #1817)
+* Support other kernels for ipynb/Jupyter using
+  ``nikola new_post -f ipynb@kernel`` (Issues #1774, #1834)
+* Add distinct styling for the site footer in bootstrap3
+* Bootstrap v3.3.5 (Issue #1828)
+* Use ``watchdog`` in ``nikola auto`` (Issue #1810)
+* Add redirection for tags in Wordpress importer (Issue #1168)
+* Add support for ``html_tidy_withconfig`` to use a ``tidy5.conf`` file
+  (Issue #1795)
+* Change default tidy5 filters not to drop empty elements (Issue #1795)
+* Apply per-post filters via metadata (Issue #914)
+
+Bugfixes
+--------
+
+* Nikola auto was broken in python 3 (Issue #1830)
+* Read configuration when importing into an existing site (Issue #1823)
+* Don’t crash on non-UTF-8 files during sitemap generation (Issue #1842)
+* Unnecessary rebuilds of yearly archives (Issue #1833)
+* Quietly ignore non-existent files in ``nikola check -l`` (Issue #1831)
+* Don’t rebuild all tag or category pages when changing tag/category descriptions
+* Fix crash in wordpress code importer (Issue #1819)
+* Call correct command in ``nikola auto``
