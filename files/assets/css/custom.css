@@ -53,6 +53,7 @@ pre.gs-console {
 code.gs-code {
     background: #272822;
     color: #f8f8f2;
+    white-space: nowrap;
 }
 
 .gs-command, code.gs-command {
