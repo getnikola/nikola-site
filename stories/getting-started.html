@@ -1,0 +1,274 @@
+<!--
+.. title: Getting Started
+.. slug: getting-started
+.. date: 2015-07-08 11:42:36 UTC
+.. tags:
+.. category:
+.. link:
+.. description:
+.. type: text
+-->
+
+<p class="lead">Setting up a Nikola site is really easy. You will need a few minutes’ time and a Python (2.7+/3.3+) interpreter.</p>
+
+<div class="row">
+    <h2 id="install">Step 1. Install Nikola</h2>
+    <div class="col-md-7">
+        <p>There are multiple ways to install Nikola.
+            <ul>
+                <li>The best way to do it is to use <code class="gs-code gs-command">pip</code> in a virtualenv.  We recommend installing <code class="gs-code gs-command">Nikola[extras]</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them.</li>
+                <li>You can also <a href="https://pypi.python.org/pypi/Nikola">download the tarball</a>.</li>
+                <li>Some distributions also have Nikola packaged in its repositories — but please make sure it’s a fresh version.</li>
+            </ul>
+        </p>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingWindows">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWindows" aria-expanded="false" aria-controls="collapseWindows">
+                            <i class="fa fa-windows"></i> Windows support
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseWindows" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingWindows">
+                    <div class="panel-body">
+                        <p>Nikola supports Windows!  Keep in mind, though, that there are some
+                            caveats:</p>
+                            <ol class="arabic simple">
+                                <li>You need to install Python yourself.</li>
+                                <li><code class="gs-code">lxml</code> and <code class="gs-code">Pillow</code> require compiled extensions.  Compiling them on Windows is hard for most people.  Fortunately, compiled packages exist.  Check their <a class="reference external" href="https://pypi.python.org/">PyPI</a> pages to find official packages, <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">the unofficial Gohlke binaries</a> site, or get them somewhere else.</li>
+                                <li>Windows has some differences over POSIX, which may cause some features to work incorrectly under Windows.  If any problems occur, please do not hesitate to report them.  Some of the differences include:
+                                    <ul>
+                                        <li><code class="gs-code">\</code> as path separator (instead of <code class="gs-code">/</code>)</li>
+                                        <li>the concept of HDD partitions and letters (instead of seamless mounting under one root)</li>
+                                        <li>some characters in paths are disallowed (although this shouldn’t cause problems)</li>
+                                        <li>CR+LF (aka <code class="gs-code">\r\n</code>) as the line separator (instead of LF <code class="gs-code">\n</code>)</li>
+                                    </ul>
+                                </li>
+                                <li>Most of our developers run Linux on a daily basis and may not have the full knowledge required to resolve issues relating to Windows.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingLinux">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLinux" aria-expanded="false" aria-controls="collapseLinux">
+                                <i class="fa fa-linux"></i> Linux packages
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseLinux" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLinux">
+                        <div class="panel-body">
+                            <p>Nikola is packaged for some Linux distributions, you may get that instead of installing via <code class="gs-code">pip</code>.  Keep in mind that those packages might be <strong>outdated</strong> and that we don’t support versions that are too old.  Proceed with care!</p>
+                            <ul class="simple">
+                                <li>Arch Linux (AUR): <a class="reference external" href="https://aur.archlinux.org/packages/python-nikola/">python-nikola</a> / <a class="reference external" href="https://aur.archlinux.org/packages/python2-nikola/">python2-nikola</a> for the latest stable release or <a class="reference external" href="https://aur.archlinux.org/packages/python-nikola-git/">python-nikola-git</a> / <a class="reference external" href="https://aur.archlinux.org/packages/python2-nikola-git/">python2-nikola-git</a> for the GitHub master.  (official Nikola-supported packages)</li>
+                                <li>Fedora: <a class="reference external" href="https://admin.fedoraproject.org/pkgdb/package/python-nikola/">python-nikola</a> (incl. python3-nikola)</li>
+                                <li>Debian and derivatives: <a class="reference external" href="https://packages.debian.org/sid/nikola">nikola</a></li>
+                                <li>Gentoo: <a class="reference external" href="https://packages.gentoo.org/package/www-apps/nikola">www-apps/nikola</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingLxmlErrors">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlErrors" aria-expanded="false" aria-controls="collapseLxmlErrors">
+                                <i class="fa fa-exclamation-triangle"></i> Error: missing libxml/libxslt
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseLxmlErrors" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLxmlErrors">
+                        <div class="panel-body">
+                            <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries, like so:</p>
+                            <p>Debian systems:</p>
+                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev</span></code></pre>
+                            <p>Fedora 22+:</p>
+                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo dnf install libxslt-devel libxml2-devel zlib-devel</span></code></pre>
+                            <p>Red Hat/CentOS/Fedora 21:</p>
+                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo yum install libxslt-devel libxml2-devel zlib-devel</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingPythonHeaders">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePythonHeaders" aria-expanded="false" aria-controls="collapsePythonHeaders">
+                                <i class="fa fa-exclamation-triangle"></i> Error: Python.h not found
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapsePythonHeaders" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPythonHeaders">
+                        <div class="panel-body">
+                            <p>If you get an error to the effect of <code class="gs-code">Python.h not found</code>, you need to
+                                install development packages for Python.</p>
+                            <p>Debian systems:</p>
+                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo apt-get install python-dev</span></code></pre>
+                            <p>Fedora 22+:</p>
+                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo dnf install python-devel</span></code></pre>
+                            <p>Red Hat/CentOS/Fedora 21:</p>
+                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo yum install python-devel</span></code></pre>
+                            <p>Note that many other distros/operating systems (including Arch Linux, *BSD and OS X) do not require such packages, as C headers are included with the base distribution of Python.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingGitHub">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGitHub" aria-expanded="false" aria-controls="collapseGitHub">
+                                <i class="fa fa-github"></i> Advanced: installing from GitHub
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseGitHub" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGitHub">
+                        <div class="panel-body">
+                            <p>You can also install Nikola from GitHub. This will get you the code that is still under development. It probably has bugs, but there are often new features or bugfixes.</p>
+                            <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">pip install "git+https://github.com/getnikola/nikola#egg=Nikola[extras]"</span></code></pre>
+                            <p>You can also use tarballs downloaded from GitHub, or <span class="gs-command">pip install -e</span> with a local clone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">virtualenv-3.4 nikola</span>
+Using base prefix '/usr'
+New python executable in nikola/bin/python3
+Also creating executable in nikola/bin/python
+Installing setuptools, pip, wheel...done.
+$ <span class="gs-command">cd nikola</span>
+$ <span class="gs-command">source bin/activate</span>
+$ <span class="gs-command">pip install "Nikola[extras]"</span>
+...snip...
+Successfully installed Nikola</code></pre>
+    </div>
+</div>
+
+<div class="row">
+    <h2 id="init">Step 2. Initialize a site</h2>
+    <div class="col-md-7">
+        <p>After installing Nikola, you should create a site. A site is a collection of all assets needed to create your site: configuration, posts, pages, images, and all other files and customizations.</p>
+        <p>To create a site, you need to run <code class="gs-code gs-command">nikola init --demo &lt;directory_name&gt;</code>.  A friendly wizard will be launched, letting you configure your site easily.  The <code class="gs-code">--demo</code> option is used to fill your site with some demo content. (If you do not want the wizard, use the <code class="gs-code">--quiet</code> argument.)</p>
+    </div>
+    <div class="col-md-5">
+        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">nikola init --demo my_first_site</span>
+Creating Nikola Site
+====================
+
+This is Nikola.  We will now ask you a few easy questions about your new site.
+If you do not want to answer and want to go with the defaults instead, simply restart with the `-q` parameter.
+--- Questions about the site ---
+Site title [My Nikola Site]: <span class="gs-input">My First Nikola Site</span>
+...a couple more questions....
+
+That's it, Nikola is now configured.  Make sure to edit conf.py to your liking.
+If you are looking for themes and addons, check out https://themes.getnikola.com/ and https://plugins.getnikola.com/.
+Have fun!
+INFO: init: A new site with example data has been created at my_first_site.
+INFO: init: See README.txt in that folder for more information.
+</code></pre>
+    </div>
+</div>
+
+<div class="row">
+    <h2 id="build">Step 3. Build your site</h2>
+    <div class="col-md-7">
+        <p>You can now build the site you created.  Just run <code class="gs-code gs-command">nikola build</code>. The output directory will then be filled with the contents of your site, which is now <strong>ready to deploy</strong>.</p>
+    </div>
+    <div class="col-md-5">
+        <pre class="gs-console"><code class="gs-code">$ <span class="gs-input">cd my_first_site</span>
+$ <span class="gs-command">nikola build</span>
+Scanning posts....done!
+.  render_galleries:output/galleries
+.  render_galleries:output/galleries/demo
+.  render_galleries:output/galleries/index.html
+.  render_galleries:output/galleries/rss.xml
+.  render_galleries:output/galleries/demo/tesla4_lg.thumbnail.jpg
+...and many more files in between...
+.  render_tags:output/categories/cat_nikola.xml
+.  render_pages:output/stories/social_buttons/index.html
+.  render_pages:output/stories/quickref/index.html
+.  render_tags:output/categories/python.xml
+.  generate_rss:output/rss.xml
+.  render_pages:output/stories/a-study-in-scarlet/index.html
+.  sitemap:output/sitemap.xml
+.  sitemap:output/sitemapindex.xml
+.  robots_file:output/robots.txt
+</code></pre>
+    </div>
+</div>
+
+<div class="row">
+    <h2 id="newpost">Step 4. Write your first post</h2>
+    <div class="col-md-7">
+        <p>Your site currently contains demo content — that is, some Nikola documentation, a demo gallery and listing, and a blog post welcoming you.</p>
+        <p>You should make it more interesting and personal.  Write your own post!</p>
+        <p>To do that, you can just use <code class="gs-code gs-command">nikola new_post -e</code>.  (The <code class="gs-code">-e</code> option will open the post in your text editor of choice; many more options are available)</p>
+        <p>The command will create the file for you in the right place, with the metadata headers and a writing prompt.</p>
+        <p>By default, Nikola creates posts in reStructuredText.  To use other markup formats, it needs <a href="#markup">some special configuration</a>.</p>
+    </div>
+    <div class="col-md-5">
+        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">nikola new_post -e</span>
+Creating New Post
+-----------------
+
+Title: <span class="gs-input">My First Blog Post!</span>
+Scanning posts....done!
+INFO: new_post: Your post's text is at: posts/my-first-blog-post.rst
+</code></pre>
+    </div>
+</div>
+
+<div class="row">
+    <h2 id="rebuild">Step 5. Rebuild your site</h2>
+    <div class="col-md-7">
+        <p>When you’re done writing your post, you must rebuild your site to make it visible on your site.  Run <code class="gs-code gs-command">nikola build</code> again.</p>
+        <p>Note that the list of files is much <strong>shorter</strong> now: Nikola does <a href="/features/fast.html">fast, incremental rebuilds</a>. Nikola built only the pages for this post, the indexes, the feeds, and the previous post (to add a <em>Next post</em> navigation button).  All the demo pages and assets were left <strong>untouched</strong>, saving you time and resources (it does not have to work on building some larger things, and <code class="gs-code">rsync</code> will not have to upload everything)</p>
+    </div>
+    <div class="col-md-5">
+        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">nikola build</span>
+Scanning posts....done!
+.  render_posts:timeline_changes
+.  render_posts:cache/posts/my-first-blog-post.html
+.  render_sources:output/posts/my-first-blog-post/index.rst
+.  render_archive:output/2015/index.html
+.  render_archive:output/archive.html
+.  render_indexes:output/index.html
+.  render_pages:output/posts/welcome-to-nikola/index.html
+.  generate_rss:output/rss.xml
+.  render_pages:output/posts/my-first-blog-post/index.html
+.  sitemap:output/sitemap.xml
+.  sitemap:output/sitemapindex.xml
+</code></pre>
+    </div>
+</div>
+
+<div class="row">
+    <h2 id="serve">Step 6. Start the development server</h2>
+    <div class="col-md-7">
+        <p>You’re done! You just created a Nikola site, wrote your first post and built your site. Congratulations!</p>
+        <p>Run <code class="gs-code gs-command">nikola serve --browser</code> to start the development server and open your site in a web browser.  Press <kbd>Ctrl+C</kbd> to stop the server.</p>
+    </div>
+    <div class="col-md-5">
+        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">nikola serve --browser</span>
+INFO: serve: Serving HTTP on 0.0.0.0 port 8000...
+INFO: serve: Opening http://0.0.0.0:8000/ in the default web browser...
+</code></pre>
+    </div>
+</div>
+<div class="row">
+    <h2 id="nextsteps">Next steps</h2><!-- TODO -->
+    <h3 id="explore">Explore!</h3>
+        <p>
+            <ul>
+                <li>Check out the demo content installed with the site to see what Nikola can do — and that’s not all it has to offer!</li>
+                <li>Read the <a href="/handbook.html">manual</a> to learn more about Nikola.</li>
+                <li>Edit the <code class="gs-code">conf.py</code> file to your liking.</li>
+                <li>Check out <a href="https://themes.getnikola.com/">themes</a> and <a href="https://plugins.getnikola.com/">plugins</a> for Nikola, or write your own.</li>
+            </ul>
+        </p>
+    <h3 id="markup">Configuring other markup formats</h3>
+        <p>Input formats other than reStructuredText need some configuration, which has been described in <a href="/handbook.html#configuring-other-input-formats">The Nikola Manual</a>.</p>
+    <h3 id="rm-demo">Removing demo content</h3>
+        <p>When you’re done exploring, you should remove the demo content before deploying it to your server. Remove the demo stories, welcome post, demo gallery and listing manually. Run <code class="gs-code gs-command">nikola build</code> to make them disappear from the archives.  Note that this is not enough; you need to delete the now orphaned files. Nikola can do it for you — run <code class="gs-code gs-command">nikola check --clean-files</code>.</p>
+</div>
