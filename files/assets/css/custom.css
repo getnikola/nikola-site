@@ -31,11 +31,24 @@ blockquote p, blockquote, p {
     text-align: center;
 }
 
+.index-icon .fa-stack {
+    color: #3e4445;
+    transition: color 0.5s ease;
+}
+
+.index-icon .fa-stack:hover {
+    color: #f5ab14;
+    transition: color 0.5s ease;
+}
+
 .index-feature {
     text-align: center;
 }
 
-pre.gs-console { background: #272822; color: #f8f8f2 }
+pre.gs-console {
+    background: #272822;
+    color: #f8f8f2
+}
 
 code.gs-code {
     background: #272822;
