@@ -35,6 +35,7 @@ POSTS = (
 PAGES = (
     ("stories/*.txt", "", "story.tmpl"),
     ("stories/*.rst", "", "story.tmpl"),
+    ("stories/*.html", "", "story.tmpl"),
 )
 
 # What is the default language?
@@ -208,6 +209,8 @@ NAVIGATION_LINKS = {
         ('/changes.html', 'Changelog'),
         )
     }
+
+EXTRA_HEAD_DATA = '<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">'
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
