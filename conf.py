@@ -185,6 +185,7 @@ NAVIGATION_LINKS = {
                 ('/documentation.html', '<strong>Documentation Index</strong>'),
                 ('/getting-started.html', '<strong>Getting Started</strong>'),
                 ('/handbook.html', '<strong>Handbook</strong>'),
+                ('/features/index.html', '<strong>Features</strong>'),
                 ('/conf.html', 'conf.py'),
                 ('/creating-a-theme.html', 'Theming Tutorial'),
                 ('/extending.html', 'Extending'),

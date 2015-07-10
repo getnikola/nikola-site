@@ -27,16 +27,16 @@ blockquote p, blockquote, p {
     height: 50px;
 }
 
-.index-icon {
+.feature-icon {
     text-align: center;
 }
 
-.index-icon .fa-stack {
+.feature-icon .fa-stack {
     color: #3e4445;
     transition: color 0.5s ease;
 }
 
-.index-icon .fa-stack:hover {
+.feature-icon .fa-stack:hover {
     color: #f5ab14;
     transition: color 0.5s ease;
 }
