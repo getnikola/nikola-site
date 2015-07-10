@@ -183,12 +183,14 @@ NAVIGATION_LINKS = {
         (
             (
                 ('/documentation.html', '<strong>Documentation Index</strong>'),
+                ('/getting-started.html', '<strong>Getting Started</strong>'),
                 ('/handbook.html', '<strong>Handbook</strong>'),
                 ('/conf.html', 'conf.py'),
                 ('/creating-a-theme.html', 'Theming Tutorial'),
                 ('/extending.html', 'Extending'),
                 ('/internals.html', 'Internals'),
-                ('/creating-a-site-not-a-blog-with-nikola.html', 'Creating a Site (Not a Blog)')
+                ('/creating-a-site-not-a-blog-with-nikola.html', 'Creating a Site (Not a Blog)'),
+                ('/license.html', 'License'),
             ),
             'Documentation',
         ),
