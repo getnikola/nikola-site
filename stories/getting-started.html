@@ -37,7 +37,7 @@
                             caveats:</p>
                             <ol class="arabic simple">
                                 <li>You need to install Python yourself.</li>
-                                <li><code class="gs-code">lxml</code> and <code class="gs-code">Pillow</code> require compiled extensions.  Compiling them on Windows is hard for most people.  Fortunately, compiled packages exist.  Check their <a class="reference external" href="https://pypi.python.org/">PyPI</a> pages to find official packages, <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">the unofficial Gohlke binaries</a> site, or get them somewhere else.</li>
+                                <li><code class="gs-code">lxml</code> and <code class="gs-code">Pillow</code> require compiled extensions.  Compiling them on Windows is hard for most people.  Fortunately, compiled packages exist.  Check their <a class="reference external" href="https://pypi.python.org/">PyPI</a> pages to find official packages, <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">the unofficial Gohlke wheels</a> site, or get them somewhere else.</li>
                                 <li>Windows has some differences over POSIX, which may cause some features to work incorrectly under Windows.  If any problems occur, please do not hesitate to report them.  Some of the differences include:
                                     <ul>
                                         <li><code class="gs-code">\</code> as path separator (instead of <code class="gs-code">/</code>)</li>
@@ -83,11 +83,11 @@
                         <div class="panel-body">
                             <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries, like so:</p>
                             <p>Debian systems:</p>
-                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev</span></code></pre>
+                            <pre class="gs-console"><code># <span class="gs-root">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev</span></code></pre>
                             <p>Fedora 22+:</p>
-                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo dnf install libxslt-devel libxml2-devel zlib-devel</span></code></pre>
+                            <pre class="gs-console"><code># <span class="gs-root">sudo dnf install libxslt-devel libxml2-devel zlib-devel</span></code></pre>
                             <p>Red Hat/CentOS/Fedora 21:</p>
-                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo yum install libxslt-devel libxml2-devel zlib-devel</span></code></pre>
+                            <pre class="gs-console"><code># <span class="gs-root">sudo yum install libxslt-devel libxml2-devel zlib-devel</span></code></pre>
                         </div>
                     </div>
                 </div>
@@ -104,11 +104,11 @@
                             <p>If you get an error to the effect of <code class="gs-code">Python.h not found</code>, you need to
                                 install development packages for Python.</p>
                             <p>Debian systems:</p>
-                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo apt-get install python-dev</span></code></pre>
+                            <pre class="gs-console"><code># <span class="gs-root">sudo apt-get install python-dev</span></code></pre>
                             <p>Fedora 22+:</p>
-                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo dnf install python-devel</span></code></pre>
+                            <pre class="gs-console"><code># <span class="gs-root">sudo dnf install python-devel</span></code></pre>
                             <p>Red Hat/CentOS/Fedora 21:</p>
-                            <pre class="gs-console"><code class="gs-code"># <span class="gs-root">sudo yum install python-devel</span></code></pre>
+                            <pre class="gs-console"><code># <span class="gs-root">sudo yum install python-devel</span></code></pre>
                             <p>Note that many other distros/operating systems (including Arch Linux, *BSD and OS X) do not require such packages, as C headers are included with the base distribution of Python.</p>
                         </div>
                     </div>
@@ -117,14 +117,14 @@
                     <div class="panel-heading" role="tab" id="headingGitHub">
                         <h4 class="panel-title">
                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGitHub" aria-expanded="false" aria-controls="collapseGitHub">
-                                <i class="fa fa-github"></i> Advanced: installing from GitHub
+                                <i class="fa fa-github"></i> Advanced: installing from GitHub (or tarballs)
                             </a>
                         </h4>
                     </div>
                     <div id="collapseGitHub" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGitHub">
                         <div class="panel-body">
                             <p>You can also install Nikola from GitHub. This will get you the code that is still under development. It probably has bugs, but there are often new features or bugfixes.</p>
-                            <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">pip install "git+https://github.com/getnikola/nikola#egg=Nikola[extras]"</span></code></pre>
+                            <pre class="gs-console"><code>$ <span class="gs-command">pip install "git+https://github.com/getnikola/nikola#egg=Nikola[extras]"</span></code></pre>
                             <p>You can also use tarballs downloaded from GitHub, or <span class="gs-command">pip install -e</span> with a local clone.</p>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
         </div>
     </div>
     <div class="col-md-5">
-        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">virtualenv-3.4 nikola</span>
+        <pre class="gs-console"><code>$ <span class="gs-command">virtualenv-3.4 nikola</span>
 Using base prefix '/usr'
 New python executable in nikola/bin/python3
 Also creating executable in nikola/bin/python
@@ -152,7 +152,7 @@ Successfully installed Nikola</code></pre>
         <p>To create a site, you need to run <code class="gs-code gs-command">nikola init --demo &lt;directory_name&gt;</code>.  A friendly wizard will be launched, letting you configure your site easily.  The <code class="gs-code">--demo</code> option is used to fill your site with some demo content. (If you do not want the wizard, use the <code class="gs-code">--quiet</code> argument.)</p>
     </div>
     <div class="col-md-5">
-        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">nikola init --demo my_first_site</span>
+        <pre class="gs-console"><code>$ <span class="gs-command">nikola init --demo my_first_site</span>
 Creating Nikola Site
 ====================
 
@@ -177,7 +177,7 @@ INFO: init: See README.txt in that folder for more information.
         <p>You can now build the site you created.  Just run <code class="gs-code gs-command">nikola build</code>. The output directory will then be filled with the contents of your site, which is now <strong>ready to deploy</strong>.</p>
     </div>
     <div class="col-md-5">
-        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">cd my_first_site</span>
+        <pre class="gs-console"><code>$ <span class="gs-command">cd my_first_site</span>
 $ <span class="gs-command">nikola build</span>
 Scanning posts....done!
 .  render_galleries:output/galleries
@@ -206,10 +206,10 @@ Scanning posts....done!
         <p>You should make it more interesting and personal.  Write your own post!</p>
         <p>To do that, you can just use <code class="gs-code gs-command">nikola new_post -e</code>.  (The <code class="gs-code">-e</code> option will open the post in your text editor of choice; many more options are available)</p>
         <p>The command will create the file for you in the right place, with the metadata headers and a writing prompt.</p>
-        <p>By default, Nikola creates posts in reStructuredText.  To use other markup formats, it needs <a href="#markup">some special configuration</a>.</p>
+        <p>By default, Nikola creates posts in reStructuredText.  You can read <a href="https://getnikola.com/quickstart.html">the reStructuredText Primer</a> to get accustomed to the syntax.  You can also use many other input formats; to do this, your site needs <a href="#markup">some special configuration</a>.</p>
     </div>
     <div class="col-md-5">
-        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">nikola new_post -e</span>
+        <pre class="gs-console"><code>$ <span class="gs-command">nikola new_post -e</span>
 Creating New Post
 -----------------
 
@@ -224,10 +224,10 @@ INFO: new_post: Your post's text is at: posts/my-first-blog-post.rst
     <h2 id="rebuild">Step 5. Rebuild your site</h2>
     <div class="col-md-7">
         <p>When you’re done writing your post, you must rebuild your site to make it visible on your site.  Run <code class="gs-code gs-command">nikola build</code> again.</p>
-        <p>Note that the list of files is much <strong>shorter</strong> now: Nikola does <a href="/features/fast.html">fast, incremental rebuilds</a>. Nikola built only the pages for this post, the indexes, the feeds, and the previous post (to add a <em>Next post</em> navigation button).  All the demo pages and assets were left <strong>untouched</strong>, saving you time and resources (it does not have to work on building some larger things, and <code class="gs-code">rsync</code> will not have to upload everything)</p>
+        <p>Note that the list of files is much <strong>shorter</strong> now: Nikola does <a href="/features/fast.html">fast, incremental rebuilds</a> (courtesy of <a href="http://pydoit.org/">doit</a>). Nikola built only the pages for this post, the indexes, the feeds, and the previous post (to add a <em>Next post</em> navigation button).  All the demo pages and assets were left <strong>untouched</strong>, saving you time and resources (it does not have to work on building some larger things, and <code class="gs-code">rsync</code> will not have to upload everything)</p>
     </div>
     <div class="col-md-5">
-        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">nikola build</span>
+        <pre class="gs-console"><code>$ <span class="gs-command">nikola build</span>
 Scanning posts....done!
 .  render_posts:timeline_changes
 .  render_posts:cache/posts/my-first-blog-post.html
@@ -251,7 +251,7 @@ Scanning posts....done!
         <p>Run <code class="gs-code gs-command">nikola serve --browser</code> to start the development server and open your site in a web browser.  Press <kbd>Ctrl+C</kbd> to stop the server.</p>
     </div>
     <div class="col-md-5">
-        <pre class="gs-console"><code class="gs-code">$ <span class="gs-command">nikola serve --browser</span>
+        <pre class="gs-console"><code>$ <span class="gs-command">nikola serve --browser</span>
 INFO: serve: Serving HTTP on 0.0.0.0 port 8000...
 INFO: serve: Opening http://0.0.0.0:8000/ in the default web browser...
 </code></pre>
@@ -263,7 +263,8 @@ INFO: serve: Opening http://0.0.0.0:8000/ in the default web browser...
         <p>
             <ul>
                 <li>Check out the demo content installed with the site to see what Nikola can do — and that’s not all it has to offer!</li>
-                <li>Read the <a href="/handbook.html">manual</a> to learn more about Nikola.</li>
+                <li>Find out what other commands are available by using <code class="gs-command">nikola help</code>.</li>
+                <li>Read the <strong><a href="/handbook.html">Nikola Handbook</a></strong> to learn more about Nikola.</li>
                 <li>Edit the <code class="gs-code">conf.py</code> file to your liking.</li>
                 <li>Check out <a href="https://themes.getnikola.com/">themes</a> and <a href="https://plugins.getnikola.com/">plugins</a> for Nikola, or write your own.</li>
             </ul>
