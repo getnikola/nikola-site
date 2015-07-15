@@ -20,7 +20,7 @@ import time
 BLOG_AUTHOR = "Your Name"  # (translatable)
 BLOG_TITLE = "Demo Site"  # (translatable)
 # This is the main URL for your site. It will be used
-# in a prominent link
+# in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "https://example.com/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
@@ -293,7 +293,7 @@ WRITE_TAG_CLOUD = True
 #        "blogging": "Meta-blog posts about blogging about blogging.",
 #        "open source": "My contributions to my many, varied, ever-changing, and eternal libre software projects."
 #    },
-#}
+# }
 
 
 # If you do not want to display a tag publicly, you can mark it as hidden.
@@ -319,10 +319,10 @@ HIDDEN_TAGS = ['mathjax']
 # using a forward slash ('/') to separate paths. Use a backslash ('\') to escape
 # a forward slash or a backslash (i.e. '\//\\' is a path specifying the
 # subcategory called '\' of the top-level category called '/').
-# CATEGORY_ALLOW_HIERARCHIES = False
+CATEGORY_ALLOW_HIERARCHIES = False
 # If CATEGORY_OUTPUT_FLAT_HIERARCHY is set to True, the output written to output
 # contains only the name of the leaf category and not the whole path.
-# CATEGORY_OUTPUT_FLAT_HIERARCHY = False
+CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 
 # If CATEGORY_PAGES_ARE_INDEXES is set to True, each category's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
@@ -336,7 +336,7 @@ HIDDEN_TAGS = ['mathjax']
 #        "blogging": "Meta-blog posts about blogging about blogging.",
 #        "open source": "My contributions to my many, varied, ever-changing, and eternal libre software projects."
 #    },
-#}
+# }
 
 # If you do not want to display a category publicly, you can mark it as hidden.
 # The category will not be displayed on the category list page.
@@ -716,8 +716,7 @@ COMMENT_SYSTEM_ID = "nikolademo"
 # (Uses the INDEX_FILE setting, so if that is, say, default.html,
 # it will instead /foo/default.html => /foo)
 # (Note: This was briefly STRIP_INDEX_HTML in v 5.4.3 and 5.4.4)
-# Default = False
-# STRIP_INDEXES = False
+STRIP_INDEXES = False
 
 # Should the sitemap list directories which only include other directories
 # and no files.
@@ -882,7 +881,7 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # <input type="text" name="q" maxlength="255" results="0" placeholder="Search"/>
 # </form>
 # <!-- End of custom search -->
-#""" % SITE_URL
+# """ % SITE_URL
 
 # Use content distribution networks for jQuery, twitter-bootstrap css and js,
 # and html5shiv (for older versions of Internet Explorer)
@@ -986,26 +985,6 @@ UNSLUGIFY_TITLES = True
 # USE WITH CARE!  This is also not guaranteed to be perfect, and may
 # sometimes crash Nikola, your web server, or eat your cat.
 # USE_SLUGIFY = True
-
-# You can configure the logging handlers installed as plugins or change the
-# log level of the default stderr handler.
-# WARNING: The stderr handler allows only the loglevels of 'INFO' and 'DEBUG'.
-#          This is done for safety reasons, as blocking out anything other
-#          than 'DEBUG' may hide important information and break the user
-#          experience!
-
-LOGGING_HANDLERS = {
-    'stderr': {'loglevel': 'INFO', 'bubble': True},
-    # 'smtp': {
-    #     'from_addr': 'test-errors@example.com',
-    #     'recipients': ('test@example.com'),
-    #     'credentials':('testusername', 'password'),
-    #     'server_addr': ('127.0.0.1', 25),
-    #     'secure': (),
-    #     'level': 'DEBUG',
-    #     'bubble': True
-    # }
-}
 
 # Templates will use those filters, along with the defaults.
 # Consult your engine's documentation on filters if you need help defining
