@@ -26,10 +26,7 @@ Key Changes since v7.6.0
 Downloads
 =========
 
-Get it on [GitHub][] and [PyPI][].
-
-[GitHub]: https://github.com/getnikola/nikola/releases/tag/v7.6.1
-[PyPI]: https://pypi.python.org/pypi/Nikola/7.6.1
+Get it on `GitHub <https://github.com/getnikola/nikola/releases/tag/v7.6.1>`__ and `PyPI. <https://pypi.python.org/pypi/Nikola/7.6.1>`__
 
 Changes
 =======
