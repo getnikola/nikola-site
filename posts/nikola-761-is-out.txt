@@ -38,6 +38,7 @@ Features
 --------
 
 * Several improvements to WordPress importer (PR #1867):
+
   * Allowing to export categories and category hierarchy with
     --export-categories-as-categories
   * Allowing to exclude private posts, and allowing to include empty posts
