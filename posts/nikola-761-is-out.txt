@@ -1,0 +1,79 @@
+.. title: Nikola 7.6.1 is out
+.. slug: nikola-761-is-out
+.. date: 2015-07-15 15:18:22 UTC
+.. tags:
+.. category:
+.. link:
+.. description:
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate availability of Nikola v7.6.1. It fixes some bugs and adds new features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup formats, such as reStructuredText and Markdown — and can even turn Jupyter (IPython) Notebooks into blog posts! It also supports image galleries, and is multilingual. Nikola is flexible, and page builds are extremely fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Key Changes since v7.6.0
+========================
+
+* Many Wordpress importer improvements
+* Modern reST stylesheets, based in part on Bootstrap 3 (Issue #1150)
+
+Downloads
+=========
+
+Get it on [GitHub][] and [PyPI][].
+
+[GitHub]: https://github.com/getnikola/nikola/releases/tag/v7.6.1
+[PyPI]: https://pypi.python.org/pypi/Nikola/7.6.1
+
+Changes
+=======
+
+Features
+--------
+
+* Several improvements to WordPress importer (PR #1867):
+  * Allowing to export categories and category hierarchy with
+    --export-categories-as-categories
+  * Allowing to exclude private posts, and allowing to include empty posts
+  * Allowing to use HTTP authentication for downloads with --download-auth
+    (PR #1848)
+  * Allowing to export comments with --export-comments
+  * Allowing to use WordPress page compiler to directly convert posts
+    to HTML on import with --transform-to-html
+  * Allowing to use WordPress page compiler on imported site instead of
+    converting posts to markdown with --use-wordpress-compiler
+  * Allowing to automatically install the WordPress page compiler when
+    needed with --install-wordpress-compiler
+  * Exporting information on attachments per post as JSON (#1867 and #1888)
+  * Exporting post status and excerpt
+* New ‘pagekind’ variable available to identify different kind of pages from theme templates
+* Add ``--no-server`` option to ``nikola auto`` (Issue #1883)
+* Always return unicode in slugify (Issue #1885)
+* Remove logging handlers (Issue #1797)
+* Add ``-d``, ``--detach`` option to ``nikola serve`` (Issue #1871)
+* Use provided teaser format (``*_READ_MORE_LINK``) with custom teaser text
+  (Issue #1879)
+* Delete old ``bootstrap`` theme (use ``bootstrap3`` instead)
+* Screen reader-friendly navbar collapses and dropdowns (Issue #1863)
+* Modern reST stylesheets, based in part on Bootstrap 3 (Issue #1150)
+
+Bugfixes
+--------
+
+* Add missing ``xmlns:xhtml`` namespace to sitemaps (Issue #1890)
+* Fixed superfluous rebuild problems with Python 3. Note that this will cause
+  rebuilds for most sites. (Issue #1887)
+* Fix links in sample post (Issue #1874)
+* Don't use deprecated Yapsy methods (Isue #1868)
+* Surpress wincing when auto is aborted during rebuilding
+* Show tags only from the current language on tag listing pages (Issue #1856)
+* Remove gap between line numbers and code (Issue #1859)
+* Fix spurious warnings about posts published in the future (Issue #1850)
+
+

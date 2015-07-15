@@ -1,3 +1,48 @@
+New in v7.6.1
+=============
+
+Features
+--------
+
+* Several improvements to WordPress importer (PR #1867):
+  * Allowing to export categories and category hierarchy with
+    --export-categories-as-categories
+  * Allowing to exclude private posts, and allowing to include empty posts
+  * Allowing to use HTTP authentication for downloads with --download-auth
+    (PR #1848)
+  * Allowing to export comments with --export-comments
+  * Allowing to use WordPress page compiler to directly convert posts
+    to HTML on import with --transform-to-html
+  * Allowing to use WordPress page compiler on imported site instead of
+    converting posts to markdown with --use-wordpress-compiler
+  * Allowing to automatically install the WordPress page compiler when
+    needed with --install-wordpress-compiler
+  * Exporting information on attachments per post as JSON (#1867 and #1888)
+  * Exporting post status and excerpt
+* New ‘pagekind’ variable available to identify different kind of pages from theme templates
+* Add ``--no-server`` option to ``nikola auto`` (Issue #1883)
+* Always return unicode in slugify (Issue #1885)
+* Remove logging handlers (Issue #1797)
+* Add ``-d``, ``--detach`` option to ``nikola serve`` (Issue #1871)
+* Use provided teaser format (``*_READ_MORE_LINK``) with custom teaser text
+  (Issue #1879)
+* Delete old ``bootstrap`` theme (use ``bootstrap3`` instead)
+* Screen reader-friendly navbar collapses and dropdowns (Issue #1863)
+* Modern reST stylesheets, based in part on Bootstrap 3 (Issue #1150)
+
+Bugfixes
+--------
+
+* Add missing ``xmlns:xhtml`` namespace to sitemaps (Issue #1890)
+* Fixed superfluous rebuild problems with Python 3. Note that this will cause
+  rebuilds for most sites. (Issue #1887)
+* Fix links in sample post (Issue #1874)
+* Don't use deprecated Yapsy methods (Isue #1868)
+* Surpress wincing when auto is aborted during rebuilding
+* Show tags only from the current language on tag listing pages (Issue #1856)
+* Remove gap between line numbers and code (Issue #1859)
+* Fix spurious warnings about posts published in the future (Issue #1850)
+
 New in v7.6.0
 =============
 

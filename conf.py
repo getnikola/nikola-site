@@ -30,6 +30,7 @@ from __future__ import unicode_literals
 POSTS = (
     ("posts/*.txt", "blog", "post.tmpl"),
     ("posts/*.rst", "blog", "post.tmpl"),
+    ("posts/*.md", "blog", "post.tmpl"),
 )
 
 PAGES = (
