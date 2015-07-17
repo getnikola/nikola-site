@@ -1771,26 +1771,27 @@ the appropriate path if this happens.
 We recommend using stories with dates in the past (1970-01-01) to avoid
 dependency issues.
 
-Importing Your WordPress Site Into Nikola
+Importing your WordPress site into Nikola
 -----------------------------------------
 
 If you like Nikola, and want to start using it, but you have a WordPress blog, Nikola
-supports importing it. Here's the steps to do it:
+supports importing it. Here are the steps to do it:
 
-1) Get a XML dump of your site [#]_
-2) nikola import_wordpress mysite.wordpress.2012-12-20.xml
+1. Get an XML dump of your site [#]_
+2. ``nikola import_wordpress mysite.wordpress.2012-12-20.xml``
 
 After some time, this will create a ``new_site`` folder with all your data. It currently supports
 the following:
 
 * All your posts and pages
-* Keeps "draft" status
+* Keeps “draft” status
 * Your tags and categories
 * Imports your attachments and fixes links to point to the right places
 * Will try to add redirects that send the old post URLs to the new ones
-* Will give you a url_map so you know where each old post was
+* Will give you a URL map so you know where each old post was
 
-  This is also useful for DISQUS thread migration!
+  This is also useful for DISQUS thread migration, or server-based 301
+  redirects!
 
 * Allows you to export your comments with each post
 * Exports information on attachments per post
@@ -1842,7 +1843,7 @@ about it.
 
        Other versions may or may not work.
 
-Importing To A Custom Location Or Into An Existing Site
+Importing to a custom location or into an existing site
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is possible to either import into a location you desire or into an already existing Nikola site.
@@ -1850,7 +1851,7 @@ To do so you can specify a location after the dump:
 
 .. code:: console
 
-    $ nikola import_wordpress  mysite.wordpress.2012-12-20.xml -o import_location
+    $ nikola import_wordpress mysite.wordpress.2012-12-20.xml -o import_location
 
 With this command Nikola will import into the folder ``import_location``.
 
