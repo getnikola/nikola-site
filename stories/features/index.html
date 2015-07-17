@@ -1,0 +1,206 @@
+<!--
+    .. title: Features
+    .. slug: index
+    .. date: 2015-07-10 15:34:49 UTC
+    .. tags: 
+    .. category: 
+    .. link: 
+    .. description: 
+    .. type: text
+-->
+<!--
+    DON’T FORGET TO UPDATE TOC AT THE END!
+    TODO: some things don’t need their own page
+    TODO: custom template with back button for feature subpages
+-->
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="media">
+            <div class="media-left">
+                <div class="feature-icon feature-icon-static media-object">
+                    <a href="/features/static.html"><span class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-server fa-stack-1x fa-inverse"></i>
+                        </span></a></div>
+            </div>
+            <div class="media-body">
+                <h4 id="static" class="media-heading">Static sites</h4>
+                <p>
+                Static websites are safer, use fewer resources, and avoid vendor and
+                platform lock-in. You can host a Nikola website on any web server, big or
+                small. It’s just a bunch of HTML files and assets.
+                </p>
+                <p><a href="/features/static.html" class="btn btn-sm btn-default">Explore in depth »</a></p>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left">
+                <div class="feature-icon feature-icon-fast media-object">
+                    <a href="/features/fast.html"><span class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-bolt fa-stack-1x fa-inverse"></i>
+                        </span></a></div>
+            </div>
+            <div class="media-body">
+                <h4 id="fast" class="media-heading">Incremental builds</h4>
+
+                <p>
+                Nikola is fast. It uses <a href="http://pydoit.org">doit</a>, which provides incremental
+                rebuilds — in other words, we rebuild only the pages that need rebuilding,
+                saving CPU time, wall clock time and upload bandwidth.
+                </p>
+
+                <p><a href="/features/fast.html" class="btn btn-sm btn-default">Explore in depth »</a></p>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left">
+                <div class="feature-icon feature-icon-input media-object">
+                    <a href="/features/input.html"><span class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-file-text fa-stack-1x fa-inverse"></i>
+                        </span></a></div>
+            </div>
+            <div class="media-body">
+                <h4 id="input" class="media-heading">Multiple input formats</h4>
+                <p>
+                Nikola will take input in many formats. Out of the box, we support
+                reStructuredText, Markdown, IPython (Jupyter) Notebooks and HTML, and have
+                plugins for many other formats.
+                </p>
+                <p><a href="/features/input.html" class="btn btn-sm btn-default">Explore in depth »</a></p>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left">
+                <div class="feature-icon feature-icon-components media-object">
+                    <a href="/features/components.html"><span class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-cubes fa-stack-1x fa-inverse"></i>
+                        </span></a></div>
+            </div>
+            <div class="media-body">
+                <h4 id="components" class="media-heading">Built-in components</h4>
+                <p>
+                Nikola comes with everything you need to build a modern website: blogs (with
+                comments, tags, categories, archives, RSS/Atom feeds), multilingual support,
+                easy image galleries, and code listings.
+                </p>
+                <p><a href="/features/components.html" class="btn btn-sm btn-default">Explore in depth »</a></p>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left">
+                <div class="feature-icon feature-icon-extensible media-object">
+                    <a href="/extending.html"><span class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-code fa-stack-1x fa-inverse"></i>
+                        </span></a></div>
+            </div>
+            <div class="media-body">
+                <h4 id="extending" class="media-heading">Extensible</h4>
+                <p>
+                Nikola is extensible. You can write a plugin to add any feature you want in a
+                few lines of Python, or write your own theme in Mako or Jinja2. Or find
+                something in the <a href="https://plugins.getnikola.com/">Plugin</a> and
+                <a href="https://themes.getnikola.com/">Theme</a> Indexes.
+                </p>
+                <p><a href="/extending.html" class="btn btn-sm btn-default">Read extending documentation »</a></p>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left">
+                <div class="feature-icon feature-icon-cli media-object">
+                    <a href="/features/cli.html"><span class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+                        </span></a></div>
+            </div>
+            <div class="media-body">
+                <h4 id="cli" class="media-heading">Friendly CLI</h4>
+                <p>
+                Nikola has a friendly user interface that gets you up and running quickly and
+                simplifies your work.
+                </p>
+                <ul>
+                    <li>To build your site, just run <code class="gs-code gs-command">nikola build</code>.</li>
+                    <li>You can use <a href="#auto">automatic rebuilds</a> with <code class="gs-code gs-command">nikola auto</code>, or a simple server with <code class="gs-code gs-command">nikola serve</code>.</li>
+                    <li>Deploy with <code class="gs-code gs-command">nikola deploy</code> or <code class="gs-code gs-command">nikola github_deploy</code>.</li>
+                    <li>See some status information for your site with <code class="gs-code gs-command">nikola status</code>.</li>
+                    <li>Check for broken links and missing/orphan files with <code class="gs-code gs-command">nikola check</code>.</li>
+                    <li>Create new posts (with required metadata) <code class="gs-code gs-command">nikola new_post</code> or <code class="gs-code gs-command">nikola new_page</code>.</li>
+                    <li>Install themes with <code class="gs-code gs-command">nikola install_theme</code>, and manage plugins with <code class="gs-code gs-command">nikola plugin</code>.</li>
+                    <li>Import a WordPress blog with <code class="gs-code gs-command">nikola import_wordpress</code>.</li>
+                    <li>Debug with <code class="gs-code gs-command">nikola console</code>, <code class="gs-code gs-command">nikola dumpdb</code> and a few other commands.</li>
+                    <li>Check for Nikola updates with <code class="gs-code gs-command">nikola version --check</code>.</li>
+                    <li>When in doubt, run <code class="gs-code gs-command">nikola help</code> to get a list of all available commands.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left">
+                <div class="feature-icon feature-icon-auto media-object">
+                    <a href="/features/auto.html"><span class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
+                        </span></a></div>
+            </div>
+            <div class="media-body">
+                <h4 id="auto" class="media-heading">Automatic rebuilds</h4>
+                <p>
+                If you are working on your site, you don’t need to type <code class="gs-code gs-command">nikola build</code> and reload every time you make a change.
+                Instead, just run <code class="gs-code gs-command">nikola auto</code>. It will detect changes and automatically rebuild your site and refresh your browser (using livereload).
+                </p>
+                <p><a href="/features/auto.html" class="btn btn-sm btn-default">Explore in depth »</a></p>
+            </div>
+        </div>
+
+        <div class="media">
+            <div class="media-left">
+                <div class="feature-icon feature-icon-coil media-object">
+                    <a href="https://coil.readthedocs.org/"><span class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+                        </span></a></div>
+            </div>
+            <div class="media-body">
+                <h4 id="coil" class="media-heading">Coil CMS — a CMS for Nikola</h4>
+
+                <p>
+                If you want to use Nikola for a website that has content authored by people who
+                do not like command-line interfaces or who would prefer to use a WYSIWYG
+                editor, we have a solution for you.
+                </p>
+                <p>
+                Coil CMS is a basic CMS (with user management and a WYSIWYG HTML editor), which
+                uses Nikola to generate the pages, combining the best of both worlds: you (or
+                your editors) can easily create content, while the site is based on resilient
+                static pages.  Users don’t even have to know what Nikola, Python or static websites
+                are.  They just write their content.  The only difference is that they (or
+                someone with the necessary permissions) need to click a *Rebuild* button to
+                make their changes show up on the website.
+                </p>
+                <p><a href="https://coil.readthedocs.org/" class="btn btn-sm btn-default">Read Coil CMS documentation »</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 hidden-sm hidden-xs hidden-print">
+        <div class="list-group" id="features-toc" data-spy="affix" data-offset-top="120" data-offset-bottom="50">
+          <a href="#static" class="list-group-item">Static sites</a>
+          <a href="#fast" class="list-group-item">Incremental rebuilds</a>
+          <a href="#input" class="list-group-item">Multiple input formats</a>
+          <a href="#components" class="list-group-item">Built-in components</a>
+          <a href="#extending" class="list-group-item">Extensible</a>
+          <a href="#cli" class="list-group-item">Friendly CLI</a>
+          <a href="#auto" class="list-group-item">Automatic rebuilds</a>
+          <a href="#coil" class="list-group-item">Coil CMS</a>
+        </div>
+    </div>
+</div>

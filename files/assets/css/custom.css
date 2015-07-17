@@ -67,3 +67,29 @@ code.gs-code {
 .gs-input, code.gs-input {
     color: #a6e22e;
 }
+
+/* from bootstrap docs.css*/
+@media (min-width: 992px) {
+  /* Widen the fixed sidebar */
+  #features-toc {
+    width: 213px;
+  }
+  #features-toc.affix {
+    position: fixed; /* Undo the static from mobile first approach */
+    top: 20px;
+  }
+  #features-toc.affix-bottom {
+    position: absolute; /* Undo the static from mobile first approach */
+  }
+  #features-toc.affix-bottom .bs-docs-sidenav,
+  #features-toc.affix .bs-docs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  /* Widen the fixed sidebar again */
+  #features-toc {
+    width: 263px;
+  }
+}
