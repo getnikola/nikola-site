@@ -57,3 +57,9 @@ Cost and Performance
 
 Lock-in
     On server-side blog platforms, sometimes you can't export your own data, or
+    it's in strange formats you can't use in other services. I have switched
+    blogging platforms from Advogato to PyCs to two homebrew systems, to Nikola,
+    and have never lost a file, a URL, or a comment. That's because I have *always*
+    had my own data in a format of my choice.
+
+    With Nikola, you own your files, and you can do anything with them.
