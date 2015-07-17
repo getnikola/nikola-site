@@ -231,8 +231,9 @@ This is how it works:
     Creating New Post
     -----------------
 
-    Enter title: How to make money
-    Your post's text is at:  posts/how-to-make-money.txt
+    Title: How to make money
+    Scanning posts....done!
+    INFO: new_post: Your post's text is at: posts/how-to-make-money.rst
 
 The content of that file is as follows:
 
