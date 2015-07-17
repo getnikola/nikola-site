@@ -158,39 +158,41 @@ Lock-in
 
     With Nikola, you own your files, and you can do anything with them.
 
-Features
---------
+Components
+----------
 
-Nikola has a very defined feature set: it has every feature I needed for my own sites.
-Hopefully, it will be enough for others, and anyway, I am open to suggestions.
+Nikola provides the following features:
 
-If you want to create a blog or a site, Nikola provides:
+* Blog support, including:
 
-* Front page (and older posts pages)
-* RSS Feeds
-* Pages and feeds for each tag you used
-* Custom search
-* Full yearly archives
-* Custom output paths for generated pages
-* Easy page template customization
+  * Indexes
+  * RSS and Atom feeds
+  * Tags and categories, with pages and feeds
+  * Archives with custom granularity (yearly or monthly)
+  * `Comments`_
+  * Client-side tag clouds (needs manual configuration)
+
 * Static pages (not part of the blog)
-* Internationalization support (my own blog is English/Spanish)
-* Google sitemap generation
-* Custom deployment (if it's a command, you can use it)
-* A (very) basic look and feel you can customize, and is even text-mode friendly
-* The input format is light markup (`reStructuredText <https://getnikola.com/quickstart.html>`__ or
-  `Markdown <http://daringfireball.net/projects/markdown/>`_)
+* `Math`_ rendering (via MathJax)
+* Custom output paths for generated pages
+* Pretty URLs (without ``.html``) that don’t need web server support
+* Easy page template customization
+* Internationalization support (my own blog is English and Spanish)
+* Sitemap generation (for search engines)
+* Custom deployment (if it’s a command, you can use it)
+* GitHub Pages deployment
+* Themes, easy appearance customization
+* `Multiple input formats <#supported-input-formats>`_, including reStructuredText and Markdown
 * Easy-to-create image galleries
-* Support for displaying source code
+* Image thumbnail generation
+* Support for displaying source code listings
 * Image slideshows
-* Client-side cloud tags
-
-Also:
-
-* A preview web server
-* "Live" re-rendering while you edit
-* "Smart" builds: only what changed gets rebuilt (usually in seconds)
-* Easy to extend with minimal Python knowledge.
+* Custom search
+* Asset (CSS/JS) bundling
+* gzip compression (for sending via your web server)
+* Open Graph, Twitter Cards
+* Hyphenation
+* Custom `post processing filters`_ (eg. for minifying files or better typography)
 
 Getting Started
 ---------------
