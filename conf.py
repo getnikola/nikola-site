@@ -188,13 +188,14 @@ NAVIGATION_LINKS = {
                 ('/handbook.html', '<strong>Handbook</strong>'),
                 ('/features/index.html', '<strong>Features</strong>'),
                 ('/conf.html', 'conf.py'),
+                ('/changes.html', 'Changelog'),
                 ('/creating-a-theme.html', 'Theming Tutorial'),
                 ('/extending.html', 'Extending'),
                 ('/internals.html', 'Internals'),
                 ('/creating-a-site-not-a-blog-with-nikola.html', 'Creating a Site (Not a Blog)'),
                 ('/license.html', 'License'),
             ),
-            'Documentation',
+            'Documentation'
         ),
         (
             (
@@ -206,14 +207,26 @@ NAVIGATION_LINKS = {
             ),
             'Support & Contact'
         ),
-        ('https://github.com/getnikola/nikola', 'GitHub'),
-        ('https://themes.getnikola.com', 'Themes'),
-        ('https://plugins.getnikola.com', 'Plugins'),
-        ('https://users.getnikola.com', 'Users'),
+        (
+            (
+                ('https://themes.getnikola.com', 'Themes'),
+                ('https://plugins.getnikola.com', 'Plugins'),
+            ),
+            'Add-ons'
+        ),
+        (
+            (
+                ('https://github.com/getnikola/nikola', '<strong>Source code (GitHub)</strong>'),
+                ('/changes.html', 'Changelog'),
+                ('/license.html', 'License'),
+                ('/authors.html', 'Contributors'),
+            ),
+            'Development'
+        ),
         ('/blog/index.html', 'Blog'),
-        ('/changes.html', 'Changelog'),
-        )
-    }
+        ('https://users.getnikola.com', 'Users'),
+    ),
+}
 
 EXTRA_HEAD_DATA = '<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">'
 CODE_COLOR_SCHEME = 'monokai'
