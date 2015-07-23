@@ -1,0 +1,25 @@
+$ nikola new_post --title="Post 2" --tags="bar,baz"
+Creating New Post
+-----------------
+
+Title: Post 2
+Scanning posts....done!
+INFO: new_post: Your post's text is at: posts/post-2.rst
+$ nikola build
+Scanning posts....done!
+.  render_archive:output/2015/index.html
+.  render_tags:output/categories/index.html
+.  render_tags:output/assets/js/tag_cloud_data.json
+.  render_sources:output/posts/post-2.rst
+.  render_posts:timeline_changes
+.  render_posts:cache/posts/post-2.html
+.  render_tags:output/categories/baz.html
+.  render_indexes:output/index.html
+.  render_tags:output/categories/bar.html
+.  render_tags:output/categories/bar.xml
+.  generate_rss:output/rss.xml
+.  render_pages:output/posts/post-1.html
+.  render_pages:output/posts/post-2.html
+.  render_tags:output/categories/baz.xml
+.  sitemap:output/sitemap.xml
+.  sitemap:output/sitemapindex.xml

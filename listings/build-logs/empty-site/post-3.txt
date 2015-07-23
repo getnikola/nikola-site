@@ -1,0 +1,23 @@
+$ nikola new_post --title="Post 3" --tags="foobar"
+Creating New Post
+-----------------
+
+Title: Post 3
+Scanning posts....done!
+INFO: new_post: Your post's text is at: posts/post-3.rst
+$ nikola build
+Scanning posts....done!
+.  render_archive:output/2015/index.html
+.  render_tags:output/categories/index.html
+.  render_tags:output/assets/js/tag_cloud_data.json
+.  render_sources:output/posts/post-3.rst
+.  render_posts:timeline_changes
+.  render_posts:cache/posts/post-3.html
+.  render_tags:output/categories/foobar.html
+.  render_indexes:output/index.html
+.  generate_rss:output/rss.xml
+.  render_pages:output/posts/post-3.html
+.  render_pages:output/posts/post-2.html
+.  render_tags:output/categories/foobar.xml
+.  sitemap:output/sitemap.xml
+.  sitemap:output/sitemapindex.xml
