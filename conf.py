@@ -217,6 +217,7 @@ NAVIGATION_LINKS = {
         (
             (
                 ('https://github.com/getnikola/nikola', '<strong>Source code (GitHub)</strong>'),
+                ('https://github.com/getnikola/nikola/issues', 'Issue Tracker'),
                 ('/changes.html', 'Changelog'),
                 ('/license.html', 'License'),
                 ('/authors.html', 'Contributors'),
