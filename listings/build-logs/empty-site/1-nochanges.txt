@@ -1,0 +1,2 @@
+$ nikola build
+Scanning posts....done!

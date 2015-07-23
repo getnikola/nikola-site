@@ -12,7 +12,7 @@ A ReStructuredText Primer
 :Version: $Revision: 5801 $
 :Copyright: This document has been placed in the public domain.
 
-.. class:: alert alert-info pull-left
+.. class:: alert alert-info pull-right
 
 .. contents::
 

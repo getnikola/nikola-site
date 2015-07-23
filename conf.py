@@ -36,6 +36,7 @@ POSTS = (
 PAGES = (
     ("stories/*.txt", "", "story.tmpl"),
     ("stories/*.rst", "", "story.tmpl"),
+    ("stories/*.html", "", "story.tmpl"),
 )
 
 # What is the default language?
@@ -183,33 +184,53 @@ NAVIGATION_LINKS = {
         (
             (
                 ('/documentation.html', '<strong>Documentation Index</strong>'),
+                ('/getting-started.html', '<strong>Getting Started</strong>'),
                 ('/handbook.html', '<strong>Handbook</strong>'),
+                ('/features/index.html', '<strong>Features</strong>'),
                 ('/conf.html', 'conf.py'),
+                ('/changes.html', 'Changelog'),
                 ('/creating-a-theme.html', 'Theming Tutorial'),
                 ('/extending.html', 'Extending'),
                 ('/internals.html', 'Internals'),
-                ('/creating-a-site-not-a-blog-with-nikola.html', 'Creating a Site (Not a Blog)')
+                ('/creating-a-site-not-a-blog-with-nikola.html', 'Creating a Site (Not a Blog)'),
+                ('/license.html', 'License'),
             ),
-            'Documentation',
+            'Documentation'
         ),
         (
             (
                 ('https://github.com/getnikola/nikola/issues', 'Issue Tracker'),
                 ('https://groups.google.com/group/nikola-discuss', 'Mailing List'),
                 ('https://twitter.com/GetNikola', 'Twitter'),
+                ('https://irclogs.getnikola.com/', 'IRC logs (#nikola@freenode)'),
                 ('/contact.html', '<strong>All support options</strong>'),
             ),
             'Support & Contact'
         ),
-        ('https://github.com/getnikola/nikola', 'GitHub'),
-        ('https://themes.getnikola.com', 'Themes'),
-        ('https://plugins.getnikola.com', 'Plugins'),
-        ('https://users.getnikola.com', 'Users'),
+        (
+            (
+                ('https://themes.getnikola.com', 'Themes'),
+                ('https://plugins.getnikola.com', 'Plugins'),
+            ),
+            'Add-ons'
+        ),
+        (
+            (
+                ('https://github.com/getnikola/nikola', '<strong>Source code (GitHub)</strong>'),
+                ('https://github.com/getnikola/nikola/issues', 'Issue Tracker'),
+                ('/changes.html', 'Changelog'),
+                ('/license.html', 'License'),
+                ('/authors.html', 'Contributors'),
+            ),
+            'Development'
+        ),
         ('/blog/index.html', 'Blog'),
-        ('/changes.html', 'Changelog'),
-        )
-    }
+        ('https://users.getnikola.com', 'Users'),
+    ),
+}
 
+EXTRA_HEAD_DATA = '<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">'
+CODE_COLOR_SCHEME = 'monokai'
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 GLOBAL_CONTEXT = {}

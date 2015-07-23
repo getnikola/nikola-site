@@ -1,5 +1,3 @@
-h1 {text-align: center; margin-bottom: 15px;}
-
 ul.bricks {
     text-align: justify;
 }
@@ -19,14 +17,6 @@ blockquote p, blockquote, p {
     /*font-size: 16px;*/
 }
 
-#nikola-is-a-static-site-and-blog-generator p {
-    font-size: 16px;
-}
-
-#nikola-is-a-static-site-and-blog-generator > p.lead {
-    font-size: 19px;
-}
-
 .previous a,.next a{border-radius:4px}
 
 .navbar-inverse .navbar-nav > li > a {
@@ -35,4 +25,71 @@ blockquote p, blockquote, p {
 
 .navbar-brand #logo {
     height: 50px;
+}
+
+.feature-icon {
+    text-align: center;
+}
+
+.feature-icon .fa-stack {
+    color: #3e4445;
+    transition: color 0.5s ease;
+}
+
+.feature-icon .fa-stack:hover {
+    color: #f5ab14;
+    transition: color 0.5s ease;
+}
+
+.index-feature {
+    text-align: center;
+}
+
+pre.gs-console {
+    background: #272822;
+    color: #f8f8f2
+}
+
+code.gs-code {
+    background: #272822;
+    color: #f8f8f2;
+    white-space: nowrap;
+}
+
+.gs-command, code.gs-command {
+    color: #66d9ef;
+}
+
+.gs-root, code.gs-root {
+    color: #f92672;
+}
+
+.gs-input, code.gs-input {
+    color: #a6e22e;
+}
+
+/* from bootstrap docs.css*/
+@media (min-width: 992px) {
+  /* Widen the fixed sidebar */
+  #features-toc {
+    width: 213px;
+  }
+  #features-toc.affix {
+    position: fixed; /* Undo the static from mobile first approach */
+    top: 20px;
+  }
+  #features-toc.affix-bottom {
+    position: absolute; /* Undo the static from mobile first approach */
+  }
+  #features-toc.affix-bottom .bs-docs-sidenav,
+  #features-toc.affix .bs-docs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  /* Widen the fixed sidebar again */
+  #features-toc {
+    width: 263px;
+  }
 }
