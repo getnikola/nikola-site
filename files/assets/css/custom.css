@@ -33,15 +33,17 @@ blockquote p, blockquote, p {
 
 .feature-icon .fa-stack {
     color: #3e4445;
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
 }
 
-.feature-icon .fa-stack:hover {
+a:hover .feature-icon .fa-stack {
     color: #f5ab14;
-    transition: color 0.5s ease;
+    transition: color 0.25s ease;
 }
 
 .index-feature {
+    margin-top: 0;
+    padding-top: 20px;
     text-align: center;
 }
 
