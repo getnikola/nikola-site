@@ -27,6 +27,16 @@ blockquote p, blockquote, p {
     height: 50px;
 }
 
+.btn-primary.get-started {
+    filter: brightness(100%);
+    transition: filter 0.25s ease-in-out;
+}
+
+.btn-primary.get-started:hover {
+    filter: brightness(107.5%);
+    transition: filter 0.2s ease-out;
+}
+
 .feature-icon {
     text-align: center;
 }
