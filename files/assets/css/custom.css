@@ -31,14 +31,20 @@ blockquote p, blockquote, p {
     text-align: center;
 }
 
-.feature-icon .fa-stack {
+.feature-icon .fa-stack,
+a .index-feature {
     color: #3e4445;
     transition: color 0.3s ease;
 }
 
-a:hover .feature-icon .fa-stack {
+a:hover .feature-icon .fa-stack,
+a:hover .index-feature {
     color: #f5ab14;
     transition: color 0.25s ease;
+}
+
+a.feature-link:hover {
+    text-decoration: none;
 }
 
 .index-feature {
