@@ -35,13 +35,15 @@ blockquote p, blockquote, p {
 }
 
 .btn-primary.get-started {
+    -webkit-filter: brightness(100%);
     filter: brightness(100%);
-    transition: filter 0.25s ease-in-out;
+    transition: filter,-webkit-filter 0.25s ease-in-out;
 }
 
 .btn-primary.get-started:hover {
+    -webkit-filter: brightness(107.5%);
     filter: brightness(107.5%);
-    transition: filter 0.2s ease-out;
+    transition: filter,-webkit-filter 0.2s ease-out;
 }
 
 .feature-icon {
