@@ -3,4 +3,5 @@ __pycache__
 cache
 output
 .doit.db
+.doit.db.db
 .venv
