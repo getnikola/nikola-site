@@ -27,6 +27,14 @@ blockquote p, blockquote, p {
     height: 50px;
 }
 
+.col-md-4 {
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    width: 32.1%;
+}
+
 .btn-primary.get-started {
     filter: brightness(100%);
     transition: filter 0.25s ease-in-out;
