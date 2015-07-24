@@ -32,7 +32,6 @@ blockquote p, blockquote, p {
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
-    width: 32.1%;
 }
 
 .btn-primary.get-started {
