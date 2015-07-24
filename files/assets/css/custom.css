@@ -27,7 +27,7 @@ blockquote p, blockquote, p {
     height: 50px;
 }
 
-.col-md-4 {
+.col-md-4 p {
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
