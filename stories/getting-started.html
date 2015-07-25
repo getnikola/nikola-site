@@ -106,28 +106,6 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingLxmlErrors">
-                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlErrors" aria-expanded="false" aria-controls="collapseLxmlErrors"><i class="fa fa-exclamation-triangle"></i> Error: missing libxml/libxslt</a></h4>
-                </div>
-                <div id="collapseLxmlErrors" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLxmlErrors">
-                    <div class="panel-body">
-                        <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries, like so:</p>
-                        <p>Debian systems:</p>
-                        <pre class="gs-console">
-<code># <span class="gs-root">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev</span></code>
-</pre>
-                        <p>Fedora 22+:</p>
-                        <pre class="gs-console">
-<code># <span class="gs-root">sudo dnf install libxslt-devel libxml2-devel zlib-devel</span></code>
-</pre>
-                        <p>Red Hat/CentOS/Fedora 21:</p>
-                        <pre class="gs-console">
-<code># <span class="gs-root">sudo yum install libxslt-devel libxml2-devel zlib-devel</span></code>
-</pre>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingPythonHeaders">
                     <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePythonHeaders" aria-expanded="false" aria-controls="collapsePythonHeaders"><i class="fa fa-exclamation-triangle"></i> Error: Python.h not found</a></h4>
                 </div>
@@ -147,6 +125,43 @@
 <code># <span class="gs-root">sudo yum install python-devel</span></code>
 </pre>
                         <p>Note that many other distros/operating systems (including Arch Linux, *BSD and OS X) do not require such packages, as C headers are included with the base distribution of Python.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingLxmlErrors">
+                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlErrors" aria-expanded="false" aria-controls="collapseLxmlErrors"><i class="fa fa-exclamation-triangle"></i> Error: missing libxml/libxslt</a></h4>
+                </div>
+                <div id="collapseLxmlErrors" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLxmlErrors">
+                    <div class="panel-body">
+                        <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries, like so:</p>
+                        <p>Debian systems:</p>
+                        <pre class="gs-console">
+<code># <span class="gs-root">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev</span></code>
+</pre>
+                        <p>Fedora 22+:</p>
+                        <pre class="gs-console">
+<code># <span class="gs-root">sudo dnf install libxml2-devel libxslt-devel zlib-devel</span></code>
+</pre>
+                        <p>Red Hat/CentOS/Fedora 21:</p>
+                        <pre class="gs-console">
+<code># <span class="gs-root">sudo yum install libxml2-devel libxslt-devel zlib-devel</span></code>
+</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingLxmlKilled">
+                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlKilled" aria-expanded="false" aria-controls="collapseLxmlKilled"><i class="fa fa-exclamation-triangle"></i> Error: gcc killed when compiling lxml</a></h4>
+                </div>
+                <div id="collapseLxmlKilled" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLxmlKilled">
+                    <div class="panel-body">
+                        <p>If gcc/cc1 is killed when compiling lxml, you might not have enough RAM — lxml requires at least ~1.5 GB of RAM to compile. To fix this, you can:</p>
+                        <ul>
+                            <li>Install a system package and create your virtualenv with the <code class="gs-code">--system-site-packages</code></li>
+                            <li>Install a system package and symlink it from /usr/lib/pythonX.Y/site-packages to your virtualenv</li>
+                            <li>Use a temporary <a href="https://wiki.archlinux.org/index.php/Swap#Swap_file_creation">swapfile</a> to compile lxml</li>
+                            <li>Create a wheel on a system with more RAM with <code class="gs-code">STATIC_DEPS=true pip wheel lxml</code> (must have the same architecture) and install that instead</li>
                     </div>
                 </div>
             </div>
