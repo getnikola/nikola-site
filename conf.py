@@ -229,7 +229,7 @@ NAVIGATION_LINKS = {
     ),
 }
 
-EXTRA_HEAD_DATA = '<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">'
+EXTRA_HEAD_DATA = '<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">'
 CODE_COLOR_SCHEME = 'monokai'
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
