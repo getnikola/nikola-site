@@ -4,6 +4,6 @@
 .. description: The Nikola configuration file.
 .. type: text
 
-The default config file for Nikola v7.6.1 is reproduced below.
+The default config file for Nikola v7.6.2 is reproduced below.
 
 .. listing:: conf.py python
