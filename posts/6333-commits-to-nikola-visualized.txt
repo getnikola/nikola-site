@@ -1,0 +1,42 @@
+.. title: 6333 commits to Nikola (2012-2015), visualized
+.. slug: 6333-commits-to-nikola-visualized
+.. date: 2015-07-30 11:00:00 UTC
+.. tags: nikola, planet, programming, python, milestone
+.. category: 
+.. link: https://www.youtube.com/watch?v=DRaGA0ic8Io
+.. description: 
+.. type: text
+.. author: Daniel Aleksandersen
+
+From `Daniel Aleksandersen (Aeyoun)`__, on the `mailing list`__:
+
+    Nikola currently has more than 6333 commits (averaging at 5.2 commits per day!) from 121 contributors. That is a lot to wrap one’s mind around! I made is a visualization with gource to see the project activity using all the commits covering the period from the beginning of the project in 2012-03-31 all the way up to 2015-07-29.
+
+    .. raw:: html
+
+        <iframe width="853" height="480" src="https://www.youtube.com/embed/DRaGA0ic8Io?rel=0" frameborder="0" allowfullscreen></iframe>
+
+    Expand the description on YouTube to get clickable links to see the first commit from each of the top ten contributors (by commits, as tracked by GitHub).
+
+    Please all keep on making Nikola the best static site generator out there! A personal thank you to everyone who have contributed. You’ve all helped me build a website for myself that I’m really happy with. ^___^
+
+Throughout the years, there were `112 contributors`__ to Nikola, with a total
+of `49 releases`__. `1917 issues and PRs`__ were opened, 1856 of which have
+been resolved.
+
+And now: a blast from the past, the `Nikola v1.1 demo site`__ (available since
+the `5000 commits`__ milestone):
+
+.. raw:: html
+
+    <a href="/nikola-1.1/" class="thumbnail">
+        <img src="/nikola-1.1/thumbnail.png" alt="Nikola v1.1 Demo Site" title="Nikola v1.1 Demo Site">
+    </a>
+
+__ https://www.aeyoun.com/
+__ https://groups.google.com/forum/#!topic/nikola-discuss/KmxGfkg1nV4
+__ https://github.com/getnikola/nikola/graphs/contributors
+__ https://github.com/getnikola/nikola/releases
+__ https://github.com/getnikola/nikola/issues
+__ https://getnikola.com/nikola-1.1/
+__ https://getnikola.com/blog/5000-commits.html
