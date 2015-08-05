@@ -1,0 +1,41 @@
+.. title: Coil CMS demo site is up!
+.. slug: coil-cms-demo-site-is-up
+.. date: 2015-08-05 15:10:08 UTC
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: The Coil CMS Team
+
+We just created a demo site for Coil CMS, the simple CMS-like solution that
+lets users write content on a Nikola blog with ease.
+
+You can now access:
+
+.. class:: lead
+
+* `the Nikola output site <https://coildemo-site.getnikola.com/>`_
+* `the Coil CMS admin site (user: demo, password: demo) <https://coildemo-admin.getnikola.com/>`_
+
+What is Coil CMS?
+=================
+
+Coil CMS is a basic CMS (with user management and a WYSIWYG HTML editor), which
+uses Nikola to generate the pages, combining the best of both worlds: you (or
+your editors) can easily create content, while the site is based on resilient
+static pages. Users don’t even have to know what Nikola, Python or static
+websites are. They just write their content. The only difference is that they
+(or someone with the necessary permissions) need to click a *Rebuild* button to
+make their changes show up on the website.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
