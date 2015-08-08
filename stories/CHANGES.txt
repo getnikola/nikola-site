@@ -1,3 +1,28 @@
+New in v7.6.3
+=============
+
+Features
+--------
+
+* New translations: Serbian and Bosnian, by saleone
+* Added mechanism for rest extensions to depend on configuration options
+  (Issue #1919)
+* Render Jupyter notebooks (ipynb) in listings (Issue #1900)
+
+Bugfixes
+--------
+
+* Handle folders without trailing slashes in nikola auto (Issue #1933)
+* Set a base element to aid relative URL resolution, stripped on-the-fly
+  when using the auto or serve command to view site locally. (Issue #1922)
+* Rebuild archives when post slugs and titles change (Issue #1931)
+* Handle special characters in URLs in nikola auto (Issue #1925)
+* Avoid Broken Pipe error in nikola auto (Issue #1906)
+* "nikola auto" serving implicit index.html with wrong mime type (Issue #1921)
+* Handle non-integer shutter speeds and other variables in WordPress
+  importer (Issue #1917)
+
+
 New in v7.6.2
 =============
 
@@ -12,6 +37,7 @@ Features
 Bugfixes
 --------
 
+* Don't auto-rebuild on changes to ".foo" or "foo~" or changes in folders.
 * Don't assume things are HTML in auto mode (Issue #1915)
 * Don’t rebuild Atom syndication files unnecessarily often
 * Include .php files in sitemaps
