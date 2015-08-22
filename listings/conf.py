@@ -56,6 +56,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # ko     Korean
 # nb     Norwegian Bokmål
 # nl     Dutch
+# pa     Punjabi
 # pl     Polish
 # pt_br  Portuguese (Brasil)
 # ru     Russian
@@ -610,7 +611,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 #     ("icon", "/icon_128x128.png", "128x128"),
 # )
 
-# Show only teasers in the index pages? Defaults to False.
+# Show teasers (instead of full posts) in indexes? Defaults to False.
 # INDEX_TEASERS = False
 
 # HTML fragments with the Read more... links.
@@ -646,10 +647,10 @@ LICENSE = ""
 # I recommend using the Creative Commons' wizard:
 # http://creativecommons.org/choose/
 # LICENSE = """
-# <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/ar/">
+# <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 # <img alt="Creative Commons License BY-NC-SA"
 # style="border-width:0; margin-bottom:12px;"
-# src="http://i.creativecommons.org/l/by-nc-sa/2.5/ar/88x31.png"></a>"""
+# src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>"""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
@@ -842,7 +843,7 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # change it for a FeedBurner feed or something else.
 # RSS_LINK = None
 
-# Show only teasers in the RSS and Atom feeds? Default to True
+# Show teasers (instead of full posts) in feeds? Defaults to True.
 # RSS_TEASERS = True
 
 # Strip HTML in the RSS feed? Default to False

@@ -1,4 +1,4 @@
-.. title: Nikola v7.6.3 configuration file
+.. title: Nikola v7.6.4 configuration file
 .. slug: conf
 .. date: 2014-11-08 18:51:30 UTC
 .. description: The Nikola configuration file.

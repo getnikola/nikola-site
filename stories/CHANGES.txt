@@ -1,3 +1,28 @@
+New in v7.6.4
+=============
+
+Features
+--------
+
+* Checking remote links also checks redirects (nikola check -lr)
+* Update suggested license to its latest version (Issue #1950)
+* Add Punjabi language, by Jasdeep Singh (Issue #1940)
+* New option to use custom, and several ``TEASER_END`` values
+
+Bugfixes
+--------
+
+* Rewrite srcset links (Issue #1939)
+* Add dependencies for include tag in Mako (Issue #1956)
+* Don’t duplicate BLOG_TITLE in the front page title (Issue #1952)
+* Escape instad of strip HTML in titles (Issue #1952)
+* Make LINK_CHECK_WHITELIST apply to remote link checks
+* Make STORY_INDEX work together with PRETTY_URLS (Issue #1949)
+* Refactor new_post to match lazy plugin loading (Issue #1943)
+* Make Nikola startup faster by not loading useless plugins (Issue #1825)
+* Ignore sliced multibyte characters when reading metadata for sitemaps
+* Fix NameError caused by failed import in auto plugin.
+
 New in v7.6.3
 =============
 
@@ -12,6 +37,7 @@ Features
 Bugfixes
 --------
 
+* Ignore sliced multibyte characters when reading metadata for sitemaps
 * Handle folders without trailing slashes in nikola auto (Issue #1933)
 * Set a base element to aid relative URL resolution, stripped on-the-fly
   when using the auto or serve command to view site locally. (Issue #1922)
