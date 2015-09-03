@@ -1,5 +1,5 @@
 <!-- 
-.. title: Nikola v7.6.4 is out\!
+.. title: Nikola v7.6.4 is out!
 .. slug: nikola-v764-is-out
 .. date: 2015-08-22 09:18:54 UTC
 .. tags: nikola, planet, python, programming, release
