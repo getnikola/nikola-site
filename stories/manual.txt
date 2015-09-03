@@ -8,7 +8,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.6.4
+:Version: 7.7.0
 
 .. class:: alert alert-info pull-right
 
@@ -169,6 +169,7 @@ Nikola provides the following features:
   * Indexes
   * RSS and Atom feeds
   * Tags and categories, with pages and feeds
+  * Author pages and feeds (not generated if ``ENABLE_AUTHOR_PAGES`` is set to ``False`` or there is only one author)
   * Archives with custom granularity (yearly or monthly)
   * `Comments`_
   * Client-side tag clouds (needs manual configuration)
@@ -634,6 +635,9 @@ Titles of the pages can be controlled by using ``INDEXES_TITLES``,
 Categories and tags use simple lists by default that show only titles and
 dates; however, you can switch them to full indexes by using
 ``CATEGORY_PAGES_ARE_INDEXES`` and ``TAG_PAGES_ARE_INDEXES``, respectively.
+
+Something similar happens with authors. To use full indexes in authors, set 
+``AUTHOR_PAGES_ARE_INDEXES`` to ``True``.
 
 Static indexes
 ``````````````
@@ -1346,6 +1350,11 @@ optipng
 jpegoptim
    Compress JPEG files using `jpegoptim <http://www.kokkonen.net/tjko/projects.html>`_
 
+cssminify
+   Minify CSS using http://cssminifier.com/ (requires internet access)
+
+jsminify
+   Minify JS using http://javascript-minifier.com/ (requires internet access)
 
 You can apply filters to specific posts or pages by using the ``filters`` metadata field:
 
@@ -1885,7 +1894,7 @@ Using Twitter Cards
 Nikola supports Twitter Card summaries, but they are disabled by default.
 
 Twitter Cards enable you to show additional information in Tweets that link
-to you content.
+to your content.
 Nikola supports `Twitter Cards <https://dev.twitter.com/docs/cards>`_.
 They are implemented to use *Open Graph* tags whenever possible.
 
