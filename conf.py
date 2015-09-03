@@ -31,6 +31,7 @@ POSTS = (
     ("posts/*.txt", "blog", "post.tmpl"),
     ("posts/*.rst", "blog", "post.tmpl"),
     ("posts/*.md", "blog", "post.tmpl"),
+    ("posts/*.html", "blog", "post.tmpl"),
 )
 
 PAGES = (
