@@ -114,7 +114,7 @@ BLOG_TITLE = "Nikola"
 SITE_URL = "https://getnikola.com/"
 BLOG_EMAIL = "info@getnikola.com"
 BLOG_DESCRIPTION = "A blog about Nikola, the static website generator."
-BLOG_AUTHOR = "Roberto Alsina"
+BLOG_AUTHOR = "The Nikola Team"
 
 THEME = 'cerulean'
 
