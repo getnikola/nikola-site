@@ -4,6 +4,7 @@
 .. tags: 
 .. link: 
 .. description: 
+.. author: docutils contributors
 
 A ReStructuredText Primer
 =========================

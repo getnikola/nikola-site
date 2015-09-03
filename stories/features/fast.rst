@@ -6,6 +6,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. author: The Nikola Team
 
 .. class:: lead
 

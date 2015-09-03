@@ -4,6 +4,7 @@
 .. tags:
 .. link:
 .. description:
+.. author: The Nikola Team
 
 Upgrading to v6
 ===============
