@@ -1,9 +1,9 @@
 .. title: A reStructuredText Reference
 .. slug: quickref
 .. date: 2012-03-30 23:00:00 UTC-03:00
-.. tags: 
-.. link: 
-.. description: 
+.. tags:
+.. link:
+.. description:
 .. author: docutils contributors
 
 .. raw:: html
@@ -79,7 +79,7 @@
         character styles (like italics and boldface) and functionality
         (like hyperlinks).
 
-        <p><table border="1" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  class="table"  border="1" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th>Plain text
@@ -213,7 +213,7 @@
         themselves. To get a literal backslash, use an escaped backslash
         ("\\"). For example:
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Raw reStructuredText
@@ -233,7 +233,7 @@
         <em>reach</em> reStructuredText.
         The simplest way to do this is to use raw strings:
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Python string
@@ -256,7 +256,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#sections">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -302,7 +302,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#paragraphs">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -330,7 +330,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#bullet-lists">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -368,7 +368,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#enumerated-lists">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -406,7 +406,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#definition-lists">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -447,7 +447,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#field-lists">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -465,7 +465,7 @@
     <p><samp>:Version:&nbsp;1.0&nbsp;of&nbsp;2001/08/08</samp>
     <br><samp>:Dedication:&nbsp;To&nbsp;my&nbsp;father.</samp>
         <td>
-            <table>
+            <table class="table" >
             <tr valign="top">
             <td><strong>Authors:</strong>
             <td>Tony J. (Tibs) Ibbs,
@@ -486,7 +486,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#option-lists">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -506,7 +506,7 @@
     </samp>
 
         <td>
-            <table border="0" width="100%">
+            <table class="table"  border="0" width="100%">
             <tbody valign="top">
                 <tr>
                 <td width="30%"><samp>-a</samp>
@@ -534,7 +534,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#literal-blocks">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -623,7 +623,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#line-blocks">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -665,7 +665,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#block-quotes">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -697,7 +697,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#doctest-blocks">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -737,7 +737,7 @@
         tables are complete but cumbersome to create.  Simple tables are
         easy to create but limited (no row spans, etc.).</p>
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -761,7 +761,7 @@
     <br><samp>+------------+------------+-----------+</samp></p>
         <td>
             <p>Grid table:</p>
-            <table border="1">
+            <table class="table"  border="1">
             <thead valign="bottom">
                 <tr>
                 <th>Header 1
@@ -810,7 +810,7 @@
 
         <td>
             <p>Simple table:</p>
-            <table border="1">
+            <table class="table"  border="1">
             <colgroup>
                 <col width="31%">
                 <col width="31%">
@@ -850,7 +850,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#transitions">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -900,7 +900,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#footnotes">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -923,7 +923,7 @@
             Note that footnotes may get rearranged, e.g., to the bottom of
             the "page".
 
-            <p><table>
+            <p><table class="table" >
             <tr><td colspan="2"><hr>
             <!-- <tr><td colspan="2">Footnotes: -->
             <tr><td><a name="5"><strong>[5]</strong></a><td> A numerical footnote.
@@ -951,7 +951,7 @@
             <sup><a href="#fourth">4</a></sup> and <sup><a
             href="#third">3</a></sup>.
 
-            <p><table>
+            <p><table class="table" >
             <tr><td colspan="2"><hr>
             <!-- <tr><td colspan="2">Footnotes: -->
             <tr><td><a name="auto1"><strong>[1]</strong></a><td> This is the first one.
@@ -972,7 +972,7 @@
             possible, like this: <sup><a href="#symbol1">*</a></sup>
             and <sup><a href="#symbol2">&dagger;</a></sup>.
 
-            <p><table>
+            <p><table class="table" >
             <tr><td colspan="2"><hr>
             <!-- <tr><td colspan="2">Footnotes: -->
             <tr><td><a name="symbol1"><strong>[*]</strong></a><td> This is the first symbol footnote
@@ -993,7 +993,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#citations">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -1031,7 +1031,7 @@
             <p>Given a citation like <a href="#this">[this]</a>, one
             can also refer to it like <a href="#this">this</a>.
 
-            <p><table>
+            <p><table class="table" >
             <tr><td colspan="2"><hr>
             <!-- <tr><td colspan="2">Citations: -->
             <tr><td><a name="cit2002"><strong>[CIT2002]</strong></a><td> A citation
@@ -1049,7 +1049,7 @@
         <h4><a href="#contents" name="external-hyperlink-targets" class="backref"
             >External Hyperlink Targets</a></h4>
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -1063,19 +1063,19 @@
 
             <p><samp>..&nbsp;_Python:&nbsp;http://www.python.org/</samp>
         <td>
-            <table width="100%">
+            <table class="table"  width="100%">
             <tr bgcolor="#99CCFF"><td><em>Fold-in form</em>
             <tr><td>External hyperlinks, like
             <a href="http://www.python.org/">Python</a>.
             </table>
         <tr valign="top">
         <td>
-            <table width="100%">
+            <table class="table"  width="100%">
             <tr bgcolor="#99CCFF"><td><em>Call-out form</em>
             <tr><td>External hyperlinks, like
             <a href="#labPython"><i>Python</i></a>.
 
-            <p><table>
+            <p><table class="table" >
                 <tr><td colspan="2"><hr>
                 <tr><td><a name="labPython"><i>Python:</i></a>
                 <td> <a href="http://www.python.org/">http://www.python.org/</a>
@@ -1098,7 +1098,7 @@
         reference may directly embed a target URI inline, within angle
         brackets.  The following is exactly equivalent to the example above:
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -1117,7 +1117,7 @@
         <h4><a href="#contents" name="internal-hyperlink-targets" class="backref"
             >Internal Hyperlink Targets</a></h4>
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -1132,7 +1132,7 @@
 
             <p><samp>This&nbsp;is&nbsp;an&nbsp;example&nbsp;crossreference&nbsp;target.</samp>
         <td>
-            <table width="100%">
+            <table class="table"  width="100%">
             <tr bgcolor="#99CCFF"><td><em>Fold-in form</em>
             <!-- Note that some browsers may not like an "a" tag that -->
             <!-- does not have any content, so we could arbitrarily   -->
@@ -1144,7 +1144,7 @@
             </table>
         <tr valign="top">
         <td>
-            <table width="100%">
+            <table class="table"  width="100%">
             <tr><td bgcolor="#99CCFF"><em>Call-out form</em>
             <tr><td>Internal crossreferences, like <a href="#example-callout">example</a>
 
@@ -1159,7 +1159,7 @@
 
         <p>(<a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#indirect-hyperlink-targets">details</a>)
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -1203,7 +1203,7 @@
         hyperlink targets (the title text or footnote/citation label is
         used as the hyperlink name).
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead><tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
         <th width="50%">Typical result
@@ -1233,7 +1233,7 @@
         href="http://docutils.sourceforge.net/docs/ref/rst/directives.html" >reStructuredText
         Directives</a>.
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -1258,7 +1258,7 @@
         <p>Substitutions are like inline directives, allowing graphics and
         arbitrary constructs within text.
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
@@ -1288,7 +1288,7 @@
         <p>Any text which begins with an explicit markup start but doesn't
         use the syntax of any of the constructs above, is a comment.
 
-        <p><table border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
+        <p><table class="table"  border="1" width="100%" bgcolor="#ffffcc" cellpadding="3">
         <thead>
         <tr align="left" bgcolor="#99CCFF">
         <th width="50%">Plain text
