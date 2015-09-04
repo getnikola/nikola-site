@@ -33,6 +33,9 @@ the current GitHub master, check out `Nikola on ReadTheDocs
 `Creating a Site that is not a blog <creating-a-site-not-a-blog-with-nikola.html>`_
     Not everything is a blog!
 
+`Path handlers documentation <path-handlers.html>`_
+    Documentation for path handlers (``link://`` scheme).
+
 `Using Social Buttons <social_buttons.html>`_
     Replacing AddThis with other solutions.
 
