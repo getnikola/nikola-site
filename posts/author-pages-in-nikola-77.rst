@@ -1,6 +1,6 @@
-.. title: Author pages in Nikola 7.7
+.. title: Author pages in Nikola v7.7.0
 .. author: Juanjo Conti
-.. slug: author-pages-in-nikola-77
+.. slug: author-pages-in-nikola-v770
 .. date: 2015-09-04 16:08:03 UTC-03:00
 .. tags: nikola, authors
 .. category: Features
@@ -8,7 +8,7 @@
 .. description:
 .. type: text
 
-Since version 7.7 Nikola renders author pages for sites with more than one author.
+Since version 7.7.0 Nikola renders author pages for sites with more than one author.
 Let me talk a little about this.
 
 The first Nikola site I set up was for a group of friend wanting to publish tech
@@ -54,6 +54,6 @@ If you want to link to these pages in your own theme, you can use something like
                 ${post.author()}
             % endif
 
-You can see the feature in action in `Nikola blog <https://getnikola.com/blog/>`_: `author page example <https://getnikola.com/authors/roberto-alsina.html>`_.
+You can see the feature in action in `Nikola blog <https://getnikola.com/blog/>`_: `author page example <https://getnikola.com/authors/roberto-alsina.html>`_, `all authors page example <https://getnikola.com/authors/>`_.
 
 Hope you enjoy it!
