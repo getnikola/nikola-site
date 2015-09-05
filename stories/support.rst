@@ -60,15 +60,17 @@ Administrators
 
 .. class:: table table-bordered
 
-+----------------+-----------------+-----------+-----------------------+
-| Name           | GitHub Nickname | Location  | E-mail                |
-+================+=================+===========+=======================+
-| Roberto Alsina | ralsina         | Argentina | roberto@getnikola.com |
-+----------------+-----------------+-----------+-----------------------+
-| Damián Avila   | damianavila     | Argentina | damian@getnikola.com  |
-+----------------+-----------------+-----------+-----------------------+
-| Chris Warrick  | Kwpolska        | Poland    | chris@getnikola.com   |
-+----------------+-----------------+-----------+-----------------------+
++----------------------+-----------------+-----------+-----------------------+
+| Name                 | GitHub Nickname | Location  | E-mail                |
++======================+=================+===========+=======================+
+| Roberto Alsina       | ralsina         | Argentina | roberto@getnikola.com |
++----------------------+-----------------+-----------+-----------------------+
+| Chris Warrick        | Kwpolska        | Poland    | chris@getnikola.com   |
++----------------------+-----------------+-----------+-----------------------+
+| Damián Avila         | damianavila     | Argentina | damian@getnikola.com  |
++----------------------+-----------------+-----------+-----------------------+
+| Daniel Aleksandersen | Aeyoun          | Norway    | daniel@getnikola.com  |
++----------------------+-----------------+-----------+-----------------------+
 
 .. _mailing list: http://groups.google.com/group/nikola-discuss
 .. _Issue tracker: https://github.com/getnikola/nikola/issues
