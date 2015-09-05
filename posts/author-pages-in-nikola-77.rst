@@ -54,6 +54,8 @@ If you want to link to these pages in your own theme, you can use something like
                 ${post.author()}
             % endif
 
-You can see the feature in action in `Nikola blog <https://getnikola.com/blog/>`_: `author page example <https://getnikola.com/authors/roberto-alsina.html>`_, `all authors page example <https://getnikola.com/authors/>`_.
+You can see the feature in action in `Nikola blog <https://getnikola.com/blog/>`_:
+`author page example <https://getnikola.com/authors/roberto-alsina.html>`_,
+`all authors page example <https://getnikola.com/authors/>`_.
 
 Hope you enjoy it!
