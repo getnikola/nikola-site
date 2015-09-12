@@ -21,9 +21,6 @@ the current GitHub master, check out `Nikola on ReadTheDocs
     It contains some useful documentation not mentioned in the manual, and can
     be used for people upgrading to compare with their existing config files.
 
-`Upgrading to Nikola v6 <upgrading-to-v6.html>`_
-    Useful if you were using version 5.
-
 `Theming Tutorial <creating-a-theme.html>`_ and `Theming reference <theming.html>`_
     Useful if you want to create or customize a theme.
 
