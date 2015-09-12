@@ -14,13 +14,13 @@ one is running one command and editing the text you want to publish. And so on.
 
 But sometimes, you don't want to do the same thing you have been doing. Sometimes you
 want to make a one-off, a special thing, and Nikola should not get in the way
-of you doing that, either, and should let you get your hands as dirty as you want.
+of you doing that. Rather, it should let you get your hands as dirty as you want.
 
-So, this tutorial is about how to do a page that is totally different from all the
+So, this tutorial is about how to create a page that is totally different from all the
 other pages in your site. A custom page.
 
 Our goal for today is to make a page where it's nice to read a book. Specifically,
-a book of late victorian fiction called "Dr. Nikola's Vendetta" [1]_ because, how
+a book of late Victorian fiction called "Dr. Nikola's Vendetta" [1]_ because, how
 could we resist using that one, right? And to make it maintain, within reason,
 the "style" of the original book.
 
@@ -33,10 +33,10 @@ want to read them.
 The Open Library has `a lovely scan <https://archive.org/stream/bidforfortunenov00bootiala#page/n9/mode/2up>`__
 of the original book we can use for some design guidance. On the other hand,
 Project Gutenberg has `the text <http://www.gutenberg.org/ebooks/21640>`__
-we can use for actual content!
+which we can use for actual content!
 
 So, I took the prologue of the book, did some very light editing to turn it into
-reStructured Text, added a picture of Dr. Nikola himself I fund in Wikipedia,
+reStructuredText, added a picture of Dr. Nikola himself I found on Wikipedia,
 and put it here for display. `Behold! <link://slug/dr-nikola-v1>`__
 
 That is very... bad? While Nikola does the job, the default template is simply not
@@ -89,7 +89,7 @@ Typesetting
 -----------
 
 Paragraph layout: Fiction books that are not fully justified feel wrong to me. So we should set
-``text-align: justified`` in the CSS. But to achieve proper justification, you also need hyphenation.
+``text-align: justify;`` in the CSS. But to achieve proper justification, you also need hyphenation.
 To have that in Nikola, you need to either enable it for the whole site (maybe not a great idea) or
 just for this page using the hyphenate metadata::
 
@@ -98,7 +98,7 @@ just for this page using the hyphenate metadata::
 Also, the original book has no space between paragraphs, and has bleeding in the first line, so more
 CSS tweaks.
 
-Proper quotes! Nice, curly quotes are a must. Nikola has the typogrify filter to achieve that. Again,
+Proper “quotes”! And —dashes—! Nice, curly quotes are a must. Nikola has the typogrify filter to achieve that. Again,
 you can enable it for your whole site, or just for this page using metadata::
 
     .. filters: filters.typogrify
