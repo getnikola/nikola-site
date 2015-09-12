@@ -16,7 +16,7 @@
     <div class="col-md-7">
         <p>There are multiple ways to install Nikola.</p>
         <ul>
-            <li>The best way to do it is to use <code class="gs-code gs-command">pip</code> in a virtualenv. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them.</li>
+            <li>The best way to do it is to use <code class="gs-code gs-command">pip</code> in a virtualenv. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them.  Note that you might need to install some extra dependencies for lxml and Pillow in order to compile them or to get full functionality.</li>
             <li>You can also <a href="https://pypi.python.org/pypi/Nikola">download the tarball</a> and install manually.</li>
             <li>Some Linux distributions also have Nikola packaged in its repositories — but please make sure it’s a fresh version.</li>
         </ul>
@@ -98,9 +98,9 @@
                             </li>
                             <li>Fedora: <a class="reference external" href="https://admin.fedoraproject.org/pkgdb/package/python-nikola/">python-nikola</a> (incl. python3-nikola)
                             </li>
-                            <li>Debian and derivatives: <a class="reference external" href="https://packages.debian.org/sid/nikola">nikola</a>
-                            </li>
                             <li>Gentoo: <a class="reference external" href="https://packages.gentoo.org/package/www-apps/nikola">www-apps/nikola</a>
+                            </li>
+                            <li>The Debian/Ubuntu package is often <strong>buggy</strong> and the Nikola developers strongly discourage using it — please install via pip instead.
                             </li>
                         </ul>
                     </div>
@@ -135,7 +135,7 @@
                 </div>
                 <div id="collapseLxmlErrors" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLxmlErrors">
                     <div class="panel-body">
-                        <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries, like so:</p>
+                        <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code> or <code class="gs-code">Pillow</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries, like so:</p>
                         <p>Debian systems:</p>
                         <pre class="gs-console">
 <code># <span class="gs-root">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev</span></code>
