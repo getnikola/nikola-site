@@ -1,0 +1,45 @@
+## -*- coding: utf-8 -*-
+<%namespace name="helper" file="post_helper.tmpl"/>
+<%namespace name="pheader" file="post_header.tmpl"/>
+<%namespace name="comments" file="comments_helper.tmpl"/>
+<%inherit file="post.tmpl"/>
+
+<%block name="extra_head">
+    ${parent.extra_head()}
+    <style>
+        .chapter {
+            width: 100%;
+            padding: 10px;
+            -webkit-column-gap: 40px;
+            -webkit-column-width: 400px;
+            -webkit-column-count: 2;
+            -webkit-column-rule: 1px solid #ddd;
+            height: 90vh;
+            font-color: #2d2e2e;
+            font-weight: 500;
+        }
+        div.frame {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+        div.scrolling-cont {
+            overflow-x: scroll;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</%block>
+
+<%block name="content">
+<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <div class="frame">
+    <div class="scrolling-cont" id="scrolling-cont" name="scrolling-cont">
+    <div class="e-content entry-content chapter" itemprop="articleBody text">
+    <h1>${post.title()}</h1>
+    ${post.text()}
+    </div>
+    </div>
+    </div>
+</article>
+</%block>
