@@ -187,6 +187,20 @@ it moves two pages to the left. Improvements are left as exercise to the reader,
 
 And here's the final result: `A Bid For Fortune; Or; Dr. Nikola's Vendetta <link://slug/dr-nikola-final>`__
 
+Final Note
+----------
+
+Eventually, you will find something Nikola simply doesn't let you do. For example, while doing this, I found that
+`enabling typogrify from a page's metadata did not work well. <https://github.com/getnikola/nikola/issues/2064>`__
+and, while there is a way around it, file a feature request about `not double-loading JQuery. <https://github.com/getnikola/nikola/issues/2062>`__
+
+And you know what happened? I fixed the bug, and I will implement the feature request! And if you try to do
+cool crazy stuff with Nikola, you will find bugs, and will ask for features, and there is a pretty good
+chance we will fix them, or find workarounds. After all we have already done it
+`1179 times. <https://github.com/getnikola/nikola/issues?q=is%3Aissue+is%3Aclosed>`__
+
+So, please experiment, and communicate. Everyone wins.
+
 ------------
 
 .. [1] Sadly, the title is actually "A Bid For Fortune" and "Dr. Nikola's Vendetta"
