@@ -66,24 +66,11 @@ template metadata in the page to use it::
 
     .. template:: book.tmpl
 
-Here is my new ``book.tmpl``:
-
+Here is my new ``book.tmpl`` with comments:
 
 .. listing:: book1.tmpl html+mako
 
-And here is `the resulting page <link://slug/dr-nikola-v2>`__
-
-What has changed?
-
-1) I added a ``extra_head`` block. That goes, surprisingly, inside the ``HEAD`` element of the page, so
-   it's a good place to add CSS that's specific to this page.
-
-2) I removed unneeded parts of the content block, and moved the content around a little.
-
-3) To create the nice responsive 1-or-2 column layout, I had to wrap the content in a few divs, one
-   with columns, one that scrolls, one that has overflow hidden.
-
-It's better, but it's far from awesome. So, let's continue!
+And here is `the resulting page <link://slug/dr-nikola-v2>`__ It's better, but it's far from awesome. So, let's continue!
 
 Typesetting
 -----------
@@ -118,22 +105,7 @@ tag at the end of the page.
 
 For that, the template offers the ``extra_js`` block. Since the bootstrap3 theme we are using already
 loads JQuery, there is no need to do that, so it's just a matter of loading FlowType.JS and
-initializing it:
-
-.. code:: javascript+mako
-
-    <%block name="extra_js">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/Flowtype.js/1.1.0/flowtype.min.js"></script>
-        <script>
-            $('#scrolling-cont').flowtype({
-                minimum: 500,
-                maximum: 1200,
-                minFont: 20,
-                maxFont: 40,
-                fontRatio: 50
-            });
-        </script>
-    </%block>
+initializing it.
 
 Figures: figures and multicolumn layout don't go along very well, they may even get split between columns!
 The easiest solution is to make them fit in a "page", so, some more CSS for that.
@@ -141,7 +113,7 @@ The easiest solution is to make them fit in a "page", so, some more CSS for that
 Also, minor things like styling titles, subtitles, making the 1st word in the section smallcaps, and so on,
 but hey, this is just CSS tweaking, we could do this forever.
 
-So, here is our second attempt at a "book-like" template:
+So, here is our second attempt at a "book-like" template with comments about all the above:
 
 .. listing:: book2.tmpl html+mako
 
@@ -160,13 +132,6 @@ So, let's fix that with a little more JS at the end of the template:
 
 .. code:: javascript
 
-        $('#scrolling-cont').flowtype({
-            minimum: 500,
-            maximum: 1200,
-            minFont: 20,
-            maxFont: 40,
-            fontRatio: 50
-        });
         $(document).ready(function() {
             var elem = $('#scrolling-cont');
             elem.click(function(event) {
@@ -186,20 +151,22 @@ If you click on the right half of the book, it moves 2 pages to the right. If yo
 it moves two pages to the left. Improvements are left as exercise to the reader, but please share!
 
 And here's the final result: `A Bid For Fortune; Or; Dr. Nikola's Vendetta <link://slug/dr-nikola-final>`__
+and the template I used: `book.tmpl </listings/book.tmpl.html>`__
 
 Final Note
 ----------
 
 Eventually, you will find something Nikola simply doesn't let you do. For example, while doing this, I found that
-`enabling typogrify from a page's metadata did not work well. <https://github.com/getnikola/nikola/issues/2064>`__
-and, while there is a way around it, file a feature request about `not double-loading JQuery. <https://github.com/getnikola/nikola/issues/2062>`__
+`enabling typogrify from a page's metadata did not work well,  <https://github.com/getnikola/nikola/issues/2064>`__
+that `using magic links to listings is buggy <https://github.com/getnikola/nikola/issues/2080>`__
+and, while there is a way around it, filed a feature request about `not double-loading JQuery. <https://github.com/getnikola/nikola/issues/2062>`__
 
-And you know what happened? I fixed the bug, and I will implement the feature request! And if you try to do
+And you know what happened? I fixed the bugs, and I will implement the feature request! And if you try to do
 cool crazy stuff with Nikola, you will find bugs, and will ask for features, and there is a pretty good
-chance we will fix them, or find workarounds. After all we have already done it
+chance we will fix them, or find workarounds. After all we have already done it at least
 `1179 times. <https://github.com/getnikola/nikola/issues?q=is%3Aissue+is%3Aclosed>`__
 
-So, please experiment, and communicate. Everyone wins.
+So, please enjoy, experiment, and communicate. Everyone wins.
 
 ------------
 

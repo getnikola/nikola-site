@@ -4,9 +4,13 @@
 <%namespace name="comments" file="comments_helper.tmpl"/>
 <%inherit file="post.tmpl"/>
 
+## This redefines the extra_head block which goes at the end of <head>
 <%block name="extra_head">
     ${parent.extra_head()}
     <style>
+        ## This shows the content in columns with a height
+        ## somewhat smaller than the viewport height (90vh)
+        ## to give a "book" feeling instead of a wall of text.
         .chapter {
             width: 100%;
             padding: 10px;
@@ -18,11 +22,15 @@
             font-color: #2d2e2e;
             font-weight: 500;
         }
+
+        ## A wrapper that hides most of the columns
         div.frame {
             overflow: hidden;
             padding: 0;
             margin: 0;
         }
+
+        ## A wrapper to let you scroll across columns
         div.scrolling-cont {
             overflow-x: scroll;
             padding: 0;
@@ -33,9 +41,11 @@
 
 <%block name="content">
 <article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    ## Wrap the post's text in the needed divs
     <div class="frame">
     <div class="scrolling-cont" id="scrolling-cont" name="scrolling-cont">
     <div class="e-content entry-content chapter" itemprop="articleBody text">
+    ## Moved the title inside the flow of the book
     <h1>${post.title()}</h1>
     ${post.text()}
     </div>
