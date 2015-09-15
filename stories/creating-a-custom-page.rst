@@ -95,21 +95,21 @@ was similar to the one used in the original book. There are a number of those, b
 you want. Using it via Google Fonts is very simple.
 
 Even with the nicer font, and the dual columns, the font size is too small, there is too many letters
-per line. We *could* tweak that using CSS font sizes, but let's go crazy and use a Javascript solution:
+per line. We *could* tweak that using CSS font sizes, but let's go crazy and use a JavaScript solution:
 `FlowType.JS <http://simplefocus.com/flowtype/>`__
 
 Why FlowType.JS? It dynamically adjust the font size so that columns always have the right font size for
-their width. That's just nice. To do that, we need to add JQuery and run a little JS in a ``<script>``
+their width. That's just nice. To do that, we need to add jQuery and run a little JS in a ``<script>``
 tag at the end of the page.
 
 For that, the template offers the ``extra_js`` block. Since the bootstrap3 theme we are using already
-loads JQuery, there is no need to do that, so it's just a matter of loading FlowType.JS and
+loads jQuery, there is no need to do that, so it's just a matter of loading FlowType.JS and
 initializing it.
 
 Figures: figures and multicolumn layout don't go along very well, they may even get split between columns!
 The easiest solution is to make them fit in a "page", so, some more CSS for that.
 
-Also, minor things like styling titles, subtitles, making the 1st word in the section smallcaps, and so on,
+Also, minor things like styling titles, subtitles, making the 1st word in the section small caps, and so on,
 but hey, this is just CSS tweaking, we could do this forever.
 
 So, here is our second attempt at a "book-like" template with comments about all the above:
@@ -156,7 +156,7 @@ Final Note
 ----------
 
 Eventually, you will find something Nikola simply doesn't let you do. For example, while doing this, I found that
-`enabling typogrify from a page's metadata did not work well,  <https://github.com/getnikola/nikola/issues/2064>`__
+`enabling typogrify from a page's metadata did not work well, <https://github.com/getnikola/nikola/issues/2064>`__
 that `using magic links to listings is buggy <https://github.com/getnikola/nikola/issues/2080>`__
 and, while there is a way around it, filed a feature request about `not double-loading JQuery. <https://github.com/getnikola/nikola/issues/2062>`__
 
