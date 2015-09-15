@@ -6,8 +6,7 @@
 .. author: Roberto Alsina
 
 The Nikola team tries very hard to make Nikola be simple, in a very specific way:
-
-Once the user has things setup, doing the same thing again should take no work.
+once the user has things setup, doing the same thing again should take no work.
 So, if you have done one image gallery, doing a second one should be just creating
 a folder and putting images in it. If you have written a blog post, writing a new
 one is running one command and editing the text you want to publish. And so on.
