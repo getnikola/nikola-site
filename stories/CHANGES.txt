@@ -1,3 +1,42 @@
+New in v7.7.1
+=============
+
+Features
+--------
+
+* Better Template / JS / CSS demo in sample site.
+* New normalize_html filter
+* Support UTF-8 paths and encoded links when the ``USE_SLUGIFY`` option
+  is disabled. (Issue #2037)
+* Per-document hyphenation using "hyphenate" metadata flag.
+* New option USE_KATEX to switch from MathJax to KaTeX (Experimental).
+* Support SVG in galleries (Issue #1605)
+* Made TAG_PATH translatable (Issue #1914)
+* Made CATEGORY_PATH translatable (Issue #1914)
+* Display post counts for archive links (Issue #2011)
+* Document link/path handlers (Issue #2008)
+* Made DATE_FORMAT and JS_DATE_FORMAT translatable (Issue #2032)
+
+Bugfixes
+--------
+
+* Generate language-specific section links (Issue #2069)
+* Rebuild pages when user changes POST_SECTION_COLORS (Issue #2066)
+* Look for bundle assets also in output/, allowing bundling of files
+  created by plugins (Issue #1370)
+* In listings, if lexer is not specified, use literal (Issue #2078)
+* Remove bogus ambiguity on listing links (Issue #2080)
+* Unix-slash caused conflict in Windows (Issue #2079)
+* Locale is now threadsafe, avoid races in threaded builds (Issue #2071)
+* Make typogrify filter work when applied from metadata (Issue #2064)
+* Handle metadata in post files that start with a BOM (Issue #2059)
+* Handle error downloading bootswatches (Issue #2054)
+* Monitor plugins/ in ``nikola auto`` (Issue #2044)
+* Multi-lingual and multi-level directories confused section slug
+  detection (Issue #2023)
+* Use Unicode strings for WordPress comment headers (Issue #2019)
+* Don't add stories to author pages (Issue #2007)
+
 New in v7.7.0
 =============
 
@@ -32,8 +71,8 @@ Bugfixes
 * Make nikola tabcompletion work outside sites (Issue #1983)
 * Fix display of categories list in bootstrap theme (Issue #2002)
 * If webassets is not installed, use unbundled assets (Issue #1992)
-* Check links in Atom and sitemap files (Issue #1993) 
-* Link checker should check all absolute URLs to self (Issue #1991) 
+* Check links in Atom and sitemap files (Issue #1993)
+* Link checker should check all absolute URLs to self (Issue #1991)
 * Check ``img|source[@srcset]`` as part of ``check -l``  (Issue #1989)
 * Clean up translations for third party components
 * ``pagekind["main_index"]`` set on the main indexes to differentiate

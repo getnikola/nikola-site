@@ -9,7 +9,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.7.0
+:Version: 7.7.1
 
 .. class:: alert alert-info pull-right
 
@@ -313,6 +313,10 @@ to your configuration:
       Set "True" if you do not want to see the **page** title as a
       heading of the output html file (does not work for posts).
 
+   hyphenate
+      Set "True" if you want this document to be hyphenated even if you have
+      hyphenation disabled by default.
+
    nocomments
       Set to "True" to disable comments. Example:
 
@@ -449,6 +453,14 @@ and ``PAGES`` configuration options:
         ("stories/*.txt", "stories", "story.tmpl"),
         ("stories/*.rst", "stories", "story.tmpl"),
     )
+
+.. note:: POSTS and PAGES are not flat!
+
+   Even if the syntax may suggest you can't, you can create any directory structure you want
+   inside ``posts/`` or ``stories/`` and it will be reflected in the output. For example,
+   ``posts/foo/bar.txt`` would produce  ``output/posts/foo/bar.html``, assuming the slug is also ``bar``.
+
+   If you have ``PRETTY_URLS`` enabled, that would be ``output/posts/foo/bar/index.html``.
 
 ``new_post`` will use the *first* path in ``POSTS`` (or ``PAGES`` if ``-p`` is
 supplied) that ends with the extension of your desired markup format (as
@@ -1040,13 +1052,13 @@ to create a custom theme by downloading free CSS files from http://bootswatch.co
 
 .. code:: console
 
-    $ nikola bootswatch_theme -n custom_theme -s spruce -p bootstrap3
+    $ nikola bootswatch_theme -n custom_theme -s flatly -p bootstrap3
     [2013-10-12T16:46:58Z] NOTICE: bootswatch_theme: Creating 'custom_theme' theme
-    from 'spruce' and 'bootstrap3'
+    from 'flatly' and 'bootstrap3'
     [2013-10-12T16:46:58Z] NOTICE: bootswatch_theme: Downloading:
-    http://bootswatch.com//spruce/bootstrap.min.css
+    http://bootswatch.com//flatly/bootstrap.min.css
     [2013-10-12T16:46:58Z] NOTICE: bootswatch_theme: Downloading:
-    http://bootswatch.com//spruce/bootstrap.css
+    http://bootswatch.com//flatly/bootstrap.css
     [2013-10-12T16:46:59Z] NOTICE: bootswatch_theme: Theme created. Change the THEME setting to "custom_theme" to use it.
 
 You can even try what different swatches do on an existing site using
@@ -1136,8 +1148,7 @@ to one of "disqus", "intensedebate", "livefyre", "moot", "googleplus",
    * In IntenseDebate it's the **IntenseDebate site acct**
    * In LiveFyre it's the **siteId**
    * In Moot it's your **username**
-   * For Google Plus, ``COMMENT_SYSTEM_ID`` need not be set, but you must
-     `verify your authorship <https://plus.google.com/authorship>`_
+   * For Google Plus, ``COMMENT_SYSTEM_ID`` need not be set. WARNING: this will not work correctly in the test server, needs to be deployed to a real server/URL.
    * For Facebook, you need to `create an app
      <https://developers.facebook.com/apps>` (turn off sandbox mode!)
      and get an **App ID**
@@ -1347,6 +1358,10 @@ typogrify_sans_widont
 
 minify_lines
    **THIS FILTER HAS BEEN TURNED INTO A NOOP** and currently does nothing.
+
+normalize_html
+   Pass HTML through LXML to normalize it. For example, it will resolve ``&quot;`` to actual
+   quotes. Usually not needed.
 
 yui_compressor
    Compress CSS/JavaScript using `YUI compressor <http://yui.github.io/yuicompressor/>`_
