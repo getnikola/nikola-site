@@ -4,6 +4,7 @@
 .. tags: tutorial
 .. type: text
 .. author: Roberto Alsina
+.. filters: filters.typogrify
 
 The Nikola team tries very hard to make Nikola be simple, in a very specific way:
 once the user has things setup, doing the same thing again should take no work.
