@@ -1,6 +1,4 @@
-﻿.. title: A BID FOR FORTUNE OR; DR. NIKOLA'S VENDETTA
-
-.. class:: subtitle
+﻿.. class:: subtitle
 
 By `GUY BOOTHBY <http://www.gutenberg.org/ebooks/author/3587>`__
 
