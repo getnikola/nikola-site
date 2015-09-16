@@ -33,8 +33,8 @@ Downloads
 
 Install using `pip install Nikola` or download tarballs on [GitHub][] and [PyPI][].
 
-[GitHub]: https://github.com/getnikola/nikola/releases/tag/vX.Y.Z
-[PyPI]: https://pypi.python.org/pypi/Nikola/X.Y.Z
+[GitHub]: https://github.com/getnikola/nikola/releases/tag/v7.7.1
+[PyPI]: https://pypi.python.org/pypi/Nikola/7.7.1
 
 Changes
 =======
