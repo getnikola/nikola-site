@@ -57,30 +57,21 @@
                         <h5>With <a href="http://brew.sh/">Homebrew</a> (recommended)</h5>
                         <ol>
                             <li>Install <a href="http://brew.sh/">Homebrew</a>.</li>
-                            <li>Install Python (and pip) with <code class="gs-code gs-command">brew install python</code></li>
-                            <li>Install virtualenv with <code class="gs-code gs-command">pip install virtualenv</code></li>
+                            <li>Install Python (and pip) with <code class="gs-code gs-command">brew install python3</code></li>
+                            <li>Install virtualenv with <code class="gs-code gs-command">sudo pip3 install virtualenv</code></li>
                             <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>.</li>
                         </ol>
                         <h5>With <a href="https://www.macports.org/">MacPorts</a></h5>
                         <ol>
                             <li>Install <a href="https://www.macports.org/">MacPorts</a>.</li>
-                            <li>Install pip (and Python) with <code class="gs-code gs-command">sudo port install py-pip</code></li>
-                            <li>Install virtualenv with <code class="gs-code gs-command">sudo port install py-virtualenv</code></li>
+                            <li>Install pip (and Python) with <code class="gs-code gs-command">sudo port install py34-pip</code> (or a newer Python version, if available — please check the repos)</li>
+                            <li>Install virtualenv with <code class="gs-code gs-command">sudo port install py34-virtualenv</code></li>
                             <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>.</li>
                         </ol>
                         <h5>With <a href="http://www.finkproject.org/">Fink</a></h5>
                         <ol>
                             <li>Install <a href="http://www.finkproject.org/">Fink</a>.</li>
-                            <li>Install pip, virtualenv and Python with <code class="gs-code gs-command">sudo fink install pip-py27 virtualenv-py27</code></li>
-                            <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>.</li>
-                        </ol>
-                        <h5>Standalone (advanced)</h5>
-                        <p>You can skip steps 3 and 4 if you use <code class="gs-code gs-command">~/Library/Python/2.7/bin/virtualenv</code> as your virtualenv command.</p>
-                        <ol>
-                            <li>Install <a href="https://itunes.apple.com/app/xcode/id497799835">Xcode</a> (free) from the App Store.</li>
-                            <li>Install pip and virtualenv with <code class="gs-code gs-command">easy_install --user --upgrade --always-copy pip virtualenv</code></li>
-                            <li>Update your $PATH with <code class="gs-code gs-command">echo 'export PATH="~/Library/Python/2.7/bin:$PATH"' &gt;&gt; ~/.bash_profile</code></li>
-                            <li>Reload your profile with <code class="gs-code gs-command">source ~/.bash_profile</code></li>
+                            <li>Install pip, virtualenv and Python with <code class="gs-code gs-command">sudo fink install pip-py34 virtualenv-py34</code> (or a newer Python version, if available — please check the repos)</li>
                             <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>.</li>
                         </ol>
                     </div>
