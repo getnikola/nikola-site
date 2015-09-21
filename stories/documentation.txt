@@ -21,6 +21,9 @@ the current GitHub master, check out `Nikola on ReadTheDocs
     It contains some useful documentation not mentioned in the manual, and can
     be used for people upgrading to compare with their existing config files.
 
+`Creating Custom Pages <creating-a-custom-page.html>`__
+    How to do custom pages for special purposes, with special templates and styling.
+
 `Theming Tutorial <creating-a-theme.html>`_ and `Theming reference <theming.html>`_
     Useful if you want to create or customize a theme.
 
