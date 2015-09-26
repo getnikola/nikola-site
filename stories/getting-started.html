@@ -10,7 +10,7 @@
 .. author: The Nikola Team
 -->
 
-<p class="lead">Setting up a Nikola site is really easy. You will need a few minutes’ time and a Python (2.7+/3.3+) interpreter.</p>
+<p class="lead">Setting up a Nikola site is really easy. You will need a few minutes’ time and a Python (3.3+; 2.7 partially supported) interpreter.</p>
 <div class="row">
     <h2 id="install">Step 1. Install Nikola</h2>
     <div class="col-md-7">
@@ -31,7 +31,7 @@
                     <div class="panel-body">
                         <p>Nikola supports Windows! Keep in mind, though, that there are some caveats:</p>
                         <ol class="arabic simple">
-                            <li>You need to install <a href="https://www.python.org/downloads/">Python</a> first.  You also need to install virtualenv if you want to use it: <code class="gs-code gs-command">pip install virtualenv</code></li>
+                            <li>You need to install <a href="https://www.python.org/downloads/">Python</a> first.  You also need to install virtualenv if you want to use it: <code class="gs-code gs-command">py -m pip install virtualenv</code></li>
                             <li>
                                 <code class="gs-code">lxml</code> and <code class="gs-code">Pillow</code> require compiled extensions. Compiling them on Windows is hard for most people. Fortunately, compiled packages exist. Check their <a class="reference external" href="https://pypi.python.org/">PyPI</a> pages to find official packages, use <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">the unofficial wheels by Christoph Gohlke</a>, or get them somewhere else.
                             </li>
@@ -86,7 +86,7 @@
                     <div class="panel-body">
                         <p>Nikola is packaged for some Linux distributions, you may get that instead of installing via <code class="gs-code">pip</code>. Keep in mind that those packages might be <strong>outdated</strong> and that we don’t support versions that are too old. Proceed with care!</p>
                         <ul class="simple">
-                            <li>Arch Linux (AUR): <a class="reference external" href="https://aur.archlinux.org/packages/python-nikola/">python-nikola</a> / <a class="reference external" href="https://aur.archlinux.org/packages/python2-nikola/">python2-nikola</a> for the latest stable release or <a class="reference external" href="https://aur.archlinux.org/packages/python-nikola-git/">python-nikola-git</a> / <a class="reference external" href="https://aur.archlinux.org/packages/python2-nikola-git/">python2-nikola-git</a> for the GitHub master. (official Nikola-supported packages)
+                            <li>Arch Linux (AUR): <a class="reference external" href="https://aur.archlinux.org/packages/python-nikola/">python-nikola</a> for the latest stable release or <a class="reference external" href="https://aur.archlinux.org/packages/python-nikola-git/">python-nikola-git</a> for the GitHub master. (official Nikola-supported packages)
                             </li>
                             <li>Fedora: <a class="reference external" href="https://admin.fedoraproject.org/pkgdb/package/python-nikola/">python-nikola</a> (incl. python3-nikola)
                             </li>
@@ -107,15 +107,15 @@
                         <p>If you get an error to the effect of <code class="gs-code">Python.h not found</code>, you need to install development packages for Python.</p>
                         <p>Debian systems:</p>
                         <pre class="gs-console">
-<code># <span class="gs-root">sudo apt-get install python-dev</span></code>
+<code># <span class="gs-root">sudo apt-get install python3-dev</span></code>
 </pre>
                         <p>Fedora 22+:</p>
                         <pre class="gs-console">
-<code># <span class="gs-root">sudo dnf install python-devel</span></code>
+<code># <span class="gs-root">sudo dnf install python3-devel</span></code>
 </pre>
                         <p>Red Hat/CentOS/Fedora 21:</p>
                         <pre class="gs-console">
-<code># <span class="gs-root">sudo yum install python-devel</span></code>
+<code># <span class="gs-root">sudo yum install python3-devel</span></code>
 </pre>
                         <p>Note that many other distros/operating systems (including Arch Linux, *BSD and OS X) do not require such packages, as C headers are included with the base distribution of Python.</p>
                     </div>
@@ -204,7 +204,7 @@ This is Nikola.  We will now ask you a few easy questions about your new site.
 If you do not want to answer and want to go with the defaults instead, simply restart with the `-q` parameter.
 --- Questions about the site ---
 Site title [My Nikola Site]: <span class="gs-input">My First Nikola Site</span>
-...a couple more questions....
+...a couple more questions...
 
 That's it, Nikola is now configured.  Make sure to edit conf.py to your liking.
 If you are looking for themes and addons, check out https://themes.getnikola.com/ and https://plugins.getnikola.com/.
