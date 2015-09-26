@@ -90,6 +90,10 @@ you can enable it for your whole site, or just for this page using metadata::
 
     .. filters: filters.typogrify
 
+Please note that the filter requires the ``typogrify`` package, which is not
+included with the basic Nikola distribution.  You need to install it yourself
+(usually from ``pip``).
+
 Choosing the right font for a page or a site is an art. One I suck at, so I just went with a font that
 was similar to the one used in the original book. There are a number of those, but I chose
 `Gentium Basic <https://www.google.com/fonts/specimen/Gentium+Basic>`__. You can, of course, choose whatever
