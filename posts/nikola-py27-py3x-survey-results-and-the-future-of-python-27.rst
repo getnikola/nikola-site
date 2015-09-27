@@ -64,7 +64,7 @@ After answering the four survey questions, users could leave comments. Many of t
 
 There were, however, a few participants that had concerns about our decision. A few users cited the inability to migrate due to having existing Python 2-only software. For most people, this is not a problem — Python 2 and 3 can **coexist** on one machine, with separate packages and binaries. Those users would be just use Nikola with Python 3.x, and their legacy software with 2.7 — and it would work without any problems. The only people who could have a problem are those using 2.7–only code in plugins.
 
-Some users also suggested bundling an interpreter with Nikola (this is done by eg. Dropbox). We believe that this is not a good thing to do. Bundling an interpreter is a lot of work, and Dropbox does this because they want to protect their code (not applicable in an open–source project) and because they have a large non-technical user base (who is scared by black terminal windows used by h4x0rz). However, there is a partial solution: if you prefer, you can use a `Docker image`__ that runs Nikola under Arch Linux, created by Rob Brewer (and which has been blessed by the Nikola team).
+Some users also suggested bundling an interpreter with Nikola (this is done by eg. Dropbox). We believe that this is not a good thing to do. Bundling an interpreter is a lot of work, and Dropbox does this because they want to protect their code (not applicable in an open–source project) and because they have a large non-technical user base (scared by black terminal windows used by h4x0rz). However, there is a partial solution: if you prefer, you can use a `Docker image`__ that runs Nikola under Arch Linux, created by Rob Brewer (and which has been blessed by the Nikola team).
 
 Yet another suggestion was to make Nikola available via Homebrew or MacPorts. While there is no package for Nikola available in those repositories, our `Getting Started Guide`__ recommends using Homebrew, MacPorts or Fink with virtualenv and pip on OS X, by providing install instructions for those three repositories (using Python 3). If you want a package for one of those systems, you can always contribute your own (if this is possible in those communities) — the Nikola community will be happy to use it.
 
@@ -74,6 +74,16 @@ The future of Python 2.7 in Nikola
 ==================================
 
 Taking the results of this survey into consideration, the Nikola developers decided that Python 2.7 support will be **dropped in Nikola v8.0.0**.  This version will be released in early 2016. Before that date, we will migrate all our remaining infrastructure to Python 3.x. The next version of Nikola, v7.7.2, will be released on 2015-10-03 and will display a warning if the user is running Python 2.7. We might keep the compatibility hacks after v8.0.0, but we will not officially support using Python 2.7 with Nikola.
+
+Motivation (added 2015-10-27)
+-----------------------------
+
+Supporting two Python versions is a lot of work.  We have to use various
+compatibility hacks to make Unicode work properly, and then there are still
+issues caused by the fact Python 2 was not built with Unicode in mind.  The
+developers decided that it is time to let Python 2 go and thus make the
+development much easier.
+
 
 Switching to Python 3.x
 =======================
