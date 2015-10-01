@@ -2,9 +2,9 @@
 .. slug: env-survey-results-and-the-future-of-python-27
 .. date: 2015-09-26 10:00:00 UTC
 .. tags: python, survey, planet
-.. category: 
-.. link: 
-.. description: 
+.. category:
+.. link:
+.. description:
 .. type: text
 .. author: Chris Warrick
 
@@ -17,6 +17,7 @@ Two thirds (66%) of Nikola users are already on Python 3. Some users run both ve
 
 .. chart:: Pie
    :title: 'Python 2 and 3 users'
+   :style: CleanStyle
 
    'Python 2 only',  46
    'Python 3 only',  73
@@ -31,6 +32,7 @@ There are multiple operating system versions listed in the second (optional) que
 
 .. chart:: Bar
    :title: 'Operating systems used by survey participants'
+   :style: CleanStyle
 
    'Ubuntu', 54
    'Debian', 37
@@ -52,6 +54,7 @@ Out of all the participants, only 10 (7.25%) said that they would not install a 
 
 .. chart:: Pie
    :title: 'Python 3 interpreter usage'
+   :style: CleanStyle
 
    'Have a Python 3 interpreter', 106
    'Can install Python 3 if required', 22
@@ -75,8 +78,8 @@ The future of Python 2.7 in Nikola
 
 Taking the results of this survey into consideration, the Nikola developers decided that Python 2.7 support will be **dropped in Nikola v8.0.0**.  This version will be released in early 2016. Before that date, we will migrate all our remaining infrastructure to Python 3.x. The next version of Nikola, v7.7.2, will be released on 2015-10-03 and will display a warning if the user is running Python 2.7. We might keep the compatibility hacks after v8.0.0, but we will not officially support using Python 2.7 with Nikola.
 
-Motivation (added 2015-10-27)
------------------------------
+Motivation (added 2015-9-27)
+----------------------------
 
 Supporting two Python versions is a lot of work.  We have to use various
 compatibility hacks to make Unicode work properly, and then there are still

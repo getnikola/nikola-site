@@ -120,3 +120,8 @@ code.gs-code {
     width: 263px;
   }
 }
+
+.pygal-chart {
+    max-height: 80vh;
+    width: auto;
+}
