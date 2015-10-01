@@ -79,7 +79,7 @@ The future of Python 2.7 in Nikola
 Taking the results of this survey into consideration, the Nikola developers decided that Python 2.7 support will be **dropped in Nikola v8.0.0**.  This version will be released in early 2016. Before that date, we will migrate all our remaining infrastructure to Python 3.x. The next version of Nikola, v7.7.2, will be released on 2015-10-03 and will display a warning if the user is running Python 2.7. We might keep the compatibility hacks after v8.0.0, but we will not officially support using Python 2.7 with Nikola.
 
 Motivation (added 2015-09-27)
-----------------------------
+-----------------------------
 
 Supporting two Python versions is a lot of work.  We have to use various
 compatibility hacks to make Unicode work properly, and then there are still
