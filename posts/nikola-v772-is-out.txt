@@ -1,0 +1,66 @@
+.. title: Nikola v7.7.2 is out!
+.. slug: nikola-v772-is-out
+.. date: 2015-10-08 15:20:51 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.7.2. It fixes some bugs and adds new
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.7.2
+__ https://pypi.python.org/pypi/Nikola/7.7.2
+
+Changes
+=======
+
+Features
+--------
+
+* Warning about Python 2.7 deprecation (Issues #2121, #2122)
+* New ``jsonminify`` filter for minifying JSON files.
+* New ``xmlminify`` filter for minifying XML files.
+* New option ``FEED_PREVIEWIMAGE`` includes the ``post.meta.previewimage``
+  image in Atom and RSS feeds. (Issue #2095)
+
+Bugfixes
+--------
+
+* Support Pillow v3.0.0 (Issue #2130)
+* Support setting template in metadata in translated posts (Issue #2114)
+* Fix false orphan report for code.css and robots.txt (Issue #2106)
+* Fix reST post list date formatting error (Issue #2104)
+* Deprecated ``RSS_TEASERS``, ``RSS_PLAIN``, ``RSS_READ_MORE_LINK``, and
+  ``RSS_LINKS_APPEND_QUERY`` in favor of ``FEED_TEASERS``, ``FEED_PLAIN``,
+  ``FEED_READ_MORE_LINK``, and ``FEED_LINKS_APPEND_QUERY`` for both Atom
+  and RSS feeds. (Issue #2095)
+* /robots.txt was never being built (Issue #2098)
+* SVG thumbnails (Issue #2094)
+
+Deprecations
+------------
+
+* ``Post.section_link`` is now deprecated (Issue #2086). Use
+  ``site.link('section_index', post.section_slug())`` instead.

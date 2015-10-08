@@ -1,3 +1,36 @@
+New in v7.7.2
+=============
+
+Features
+--------
+
+* Warning about Python 2.7 deprecation (Issues #2121, #2122)
+* New ``jsonminify`` filter for minifying JSON files.
+* New ``xmlminify`` filter for minifying XML files.
+* New option ``FEED_PREVIEWIMAGE`` includes the ``post.meta.previewimage``
+  image in Atom and RSS feeds. (Issue #2095)
+
+Bugfixes
+--------
+
+* Support Pillow v3.0.0 (Issue #2130)
+* Support setting template in metadata in translated posts (Issue #2114)
+* Fix false orphan report for code.css and robots.txt (Issue #2106)
+* Fix reST post list date formatting error (Issue #2104)
+* Deprecated ``RSS_TEASERS``, ``RSS_PLAIN``, ``RSS_READ_MORE_LINK``, and
+  ``RSS_LINKS_APPEND_QUERY`` in favor of ``FEED_TEASERS``, ``FEED_PLAIN``,
+  ``FEED_READ_MORE_LINK``, and ``FEED_LINKS_APPEND_QUERY`` for both Atom
+  and RSS feeds. (Issue #2095)
+* /robots.txt was never being built (Issue #2098)
+* SVG thumbnails (Issue #2094)
+
+Deprecations
+------------
+
+* Post.section_link is now deprecated (Issue #2086). Use
+  site.link('section_index', post.section_slug()) instead. (not
+  'section_index_link', as previously stated in this document)
+
 New in v7.7.1
 =============
 
@@ -632,7 +665,7 @@ Features
 * Link listings raw sources if COPY_SOURCES is True (Issue #1214)
 * Much more powerful ``nikola plugin`` command (Issue #1189)
 * More powerful console mode allows access to all nikola commands (Issue #830)
-* New ```ROBOTS_EXCLUSIONS``` option listing resources to exclude from sitemap
+* New ``ROBOTS_EXCLUSIONS`` option listing resources to exclude from sitemap
   and include in new generated /robots.txt (Issue #804)
 * Generate sitemapindex containing RSS and sitemap files (Issue #804)
 * Support hooks in templates, for use by plugins (Issue #896)
