@@ -51,6 +51,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # fr        French
 # hi        Hindi
 # hr        Croatian
+# hu        Hungarian
 # id        Indonesian
 # it        Italian
 # ja        Japanese [NOT jp]
@@ -60,7 +61,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # pa        Punjabi
 # pl        Polish
 # pt        Portuguese
-# pt_br     Portuguese (Brasil)
+# pt_br     Portuguese (Brazil)
 # ru        Russian
 # sk        Slovak
 # sl        Slovene
@@ -341,6 +342,11 @@ POSTS_SECTIONS = True
 # output / TRANSLATION[lang] / TAG_PATH / tag.xml (RSS feed for a tag)
  # (translatable)
 # TAG_PATH = "categories"
+
+# See TAG_PATH's "list of tags" for the default setting value. Can be overwritten
+# here any path relative to the output directory.
+ # (translatable)
+# TAGS_INDEX_PATH = "tags.html"
 
 # If TAG_PAGES_ARE_INDEXES is set to True, each tag's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
@@ -742,7 +748,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 
 # 'Read more...' for the index page, if INDEX_TEASERS is True (translatable)
 INDEX_READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
-# 'Read more...' for the RSS_FEED, if FEED_TEASERS is True (translatable)
+# 'Read more...' for the feeds, if FEED_TEASERS is True (translatable)
 FEED_READ_MORE_LINK = '<p><a href="{link}">{read_more}…</a> ({min_remaining_read})</p>'
 
 # Append a URL query to the FEED_READ_MORE_LINK in Atom and RSS feeds. Advanced
@@ -969,7 +975,7 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # Number of posts in Atom and RSS feeds.
 # FEED_LENGTH = 10
 
-# Inclue preview image as a <figure><img></figure> at the top of the entry.
+# Include preview image as a <figure><img></figure> at the top of the entry.
 # Requires FEED_PLAIN = False. If the preview image is found in the content,
 # it will not be included again. Image will be included as-is, aim to optmize
 # the image source for Feedly, Apple News, Flipboard, and other popular clients.

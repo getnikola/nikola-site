@@ -1,3 +1,29 @@
+New in v7.7.3
+=============
+
+Features
+--------
+
+* Recommend ``ghp-import2`` (better packaging) (Issue #2152)
+* New ``TAGS_INDEX_PATH`` option for overwriting the path
+  of the tag index list page.
+* Support for ``~~strikethrough~~`` in Markdown (Issue #2149)
+* Hungarian translation (by Baptiste Darthenay)
+* ``serve`` and ``auto`` publishes DNS Service Discovery records
+  to the local network announcing they’re running web servers.
+
+
+Bugfixes
+--------
+
+* Implement translating ``DATE_FORMAT`` properly
+* Remove superfluous translatability for a boolean (Issue #2140)
+* Pass messages to post-list template (Issue #2156)
+* Changed default log level from INFO to NOTICE (``nikola check`` is less chatty)
+* Fix support for panorama images in gallery(Issue #2143)
+* Support "maps.world.World" and similar charts in Pygal (Issue #2142)
+* Capitalize "UTF-8" properly in locale guessing (Issue #2137)
+
 New in v7.7.2
 =============
 

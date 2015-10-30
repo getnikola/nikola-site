@@ -9,7 +9,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.7.2
+:Version: 7.7.3
 
 .. class:: alert alert-info pull-right
 
@@ -122,7 +122,7 @@ Security
 
     A smaller software stack implies less security risk.
 
-Obsolescense
+Obsolescence
     If you create a site using (for example) WordPress, what happens when WordPress
     releases a new version? You have to update your WordPress. That is not optional,
     because of security and support issues. If I release a new version of Nikola, and
@@ -529,7 +529,7 @@ You can override the default value for ``TEASER_END`` in ``conf.py`` — for
 example, the following example will work for ``.. more``, and will be
 compatible with both WordPress and Nikola posts:
 
-..code:: python
+.. code:: python
 
     import re
     TEASER_REGEXP = re.compile('<!--\s*(more|TEASER_END)(:(.+))?\s*-->', re.IGNORECASE)
@@ -758,6 +758,9 @@ config option:
 
     MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 
+Nikola comes with some Markdown Extensions built-in and enabled by default,
+namely a gist directive, a podcast directive, and ``~~strikethrough~~`` support.
+
 IPython Notebook/Jupyter
 ````````````````````````
 
@@ -915,7 +918,7 @@ Navigation Links
 
        3. If you link to directories, make sure to follow ``STRIP_INDEXES``.  If
           it’s set to ``True``, end your links with a ``/``, otherwise end them
-          with ``/index.html`` — or else they won’t be hilighted when active.
+          with ``/index.html`` — or else they won’t be highlighted when active.
 
     The ``SEARCH_FORM`` option contains the HTML code for a search form based on
     duckduckgo.com which should always work, but feel free to change it to

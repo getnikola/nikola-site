@@ -1,0 +1,60 @@
+.. title: Nikola v7.7.3 is out!
+.. slug: nikola-v773-is-out
+.. date: 2015-10-30 16:09:53 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.7.3. It fixes some bugs and adds new
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.7.3
+__ https://pypi.python.org/pypi/Nikola/7.7.3
+
+Changes
+=======
+
+Features
+--------
+
+* Recommend ``ghp-import2`` (better packaging) (Issue #2152)
+* New ``TAGS_INDEX_PATH`` option for overwriting the path
+  of the tag index list page.
+* Support for ``~~strikethrough~~`` in Markdown (Issue #2149)
+* Hungarian translation (by Baptiste Darthenay)
+* ``serve`` and ``auto`` publishes DNS Service Discovery records
+  to the local network announcing they’re running web servers.
+
+
+Bugfixes
+--------
+
+* Implement translating ``DATE_FORMAT`` properly
+* Remove superfluous translatability for a boolean (Issue #2140)
+* Pass messages to post-list template (Issue #2156)
+* Changed default log level from INFO to NOTICE (``nikola check`` is less chatty)
+* Fix support for panorama images in gallery(Issue #2143)
+* Support "maps.world.World" and similar charts in Pygal (Issue #2142)
+* Capitalize "UTF-8" properly in locale guessing (Issue #2137)
