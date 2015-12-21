@@ -20,10 +20,11 @@ Find out more at the website: https://getnikola.com/
 Downloads
 =========
 
-Install using `pip install Nikola` or download tarballs on [GitHub][] and [PyPI][].
+Install using ``pip install Nikola`` or download tarballs on `GitHub`_ and
+`PyPI`_.
 
-[GitHub]: https://github.com/getnikola/nikola/releases/tag/v7.7.4
-[PyPI]: https://pypi.python.org/pypi/Nikola/7.7.4
+.. _GitHub: https://github.com/getnikola/nikola/releases/tag/v7.7.4
+.. _PyPI: https://pypi.python.org/pypi/Nikola/7.7.4
 
 Changes
 =======
