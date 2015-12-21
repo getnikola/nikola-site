@@ -1,3 +1,23 @@
+New in v7.7.4
+=============
+
+Features
+--------
+
+* Added cache for Jinja templates (Issue #2166)
+* Use Jupyter instead of IPython shims (Issue #1938)
+* Automatically open gallery images colorbox based on URL fragment (Issue #2146)
+
+Bugfixes
+--------
+
+* Fix enclosures from metadata (Issue #2189)
+* Restored log level to INFO (it broke many messages)
+* Check HTTP response status of minifying tools and skip them if they’re unavailable
+* Change rewrite rule for fragment-only links (Issue #2132)
+* Mention disabled plugins in ``nikola plugin --list-installed`` (Issue #2139)
+* Don't examine all gallery image dates every build (Issue #2160)
+
 New in v7.7.3
 =============
 

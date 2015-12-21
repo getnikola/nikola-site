@@ -1,0 +1,47 @@
+.. title: Nikola v7.7.4 is out!
+.. slug: nikola-v774-is-out
+.. date: 2015-12-21 02:48:00 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate availability of Nikola v7.7.4. It fixes some bugs and adds new features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup formats, such as reStructuredText and Markdown — and can even turn Jupyter (IPython) Notebooks into blog posts! It also supports image galleries, and is multilingual. Nikola is flexible, and page builds are extremely fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using `pip install Nikola` or download tarballs on [GitHub][] and [PyPI][].
+
+[GitHub]: https://github.com/getnikola/nikola/releases/tag/v7.7.4
+[PyPI]: https://pypi.python.org/pypi/Nikola/7.7.4
+
+Changes
+=======
+
+Features
+--------
+
+* Added cache for Jinja templates (Issue #2166)
+* Use Jupyter instead of IPython shims (Issue #1938)
+* Automatically open gallery images colorbox based on URL fragment (Issue #2146)
+
+Bugfixes
+--------
+
+* Fix enclosures from metadata (Issue #2189)
+* Restored log level to INFO (it broke many messages)
+* Check HTTP response status of minifying tools and skip them if they’re unavailable
+* Change rewrite rule for fragment-only links (Issue #2132)
+* Mention disabled plugins in ``nikola plugin --list-installed`` (Issue #2139)
+* Don't examine all gallery image dates every build (Issue #2160)
+
