@@ -1,0 +1,69 @@
+.. title: Nikola v7.7.5 is out!
+.. slug: nikola-v775-is-out
+.. date: 2016-02-11 17:55:45 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.7.5. It fixes some bugs and adds new
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.7.5
+__ https://pypi.python.org/pypi/Nikola/7.7.5
+
+Changes
+=======
+
+Features
+--------
+
+* Add ``nikola theme --new`` command for creating new themes (Issue #2231)
+* Add ``nikola theme --copy-template`` command for copying templates
+  to customize them (Issue #2231)
+* Add ``nikola theme --uninstall`` command for deleting themes (Issue #2231)
+* Replace ``nikola install_theme`` with more capable ``nikola theme``
+  command (Issue #2231)
+* Allow for customizing ``github_deploy`` commit messages with ``-m``
+  (Issue #2198)
+* Commit to source branch automatically in ``github_deploy``
+  if ``GITHUB_COMMIT_SOURCE`` is set to True (Issue #2186)
+* Hugo-like shortcodes (Issue #1707)
+* New Galician translation
+* New facilities for data persistence and data caching (Issues #2209 and #2009)
+* (internal) allow ``scripts/jinjify.py`` usage with scripts (Issue #2240)
+
+Bugfixes
+--------
+
+* Fix some rebuilds with indexes and galleries
+* Make state files work on Python 3
+* Don’t attempt to create redirects for URLs with query strings in
+  WordPress imports if the site is in a subdirectory (Issue #2224)
+* Avoid some random file rebuilds (Issue #2220)
+* Honor ``MATHJAX_CONFIG`` setting
+* Display tags and archives in a unified format, with the date on the
+  left, instead of a misplaced dash in tags (Issue #2212)
+* Decide ``is_mathjax`` based on current language tags (Issue #2205)
+* Don't duplicate images in flowr when resizing page (Issue #2202)

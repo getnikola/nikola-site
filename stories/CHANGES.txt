@@ -1,3 +1,38 @@
+New in v7.7.5
+=============
+
+Features
+--------
+
+* Add ``nikola theme --new`` command for creating new themes (Issue #2231)
+* Add ``nikola theme --copy-template`` command for copying templates
+  to customize them (Issue #2231)
+* Add ``nikola theme --uninstall`` command for deleting themes (Issue #2231)
+* Replace ``nikola install_theme`` with more capable ``nikola theme``
+  command (Issue #2231)
+* Allow for customizing ``github_deploy`` commit messages with ``-m``
+  (Issue #2198)
+* Commit to source branch automatically in ``github_deploy``
+  if ``GITHUB_COMMIT_SOURCE`` is set to True (Issue #2186)
+* Hugo-like shortcodes (Issue #1707)
+* New Galician translation
+* New facilities for data persistence and data caching (Issues #2209 and #2009)
+* (internal) allow ``scripts/jinjify.py`` usage with scripts (Issue #2240)
+
+Bugfixes
+--------
+
+* Fix some rebuilds with indexes and galleries
+* Make state files work on Python 3
+* Don’t attempt to create redirects for URLs with query strings in
+  WordPress imports if the site is in a subdirectory (Issue #2224)
+* Avoid some random file rebuilds (Issue #2220)
+* Honor ``MATHJAX_CONFIG`` setting
+* Display tags and archives in a unified format, with the date on the
+  left, instead of a misplaced dash in tags (Issue #2212)
+* Decide ``is_mathjax`` based on current language tags (Issue #2205)
+* Don't duplicate images in flowr when resizing page (Issue #2202)
+
 New in v7.7.4
 =============
 
@@ -1682,3 +1717,5 @@ Bugfixes
 * Colorbox support in restructured text figures
 * Fix for content displaying too wide
 * Changelog
+
+vim: tw=70 syntax=rst

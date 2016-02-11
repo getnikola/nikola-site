@@ -9,7 +9,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.7.4
+:Version: 7.7.5
 
 .. class:: alert alert-info pull-right
 
@@ -546,7 +546,6 @@ Or you can completely customize the link using the ``READ_MORE_LINK`` option.
     # }}            A literal } (U+007D RIGHT CURLY BRACKET)
     # READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
 
-
 Drafts
 ~~~~~~
 
@@ -800,6 +799,59 @@ Using Pandoc for reStructuredText, Markdown and other input formats that have a
 standalone Nikola plugin is **not recommended** as it disables plugins and
 extensions that are usually provided by Nikola.
 
+Shortcodes
+----------
+
+This feature is "inspired" (copied wholesale) from `Hugo <https://gohugo.io/extras/shortcodes/>`__ so I will
+steal part of their docs too.
+
+A shortcode is a simple snippet inside a content file that Nikola will render using a predefined template or
+custom code from a plugin.
+
+To use them from plugins, please see `Extending Nikola <https://getnikola.com/extending.html#shortcodes>`__
+
+Using a shortcode
+~~~~~~~~~~~~~~~~~
+
+In your content files, a shortcode can be called by using the ``{{% name parameters %}}`` form. Shortcode parameters are space delimited. Parameters with spaces can be quoted (or backslash escaped).
+
+The first word is always the name of the shortcode. Parameters follow the name. Depending upon how the shortcode is defined, the parameters may be named, positional or both. The format for named parameters models that of HTML with the format name="value".
+
+Some shortcodes use or require closing shortcodes. Like HTML, the opening and closing shortcodes match (name only), the closing being prepended with a slash.
+
+Example of a paired shortcode (note that we don't have a highlight shortcode yet ;-)::
+
+    {{% highlight python %}} A bunch of code here {{% /highlight %}}
+    
+Built-in shortcodes
+~~~~~~~~~~~~~~~~~~~
+
+post-list
+    Will show a list of posts, see the `Post List directive for details <#post-list>`__
+    
+
+Template-based shortcodes
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you put a template in ``shortcodes/`` called ``mycode.tmpl`` then Nikola will create a shortcode
+called ``mycode`` you can use. Any options you pass to the shortcode will be available as variables 
+for that template. If you use the shortcode as paired, then the contents between the paired tags will
+be available in the ``data`` variable.
+
+If you want to access the Nikola object, it will be available as ``site``. Use with care :-)
+
+For example, if your ``shortcodes/foo.tmpl`` contains this::
+
+    This uses the bar variable: ${bar}
+
+And your post contains this::
+
+    {{% foo bar=bla %}}
+
+Then the output file will contain::
+
+    This uses the bar variable: bla
+
 Redirections
 ------------
 
@@ -1024,12 +1076,13 @@ Getting More Themes
 
 There are a few themes for Nikola. They are available at
 the `Themes Index <https://themes.getnikola.com/>`_.
-Nikola has a built-in theme download/install mechanism to install those themes — the ``install_theme`` command:
+Nikola has a built-in theme download/install mechanism to install those themes
+— the ``theme`` command:
 
 
 .. code:: console
 
-    $ nikola install_theme -l
+    $ nikola theme -l
     Themes:
     -------
     blogtxt
@@ -1037,10 +1090,10 @@ Nikola has a built-in theme download/install mechanism to install those themes �
     ⋮
     ⋮
 
-    $ nikola install_theme blogtxt
-    [2013-10-12T16:46:13Z] NOTICE: install_theme: Downloading:
+    $ nikola theme -i blogtxt
+    [2013-10-12T16:46:13Z] NOTICE: theme: Downloading:
     https://themes.getnikola.com/v6/blogtxt.zip
-    [2013-10-12T16:46:15Z] NOTICE: install_theme: Extracting: blogtxt into themes
+    [2013-10-12T16:46:15Z] NOTICE: theme: Extracting: blogtxt into themes
 
 And there you are, you now have themes/blogtxt installed. It's very
 rudimentary, but it should work in most cases.
@@ -1126,6 +1179,9 @@ sure you have ``nikola`` and ``git`` installed on your PATH.
      deployed. We default to ``master``, but user pages should use ``src`` or
      something else.
    * ``GITHUB_REMOTE_NAME`` is the remote to which changes are pushed.
+   * ``GITHUB_COMMIT_SOURCE`` controls whether or not the source branch is
+     automatically committed to and pushed. We recommend setting it to
+     ``True``.
 
 4. Create a ``.gitignore`` file. We recommend adding at least the following entries:
 
@@ -1136,28 +1192,16 @@ sure you have ``nikola`` and ``git`` installed on your PATH.
       __pycache__
       output
 
-5. Switch to your source branch (if necessary) and commit to your source branch:
-
-   .. code:: text
-
-      git checkout -b src
-      git add .
-      git commit -am "Initial commit"
-
+5. If you set ``GITHUB_COMMIT_SOURCE`` to False, you must switch to your source
+   branch and commit to it.  Otherwise, this is done for you.
 6. Run ``nikola github_deploy``.  This will build the site, commit the output
    folder to your deploy branch, and push to GitHub.  Your website should be up
    and running within a few minutes.
-7. You should push your source branch to GitHub, too — this way, you have a
-   backup in case of catastrophic disk failure, and you can work on your
-   website from around the world.
-
-   .. code:: text
-
-      git push -u origin src
 
 If you want to use a custom domain, create your ``CNAME`` file in
 ``files/CNAME`` on the source branch. Nikola will copy it to the
-output directory.
+output directory. To add a custom commit message, use the ``-m`` option,
+followed by your message.
 
 Comments and Annotations
 ------------------------
@@ -1510,11 +1554,15 @@ In reST:
 
     Euler’s formula: :math:`e^{ix} = \cos x + i\sin x`
 
-In other input formats:
+In HTML and other input formats:
 
 .. code:: text
 
     Euler’s formula: \(e^{ix} = \cos x + i\sin x\)
+
+Note that some input formats (including Markdown) require using **double
+backslashes** in the delimiters (``\\(inline math\\)``). Please check your
+output first before reporting bugs.
 
 Display mathematics are produced using the reST `math` **directive** or the
 LaTeX backslash-brackets delimiters:
@@ -1532,11 +1580,16 @@ In reST:
 
       \int \frac{dx}{1+ax}=\frac{1}{a}\ln(1+ax)+C
 
-In other input formats:
+In HTML and other input formats:
 
 .. code:: text
 
     \[\int \frac{dx}{1+ax}=\frac{1}{a}\ln(1+ax)+C\]
+
+Note that some input formats (including Markdown) require using **double
+backslashes** in the delimiters (``\\[display math\\]``). Please check your
+output first before reporting bugs.
+
 
 reStructuredText Extensions
 ---------------------------

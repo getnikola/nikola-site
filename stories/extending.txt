@@ -9,7 +9,7 @@
 Extending Nikola
 ================
 
-:Version: 7.7.4
+:Version: 7.7.5
 :Author: Roberto Alsina <ralsina@netmanagers.com.ar>
 
 .. class:: alert alert-info pull-right
@@ -63,13 +63,13 @@ When you run ``nikola --help`` you will see something like this:
     nikola import_feed          import a RSS/Atom dump
     nikola import_wordpress     import a WordPress dump
     nikola init                 create a Nikola site in the specified folder
-    nikola install_theme        install theme into current site
     nikola list                 list tasks from dodo file
     nikola mincss               apply mincss to the generated site
     nikola new_post             create a new blog post or site page
     nikola run                  run tasks
     nikola serve                start the test webserver
     nikola strace               use strace to list file_deps and targets
+    nikola theme                manage themes
     nikola version              print the Nikola version number
 
     nikola help                 show help / reference
@@ -172,8 +172,8 @@ TemplateSystem Plugins
 ----------------------
 
 Nikola supports Mako and Jinja2. If you prefer some other templating
-system, then you will have to write a TemplateSystem plugin. Here's how they work.
-First, you have to create a .plugin file. Here's the one for the Mako plugin:
+system, then you will have to write a ``TemplateSystem`` plugin. Here's how they work.
+First, you have to create a ``.plugin`` file. Here's the one for the Mako plugin:
 
 .. code-block:: ini
 
@@ -253,10 +253,10 @@ Task Plugins
 ------------
 
 If you want to do something that depends on the data in your site, you
-probably want to do a Task plugin, which will make it be part of the
-``nikola build`` command. There are the currently available tasks, all
+probably want to do a ``Task`` plugin, which will make it be part of the
+``nikola build`` command. These are the currently available tasks, all
 provided by plugins:
-T
+
 .. sidebar:: Other Tasks
 
     There are also ``LateTask`` plugins, which are executed later,
@@ -380,7 +380,7 @@ They must provide:
 If the compiler produces something other than HTML files, it should also implement ``extension`` which
 returns the preferred extension for the output file.
 
-These plugins can also be used to extract metadata from file. To do so, the
+These plugins can also be used to extract metadata from a file. To do so, the
 plugin may implement ``read_metadata`` that will return a dict containing the
 metadata contained in the file.
 
@@ -389,7 +389,8 @@ RestExtension Plugins
 
 Implement directives for reStructuredText, see `media.py <https://github.com/getnikola/nikola/blob/master/nikola/plugins/compile/rest/media.py>`__ for a simple example.
 
-If your output depends on a config value, you need to make your post record a dependency on a pseudo-path, like this:
+If your output depends on a config value, you need to make your post record a
+dependency on a pseudo-path, like this:
 
 .. code-block:: text
 
@@ -397,17 +398,18 @@ If your output depends on a config value, you need to make your post record a de
 
 Then, whenever the ``OPTIONNAME`` option is changed in conf.py, the file will be rebuilt.
 
-If your directive depends or may depend on the whole timeline (like the post-list directive, where adding new posts
-to the site could make it stale), you should record a dependency on the
-pseudo-path ``####MAGIC####TIMELINE``.
+If your directive depends or may depend on the whole timeline (like the
+``post-list`` directive, where adding new posts to the site could make it
+stale), you should record a dependency on the pseudo-path
+``####MAGIC####TIMELINE``.
 
 MarkdownExtension Plugins
 -------------------------
 
 Implement Markdown extensions, see `mdx_nikola.py <https://github.com/getnikola/nikola/blob/master/nikola/plugins/compile/markdown/mdx_nikola.py>`__ for a simple example.
 
-Note that python markdown extensions are often also available as separate packages. This is only meant to ship extensions
-along with Nikola.
+Note that Python markdown extensions are often also available as separate
+packages. This is only meant to ship extensions along with Nikola.
 
 SignalHandler Plugins
 ---------------------
@@ -477,7 +479,7 @@ Path/Link Resolution Mechanism
 
 Any plugin can register a function using ``Nikola.register_path_handler`` to
 allow resolution of paths and links. These are useful for templates, which
-can access them via _link.
+can access them via ``_link``.
 
 For example, you can always get a link to the path for the feed of the "foo" tag
 by using ``_link('tag_rss', 'foo')`` or the ``link://tag_rss/foo`` URL.
@@ -529,7 +531,7 @@ HTML:
 
 
 The second argument to ``append()`` is used to determine whether the function
-needs access to the current template context and the site.  If it it set to
+needs access to the current template context and the site.  If it is set to
 ``True``, the function will also receive ``site`` and ``context`` keyword
 arguments.  Example use:
 
@@ -549,3 +551,70 @@ arguments.  Example use:
         endswith=endswith) + t
 
     site.template_hooks['page_header'].append(greeting, True, u'Nikola Tesla', endswith=u'!')
+
+Shortcodes
+==========
+
+Some (hopefully all) markup compilers support shortcodes in these forms::
+
+    {{% foo %}}  # No arguments
+    {{% foo bar %}}  # One argument, containing "bar"
+    {{% foo bar baz=bat %}}  # Two arguments, one containing "bar", one called "baz" containing "bat"
+    
+    {{% foo %}}Some text{{% /foo %}} # one argument called "data" containing "Some text"
+
+So, if you are creating a plugin that generates markup, it may be a good idea to register it as a shortcode
+in addition of a restructured text directive or markdown extension, thus making it available to all markups.
+    
+To implement your own shortcodes from a plugin, you can call ``Nikola.register_shortcode(name, f)`` with the following
+arguments:
+
+name:
+    name of the shortcode (foo in the examples above)
+f:
+    A function that will handle the shortcode
+    
+The shortcode handler should take *at least* the following named arguments:
+
+site:
+    An instance of the Nikola class, to access site state
+    
+data:
+    If the shortcut is used as opening/closing tags, it will be the text between them, otherwise None
+    
+If the shortcode tag has arguments of the form "foo=bar" they will be passed as named arguments. Everything else
+will be passed as positional arguments in the function call.
+
+So, for example::
+
+    {{% foo bar baz=bat beep %}}Some text{{% /foo %}}
+    
+Will cause a call like this::
+
+     foo_handler("bar", "beep", baz="bat", data="Some text", site=whatever)
+
+State and Cache
+===============
+
+Sometimes your plugins will need to cache things to speed up further actions. Here are the conventions for that:
+
+* If it's a file, put it somewhere in ```self.site.config['CACHE_FOLDER']``` (defaults to ```cache/```.
+* If it's a value, use ```self.site.cache.set(key, value)``` to set it and ```self.site.cache.get(key)``` to get it.
+  The key should be a string, the value should be json-encodable (so, be careful with datetime objects)
+  
+The values and files you store there can **and will** be deleted sometimes by the user. They should always be
+things you can reconstruct without lossage. They are throwaways.
+
+On the other hand, sometimes you want to save something that is **not** a throwaway. These are things that may
+change the output, so the user should not delete them. We call that **state**. To save state:
+
+* If it's a file, put it somewhere in the working directory. Try not to do that please.
+* If it's a value, use ```self.site.state.set(key, value)``` to set it and ```self.state.cache.get(key)``` to get it.
+  The key should be a string, the value should be json-encodable (so, be careful with datetime objects)
+
+The ```cache``` and ```state``` objects are rather simplistic, and that's intentional. They have no default values: if
+the key is not there, you will get ```None``` and like it. They are meant to be both threadsafe, but hey, who can
+guarantee that sort of thing?
+
+There are no sections, and no access protection, so let's not use it to store passwords and such. Use responsibly.
+
