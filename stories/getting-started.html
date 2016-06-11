@@ -126,22 +126,25 @@
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingLxmlErrors">
-                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlErrors" aria-expanded="false" aria-controls="collapseLxmlErrors"><i class="fa fa-exclamation-triangle"></i> Error: missing libxml/libxslt</a></h4>
+                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlErrors" aria-expanded="false" aria-controls="collapseLxmlErrors"><i class="fa fa-exclamation-triangle"></i> Error: libxml/libxslt or Pillow errors</a></h4>
                 </div>
                 <div id="collapseLxmlErrors" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLxmlErrors">
                     <div class="panel-body">
-                        <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code> or <code class="gs-code">Pillow</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries, like so:</p>
+                        <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code> or <code class="gs-code">Pillow</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries. If you have issues installing Pillow, you might need libraries for certain image formats. Try those commands:</p>
                         <p>Debian systems:</p>
                         <pre class="gs-console">
 <code># <span class="gs-root">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev</span></code>
+<code># <span class="gs-root">sudo apt-get build-dep python3-lxml python3-pil</span></code>
 </pre>
                         <p>Fedora 22+:</p>
                         <pre class="gs-console">
 <code># <span class="gs-root">sudo dnf install libxml2-devel libxslt-devel zlib-devel</span></code>
+<code># <span class="gs-root">sudo dnf builddep python3-lxml python3-pillow</span></code>
 </pre>
                         <p>Red Hat/CentOS/Fedora 21:</p>
                         <pre class="gs-console">
 <code># <span class="gs-root">sudo yum install libxml2-devel libxslt-devel zlib-devel</span></code>
+<code># <span class="gs-root">sudo yum builddep python3-lxml python3-pillow</span></code>
 </pre>
                     </div>
                 </div>
