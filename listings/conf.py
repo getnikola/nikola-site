@@ -57,7 +57,8 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # it        Italian
 # ja        Japanese [NOT jp]
 # ko        Korean
-# nb        Norwegian Bokmål
+# lt        Lithuanian
+# nb        Norwegian (Bokmål)
 # nl        Dutch
 # pa        Punjabi
 # pl        Polish
@@ -1082,7 +1083,8 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # - description
 #
 # An example re is the following:
-# '(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)-(?P<title>.*)\.md'
+# '.*\/(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)-(?P<title>.*)\.rst'
+# (Note the '.*\/' in the beginning -- matches source paths relative to conf.py)
 # FILE_METADATA_REGEXP = None
 
 # If you hate "Filenames with Capital Letters and Spaces.md", you should
