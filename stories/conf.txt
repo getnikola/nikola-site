@@ -9,6 +9,6 @@ The default config file for Nikola v7.7.9 is reproduced below.
 
 .. raw:: html
 
-    <div style="text-align: center"><a class="btn btn-primary" href="https://getnikola.com/listings/conf.py">Download conf.py</a></div>
+    <a class="btn btn-primary" href="https://getnikola.com/listings/conf.py">Download conf.py</a>
 
 .. listing:: conf.py python
