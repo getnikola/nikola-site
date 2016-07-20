@@ -1,3 +1,35 @@
+New in v7.7.10
+==============
+
+Features
+--------
+
+* New EXIF_WHITELIST option to filter EXIF data (Issue #2323)
+* Support ``date`` filtering in the post list directive
+  (Issue #1889)
+* Support ``doc`` shortcode (equivalent to reST ``doc`` role — part of
+  Issue #2170)
+* Added Albanian translation by Vango Stavro
+* Added ``post-(type)`` class to ``story.tmpl`` (uses the ``type``
+  meta field, defaults to ``post-text`` — same behavior as posts)
+* New ``compiled`` signal after post is compiled (Issue #2369)
+
+Bugfixes
+--------
+
+* Some images were copied ignoring the PRESERVE_EXIF_DATA option
+* Warn about possible outdated files after --clean-files (Issue #2017)
+* Improved EXIF orientation handling
+* Register post list template as a dependency (Issue #2391)
+* Fix section color hashing when using Python 2
+* Use ``en_US`` dictionary name with pyphen for better compatibility
+* Fix graceful degradation if ``pyphen`` lacks dictionaries
+* Add horizontal scrollbar to listings (via getnikola/nikola-themes#86)
+* Copy files when importing two-file posts instead of reading and
+  writing (useful for binary formats, eg. docx) (Issue #2380)
+* Using correct category titles for category hierarchies
+  (Issue #2384)
+
 New in v7.7.9
 =============
 
