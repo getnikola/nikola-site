@@ -42,7 +42,7 @@ the current GitHub master, check out `Nikola on ReadTheDocs
 `Tutorial by Tim van der Linden <http://shisaa.jp/postset/nikola-web.html>`_
     Goes from installing to developing a custom theme.
 
-`Tutorial en español de Diego Leonardo Puente <http://diegoduncan21.github.com/posts/asi-lo-hice.html>`_
+`Tutorial en español de Diego Leonardo Puente <https://web.archive.org/web/20140820013813/http://diegoduncan21.github.io/posts/asi-lo-hice.html>`_
     Instalación y deployment a GitHub
 
 `Tutorial by RCA (in Chinese) <http://rca.is-programmer.com/2013/2/5/using-nikola-write-static-blog.37513.html>`_

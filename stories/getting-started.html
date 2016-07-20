@@ -54,7 +54,7 @@
                 </div>
                 <div id="collapseMac" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMac">
                     <div class="panel-body">
-                        <p>Installing Nikola on OS X is easy. You can use Homebrew, MacPorts, Fink, or perform a standalone installation using the system Python.</p>
+                        <p>Installing Nikola on OS X is easy. You can use Homebrew, MacPorts, Fink, or perform a standalone installation using the system Python. For future proof installations that do support all features using Python 3.3+ over OS X's system Python is recommended.</p>
                         <h5>With <a href="http://brew.sh/">Homebrew</a> (recommended)</h5>
                         <ol>
                             <li>Install <a href="http://brew.sh/">Homebrew</a>.</li>
@@ -66,6 +66,7 @@
                         <h5>With <a href="https://www.macports.org/">MacPorts</a></h5>
                         <ol>
                             <li>Install <a href="https://www.macports.org/">MacPorts</a>.</li>
+                            <li>Update MacPorts package descriptions <code class="gs-code gs-command">sudo port selfupdate</code></li>.
                             <li>Install pip (and Python) with <code class="gs-code gs-command">sudo port install py35-pip</code> (or a newer Python version, if available — please check the repos)</li>
                             <li>Install virtualenv with <code class="gs-code gs-command">sudo port install py35-virtualenv</code></li>
                             <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>.</li>
@@ -73,6 +74,7 @@
                         <h5>With <a href="http://www.finkproject.org/">Fink</a></h5>
                         <ol>
                             <li>Install <a href="http://www.finkproject.org/">Fink</a>.</li>
+                            <li>Update fink package descriptions <code class="gs-code gs-command">fink selfupdate</code>.</li>
                             <li>Install pip, virtualenv and Python with <code class="gs-code gs-command">sudo fink install pip-py35 virtualenv-py35</code> (or a newer Python version, if available — please check the repos)</li>
                             <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>.</li>
                         </ol>
@@ -124,22 +126,25 @@
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingLxmlErrors">
-                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlErrors" aria-expanded="false" aria-controls="collapseLxmlErrors"><i class="fa fa-exclamation-triangle"></i> Error: missing libxml/libxslt</a></h4>
+                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlErrors" aria-expanded="false" aria-controls="collapseLxmlErrors"><i class="fa fa-exclamation-triangle"></i> Error: libxml/libxslt or Pillow errors</a></h4>
                 </div>
                 <div id="collapseLxmlErrors" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLxmlErrors">
                     <div class="panel-body">
-                        <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code> or <code class="gs-code">Pillow</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries, like so:</p>
+                        <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code> or <code class="gs-code">Pillow</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries. If you have issues installing Pillow, you might need libraries for certain image formats. Try those commands:</p>
                         <p>Debian systems:</p>
                         <pre class="gs-console">
 <code># <span class="gs-root">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev</span></code>
+<code># <span class="gs-root">sudo apt-get build-dep python3-lxml python3-pil</span></code>
 </pre>
                         <p>Fedora 22+:</p>
                         <pre class="gs-console">
 <code># <span class="gs-root">sudo dnf install libxml2-devel libxslt-devel zlib-devel</span></code>
+<code># <span class="gs-root">sudo dnf builddep python3-lxml python3-pillow</span></code>
 </pre>
                         <p>Red Hat/CentOS/Fedora 21:</p>
                         <pre class="gs-console">
 <code># <span class="gs-root">sudo yum install libxml2-devel libxslt-devel zlib-devel</span></code>
+<code># <span class="gs-root">sudo yum builddep python3-lxml python3-pillow</span></code>
 </pre>
                     </div>
                 </div>

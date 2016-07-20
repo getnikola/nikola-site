@@ -212,6 +212,7 @@ NAVIGATION_LINKS = {
             (
                 ('https://themes.getnikola.com', 'Themes'),
                 ('https://plugins.getnikola.com', 'Plugins'),
+                ('https://github.com/getnikola/shortcodes', 'Shortcodes'),
             ),
             'Add-ons'
         ),
