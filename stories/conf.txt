@@ -1,11 +1,11 @@
-.. title: Nikola v7.7.10 configuration file
+.. title: Nikola v7.7.12 configuration file
 .. slug: conf
 .. date: 2014-11-08 18:51:30 UTC
 .. description: The Nikola configuration file.
 .. type: text
 .. author: The Nikola Team
 
-The default config file for Nikola v7.7.10 is reproduced below.
+The default config file for Nikola v7.7.12 is reproduced below.
 
 .. raw:: html
 

@@ -1,3 +1,38 @@
+New in v7.7.12
+==============
+
+Features
+--------
+
+* Add ``sections`` filtering in the post list directive
+  (Issue #2409)
+* Update Bootstrap to v3.3.7
+
+Bugfixes
+--------
+
+* Added code documentation to ReadTheDocs (Issue #2124)
+  (https://nikola.readthedocs.io/en/latest/)
+* Pass language to docutils so admonitions are translated (Issue #2422)
+* Put 2-file post metadata in the same place as the text file when
+  specifying a path in ``new_post``, ``new_page`` (Issue #2420)
+* Register dependencies in post-list shortcode (Issue #2412)
+* Support post-list shortcode better (Issue #2408)
+* Fix gallery links in base theme (Issue #2416)
+* Respect ``DEPLOY_DRAFTS`` and ``DEPLOY_FUTURE`` in ``github_deploy``
+  (Issue #2406)
+* Don’t remove ``<!DOCTYPE html>`` if typogrify filters are in use
+* Avoid infinite loop if bootstrap3 can't be loaded (Issue #2402)
+* Fixed image rotation to update image size correctly (Issue #2418)
+
+New in v7.7.11
+==============
+
+Bugfixes
+--------
+
+* Brown bag bug in image resizing (ralsina says my fault!)
+
 New in v7.7.10
 ==============
 
@@ -1843,4 +1878,4 @@ Bugfixes
 * Fix for content displaying too wide
 * Changelog
 
-vim: tw=70 syntax=rst
+vim: cc=70 tw=70 syntax=rst

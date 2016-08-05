@@ -1,0 +1,60 @@
+.. title: Nikola v7.7.12 is out!
+.. slug: nikola-v7712-is-out
+.. date: 2016-08-05 13:40:55 UTC
+.. tags: nikola, planet, python, programming, release
+.. author: Chris Warrick
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.7.12. It fixes some bugs and adds new
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.7.12
+__ https://pypi.python.org/pypi/Nikola/7.7.12
+
+Changes
+=======
+
+Features
+--------
+
+* New Telugu translation by Chillar Anand
+* Add ``sections`` filtering in the post list directive
+  (Issue #2409)
+* Update Bootstrap to v3.3.7
+
+Bugfixes
+--------
+
+* Added code documentation to `ReadTheDocs`__ (Issue #2124)
+* Pass language to docutils so admonitions are translated (Issue #2422)
+* Put 2-file post metadata in the same place as the text file when
+  specifying a path in ``new_post``, ``new_page`` (Issue #2420)
+* Register dependencies in post-list shortcode (Issue #2412)
+* Support post-list shortcode better (Issue #2408)
+* Fix gallery links in base theme (Issue #2416)
+* Respect ``DEPLOY_DRAFTS`` and ``DEPLOY_FUTURE`` in ``github_deploy``
+  (Issue #2406)
+* Don’t remove ``<!DOCTYPE html>`` if typogrify filters are in use
+* Avoid infinite loop if bootstrap3 can't be loaded (Issue #2402)
+* Fixed image rotation to update image size correctly (Issue #2418)
+
+__ https://nikola.readthedocs.io/en/latest/
