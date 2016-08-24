@@ -1287,6 +1287,13 @@ blog from anywhere in the world, follow this guide:
 `Automating Nikola rebuilds with Travis CI
 </blog/automating-nikola-rebuilds-with-travis-ci.html>`_.
 
+Automated rebuilds with GitLab
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+GitLab also offers rebuild automation if you want to use Nikola with GitLab
+Pages. Check out the example `Nikola site on GitLab
+<https://gitlab.com/pages/nikola>`_.
+
 Comments and Annotations
 ------------------------
 
