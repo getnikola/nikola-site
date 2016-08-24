@@ -1,0 +1,31 @@
+# Travis CI config for automated Nikola blog deployments
+language: python
+cache: apt
+sudo: false
+addons:
+  apt:
+    packages:
+    - language-pack-en-base
+python:
+- 3.5
+before_install:
+- git config --global user.name 'Travis CI'
+- git config --global user.email 'travis@invalid'
+- git config --global push.default 'simple'
+- pip install --upgrade pip wheel
+- echo -e 'Host github.com\n    StrictHostKeyChecking no' >> ~/.ssh/config
+- eval "$(ssh-agent -s)"
+- chmod 600 id_rsa
+- ssh-add id_rsa
+- git remote rm origin
+- git remote add origin git@github.com:USERNAME/REPO.git
+- git fetch origin master
+- git branch master FETCH_HEAD
+install:
+- pip install 'Nikola[extras]'
+script:
+- nikola build && nikola github_deploy -m 'Nikola auto deploy [ci skip]'
+notifications:
+    email:
+        on_success: change
+        on_failure: always

@@ -1,7 +1,7 @@
 .. title: 5000 commits to Nikola!
 .. slug: 5000-commits
 .. date: 2014-09-21 08:00:00 UTC
-.. tags: python, github, devel
+.. tags: python, GitHub, devel
 .. link: https://github.com/getnikola/nikola/commit/a99ef7a06bbd9bf07be44e019a15a991248e0ff4
 .. description: Nikola has just hit 5000 commits!
 .. type: text
