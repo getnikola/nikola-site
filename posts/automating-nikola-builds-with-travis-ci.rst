@@ -13,7 +13,7 @@ Why?
 
 By using Travis CI to build your site, you can easily blog from anywhere
 you can edit text files. Which means you can blog with only a web
-browser and `GitHub.com <https://github.com>`_ or try a service like `Prose.io <http://prose.io/>`_.
+browser and `GitHub.com <https://github.com>`_.
 You also won’t need to install Nikola and Python to write. Or a real computer,
 a mobile phone could probably access one of those services and write something.
 
@@ -43,7 +43,7 @@ Start by creating a new Nikola site and customizing it to your liking. Follow
 the `Getting Started guide <https://getnikola.com/getting-started.html>`_. You
 might also want to add support for `other input formats
 <https://getnikola.com/handbook.html#configuring-other-input-formats>`_, namely
-Markdown, but this is not a requirement (unless you want to use Prose.io).
+Markdown, but this is not a requirement.
 
 After you’re done, you must configure `deploying to GitHub
 <https://getnikola.com/handbook.html#deploying-to-github>`_ in Nikola.
