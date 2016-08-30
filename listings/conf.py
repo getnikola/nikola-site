@@ -71,6 +71,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # sr        Serbian (Cyrillic)
 # sr_latin  Serbian (Latin)
 # sv        Swedish
+# te        Telugu
 # tr        Turkish [NOT tr_TR]
 # uk        Ukrainian
 # ur        Urdu
@@ -163,7 +164,7 @@ THEME_COLOR = '#5670d4'
 # output/TRANSLATIONS[lang]/destination/pagename.html
 #
 # where "pagename" is the "slug" specified in the metadata file.
-# The page might also be placed in /destinstion/pagename/index.html
+# The page might also be placed in /destination/pagename/index.html
 # if PRETTY_URLS are enabled.
 #
 # The difference between POSTS and PAGES is that POSTS are added
@@ -508,9 +509,12 @@ FRONT_INDEX_HEADER = {
 # If USE_BASE_TAG is True, then all HTML files will include
 # something like <base href=http://foo.var.com/baz/bat> to help
 # the browser resolve relative links.
-# In some rare cases, this will be a problem, and you can
-# disable it by setting USE_BASE_TAG to False.
-# USE_BASE_TAG = True
+# Most people don’t need this tag; major websites don’t use it. Use
+# only if you know what you’re doing. If this is True, your website
+# will not be fully usable by manually opening .html files in your web
+# browser (`nikola serve` or `nikola auto` is mandatory). Also, if you
+# have mirrors of your site, they will point to SITE_URL everywhere.
+USE_BASE_TAG = False
 
 # Final location for the blog main RSS feed is:
 # output / TRANSLATION[lang] / RSS_PATH / rss.xml
@@ -552,13 +556,12 @@ REDIRECTIONS = []
 # github_deploy configuration
 # For more details, read the manual:
 # https://getnikola.com/handbook.html#deploying-to-github
-# For user.github.io OR organization.github.io pages, the DEPLOY branch
-# MUST be 'master', and 'gh-pages' for other repositories.
-# GITHUB_SOURCE_BRANCH = 'master'
-# GITHUB_DEPLOY_BRANCH = 'gh-pages'
+# You will need to configure the deployment branch on GitHub.
+GITHUB_SOURCE_BRANCH = 'src'
+GITHUB_DEPLOY_BRANCH = 'master'
 
 # The name of the remote where you wish to push to, using github_deploy.
-# GITHUB_REMOTE_NAME = 'origin'
+GITHUB_REMOTE_NAME = 'origin'
 
 # Whether or not github_deploy should commit to the source branch automatically
 # before deploying.
@@ -1171,6 +1174,11 @@ UNSLUGIFY_TITLES = True
 # repository.
 # EXTRA_PLUGINS_DIRS = []
 
+# Add the absolute paths to directories containing themes to use them.
+# For example, the `v7` directory of your clone of the Nikola themes
+# repository.
+# EXTRA_THEMES_DIRS = []
+
 # List of regular expressions, links matching them will always be considered
 # valid by "nikola check -l"
 # LINK_CHECK_WHITELIST = []
@@ -1187,6 +1195,12 @@ UNSLUGIFY_TITLES = True
 # example.
 # (defaults to 1.)
 # DEMOTE_HEADERS = 1
+
+# Docutils, by default, will perform a transform in your documents
+# extracting unique titles at the top of your document and turning
+# them into metadata. This surprises a lot of people, and setting
+# this option to True will prevent it.
+# NO_DOCUTILS_TITLE_TRANSFORM = False
 
 # If you don’t like slugified file names ([a-z0-9] and a literal dash),
 # and would prefer to use all the characters your file system allows.

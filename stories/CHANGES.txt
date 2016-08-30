@@ -1,12 +1,48 @@
+New in v7.8.0
+=============
+
+Features
+--------
+
+* Exposed ``gist`` as a shortcode (Issue #2459)
+* Always copy source files for listings (Issue #2473)
+* Detect dependencies in template strings (Issue #2455)
+* RSS feeds for sections (Issue #2068)
+* New ``data`` metadata that loads data from external files (Issue #2450)
+* Shortcode to escape to the template language (Issue #1227)
+* Added link to raw file in listings (Issue #1995)
+* New NO_DOCUTILS_TITLE_TRANSFORM (Issue #2382)
+* Update options of chart directive to Pygal 2.2.3
+* Pass global context to template shortcodes (Issue #2424)
+* Added new options --html2text and --transform-to-markdown
+  to WordPress importer (Issue #2261)
+* Listing: guess the lexer if cannot be determined from the file name.
+* Read files from data/ and insert data in global context (Issue #2477)
+
+Bugfixes
+--------
+
+* Added link to sources in the output of listing directive (Issue #2472)
+* Fix Windows crash with calendar locales (Issue #2332)
+* Remove the (useless) ``<base>`` tag by default; change conf.py to
+  opt in (Issue #2471)
+* Show tag descriptions when TAG_PAGES_ARE_INDEXES is True (Issue #2444)
+* Record template dependencies for post-list shortcut (Issue #2451)
+* Default to English for docutils messages if no translations exist
+  (Issues #2422, #2437)
+
 New in v7.7.12
 ==============
 
 Features
 --------
 
+* New Telugu translation by Chillar Anand
 * Add ``sections`` filtering in the post list directive
   (Issue #2409)
 * Update Bootstrap to v3.3.7
+* Add ``EXTRA_THEMES_DIRS`` search path, similar to ``EXTRA_PLUGINS_DIRS``,
+  to locate themes at other places (Issue #2427)
 
 Bugfixes
 --------
