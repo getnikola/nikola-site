@@ -35,7 +35,7 @@ And Staticman will take the form's data, convert it to JSON, YAML, or whatever, 
 it back in your site's GitHub repo. You can choose whether it uses "moderation", and
 do that via a pull request, or not, in which case it just commits directly.
 
-Nikola can then use those data files from its templates, like in `this example <https://github.com/ralsina/staticman-data/blob/master/templates/post.tmpl>`__ which has both displays a form to post comments, and a list of previous comments.
+Nikola can then use those data files from its templates, like in `this example <https://github.com/ralsina/staticman-data/blob/master/templates/post.tmpl>`__ which displays a form to post comments, and a list of previous comments.
 
 Then, if you combine that with an autobuild system, like `using Travis <https://getnikola.com/blog/automating-nikola-rebuilds-with-travis-ci.html>`__ or `Netlify <https://getnikola.com/blog/from-zero-to-nikola-in-one-minute-without-installing-anything.html>`__ or `Gitlab <https://gitlab.com/pages/nikola>`__ that means a few seconds/minutes after the form is submitted
 
@@ -43,5 +43,8 @@ So, what do we end up with? A site with comments, where you own all the data, an
 use Javascript to display the comments!
 
 You can see it in action in this demo site: `staticman-demo.netlify.com <http://staticman-demo.netlify.com/posts/sample-post-with-staticman-comments.html>`__
+
+**TODO:** submit the form via Javascript instead, so it does it in the background instead of
+dumping JSON results on you.
 
 Have fun, leave a comment :-)
