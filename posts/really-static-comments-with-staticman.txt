@@ -1,0 +1,47 @@
+.. title: Really Static Comments with Staticman
+.. slug: really-static-comments-with-staticman
+.. date: 2016-08-31 12:51:07 UTC
+.. tags: nikola, comments, staticman, netlify
+.. category:
+.. link:
+.. description:
+.. type: text
+
+Static sites have many advantages, we always say. But they also have at least one
+large inherent disadvantage: they are not dynamic. Not being dynamic means that
+forms that alter the content of the site itself are not possible without going
+outside the static side of things.
+
+That's why for comments we all end up using something like `Disqus <http://disqus.com>`__
+or some other alternative service, or `Isso <http://posativ.org/isso>`__ if you
+prefer the annoyance of self-hosting instead of the annoyance of having your data
+be owned by someone else.
+
+So... how about a service that lets you do forms, but:
+
+* You keep full control of your data
+* The service doesn't limit what you can do with the data
+* You can use it for most things a form is used for?
+* It's free!
+
+That service is called `Staticman <https://staticman.net>`__ and it's **awesome**.
+
+This is how it works:
+
+* You put your site in GitHub (or soon, Gitlab!)
+* You do `some configuration <https://github.com/ralsina/staticman-data/blob/master/staticman.yml>`__
+
+And Staticman will take the form's data, convert it to JSON, YAML, or whatever, and put
+it back in your site's GitHub repo. You can choose whether it uses "moderation", and
+do that via a pull request, or not, in which case it just commits directly.
+
+Nikola can then use those data files from its templates, like in `this example <https://github.com/ralsina/staticman-data/blob/master/templates/post.tmpl>`__ which has both displays a form to post comments, and a list of previous comments.
+
+Then, if you combine that with an autobuild system, like `using Travis <https://getnikola.com/blog/automating-nikola-rebuilds-with-travis-ci.html>`__ or `Netlify <https://getnikola.com/blog/from-zero-to-nikola-in-one-minute-without-installing-anything.html>`__ or `Gitlab <https://gitlab.com/pages/nikola>`__ that means a few seconds/minutes after the form is submitted
+
+So, what do we end up with? A site with comments, where you own all the data, and not even need to
+use Javascript to display the comments!
+
+You can see it in action in this demo site: `staticman-demo.netlify.com <http://staticman-demo.netlify.com/posts/sample-post-with-staticman-comments.html>`__
+
+Have fun, leave a comment :-)
