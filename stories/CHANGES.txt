@@ -1,3 +1,28 @@
+New in v7.8.1
+=============
+
+Bugfixes
+--------
+
+* Rename ``stories`` to ``pages`` in most of the codebase (Issue
+  #1891)
+* Report missing/unknown dates in posts with filenames
+  (Issues #2505, #2506)
+* Report filename of post that raised exception when scanning
+  (Issue #2505)
+* Accept ``page`` and ``pages`` for the ``type`` field in post lists
+* Don’t crash if a post list has no posts (Issue #2489)
+
+Features
+--------
+
+* Add Hebrew translation by Yitzhak Bar Geva
+* Add Chinese (Traditional) ``zh_TW`` translation by Po-Wen Chi
+* Add ``nikola theme --list-installed`` (Issue #2504)
+* Add ``KATEX_AUTO_RENDER`` setting to configure math delimiters
+* Update KaTeX version to 0.6.0: support aligned math display
+* Better support for a tree of files in ``data/``
+
 New in v7.8.0
 =============
 
