@@ -27,7 +27,7 @@ markdown file (our theming guide, converted from reSt using pandoc).
 As a baseline, a site with 1000 copies of the original reSt theming.txt builds in ``126`` seconds.
 
 The markdown version of that site? It gets progressively slower as files build, so
-I suspect it leaks *something* between builds, and finishes in ... ``1584```seconds. That is
+I suspect it leaks *something* between builds, and finishes in ... ``1584`` seconds. That is
 over 12 times **slower** than the reSt compiler.
 
 But you don't want to switch to reSt? No problem! We support more markdown compilers than
