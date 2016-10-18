@@ -9,7 +9,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.8.0
+:Version: 7.8.1
 
 .. class:: alert alert-info pull-right
 
@@ -508,15 +508,15 @@ options. The exact mechanism is explained above the config options in the
         ("posts/*.html", "posts", "post.tmpl"),
     )
     PAGES = (
-        ("stories/*.rst", "stories", "story.tmpl"),
-        ("stories/*.txt", "stories", "story.tmpl"),
-        ("stories/*.html", "stories", "story.tmpl"),
+        ("pages/*.rst", "pages", "story.tmpl"),
+        ("pages/*.txt", "pages", "story.tmpl"),
+        ("pages/*.html", "pages", "story.tmpl"),
     )
 
 .. note:: POSTS and PAGES are not flat!
 
    Even if the syntax may suggest you can't, you can create any directory structure you want
-   inside ``posts/`` or ``stories/`` and it will be reflected in the output. For example,
+   inside ``posts/`` or ``pages/`` and it will be reflected in the output. For example,
    ``posts/foo/bar.txt`` would produce  ``output/posts/foo/bar.html``, assuming the slug is also ``bar``.
 
    If you have ``PRETTY_URLS`` enabled, that would be ``output/posts/foo/bar/index.html``.
@@ -795,7 +795,7 @@ Sections are the newest feature for taxonomy, and are not supported in themes by
 
 Sections are meant to be used to organize different parts of your blog, parts that are about different topics. Unlike tags, which you should have tens (hundreds?) of, you should ideally have less than 10 sections (though it depends on what your blog needs; there is no hard limit).
 
-With sections, you can also use come custom styling — if you install ``husl``, you can use ``post.section_color()`` from within templates to get a distinct color for the section of a post, which you can then use in some inline CSS for the section name.
+With sections, you can also use some custom styling — if you install ``husl``, you can use ``post.section_color()`` from within templates to get a distinct color for the section of a post, which you can then use in some inline CSS for the section name.
 
 You can find some examples and more information in the `original announcement
 <https://getnikola.com/blog/new-feature-in-nikola-sections.html>`_
@@ -825,11 +825,15 @@ Pages are the same as posts, except that:
 * They use the ``story.tmpl`` template instead of ``post.tmpl`` by default
 
 The default configuration expects the page's metadata and text files to be on the
-``stories`` folder, but that can be changed (see ``PAGES`` option above).
+``pages`` folder, but that can be changed (see ``PAGES`` option above).
 
 You can create the page's files manually or use the ``new_post`` command
 with the ``-p`` option, which will place the files in the folder that
 has ``use_in_feed`` set to False.
+
+In some places (including default directories and templates), pages are called
+*stories* for historic reasons. Both are synonyms for the same thing: pages
+that are not blog posts.
 
 Supported input formats
 -----------------------
@@ -1139,7 +1143,7 @@ You surely want to edit these options:
     BLOG_EMAIL = "joe@demo.site"
     BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 
-Some options are demarked with a (translatable) comment above or right next to
+Some options are marked with a (translatable) comment above or right next to
 them.  For those options, two types of values can be provided:
 
 * a string, which will be used for all languages
@@ -1175,7 +1179,7 @@ CSS tweaking
 .. _LESS: http://lesscss.org/
 .. _Sass: http://sass-lang.com/
 
-Template tweaking
+Template tweaking and creating themes
     If you really want to change the pages radically, you will want to do a
     `custom theme <theming.html>`__.
 
@@ -1315,8 +1319,18 @@ change the FILES_FOLDERS option:
     # FILES_FOLDERS = {'files': '' }
     # Which means copy 'files' into 'output'
 
-Getting More Themes
--------------------
+Custom Themes
+-------------
+
+If you prefer to have a custom appearance for your site, and modifying CSS
+files and settings (see `Customizing Your Site`_ for details) is not enough,
+you can create your own theme. See the :doc:`theming` and
+:doc:`creating-a-theme` for more details. You can put them in a ``themes/``
+folder and set ``THEME`` to the directory name.  You can also put them in
+directories listed in the ``EXTRA_THEMES_DIRS`` configuration variable.
+
+Getting Extra Themes
+--------------------
 
 There are a few themes for Nikola. They are available at
 the `Themes Index <https://themes.getnikola.com/>`_.
@@ -1492,7 +1506,7 @@ to one of "disqus", "intensedebate", "livefyre", "moot", "googleplus",
    * In Moot it's your **username**
    * For Google Plus, ``COMMENT_SYSTEM_ID`` need not be set. WARNING: this will not work correctly in the test server, needs to be deployed to a real server/URL.
    * For Facebook, you need to `create an app
-     <https://developers.facebook.com/apps>` (turn off sandbox mode!)
+     <https://developers.facebook.com/apps>`_ (turn off sandbox mode!)
      and get an **App ID**
    * For isso, it is the URL of isso (must be world-accessible, encoded with
      Punycode (if using Internationalized Domain Names) and **have a trailing slash**,
@@ -1563,7 +1577,9 @@ and put images there. Nikola will take care of creating thumbnails, index page, 
 If you click on images on a gallery, or on images with links in post, you will
 see a bigger image, thanks to the excellent `colorbox
 <http://www.jacklmoore.com/colorbox>`_.  If don’t want this behavior, add an
-``.islink`` class to your image or link.
+``.islink`` class to your image or link. (The behavior is caused by
+``<a class="image-reference">`` if you need to use it outside of galleries and reST
+thumbnails.)
 
 The gallery pages are generated using the ``gallery.tmpl`` template, and you can
 customize it there (you could switch to another lightbox instead of colorbox, change
@@ -1594,16 +1610,19 @@ The ``conf.py`` options affecting images and gallery pages are these:
     # If set to False, it will sort by filename instead. Defaults to True
     GALLERY_SORT_BY_DATE = True
 
-    # Folders containing images to be used in normal posts or pages. Images will be
-    # scaled down according to IMAGE_THUMBNAIL_SIZE and MAX_IMAGE_SIZE options, but
-    # will have to be referenced manually to be visible on the site
-    # (the thumbnail has ``.thumbnail`` added before the file extension).
-    # The format is a dictionary of {source: relative destination}.
-
+    # Folders containing images to be used in normal posts or pages.
+    # IMAGE_FOLDERS is a dictionary of the form {"source": "destination"},
+    # where "source" is the folder containing the images to be published, and
+    # "destination" is the folder under OUTPUT_PATH containing the images copied
+    # to the site. Thumbnail images will be created there as well.
     IMAGE_FOLDERS = {'images': 'images'}
+
+    # Images will be scaled down according to IMAGE_THUMBNAIL_SIZE and MAX_IMAGE_SIZE
+    # options, but will have to be referenced manually to be visible on the site
+    # (the thumbnail has ``.thumbnail`` added before the file extension).
     IMAGE_THUMBNAIL_SIZE = 400
 
-If you add a file in ``galleries/gallery_name/index.txt`` its contents will be
+If you add a reST file in ``galleries/gallery_name/index.txt`` its contents will be
 converted to HTML and inserted above the images in the gallery page. The
 format is the same as for posts.
 
@@ -1616,6 +1635,29 @@ be stripped. For example ``03_an_amazing_sunrise.jpg`` will be render as *An ama
 
 Here is a `demo gallery </galleries/demo>`_ of historic, public domain Nikola
 Tesla pictures taken from `this site <http://kerryr.net/pioneers/gallery/tesla.htm>`_.
+
+Embedding Images
+~~~~~~~~~~~~~~~~
+
+Assuming that you have your pictures stored in a folder called ``images`` (as configured above),
+you can embed the same in your posts with the following reST directive:
+
+.. code:: rest
+
+    ..image:: /images/tesla.jpg
+
+Which is equivalent to the following HTML code:
+
+.. code:: html
+
+   <img src="/images/tesla.jpg">
+
+Please take note of the leading forward-slash ``/`` which refers to the root
+output directory. (Make sure to use this even if you’re not deploying to
+web server root.)
+
+You can also use thumbnails with the ``.. thumbnail::`` reST directive. For
+more details, and equivalent HTML code, see `Thumbnails`_.
 
 Handling EXIF Data
 ------------------
@@ -1967,7 +2009,12 @@ Once you have that, all you need to do is:
     .. youtube:: 8N_tupPBtWQ
 
 Supported options: ``height``, ``width``, ``align`` (one of ``left``,
-``center``, ``right``) — all are optional.
+``center``, ``right``) — all are optional. Example:
+
+.. code:: restructuredtext
+
+    .. youtube:: 8N_tupPBtWQ
+       :align: center
 
 Vimeo
 ~~~~~
@@ -2107,6 +2154,13 @@ directive instead:
     .. thumbnail:: /images/tesla.jpg
 
        Nikola Tesla, the man that invented the 20th century.
+
+If you want to include a thumbnail in a non-reST post, you need to produce at
+least this basic HTML:
+
+.. code:: html
+
+   <a class="image-reference" href="images/tesla.jpg"><img src="images/tesla.thumbnail.jpg"></a>
 
 Slideshows
 ~~~~~~~~~~
@@ -2288,7 +2342,7 @@ the template file in Nikola's base theme for an example of how this works.
 The list may fail to update in some cases, please run ``nikola build -a`` with
 the appropriate path if this happens.
 
-We recommend using stories with dates in the past (1970-01-01) to avoid
+We recommend using pages with dates in the past (1970-01-01) to avoid
 dependency issues.
 
 If you are using this as a shortcode, flags (``reverse``, ``all``) are meant to be used

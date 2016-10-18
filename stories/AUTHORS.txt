@@ -17,6 +17,7 @@
 * `Casey M. Bessette <https://github.com/caseybessette>`_
 * `Chris Lee <https://github.com/clee>`_
 * `Chris Warrick <https://github.com/Kwpolska>`_
+* `Christian Lawson-Perfect <https://github.com/christianp>`_
 * `Christopher Arndt <https:/github.com/SpotlightKid>`_
 * `Claudio Canepa <https://github.com/ccanepa>`_
 * `Damien Tournoud <https://github.com/damz>`_
@@ -31,6 +32,7 @@
 * `Dhruv Baldawa <https://github.com/dhruvbaldawa>`_
 * `Dirk Engling <https://github.com/erdgeist>`_
 * `Dmitry Verkhoturov <https://github.com/paskal>`_
+* `Du Phan <https://github.com/fehiepsi>`_
 * `Duncan Lock <https://github.com/dflock>`_
 * `Edinei Cavalcanti <https://github.com/neiesc>`_
 * `Eduardo Schettino <https://github.com/schettino72>`_

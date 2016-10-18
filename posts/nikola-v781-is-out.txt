@@ -1,0 +1,59 @@
+.. title: Nikola v7.8.1 is out!
+.. slug: nikola-v781-is-out
+.. date: 2016-10-13 18:19:43 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.8.1. It fixes some bugs and adds new
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.8.1
+__ https://pypi.python.org/pypi/Nikola/7.8.1
+
+Changes
+=======
+
+Bugfixes
+--------
+
+* Rename ``stories`` to ``pages`` in most of the codebase (Issue
+  #1891)
+* Report missing/unknown dates in posts with filenames
+  (Issues #2505, #2506)
+* Report filename of post that raised exception when scanning
+  (Issue #2505)
+* Accept ``page`` and ``pages`` for the ``type`` field in post lists
+* Don’t crash if a post list has no posts (Issue #2489)
+
+Features
+--------
+
+* Add Hebrew translation by Yitzhak Bar Geva
+* Add Chinese (Traditional) ``zh_TW`` translation by Po-Wen Chi
+* Add ``nikola theme --list-installed`` (Issue #2504)
+* Add ``KATEX_AUTO_RENDER`` setting to configure math delimiters
+* Update KaTeX version to 0.6.0: support aligned math display
+* Better support for a tree of files in ``data/``
