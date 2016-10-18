@@ -1,0 +1,57 @@
+.. title: Markdown can affect performance
+.. slug: markdown-can-affect-performance
+.. date: 2016-10-18 12:52:55 UTC
+.. tags:
+.. category:
+.. link:
+.. description:
+.. type: text
+.. author: Roberto Alsina
+
+Markdown is a very popular input format for static site generators, that's why
+Nikola has supported it since very early in life, even if I prefer reSt most
+of the time.
+
+One thing that has surprised me a while ago is that, considering how minimalistic
+markdown is, and how little it does, it can be pretty slow to process. But it
+turns out this is not completely markdown's fault, but that the python markdown
+implementation is really, *really*, **really** slow.
+
+How slow? Let's check it out. All benchmarks in this post were done in my notebook,
+a nice Asus Zenbook UX305, with a fast SSD and plenty of RAM. In all cases the builds
+were done using no parallelization.
+
+The test site is an empty site to which I added 1000 copies of a simple, not too large
+markdown file (our theming guide, converted from reSt using pandoc).
+
+As a baseline, a site with 1000 copies of the original reSt theming.txt builds in ``126`` seconds.
+
+The markdown version of that site? It gets progressively slower as files build, so
+I suspect it leaks *something* between builds, and finishes in ... ``1584```seconds. That is
+over 12 times **slower** than the reSt compiler.
+
+But you don't want to switch to reSt? No problem! We support more markdown compilers than
+we probably should, so you can just choose which one you prefer.
+
+Here is a `chart <https://getnikola.com/handbook.html#chart>`__ showing the performance of each (HTML and reSt added as reference):
+
+
+.. chart:: Bar
+   :title: Seconds to build (bigger is worse)
+
+   'markdown', [1584]
+   'kramdown', [194]
+   'rest', [126]
+   'pandoc', [110]
+   'commonmark', [64]
+   'mistune', [34]
+   'mistune+cython', [32]
+   'misaka', [25]
+   'html', [14]
+
+There are just a few disadvantages to using any of the alternative Markdown compilers:
+
+* They are less tested, because fewer people use them (and if you use them, that changes!)
+* They may lack a specific feature of the "standard" markdown compiler, such as extension
+  support (in which case, `file a bug <https://github.com/getnikola/issues>`__ with us!)
+* The produced output may differ from the "standard", but that happens :-)
