@@ -1,0 +1,67 @@
+.. title: Nikola Available as a Snap
+.. slug: nikola-available-as-a-snap
+.. date: 2016-10-20 10:50:06 UTC
+.. tags: nikola, planet
+.. category:
+.. link:
+.. description:
+.. type: text
+
+.. note:: This is all slightly experimental
+
+One of the larger challenges for free software developers is getting our software
+in the hands of the public, promptly, with the least amount of effort. Let's say that,
+so far, the least aount of effort has been **a lot of effort**.
+
+For windows, we need to do lots of work I, personally don't want to do, so Nikola's
+possible windows users are left with the path of doing things like a developer, and
+building from source. The same for OSX users.
+
+On Linux, thanks to the effort of a bunch of people (thanks y'all!) Nikola is available
+as a distro package of one sort or another for most distributions, so you can get it
+easily. But ... you usually will not get the latest release of Nikola, unless you are
+an Arch user.
+
+I am happy to announce there is an alternative path that is a real improvement for a
+large number of Linux users, specifically Ubuntu users (disclaimer: I work for
+Canonical, I like Canonical, and I did this)
+
+For a while I have been building Nikola as a `snap <http://snapcraft.io/>`__
+after every release. But what's a snap?
+
+A snap is a new package format that runs applications safely in a confined sandbox.
+That means that the packages don't need to go through as complicated a process as
+traditional Linux distro packages. Also, they are much, much, much easier to create.
+
+So, if you are on a recent Ubuntu, or in one of the `other distros where snaps work <http://snapcraft.io/>`__ you can get Nikola 7.8.1 **and keep it up to date, probably never more than a
+day behind the current release** by installing it through snap::
+
+    $ snap install nikola
+    nikola (stable) 7.8.1 from 'ralsina' installed
+
+Then you need to give Nikola permission to write in your home folder::
+
+    $ snap connect nikola:home core:home
+
+And permission to use the network::
+
+    $ snap connect nikola:network core:network
+    $ snap connect nikola:network-bind core:network-bind
+
+That is all. It's not, however perfect. There are a few functions of Nikola that won't
+currently work whe used in this way:
+
+* Some plugins that require installing 3rd party software will not work. For example, the
+  asciidoc compiler will not be able to call asciidoc
+
+* The ``nikola deploy`` command will not work because the sandbox prevents Nikola from calling
+  3rd party commands. Probably the same is true about ``nikola github_deploy``. You will have
+  to use scripts or just run the deployment commands manually.
+
+* The ``-b`` option of ``nikola serve`` and ``nikola auto``, which opens the site in a browser,
+  will not work. You will have to open the site manually.
+
+* The snapped Nikola takes slightly longer to start than a regular setup (about half a second
+  in my system)
+
+There will also be a daily snapshot of the current code available in the snap "edge channel", as soon as I can automate it via a 3rd party build service.
