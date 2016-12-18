@@ -50,22 +50,22 @@
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingMac">
-                    <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMac" aria-expanded="false" aria-controls="collapseMac"><i class="fa fa-apple"></i> Installing on OS X</a></h4>
+                    <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMac" aria-expanded="false" aria-controls="collapseMac"><i class="fa fa-apple"></i> Installing on macOS</a></h4>
                 </div>
                 <div id="collapseMac" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMac">
                     <div class="panel-body">
-                        <p>Installing Nikola on OS X is easy. You can use Homebrew, MacPorts, Fink, or perform a standalone installation using the system Python. For future proof installations that do support all features using Python 3.3+ over OS X's system Python is recommended.</p>
+                        <p>Installing Nikola on macOS is easy. You can use Homebrew, MacPorts, Fink, or perform a standalone installation using the system Python. For future proof installations that do support all features using Python 3.3+ over macOS system Python is recommended.</p>
                         <h5>With <a href="http://brew.sh/">Homebrew</a> (recommended)</h5>
                         <ol>
                             <li>Install <a href="http://brew.sh/">Homebrew</a>.</li>
                             <li>Install Python (and pip) with <code class="gs-code gs-command">brew install python3</code></li>
                             <li>Install virtualenv with <code class="gs-code gs-command">sudo pip3 install virtualenv</code></li>
-                            <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>.</li>
+                            <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>. The command is <code class="gs-code gs-command">virtualenv</code>. Your virtualenvs may need to be recreated if you update Python.</li>
                         </ol>
                         <h5>With <a href="https://www.macports.org/">MacPorts</a></h5>
                         <ol>
                             <li>Install <a href="https://www.macports.org/">MacPorts</a>.</li>
-                            <li>Update MacPorts package descriptions <code class="gs-code gs-command">sudo port selfupdate</code></li>.
+                            <li>Update MacPorts package descriptions <code class="gs-code gs-command">sudo port selfupdate</code>.</li>
                             <li>Install pip (and Python) with <code class="gs-code gs-command">sudo port install py35-pip</code> (or a newer Python version, if available — please check the repos)</li>
                             <li>Install virtualenv with <code class="gs-code gs-command">sudo port install py35-virtualenv</code></li>
                             <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>.</li>
