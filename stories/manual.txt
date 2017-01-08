@@ -9,7 +9,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.8.1
+:Version: 7.8.2
 
 .. class:: alert alert-info pull-right
 
@@ -227,7 +227,7 @@ easier to keep it in a single location.
 The contents of your post have to be written (by default) in `reStructuredText <http://docutils.sf.net>`__
 but you can use a lot of different markups using the ``-f`` option.
 
-Currently, Nikola supports reStructuredText, Markdown, IPython (Jupyter) Notebooks, HTML as input,
+Currently, Nikola supports reStructuredText, Markdown, Jupyter (IPython) Notebooks, HTML as input,
 can also use Pandoc for conversion, and has support for BBCode, CreoleWiki, txt2tags, Textile
 and more via plugins — for more details, read the `input format documentation
 <#multiple-input-formats>`__.
@@ -461,6 +461,14 @@ default set to:
     Nikola will only look for translation of input files for languages
     specified in the TRANSLATIONS variable.
 
+In case you translate your posts, you might also want to adjust various
+other settings so that the generated URLs match the translation. You can
+find most places in `conf.py` by searching for `(translatable)`. For example,
+you might want to localize `/categories/` (search for `TAG_PATH`), `/pages/`
+and `/posts/` (search for `POSTS` and `PAGES`, or see the next section), or
+how to adjust the URLs for subsequent pages for indexes (search for
+`INDEXES_PRETTY_PAGE_URL`).
+
 Nikola supports multiple languages for a post (we have almost 50 translations!). If you wish to
 add support for more languages, check out `the Transifex page for Nikola <https://www.transifex.com/projects/p/nikola/>`_
 
@@ -501,6 +509,12 @@ options. The exact mechanism is explained above the config options in the
     # to feeds, indexes, tag lists and archives and are considered part
     # of a blog, while PAGES are just independent HTML pages.
     #
+    # Finally, note that destination can be translated, i.e. you can
+    # specify a different translation folder per language. Example:
+    #     PAGES = (
+    #         ("pages/*.rst", {"en": "pages", "de": "seiten"}, "story.tmpl"),
+    #         ("pages/*.md", {"en": "pages", "de": "seiten"}, "story.tmpl"),
+    #     )
 
     POSTS = (
         ("posts/*.rst", "posts", "post.tmpl"),
@@ -842,7 +856,7 @@ Nikola supports multiple input formats.  Out of the box, we have compilers avail
 
 * reStructuredText (default and pre-configured)
 * `Markdown`_
-* `IPython Notebook/Jupyter`_
+* `Jupyter/IPython Notebook`_
 * `HTML`_
 * `PHP`_
 * anything `Pandoc`_ supports (including Textile, DocBook, LaTeX, MediaWiki,
@@ -900,15 +914,18 @@ config option:
 Nikola comes with some Markdown Extensions built-in and enabled by default,
 namely a gist directive, a podcast directive, and ``~~strikethrough~~`` support.
 
-IPython Notebook/Jupyter
+Jupyter/IPython Notebook
 ````````````````````````
 
-To use Jupyter notebooks (previously known as IPython Notebooks) as posts/pages,
+To use Jupyter Notebooks (previously known as IPython Notebooks) as posts/pages,
 make sure ``ipynb`` is in your ``COMPILERS`` and that the ``.ipynb`` extension
 is defined in ``POSTS`` and ``PAGES``.
 
 The ``-f`` argument to ``new_post`` should be used in the ``ipynb@KERNEL`` format.
 It defaults to Python in the version used by Nikola if not specified.
+
+Jupyter Notebooks are also supported in stand-alone listings, if Jupyter
+support is enabled site-wide.
 
 HTML
 ````
@@ -1072,6 +1089,11 @@ In that case, the template engine used will be your theme's and the arguments yo
 as well as the global context from your ``conf.py``, are available to the template you
 are creating.
 
+You can use anything defined in your confguration's ``GLOBAL_CONTEXT`` as
+variables in your shortcode template, with a caveat: Because of an unfortunate
+implementation detail (a name conflict), ``data`` is called ``global_data``
+when used in a shortcode.
+
 The Global Context and Data files
 ---------------------------------
 
@@ -1100,6 +1122,9 @@ Data files can be useful for eg. auto-generated sites, where users provide
 JSON/YAML/TOML files and Nikola generates a large page with data from all data
 files. (This is especially useful with some automatic rebuild feature, like
 those documented in `Deployment`_)
+
+Data files are also available as ``global_data``, to avoid name conflicts in
+shortcodes. (``global_data`` works everywhere.)
 
 Redirections
 ------------
@@ -1619,8 +1644,10 @@ The ``conf.py`` options affecting images and gallery pages are these:
 
     # Images will be scaled down according to IMAGE_THUMBNAIL_SIZE and MAX_IMAGE_SIZE
     # options, but will have to be referenced manually to be visible on the site
-    # (the thumbnail has ``.thumbnail`` added before the file extension).
+    # (the thumbnail has ``.thumbnail`` added before the file extension by default,
+    # but a different naming template can be configured with IMAGE_THUMBNAIL_FORMAT).
     IMAGE_THUMBNAIL_SIZE = 400
+    IMAGE_THUMBNAIL_FORMAT = '{name}.thumbnail{ext}'
 
 If you add a reST file in ``galleries/gallery_name/index.txt`` its contents will be
 converted to HTML and inserted above the images in the gallery page. The
@@ -2050,7 +2077,7 @@ WordPress code starts like this:
 
 .. code:: text
 
-    [soundcloud url="http://api.soundcloud.com/tracks/78131362"
+    [soundcloud url="http://api.soundcloud.com/tracks/78131362" …/]
 
 The ID is 78131362 and you can embed the audio with this:
 
@@ -2093,6 +2120,9 @@ inside one of these folders:
 Will include the source code from ``foo.py``, highlight its syntax in python mode,
 and also create a ``listings/foo.py.html`` page (or in another directory, depending on
 ``LISTINGS_FOLDER``) and the listing will have a title linking to it.
+
+The stand-alone ``listings/`` pages also support Jupyter notebooks, if they are
+supported site-wide.
 
 Listings support the same options `reST includes`__ support (including
 various options for controlling which parts of the file are included), and also

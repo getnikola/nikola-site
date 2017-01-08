@@ -1,0 +1,121 @@
+.. title: Nikola v7.8.2 is out!
+.. slug: nikola-v782-is-out
+.. date: 2017-01-08 19:25:21 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.8.2. It adds a ton of new features, while
+also fixing some bugs.
+
+Key Changes
+===========
+
+* A rewrite of all taxonomies (tags, categories, sections, etc.) in a
+  generic fashion, allowing for much greater flexibility (by Felix
+  Fontein) — adds new settings, enables new features
+  (``CREATE_ARCHIVE_NAVIGATION``) and customizability
+* Automatic cration of ``year/month/day`` directory structures
+  (``NEW_POST_DATE_PATH``)
+* Ability to sort posts from within templates (``sort_posts``)
+* API changes for post compilers (new ``compile``, ``compile_string``
+  functions)
+* Addition of a generator meta tag to default themes — we hope you do
+  not mind a bit of promotion for Nikola?
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.8.2
+__ https://pypi.python.org/pypi/Nikola/7.8.2
+
+Changes
+=======
+
+**Minor API change:** The ``compile_string`` compiler method (partially
+internal) now takes a post argument and returns between two and four
+values, adding ``shortcode_deps`` and shortcode support. See issues
+#2623 and #2624.
+
+Features
+--------
+
+* Add meta generator tag to default templates to promote Nikola
+  (Issue #2619)
+* Add ``nikola new_post -d`` and ``NEW_POST_DATE_PATH`` to allow
+  automatic creation of year/month/day (date-based) directory
+  structures (Issue #2513)
+* Allow enabling pretty URLs with per-post setting (Issue #2613)
+* Add a ``sort_posts`` function (available as Jinja filter in global
+  context), which allows general-purpose timeline sorting (Issue
+  #2602)
+* Allow creating archive navigation (Issue #1639)
+* Accept a ``page`` argument for taxonomy paths (Issue #2585)
+* Query strings in magic links are passed as keyword arguments to path
+  handlers (via Issue #2580)
+* Accept arbitrary arguments to path handlers (via Issue #2580)
+* Added new ``typogrify_oldschool`` filter (Issue #2574)
+* Improving handling of .dep files, and allowing compilers to specify
+  additional targets for the ``render_posts`` task (Issue #2536)
+* ``render_template`` and ``generic_renderer`` can now create HTML
+  fragments.
+* Allow posts to set custom ``URL_TYPE`` by using the ``url_type``
+  meta tag (useful for HTML fragments inserted using JavaScript)
+* Plugins can depend on other plugins being installed (Issue #2533)
+* The destination folder in ``POSTS`` and ``PAGES`` can now be
+  translated (Issue #2116)
+* Pass ``post`` object and ``lang`` to post compilers (Issue #2531)
+* Pass ``url_type`` into template's context.
+* Make thumbnail naming configurable with ``IMAGE_THUMBNAIL_FORMAT``.
+* There is a new plugin category ``Taxonomy`` which allows to easily
+  create new taxonomies. All of the existing taxonomies (authors,
+  archives, indexes, page index, sections, tags, and categories)
+  have been converted to the new system. (Issue #2107)
+* Added ``CATEGORIES_INDEX_PATH``, similar to ``TAGS_INDEX_PATH``.
+  (Issue #2567)
+* Made ``INDEX_PATH``, ``RSS_PATH`` and ``AUTHOR_PATH`` translatable.
+  (Issue #1914)
+* Added setting ``SHOW_INDEX_PAGE_NAVIGATION`` which enables a basic
+  page navigation for indexes. (Issue #2299)
+* Added settings ``DISABLE_INDEXES_PLUGIN_INDEX_AND_ATOM_FEED`` and
+  ``DISABLE_INDEXES_PLUGIN_RSS_FEED`` to disable specific parts of
+  the ``classify_indexes`` taxonomy plugin. (Issue #2591)
+
+Bugfixes
+--------
+
+* Work around conflicts between posts and sections trying to render
+  index.html files (via Issue #2613)
+* Make ``AUTHOR_PAGES_ARE_INDEXES`` really work (Issue #2600)
+* WordPress importer now correctly handles &amp; etc. in tags.
+  (Issue #2557)
+* If ``CODE_COLOR_SCHEME`` is empty, don’t generate ``code.css``
+  (Issue #2597)
+* Don’t warn about ``nikolademo`` DISQUS account when comments are
+  disabled (Issue #2588)
+* Make ``data`` from global context available to templated shortcodes
+  as ``global_data`` (Issue #2488)
+* Don't crash if plugins is a file (Issue #2539)
+* Don't mangle bare ``#`` links (Issue #2553)
+* ``generic_index_renderer`` now always produces output. It previously
+  did not when the post list was empty and ``INDEXES_STATIC == False``.
+  (via Issue #2579)
