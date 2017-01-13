@@ -1,0 +1,54 @@
+.. title: Nikola v7.8.3 is out (emergency bugfix release)
+.. slug: nikola-v783-is-out-emergency-bugfix-release
+.. date: 2017-01-13 09:20:00 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.8.3. This is an emergency bugfix release,
+which fixes a bug that prevented ``nikola new_page`` from working.
+There has also been a minor change to post sorting order (won’t affect
+most sites). The wheel packages have also been fixed (they now exist
+for Python 2 and 3, with correct doit versioning).
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.8.3
+__ https://pypi.python.org/pypi/Nikola/7.8.3
+
+Changes
+=======
+
+Features
+--------
+
+* Sort posts chronologically with one unified function (easier to
+  change). (Issue #2627)
+* Sort posts in the following order (most important last): source path
+  (A-Z), title (A-Z), date (reverse chronological order), priority
+  meta number (descending). (Issue #2627)
+
+Bugfixes
+--------
+
+* Fix a bug that prevents ``nikola new_page`` from working (Issue #2631)
