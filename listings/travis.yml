@@ -7,7 +7,7 @@ addons:
     packages:
     - language-pack-en-base
 python:
-- 3.5
+- 3.6
 before_install:
 - git config --global user.name 'Travis CI'
 - git config --global user.email 'travis@invalid'
