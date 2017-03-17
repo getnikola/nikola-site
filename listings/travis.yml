@@ -6,6 +6,9 @@ addons:
   apt:
     packages:
     - language-pack-en-base
+branches:
+  only:
+  - src
 python:
 - 3.6
 before_install:

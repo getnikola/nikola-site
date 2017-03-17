@@ -1,7 +1,7 @@
 .. title: Automating Nikola rebuilds with Travis CI
 .. slug: automating-nikola-rebuilds-with-travis-ci
 .. date: 2016-08-24 18:05:25 UTC
-.. updated: 2017-03-17 16:20:00 UTC
+.. updated: 2017-03-17 17:15:00 UTC
 .. tags: Travis CI, GitHub, automation, tips
 .. author: Chris Warrick
 .. type: text
@@ -57,9 +57,10 @@ are a few important things you need to take care of:
   into an infinite loop.
 * We assume your source branch is ``src`` and you deploy to ``master``. Any
   other configuration requires editing ``.travis.yml``.
-* If you ever commit to ``master`` manually, make sure to add ``[ci skip]`` to
-  your commit messages, otherwise there might be failed builds (with errors
-  about ``Rakefile`` missing)
+* We enable builds only for the ``src`` branch by default. Older versions of
+  the script did not include this provision, and thus committing to ``master``
+  (which you should not do, as your changes will be overwritten on next Travis
+  rebuild) used to cause ``Rakefile`` errors.
 
 If everything works, you can make some change to your site (so you see that
 rebuilding works), but don’t commit it just yet.
@@ -125,4 +126,4 @@ Hopefully, Travis CI will build your site and deploy. Check the Travis CI
 website or your e-mail for a notification. If there are any errors, make sure
 you followed this guide to the letter.
 
-(Revision 2, 2017-03-17: added master/src branching information, clarified some things)
+(Revision 3, 2017-03-17: added master/src branching information, blocked non-src builds, clarified some things)
