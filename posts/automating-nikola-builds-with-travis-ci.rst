@@ -74,8 +74,8 @@ them from your OS package manager.
 
 First, download/copy the ``.travis.yml`` file (note the dot in the beginning;
 the downloaded file doesn’t have it!)
-and adjust the real name, e-mail (used for commits; line 12/13), and the
-username/repo name on line 21. If you want to render your site in another
+and adjust the real name, e-mail (used for commits; line 15/16), and the
+username/repo name on line 24. If you want to render your site in another
 language besides English, add the appropriate Ubuntu language pack to the list
 in this file. Likewise, if you need any other Python/apt packages to build your
 site, add them to your config.
