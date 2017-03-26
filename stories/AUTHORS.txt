@@ -25,6 +25,7 @@
 * `Daniel Aleksandersen <https://github.com/Aeyoun>`_
 * `Daniel Devine <https://github.com/DDevine>`_
 * `Daniel F. Moisset <https://github.com/dmoisset>`_
+* `Daniel Harding <https://github.com/living180>`_
 * `dastagg <https://github.com/dastagg>`_
 * `dastagg <https://github.com/dastagg>`_
 * `David Barragán Merino <https://github.com/bameda>`_
@@ -50,6 +51,7 @@
 * `Hong Xu <https://www.topbug.net>`_
 * `Ivan Teoh <https://github.com/ivanteoh>`_
 * `John Kristensen <https://github.com/jerrykan>`_
+* `Jonathon Anderson <https://github.com/anderbubble>`_
 * `Joshua Barratt <https://github.com/jbarratt>`_
 * `Juan Pedro Fisanotti <https://github.com/fisadev>`_
 * `Juanjo Conti <https://github.com/jjconti>`_
@@ -102,6 +104,7 @@
 * `Sean Pue <https://github.com/seanpue>`_
 * `Simon van der Veldt <https://github.com/simonvanderveldt>`_
 * `Stefan Näwe <https://github.com/snaewe>`_
+* `Stephan Fitzpatrick <https://github.com/knowsuchagency>`_
 * `Sukil Etxenike <https://github.com/sukiletxe>`_
 * `Thibauld Nion <https://github.com/tibonihoo>`_
 * `Thomas Burette <https://github.com/tburette>`_

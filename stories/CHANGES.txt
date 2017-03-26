@@ -1,3 +1,53 @@
+New in v7.8.4
+=============
+
+Features
+--------
+
+* Refactor RSS feed generation to allow better plugin access
+* Add Jupyter config as dependency for jupyter posts (by @knowsuchagency)
+* Make ``nikola plugin --list-installed`` more readable (Issue #2692)
+* Accept ``now`` in post-list date conditions
+* Add ``RSS_COPYRIGHT``, ``RSS_COPYRIGHT_PLAIN``, and
+  ``RSS_COPYRIGHT_FORMATS`` options in conf.py which can be disabled
+  by specifying ``copyright_=False`` to ``generic_rss_renderer``, or
+  overriden by specifying an explicit value.
+* Write PID of detached ``nikola serve`` process to a file called
+  ``nikolaserve.pid``
+* Append file name (generated from title) if ``nikola new_post``
+  receives directory name as path (Issue #2651)
+* Add a ``require_all_tags`` parameter to the ``post-list`` directive to
+  show only posts that have all specified tags. (Issue #2665)
+* Add ``META_GENERATOR_TAG`` option in conf.py allowing the meta generator
+  tag to be disabled (Issue #2628)
+* Add ``YUI_COMPRESSOR_EXECUTABLE``, ``CLOSURE_COMPILER_EXECUTABLE``,
+  ``OPTIPNG_EXECUTABLE``, ``JPEGOPTIM_EXECUTABLE`` and
+  ``HTML_TIDY_EXECUTABLE`` to configure executables for built-in filters.
+  (Issue #2615)
+* Allow setting custom GUID in feeds (Issue #2378)
+
+Bugfixes
+--------
+
+* Remove misplaced and duplicated meta description tags (Issue #2694)
+* Fix crash if ``PAGE_INDEX`` is enabled and make them actually work
+  (Issues #2646, #2702)
+* Ignore ``NEW_POST_DATE_PATH`` when creating pages (Issue #2699)
+* Ensure ``post.updated`` is timezone-aware (Issue #2698)
+* Pass previously missing post object and language to reST compiler
+  and language to Markdown compiler (for shortcodes)
+* Fix crashes when rendering subcategories (Issue #2681)
+* Prevent writing cache files outside of the cache folder
+  (Issue #2684)
+* Fix mimetype guessing in auto mode (Issue #2645)
+* Fix filters.html5lib_xmllike for laters html5lib (Issue #2648)
+* Skip the current post in post lists (Issue #2666)
+* Fix poor performance when compiling multiple markdown documents with
+  the markdown compiler. (Issue #2660)
+* Fix crash if ``SHOW_INDEX_PAGE_NAVIGATION`` is ``True`` while
+  ``INDEXES_STATIC`` is ``False``. (Issue #2654)
+* Make ``NEW_POST_DATE_PATH`` follow ``rrule`` if it exists (Issue #2653)
+
 New in v7.8.3
 =============
 
