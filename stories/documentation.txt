@@ -24,7 +24,7 @@ the current GitHub master, check out `Nikola on ReadTheDocs
 `Creating Custom Pages <creating-a-custom-page.html>`__
     How to do custom pages for special purposes, with special templates and styling.
 
-`Theming Tutorial <creating-a-theme.html>`_ and `Theming reference <theming.html>`_
+`Theming Tutorial <creating-a-theme.html>`_, `Theming reference <theming.html>`_, `Template variables <template-variables.html>`_
     Useful if you want to create or customize a theme.
 
 `Extending Nikola <extending.html>`_ and `Nikola Internals <internals.html>`_
