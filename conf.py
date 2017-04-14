@@ -191,6 +191,7 @@ NAVIGATION_LINKS = {
                 ('/conf.html', 'conf.py'),
                 ('/changes.html', 'Changelog'),
                 ('/creating-a-theme.html', 'Theming Tutorial'),
+                ('/theming.html', 'Theming Reference'),
                 ('/extending.html', 'Extending'),
                 ('/internals.html', 'Internals'),
                 ('/creating-a-site-not-a-blog-with-nikola.html', 'Creating a Site (Not a Blog)'),
