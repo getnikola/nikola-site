@@ -16,8 +16,8 @@
     <div class="col-md-7">
         <p>There are multiple ways to install Nikola.</p>
         <ul>
-            <li>The best way to do it is to use <code class="gs-code gs-command">pip</code> in a virtualenv. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them.  Note that you might need to install some extra dependencies for lxml and Pillow in order to compile them or to get full functionality.</li>
-            <li>You can also <a href="https://pypi.python.org/pypi/Nikola">download the tarball</a> and install manually.</li>
+            <li>The best way to do it is to use <code class="gs-code gs-command">pip</code> in a virtualenv. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them.</li>
+            <li>You can also <a href="https://pypi.python.org/pypi/Nikola">download the tarball</a> and install manually. (not recommended)</li>
             <li>Some Linux distributions also have Nikola packaged in its repositories — but please make sure it’s a fresh version.</li>
             <li>If you prefer, a <a href="https://github.com/rbrewer123/docker_nikola">Docker image</a> is also available.</a></li>
         </ul>
@@ -33,7 +33,7 @@
                         <ol class="arabic simple">
                             <li>You need to install <a href="https://www.python.org/downloads/">Python</a> first.  You also need to install virtualenv if you want to use it: <code class="gs-code gs-command">py -m pip install virtualenv</code></li>
                             <li>
-                                <code class="gs-code">lxml</code> and <code class="gs-code">Pillow</code> require compiled extensions. Compiling them on Windows is hard for most people. Fortunately, compiled packages exist. Check their <a class="reference external" href="https://pypi.python.org/">PyPI</a> pages to find official packages, use <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">the unofficial wheels by Christoph Gohlke</a>, or get them somewhere else.
+                                <code class="gs-code">lxml</code> and <code class="gs-code">Pillow</code> require compiled extensions. Fortunately, they should work out of the box. In case the wheels fail to install, wait a few days, install a slightly older version, or use <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">the unofficial wheels by Christoph Gohlke</a>.
                             </li>
                             <li>Windows has some differences over POSIX, which may cause some features to work incorrectly under Windows. If any problems occur, please do not hesitate to report them. Some of the differences that can cause problems include:
                                 <ul>
@@ -62,7 +62,7 @@
                             <li>Install virtualenv with <code class="gs-code gs-command">sudo pip3 install virtualenv</code></li>
                             <li>Follow the instructions <span class="hidden-xs hidden-sm hidden-print">on the right</span><span class="hidden">/</span><span class="visible-xs-inline visible-sm-inline">below</span>. The command is <code class="gs-code gs-command">virtualenv</code>. Your virtualenvs may need to be recreated if you update Python.</li>
                         </ol>
-                        Other package/port managers, such as MacPorts (py35-pip, py35-virtualenv) or Fink (pip-py35, virtualenv-py35) may be used if you prefer them and have those installed. Make sure to use only one manager to avoid conflicts.
+                        Other package/port managers, such as MacPorts (py36-pip, py36-virtualenv) or Fink (pip-py36, virtualenv-py36) may be used if you prefer them and have those installed. Make sure to use only one manager to avoid conflicts.
                     </div>
                 </div>
             </div>
@@ -87,65 +87,26 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingPythonHeaders">
-                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePythonHeaders" aria-expanded="false" aria-controls="collapsePythonHeaders"><i class="fa fa-exclamation-triangle"></i> Error: Python.h not found</a></h4>
+                <div class="panel-heading" role="tab" id="headingCExtensions">
+                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCExtensions" aria-expanded="false" aria-controls="collapseCExtensions"><i class="fa fa-exclamation-triangle"></i> Issues with compiling C extensions (Python.h, lxml, Pillow)</a></h4>
                 </div>
-                <div id="collapsePythonHeaders" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPythonHeaders">
+                <div id="collapseCExtensions" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCExtensions">
                     <div class="panel-body">
-                        <p>If you get an error to the effect of <code class="gs-code">Python.h not found</code>, you need to install development packages for Python.</p>
-                        <p>Debian systems:</p>
-                        <pre class="gs-console">
-<code># <span class="gs-root">sudo apt-get install python3-dev</span></code>
-</pre>
-                        <p>Fedora 22+:</p>
-                        <pre class="gs-console">
-<code># <span class="gs-root">sudo dnf install python3-devel</span></code>
-</pre>
-                        <p>Red Hat/CentOS/Fedora 21:</p>
-                        <pre class="gs-console">
-<code># <span class="gs-root">sudo yum install python3-devel</span></code>
-</pre>
-                        <p>Note that many other distros/operating systems (including Arch Linux, *BSD and OS X) do not require such packages, as C headers are included with the base distribution of Python.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingLxmlErrors">
-                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlErrors" aria-expanded="false" aria-controls="collapseLxmlErrors"><i class="fa fa-exclamation-triangle"></i> Error: libxml/libxslt or Pillow errors</a></h4>
-                </div>
-                <div id="collapseLxmlErrors" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLxmlErrors">
-                    <div class="panel-body">
-                        <p>If you get errors about various files missing while compiling <code class="gs-code">lxml</code> or <code class="gs-code">Pillow</code>, you must install headers for the <code class="gs-code">libxml</code>, <code class="gs-code">libxslt</code> and <code class="gs-code">zlib</code> libraries. If you have issues installing Pillow, you might need libraries for certain image formats. Try those commands:</p>
-                        <p>Debian systems:</p>
-                        <pre class="gs-console">
-<code># <span class="gs-root">sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev</span></code>
-<code># <span class="gs-root">sudo apt-get build-dep python3-lxml python3-pil</span></code>
-</pre>
-                        <p>Fedora 22+:</p>
-                        <pre class="gs-console">
-<code># <span class="gs-root">sudo dnf install libxml2-devel libxslt-devel zlib-devel</span></code>
-<code># <span class="gs-root">sudo dnf builddep python3-lxml python3-pillow</span></code>
-</pre>
-                        <p>Red Hat/CentOS/Fedora 21:</p>
-                        <pre class="gs-console">
-<code># <span class="gs-root">sudo yum install libxml2-devel libxslt-devel zlib-devel</span></code>
-<code># <span class="gs-root">sudo yum builddep python3-lxml python3-pillow</span></code>
-</pre>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingLxmlKilled">
-                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLxmlKilled" aria-expanded="false" aria-controls="collapseLxmlKilled"><i class="fa fa-exclamation-triangle"></i> Error: gcc killed when compiling lxml</a></h4>
-                </div>
-                <div id="collapseLxmlKilled" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLxmlKilled">
-                    <div class="panel-body">
-                        <p>If gcc/cc1 is killed when compiling lxml, you might not have enough RAM — lxml requires at least ~1.5 GB of RAM to compile. To fix this, you can:</p>
-                        <ul>
-                            <li>Install a system package and create your virtualenv with the <code class="gs-code">--system-site-packages</code></li>
-                            <li>Install a system package and symlink it from /usr/lib/pythonX.Y/site-packages to your virtualenv</li>
-                            <li>Use a temporary <a href="https://wiki.archlinux.org/index.php/Swap#Swap_file_creation">swapfile</a> to compile lxml</li>
-                            <li>Create a wheel on a system with more RAM with <code class="gs-code">STATIC_DEPS=true pip wheel lxml</code> (must have the same architecture) and install that instead</li>
+                        <p>You should not need to compile any C extension modules to run Nikola. Both lxml and Pillow have pre-compiled wheels available for Windows, macOS and Linux (compatible with <em>all</em> distributions).</p>
+                        <p>However, if pip still attempts to compile those packages, you may need to do the following:</p>
+                        <ol>
+                            <li>Upgrade pip, setuptools, and wheel: <code class="gs-code gs-command">pip install -U pip setuptools wheel</code> (on Windows, use <code class="gs-code gs-command">py -m pip</code>)</li>
+                            <li>Wait a few days or try installing an older version of lxml/Pillow (wheels are not always available at the time of release)</li>
+                            <li>On Windows, use <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">the unofficial wheels by Christoph Gohlke</a>.</li>
+                            <li>Install manually. <strong>Do this only if all other things fail.</strong> Here are some tips:
+                                <ul>
+                                    <li>If you are getting errors about missing <code class="gs-code">Python.h</code>, you need to install development packages for Python (eg. python3-dev or python3-devel).</li>
+                                    <li>Install libxml2, libxslt, zlib and their development headers.</li>
+                                    <li>Use your package manager’s option to install build dependencies for their lxml and Pillow packages.</li>
+                                    <li>If you run out of RAM during the install (gcc/cc1 are killed), use a swap file.</li>
+                                </ul>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -181,6 +142,10 @@ Also creating executable in nikola/bin/python
 Installing setuptools, pip, wheel...done.
 $ <span class="gs-command">cd nikola</span>
 $ <span class="gs-command">source bin/activate</span>
+$ <span class="gs-command">pip install --upgrade setuptools pip</span>
+<em><strong>Note:</strong>
+  Updating pip and setuptools is recommended.
+  On Windows, use <span class="gs-command">py -m pip install</span> for both steps.</em>
 $ <span class="gs-command">pip install --upgrade "Nikola[extras]"</span>
 ...snip...
 Successfully installed Nikola</code></pre>
