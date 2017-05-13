@@ -547,7 +547,6 @@ needs access to the current template context and the site.  If it is set to
 ``True``, the function will also receive ``site`` and ``context`` keyword
 arguments.  Example use:
 
-
 .. code-block:: python
 
     # In set_site
