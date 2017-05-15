@@ -241,3 +241,10 @@ GLOBAL_CONTEXT = {}
 GZIP_FILES = True
 IMAGE_FOLDERS = {'images': 'images'}
 IMAGE_THUMBNAIL_SIZE = 400
+
+from nikola import filters
+FILTERS = {
+    ".html": [filters.add_header_permalinks]
+}
+
+HEADER_PERMALINKS_FILE_BLACKLIST = ['output/index.html']

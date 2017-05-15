@@ -125,3 +125,7 @@ code.gs-code {
     max-height: 80vh;
     width: auto;
 }
+
+/* Header permalinks */
+.headerlink { color: #ddd; margin-left: 0.2em; }
+.headerlink:hover { opacity: 1; background: #ddd; color: #000; text-decoration: none; }
