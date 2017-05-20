@@ -3,7 +3,7 @@
 .. date: 2017-04-13 12:00:00
 .. author: The Nikola Team
 
-:Version: 7.8.4
+:Version: 7.8.5
 :Author: Chris Warrick <chris@getnikola.com>
 
 Variables available in templates are listed below.
@@ -80,7 +80,8 @@ Name                                Type                                Descript
 ``navigation_links``                TranslatableSetting                 ``NAVIGATION_LINKS`` setting
 ``needs_ipython_css``               bool                                whether or not IPython CSS is needed by this site
 ``posts_sections``                  bool                                ``POSTS_SECTIONS`` setting
-``posts_section_are_indexes``       bool                                ``POSTS_SECTION_ARE_INDEXES`` setting
+``posts_section_are_indexes``       bool                                ``POSTS_SECTIONS_ARE_INDEXES`` setting
+``posts_sections_are_indexes``      bool                                ``POSTS_SECTIONS_ARE_INDEXES`` setting
 ``posts_section_colors``            TranslatableSetting                 ``POSTS_SECTION_COLORS`` setting
 ``posts_section_descriptions``      Tss                                 ``POSTS_SECTION_DESCRIPTIONS`` setting
 ``posts_section_from_meta``         bool                                ``POSTS_SECTION_FROM_META`` setting
@@ -98,11 +99,9 @@ Name                                Type                                Descript
 ``SLUG_TAG_PATH``                   bool                                ``SLUG_TAG_PATH`` setting
 ``social_buttons_code``             TranslatableSetting<str>            ``SOCIAL_BUTTONS_CODE`` setting
 ``sort_posts``                      function                            ``utils.sort_posts`` function
-``subtheme``                        str                                 ``THEME_REVEAL_CONFIG_SUBTHEME`` setting
 ``template_hooks``                  dict<str, TemplateHookRegistry>     Template hooks registered by plugins
 ``theme_color``                     str                                 ``THEME_COLOR`` setting
 ``timezone``                        tzinfo                              Timezone object (represents the configured timezone)
-``transition``                      str                                 ``THEME_REVEAL_CONFIG_TRANSITION`` setting
 ``translations``                    dict<str, str>                      ``TRANSLATIONS`` setting
 ``twitter_card``                    dict                                ``TWITTER_CARD`` setting, defaults to an empty dictionary
 ``url_replacer``                    function                            ``Nikola.url_replacer`` function
@@ -112,6 +111,8 @@ Name                                Type                                Descript
 ``use_cdn``                         bool                                ``USE_CDN`` setting
 ``use_katex``                       bool                                ``USE_KATEX`` setting
 ``use_open_graph``                  bool                                ``USE_OPEN_GRAPH`` setting, defaults to True
+``subtheme``                        str?                                ``THEME_REVEAL_CONFIG_SUBTHEME`` setting (only if set — deprecated)
+``transition``                      str?                                ``THEME_REVEAL_CONFIG_TRANSITION`` setting (only if set — deprecated)
 ==================================  ==================================  ================================================================================
 
 Per-page local variables

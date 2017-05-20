@@ -9,7 +9,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 7.8.4
+:Version: 7.8.5
 
 .. class:: alert alert-info pull-right
 
@@ -1029,7 +1029,7 @@ Built-in shortcodes
 ~~~~~~~~~~~~~~~~~~~
 
 doc
-    Will link to a document in the page, see `Doc directive for details
+    Will link to a document in the page, see `Doc role for details
     <#doc>`__. Example:
 
     .. code:: restructuredtext
@@ -1056,6 +1056,13 @@ chart
         'IE',      [85.8, 84.6, 84.7, 74.5, 66, 58.6]
         'Others',  [14.2, 15.4, 15.3, 8.9, 9, 10.4]
         {{% /chart %}}{{% /raw %}}
+
+emoji
+    Insert an emoji. For example::
+
+       {{% raw %}}{{% emoji crying_face %}}{{% /raw %}}
+
+    This generates a ``span`` with ``emoji`` CSS class, so you can style it with a nice font if you want.
 
 gist
     Show GitHub gists. If you know the gist's ID, this will show it in your site:
@@ -1698,7 +1705,7 @@ you can embed the same in your posts with the following reST directive:
 
 .. code:: rest
 
-    ..image:: /images/tesla.jpg
+    .. image:: /images/tesla.jpg
 
 Which is equivalent to the following HTML code:
 
@@ -1741,7 +1748,7 @@ Do this if you want to be absolutely sure that no sensitive information should e
 Preserve all EXIF data
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Do this if you really don't mind people knowing where pictures were taken, or camera settings.
+Do this if you really don't mind people knowing where pictures were taken, or camera settings::
 
     PRESERVE_EXIF_DATA = True
     EXIF_WHITELIST = {'*': '*'}
@@ -1946,33 +1953,55 @@ different ones, or about other web servers, please share!
 Math
 ----
 
-Nikola supports math input via MathJax.  It is activated via the math roles and
-directives of reStructuredText and the usual LaTeX delimiters
-(backslash-parentheses, backslash-brackets) for other input formats.
+Nikola supports math input via MathJax (by default) or KaTeX.  It is activated
+via the math roles and directives of reStructuredText and the usual LaTeX
+delimiters for other input formats.
 
-To use mathematics in a post, you must add the ``mathjax`` tag.
+Configuration
+~~~~~~~~~~~~~
 
-We **DO NOT** support the old, deprecated and error-prone ``$inline$``
-delimiters by default. If you want to use them, please add them manually,
-like this:
+Nikola uses MathJax by default. If you want to use KaTeX (faster and prettier,
+but may not support every feature yet), set ``USE_KATEX = True`` in
+``conf.py``.
+
+To use mathematics in a post, you **must** add the ``mathjax`` tag, no matter
+which renderer you are using.  (Exception: posts that are Jupyter Notebooks are
+automatically marked as math)
+
+By default, Nikola will accept ``\(...\)`` for inline math; ``\[...\]`` and
+``$$...$$`` for display math. If you want to use the old ``$...$`` syntax as well
+(which may conflict with running text!), you need to use special config for
+your renderer:
 
 .. code:: python
 
-    MATHJAX_CONFIG = """
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
-            processEscapes: true
-        },
-        displayAlign: 'left', // Change this to 'center' to center equations.
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}}
-        }
-    });
-    </script>
-    """
+   MATHJAX_CONFIG = """
+   <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+       tex2jax: {
+           inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
+           displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
+           processEscapes: true
+       },
+       displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
+       "HTML-CSS": {
+           styles: {'.MathJax_Display': {"margin": 0}}
+       }
+   });
+   </script>
+   """
+
+   KATEX_AUTO_RENDER = """
+   delimiters: [
+       {left: "$$", right: "$$", display: true},
+       {left: "\\\[", right: "\\\]", display: true},
+       {left: "$", right: "$", display: false},
+       {left: "\\\(", right: "\\\)", display: false}
+   ]
+   """
+
+Inline usage
+~~~~~~~~~~~~
 
 Inline mathematics are produced using the reST `math` **role** or the LaTeX
 backslash-parentheses delimiters:
@@ -1994,6 +2023,9 @@ In HTML and other input formats:
 Note that some input formats (including Markdown) require using **double
 backslashes** in the delimiters (``\\(inline math\\)``). Please check your
 output first before reporting bugs.
+
+Display usage
+~~~~~~~~~~~~~
 
 Display mathematics are produced using the reST `math` **directive** or the
 LaTeX backslash-brackets delimiters:
