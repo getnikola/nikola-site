@@ -244,7 +244,7 @@ IMAGE_THUMBNAIL_SIZE = 400
 
 from nikola import filters
 FILTERS = {
-    ".html": [filters.add_header_permalinks]
+    ".html": [filters.add_header_permalinks, filters.deduplicate_ids]
 }
 
 HEADER_PERMALINKS_FILE_BLACKLIST = ['output/index.html']
