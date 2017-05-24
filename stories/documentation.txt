@@ -8,18 +8,25 @@
 
 .. class:: lead
 
-Here is all the documentation for Nikola.  Note that the documents may
-not always be up-to-date.  If you want to read the documentation for
-the current GitHub master, check out `Nikola on ReadTheDocs
+Here is all the documentation for Nikola.  Note that it applies to the latest
+release, so it may not be accurate if you’re using an older version, or are
+using an unstable version. If you want to read the documentation for the
+current GitHub master, check out `Nikola on ReadTheDocs
 <http://nikola.readthedocs.org/en/latest/>`_.
 
 `The Handbook <handbook.html>`_
     Aimed at those wanting to *use* Nikola to build a site.
 
+`Getting Started <getting-started.html>`_
+    How to set up Nikola.
+
 `The conf.py file <conf.html>`_
     This is the default configuration file for the latest version of Nikola.
     It contains some useful documentation not mentioned in the manual, and can
     be used for people upgrading to compare with their existing config files.
+
+`Changelog <changes.html>`_, `Contributors <authors.html>`_, `The MIT License <license.html>`_
+    What’s new, who made this, and the rules for distribution.
 
 `Creating Custom Pages <creating-a-custom-page.html>`__
     How to do custom pages for special purposes, with special templates and styling.
@@ -29,6 +36,9 @@ the current GitHub master, check out `Nikola on ReadTheDocs
 
 `Extending Nikola <extending.html>`_ and `Nikola Internals <internals.html>`_
     Aimed at those wanting to add new functionality.
+
+`Features <features/index.html>`_
+    A list of some Nikola features.
 
 `Creating a Site that is not a blog <creating-a-site-not-a-blog-with-nikola.html>`_
     Not everything is a blog!
