@@ -19,7 +19,7 @@
             <li>The best way to do it is to use <code class="gs-code gs-command">pip</code> in a virtualenv. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them.</li>
             <li>You can also <a href="https://pypi.python.org/pypi/Nikola">download the tarball</a> and install manually. (not recommended)</li>
             <li>Some Linux distributions also have Nikola packaged in its repositories — but please make sure it’s a fresh version.</li>
-            <li>If you prefer, a <a href="https://github.com/rbrewer123/docker_nikola">Docker image</a> is also available.</a></li>
+            <li>There are also Docker and Snapcraft images if you prefer (details below).</li>
         </ul>
         <p class="text-muted">Nikola is free open-source software, under the <a href="/license.html">MIT license</a>.</p>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -80,7 +80,7 @@
                             </li>
                             <li>Gentoo: <a class="reference external" href="https://packages.gentoo.org/package/www-apps/nikola">www-apps/nikola</a>
                             </li>
-                            <li>The Debian/Ubuntu package is <strong>broken and outdated</strong>. The Nikola developers strongly discourage using it and do not support this method of install until this issue is resolved — please install via pip instead.
+                            <li>The Debian/Ubuntu package is <strong>broken and outdated</strong>. The Nikola developers strongly discourage using it and do not support this method of install — please install via pip instead.
                             </li>
                         </ul>
                     </div>
@@ -124,6 +124,27 @@
                     </div>
                 </div>
             </div>
+         <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingDockerSnapcraft">
+                    <h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDockerSnapcraft" aria-expanded="false" aria-controls="collapseDockerSnapcraft"><i class="fa fa-cog"></i> Installing from Docker or Snapcraft</a></h4>
+                </div>
+                <div id="collapseDockerSnapcraft" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDockerSnapcraft">
+                    <div class="panel-body">
+                        <p>A <a href="https://github.com/rbrewer123/docker_nikola">Docker image</a> is available. It isn’t official, but it’s based on official Arch Linux packages.</p>
+                        <p>You can also use <a href="https://snapcraft.io/">Snapcraft</a> if you are using a supported distro:</p>
+                        <pre class="gs-console">
+<code># <span class="gs-command">snap install nikola</span></code>
+</pre>
+
+Or, if you want the latest version from GitHub:
+
+                        <pre class="gs-console">
+<code># <span class="gs-command">snap install nikola --edge</span></code>
+</pre>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="col-md-5">
