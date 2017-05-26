@@ -3,7 +3,7 @@
 .. date: 2017-04-13 12:00:00
 .. author: The Nikola Team
 
-:Version: 7.8.5
+:Version: 7.8.6
 :Author: Chris Warrick <chris@getnikola.com>
 
 Variables available in templates are listed below.
@@ -301,7 +301,7 @@ The archive navigation variables are available only if ``create_archive_navigati
 ==============================  ==============  ===============================================
 Name                            Type            Description
 ==============================  ==============  ===============================================
-``archive_name``                str?            Name of the archive (only if using indexes)
+``archive_name``                str?            Name of the archive
 ``create_archive_navigation``   bool            ``CREATE_ARCHIVE_NAVIGATION`` setting
 ``has_archive_navigation``      bool            Whether or not archive navigation is available
 ``up_archive``                  str?            Link to the archive one level up
@@ -377,6 +377,17 @@ Name                Type        Description
 ``source_link``     str         Link to the source file
 ==================  ==========  ========================================
 
+Variables available in sections
+-------------------------------
+
+.. class:: table table-bordered table-striped
+
+===========  =====  ========================
+Name         Type   Description
+===========  =====  ========================
+``section``  str    Section name (internal)
+===========  =====  ========================
+
 Variables available in tag pages
 --------------------------------
 
@@ -434,6 +445,7 @@ Name                Type        Description
 ``date_format``     str         The date format for current language
 ``post_list_id``    str         GUID of post list
 ``messages``        dict        The messages dictionary
+``_link``           function    ``Nikola.link`` function
 ==================  ==========  =====================================
 
 .. vim: nowrap textwidth=0

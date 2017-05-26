@@ -1,0 +1,73 @@
+.. title: Nikola v7.8.6 is out!
+.. slug: nikola-v786-is-out
+.. date: 2017-05-26 13:49:38 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.8.6. It fixes some bugs and adds new
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter (IPython) Notebooks into blog posts! It also supports image
+galleries, and is multilingual. Nikola is flexible, and page builds
+are extremely fast, courtesy of doit (which is rebuilding only what
+has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+Or if you prefer, Snapcraft packages are now built automatically, and Nikola v7.8.6 will be available in the stable channel.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.8.6
+__ https://pypi.python.org/pypi/Nikola/7.8.6
+
+Changes
+=======
+
+Features
+--------
+
+* Guess file format from file name on new_post (Issue #2798)
+* Use BaguetteBox as lightbox in base theme (Issue #2777)
+* New ``deduplicate_ids`` filter, for preventing duplication of HTML
+  ``id`` attributes (Issue #2570)
+* Ported gallery image layout to base theme (Issue #2775)
+* Better error handling when posts can't be parsed (Issue #2771)
+* Use ``.theme`` files to store theme metadata (Issue #2758)
+* New ``add_header_permalinks`` filter, for Sphinx-style header links
+  (Issue #2636)
+* Added alternate links for gallery translations (Issue #993)
+
+Bugfixes
+--------
+
+* Use ``locale.getdefaultlocale()`` for better locale guessing
+  (credit: @madduck)
+* Save dependencies for template hooks properly (using ``.__doc__`` or
+  ``.template_registry_identifier`` for callables)
+* Enable larger panorama thumbnails (Issue #2780)
+* Disable ``archive_rss`` link handler, which was useless because no
+  such RSS was ever generated (Issue #2783)
+* Ignore files ending wih "bak" (Issue #2740)
+* Use page.tmpl by default, which is inherited from story.tmpl (Issue
+  #1891)
+
+Other
+-----
+
+* Limit Jupyter support to notebook >= 4.0.0 (it already was in
+  requirements-extras.txt; Issue #2733)
