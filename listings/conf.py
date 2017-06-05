@@ -183,11 +183,13 @@ THEME_COLOR = '#5670d4'
 
 POSTS = (
     ("posts/*.rst", "posts", "post.tmpl"),
+    ("posts/*.md", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.html", "posts", "post.tmpl"),
 )
 PAGES = (
     ("pages/*.rst", "pages", "page.tmpl"),
+    ("pages/*.md", "pages", "page.tmpl"),
     ("pages/*.txt", "pages", "page.tmpl"),
     ("pages/*.html", "pages", "page.tmpl"),
 )
@@ -1208,6 +1210,23 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 # '.*\/(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)-(?P<title>.*)\.rst'
 # (Note the '.*\/' in the beginning -- matches source paths relative to conf.py)
 # FILE_METADATA_REGEXP = None
+
+# If enabled, extract metadata from docinfo fields in reST documents
+# USE_REST_DOCINFO_METADATA = False
+
+# If enabled, hide docinfo fields in reST document output
+# HIDE_REST_DOCINFO = False
+
+# Map metadata from other formats to Nikola names.
+# Supported formats: yaml, toml, rest_docinfo, markdown_metadata
+# METADATA_MAPPING = {}
+#
+# Example for Pelican compatibility:
+# METADATA_MAPPING = {
+#     "rest_docinfo": {"summary": "description", "modified": "updated"},
+#     "markdown_metadata": {"summary": "description", "modified": "updated"}
+# }
+# Other examples: https://getnikola.com/handbook.html#mapping-metadata-from-other-formats
 
 # If you hate "Filenames with Capital Letters and Spaces.md", you should
 # set this to true.

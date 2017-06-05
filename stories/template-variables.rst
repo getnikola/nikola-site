@@ -3,7 +3,7 @@
 .. date: 2017-04-13 12:00:00
 .. author: The Nikola Team
 
-:Version: 7.8.6
+:Version: 7.8.7
 :Author: Chris Warrick <chris@getnikola.com>
 
 Variables available in templates are listed below.
@@ -417,18 +417,19 @@ For more details about hierarchies, see `Hierarchical lists`_
 Variables available in shortcodes
 ---------------------------------
 
-*The global context is available in shortcodes.*
+*The global context is available in templated shortcodes.*
 
 .. class:: table table-bordered table-striped
 
-==================  ==========  ====================================================
+==================  ==========  ===========================================================================
 Name                Type        Description
-==================  ==========  ====================================================
+==================  ==========  ===========================================================================
 ``lang``            str         Current language
 ``_args``           list<str>   Arguments given to the shortcode
 ``data``            str         Shortcode contents
 ``post``            Post        Post object (if available)
-==================  ==========  ====================================================
+``filename``        str?        file name, if ``shortcode_function.nikola_shortcode_pass_filename = True``
+==================  ==========  ===========================================================================
 
 Variables available in post lists
 ---------------------------------
