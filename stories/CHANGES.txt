@@ -1,3 +1,37 @@
+New in v7.8.8
+=============
+
+This release fixes two grave bugs in TOML metadata support (sorry!).
+The built-in themes have also been cleaned up and include less unused
+assets. In addition, taxonomies now support translations. HTML meta
+tags are also possible metadata sources. The default metadata format
+to generate can now be changed.
+
+Features
+--------
+
+* Providing infrastructure for taxonomies for classification pages to
+  link to related classifications in other languages
+* Added alternate links (visible and header) for archives and authors
+  (Issue #993)
+* Added options to add alternative links (visible and header) for
+  tags, sections and categories.
+* New METADATA_FORMAT option to choose preferred metadata format
+  (Nikola/YAML/TOML/Pelican) (Part of Issue #2801)
+* Extract metadata from HTML meta and title tags like Pelican (Issue #1923)
+* Update assets in the ``base`` and ``base-jinja`` themes and clean
+  up code (Issue #2744)
+* Show captions in the base theme gallery (Part of issue #2777)
+
+Bugfixes
+--------
+
+* Fix two grave bugs in TOML metadata
+* Require just one line break after TOML/YAML metadata
+* Add alt attribute to images in galleries in base theme (Part of issue #2777)
+* Support empty lines in YAML/TOML metadata (Part of issue #2801)
+* Tests run on macOS.
+
 New in v7.8.7
 =============
 

@@ -1,0 +1,68 @@
+.. title: Nikola v7.8.8 is out!
+.. slug: nikola-v788-is-out
+.. date: 2017-06-12 12:43:34 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.8.8. It fixes some bugs, some related to
+metadata support, while also adding more internationalization
+features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter Notebooks into blog posts! It also supports image galleries,
+and is multilingual. Nikola is flexible, and page builds are extremely
+fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.8.8
+__ https://pypi.python.org/pypi/Nikola/7.8.8
+
+Changes
+=======
+
+This release fixes two grave bugs in TOML metadata support (sorry!).
+The built-in themes have also been cleaned up and include less unused
+assets. In addition, taxonomies now support translations. HTML meta
+tags are also possible metadata sources. The default metadata format
+to generate can now be changed.
+
+Features
+--------
+
+* Providing infrastructure for taxonomies for classification pages to
+  link to related classifications in other languages
+* Added alternate links (visible and header) for archives and authors
+  (Issue #993)
+* Added options to add alternative links (visible and header) for
+  tags, sections and categories.
+* New METADATA_FORMAT option to choose preferred metadata format
+  (Nikola/YAML/TOML/Pelican) (Part of Issue #2801)
+* Extract metadata from HTML meta and title tags like Pelican (Issue #1923)
+* Update assets in the ``base`` and ``base-jinja`` themes and clean
+  up code (Issue #2744)
+* Show captions in the base theme gallery (Part of issue #2777)
+
+Bugfixes
+--------
+
+* Fix two grave bugs in TOML metadata
+* Require just one line break after TOML/YAML metadata
+* Add alt attribute to images in galleries in base theme (Part of issue #2777)
+* Support empty lines in YAML/TOML metadata (Part of issue #2801)
+* Tests run on macOS.
