@@ -73,6 +73,7 @@ ARCHIVE_PATH = "archive"
 RSS_PATH = ""
 TEMPLATE_ENGINE = "mako"
 INPUT_FORMAT = "rest"
+PRETTY_URLS = False
 # A list of redirection tuples, [("foo/from.html", "/bar/to.html")].
 #
 # A HTML file will be created in output/foo/from.html that redirects
