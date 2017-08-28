@@ -158,6 +158,8 @@ RSS_LINK = None
 # This example should work for pretty much any site we generate.
 SEARCH_FORM = """ """
 
+THEME_COLOR = "#f5ab14"
+
 # Google analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
 BODY_END = """
