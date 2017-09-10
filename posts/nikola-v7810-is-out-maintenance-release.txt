@@ -1,0 +1,43 @@
+.. title: Nikola v7.8.10 is out! (maintenance release)
+.. slug: nikola-v7810-is-out-maintenance-release
+.. date: 2017-09-10 16:54:33 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v7.8.10. This is a maintenance release for the
+v7 series.
+
+Future releases in the v7 series are going to be small maintenance
+releases that include bugfixes only, as work on v8.0.0 is underway.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter Notebooks into blog posts! It also supports image galleries,
+and is multilingual. Nikola is flexible, and page builds are extremely
+fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola`` or download tarballs on `GitHub`__ and `PyPI`__.
+
+__ https://github.com/getnikola/nikola/releases/tag/v7.8.10
+__ https://pypi.python.org/pypi/Nikola/7.8.10
+
+Changes
+=======
+
+* Fix crashes with Jinja2 themes and tag indexes (Issue #2900)
+* Ignore empty tags in HTML metadata reader (Issue #2890)
+* Fix crash when compiling empty ``.html`` posts (Issue #2851)
