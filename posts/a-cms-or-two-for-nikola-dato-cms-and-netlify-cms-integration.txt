@@ -4,6 +4,7 @@
 .. tags: planet,nikola,netlify,datocms
 .. description: Two CMSes for Nikola: Dato CMS and Netlify CMS.
 .. type: text
+.. author: Chris Warrick
 
 One of the many complaints users have about static site generators is the fact
 that non-tech-savvy users who don’t understand the command line or don’t want
