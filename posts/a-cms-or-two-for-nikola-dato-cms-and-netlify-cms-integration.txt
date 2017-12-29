@@ -1,8 +1,8 @@
 .. title: A CMS (or two) for Nikola: Dato CMS and Netlify CMS integration
 .. slug: a-cms-or-two-for-nikola-dato-cms-and-netlify-cms-integration
 .. date: 2017-12-05 19:15:00 UTC
-.. tags: planet,nikola,netlify,datocms
-.. description: Two CMSes for Nikola: Dato CMS and Netlify CMS.
+.. tags: planet,nikola,netlify,datocms,contentful
+.. description: Three CMSes for Nikola: Dato CMS, Netlify CMS, and Contentful.
 .. type: text
 .. author: Chris Warrick
 
@@ -13,10 +13,11 @@ Coil CMS, but that project is now dead, and was hard to configure properly.
 The problem was not solved, *until now*.
 
 Roberto Alsina and Chris Warrick independently built integrations for **Dato
-CMS** and **Netlify CMS**. Here they are:
+CMS**, **Netlify CMS** and **Contentful**. Here they are:
 
 * https://plugins.getnikola.com/v8/datocms/
 * https://github.com/getnikola/nikola-netlify-cms
+* https://plugins.getnikola.com/v8/contentful/
 
 Both CMSes offer facilities for non-technical editors to write content,
 including a **WYSIWYG** editor.
@@ -26,6 +27,11 @@ Travis CI, or Netlify). Our integration lets you deploy your site anywhere.
 
 **Netlify CMS** can be deployed with one click (and a few configuration changes),
 and includes automation and hosting at Netlify (and GitHub). You can also use
-some other service, but that will require some extra work on your side.
+some other hosting service, but that will require some extra work on your side.
+
+**Contentful** does not require a local install of Node to work, which makes
+it easier to use and automate, while leaving the hosting up to you.
 
 Make sure to check them both out — have fun!
+
+*(Updated 2017-12-06 to add Contentful support)*
