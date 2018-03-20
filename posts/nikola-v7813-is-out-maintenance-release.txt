@@ -1,5 +1,5 @@
-.. title: Nikola v7.8.14 is out! (maintenance release)
-.. slug: nikola-v7814-is-out-maintenance-release
+.. title: Nikola v7.8.13 is out! (maintenance release)
+.. slug: nikola-v7813-is-out-maintenance-release
 .. date: 2018-03-20 17:50:57 UTC
 .. tags: nikola, planet, python, programming, release
 .. category: 
@@ -42,3 +42,6 @@ Changes
 * Hide “Incomplete language” message for overrides of complete
   languages
 * Restore ability to override messages partially
+
+
+(Note: for a while, this post said *v7.8.14* was released. We apologise for the confusion.)
