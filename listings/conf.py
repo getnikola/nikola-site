@@ -73,6 +73,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # sr_latin  Serbian (Latin)
 # sv        Swedish
 # te        Telugu
+# th        Thai
 # tr        Turkish [NOT tr_TR]
 # uk        Ukrainian
 # ur        Urdu
