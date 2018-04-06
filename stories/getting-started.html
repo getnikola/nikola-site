@@ -130,11 +130,12 @@
                 </div>
                 <div id="collapseDockerSnapcraft" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDockerSnapcraft">
                     <div class="panel-body">
-                        <p>There are unofficial <a href="https://hub.docker.com/r/dragas/nikola/">Docker images by Stefano Marinelli</a> (available in Debian, Alpine and ARM flavors)</p>
+                        <p>There are unofficial <a href="https://hub.docker.com/r/dragas/nikola/">Docker images by Stefano Marinelli</a> (available in Debian, Alpine, bleeding-edge and ARM flavors)</p>
                         <pre class="gs-console">
-<code>$ <span class="gs-command">docker pull dragas/nikola</span>
-$ <span class="gs-command">docker pull dragas/nikola</span><span class="gs-input">:alpine</span>
-$ <span class="gs-command">docker pull dragas/<span class="gs-input">rpi-</span>nikola</span>
+<code>$ <span class="gs-command">docker pull dragas/nikola</span>         # Debian version
+$ <span class="gs-command">docker pull dragas/nikola</span><span class="gs-input">:alpine</span>  # recommended
+$ <span class="gs-command">docker pull dragas/nikola</span><span class="gs-input">:dev</span>     # bleeding-edge (GitHub master)
+$ <span class="gs-command">docker pull dragas/<span class="gs-input">rpi-</span>nikola</span>     # RPi/ARM version
 </code></pre>
                         <p>and also, a <a href="https://github.com/rbrewer123/docker_nikola">Dockerfile by Rob Brewer</a>, based on Arch Linux and official Arch packages.</p>
                         <p>You can also use <a href="https://snapcraft.io/">Snapcraft</a> if you are using a supported distro:</p>
