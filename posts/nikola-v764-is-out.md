@@ -44,7 +44,7 @@ Bugfixes
 * Rewrite srcset links (Issue #1939)
 * Add dependencies for include tag in Mako (Issue #1956)
 * Don’t duplicate BLOG_TITLE in the front page title (Issue #1952)
-* Escape instad of strip HTML in titles (Issue #1952)
+* Escape instead of strip HTML in titles (Issue #1952)
 * Make LINK_CHECK_WHITELIST apply to remote link checks
 * Make STORY_INDEX work together with PRETTY_URLS (Issue #1949)
 * Refactor new_post to match lazy plugin loading (Issue #1943)

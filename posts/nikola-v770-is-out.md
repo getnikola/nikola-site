@@ -47,11 +47,11 @@ Features
   (Issue #1980)
 * New ``color_hsl_adjust_hex`` and ``colorize_str_from_base_color``
   functions available in themes (Issue #1980)
-* New ``POSTS`` output subfolders now generate sections by deault
+* New ``POSTS`` output subfolders now generate sections by default
   (Issue #1980)
 * New ``POSTS_SECTIONS`` and ``POSTS_SECTION_*`` options for
   configuring the section pages (Issue #1980)
-* For themers: Each ``post`` are now asssociated with section_color,
+* For themers: Each ``post`` are now associated with section_color,
   section_link, and section_name (Issue #1980)
 * Each new section page has a auto-assigned color based on shifting
   the hue of ``THEME_COLOR`` based on a hash of the section name,
