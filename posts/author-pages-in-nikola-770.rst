@@ -30,7 +30,7 @@ or the posts themselves:
     AUTHOR_PATH = "reporters"
     AUTHOR_PAGES_ARE_INDEXES = False
 
-Additionaly, this is not required, you can add a little bio to each (or some) authors
+Additionally, this is not required, you can add a little bio to each (or some) authors
 and hide others (this is, don't generate pages for them):
 
 .. code-block:: python

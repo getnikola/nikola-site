@@ -47,5 +47,5 @@ Bugfixes
   can be re-enabled with ``-v`` option (Issue #2268)
 * Fix a format string in ``nikola check`` (Issue #2267)
 * Don't crash wordpress importer when posts are "empty" (Issue #2263)
-* Don't put untranslated and nonexistant posts in sitemap (Issue #2289)
+* Don't put untranslated and nonexistent posts in sitemap (Issue #2289)
 
