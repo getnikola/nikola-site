@@ -3,13 +3,17 @@
 <%namespace name="pheader" file="post_header.tmpl"/>
 <%namespace name="comments" file="comments_helper.tmpl"/>
 <%namespace name="math" file="math_helper.tmpl"/>
+<%namespace name="ui" file="ui_helper.tmpl"/>
 <%inherit file="base.tmpl"/>
 
 <%block name="extra_head">
     ${parent.extra_head()}
     % if post.meta('keywords'):
-    <meta name="keywords" content="${post.meta('keywords')|h}">
+    <meta name="keywords" content="${smartjoin(', ', post.meta('keywords'))|h}">
     % endif
+    %if post.description():
+    <meta name="description" itemprop="description" content="${post.description()|h}">
+    %endif
     <meta name="author" content="${post.author()|h}">
     %if post.prev_post:
         <link rel="prev" href="${post.prev_post.permalink()}" title="${post.prev_post.title()|h}" type="text/html">
@@ -51,8 +55,8 @@ ${comments.comment_link_script()}
 
 <%block name="sourcelink">
 % if show_sourcelink:
-    <li>
-    <a href="${post.source_link()}" id="sourcelink">Page Source</a>
+    <li class="nav-item">
+    <a href="${post.source_link()}" id="sourcelink" class="nav-link">Page Source</a>
     </li>
 % endif
 </%block>
