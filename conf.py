@@ -177,6 +177,7 @@ target="_blank"><img class="statcounter"
 src="http://c.statcounter.com/7842875/0/3421486a/1/"
 alt="tumblr statistics"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 """
 
 # no addthis
@@ -235,7 +236,8 @@ NAVIGATION_LINKS = {
     ),
 }
 
-EXTRA_HEAD_DATA = '<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">'
+EXTRA_HEAD_DATA = ''
+
 CODE_COLOR_SCHEME = 'monokai'
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.

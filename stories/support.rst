@@ -6,7 +6,7 @@
 
 :Version: 7.8.14
 
-.. class:: alert alert-info pull-right
+.. class:: alert alert-primary float-md-right
 
 .. contents::
 
