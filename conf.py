@@ -122,13 +122,13 @@ THEME = 'cerulean'
 # A HTML fragment describing the license, for the sidebar.
 # I recomment using Creative Commons' wizard: http://creativecommons.org/choose/
 LICENSE = """
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/ar/">
+    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/2.5/ar/">
     <img alt="Creative Commons License" style="border-width:0; margin-bottom:12px;"
-    src="http://i.creativecommons.org/l/by-nc-sa/2.5/ar/88x31.png"></a>"""
+    src="https://i.creativecommons.org/l/by-nc-sa/2.5/ar/88x31.png"></a>"""
 
 # A small copyright notice for the page footer
 CONTENT_FOOTER = '''Contents © 2012–2018 <a href="/contact.html">Roberto Alsina and the Nikola contributors</a>&nbsp;&nbsp;|&nbsp;&nbsp;Powered by Nikola itself&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="https://twitter.com/intent/user?screen_name=GetNikola">Follow Nikola on Twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme is <a href="http://bootswatch.com/cerulean/">Cerulean</a>
+<a href="https://twitter.com/intent/user?screen_name=GetNikola">Follow Nikola on Twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme is <a href="https://bootswatch.com/cerulean/">Cerulean</a>
 '''
 
 TWITTER_CARD = {
@@ -170,11 +170,11 @@ var sc_invisible=1;
 var sc_security="3421486a";
 </script>
 <script type="text/javascript"
-src="http://www.statcounter.com/counter/counter.js"></script>
+src="https://www.statcounter.com/counter/counter.js"></script>
 <noscript><div class="statcounter"><a title="tumblr
-statistics" href="http://statcounter.com/tumblr/"
+statistics" href="https://statcounter.com/tumblr/"
 target="_blank"><img class="statcounter"
-src="http://c.statcounter.com/7842875/0/3421486a/1/"
+src="https://c.statcounter.com/7842875/0/3421486a/1/"
 alt="tumblr statistics"></a></div></noscript>
 <!-- End of StatCounter Code for Default Guide -->
 <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
