@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
 import time
 
 # !! This is the configuration of Nikola. !! #
@@ -106,7 +105,7 @@ TRANSLATIONS = {
 # this pattern is also used for metadata:
 #     something.meta -> something.pl.meta
 
-TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
+TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 # Links for the sidebar / navigation bar.  (translatable)
 # This is a dict.  The keys are languages, and values are tuples.
@@ -127,7 +126,7 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 #          Only one level of submenus is supported.
 # WARNING: Some themes, including the default Bootstrap 3 theme,
 #          may present issues if the menu is too large.
-#          (in bootstrap3, the navbar can grow too large and cover contents.)
+#          (in Bootstrap, the navbar can grow too large and cover contents.)
 # WARNING: If you link to directories, make sure to follow
 #          ``STRIP_INDEXES``.  If it’s set to ``True``, end your links
 #          with a ``/``, otherwise end them with ``/index.html`` — or
@@ -142,10 +141,10 @@ NAVIGATION_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bootstrap3"
+THEME = "bootblog4"
 
-# Primary color of your theme. This will be used to customize your theme and
-# auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
+# Primary color of your theme. This will be used to customize your theme.
+# Must be a HEX value.
 THEME_COLOR = '#5670d4'
 
 # POSTS and PAGES contains (wildcard, destination, template) tuples.
@@ -226,7 +225,7 @@ TIMEZONE = "UTC"
 # 1 = using JS_DATE_FORMAT and local user time (via moment.js)
 # 2 = using a string like “2 days ago”
 #
-# Your theme must support it, bootstrap and bootstrap3 already do.
+# Your theme must support it, Bootstrap already does.
 # DATE_FANCINESS = 0
 
 # While Nikola can select a sensible locale for each language,
@@ -287,7 +286,7 @@ COMPILERS = {
 # ONE_FILE_POSTS = True
 
 # Preferred metadata format for new posts
-# "Nikola": reST comments wrapped in a comment if needed (default)
+# "Nikola": reST comments, wrapped in a HTML comment if needed (default)
 # "YAML": YAML wrapped in "---"
 # "TOML": TOML wrapped in "+++"
 # "Pelican": Native markdown metadata or reST docinfo fields. Nikola style for other formats.
@@ -295,7 +294,7 @@ COMPILERS = {
 
 # Use date-based path when creating posts?
 # Can be enabled on a per-post basis with `nikola new_post -d`.
-# The setting is ignored when creating pages (`-d` still works).
+# The setting is ignored when creating pages.
 # NEW_POST_DATE_PATH = False
 
 # What format to use when creating posts with date paths?
@@ -306,7 +305,6 @@ COMPILERS = {
 # untranslated posts.
 # If this is set to False, then posts that are not translated to a language
 # LANG will not be visible at all in the pages in that language.
-# Formerly known as HIDE_UNTRANSLATED_POSTS (inverse)
 # SHOW_UNTRANSLATED_POSTS = True
 
 # Nikola supports logo display.  If you have one, you can put the URL here.
@@ -319,78 +317,7 @@ COMPILERS = {
 # SHOW_BLOG_TITLE = True
 
 # Writes tag cloud data in form of tag_cloud_data.json.
-# Warning: this option will change its default value to False in v8!
-WRITE_TAG_CLOUD = True
-
-# Generate pages for each section. The site must have at least two sections
-# for this option to take effect. It wouldn't build for just one section.
-POSTS_SECTIONS = True
-
-# Setting this to False generates a list page instead of an index. Indexes
-# are the default and will apply GENERATE_ATOM if set.
-# POSTS_SECTIONS_ARE_INDEXES = True
-
-# Final locations are:
-# output / TRANSLATION[lang] / SECTION_PATH / SECTION_NAME / index.html (list of posts for a section)
-# output / TRANSLATION[lang] / SECTION_PATH / SECTION_NAME / rss.xml (RSS feed for a section)
-# (translatable)
-# SECTION_PATH = ""
-
-# Each post and section page will have an associated color that can be used
-# to style them with a recognizable color detail across your site. A color
-# is assigned to  each section based on shifting the hue of your THEME_COLOR
-# at least 7.5 % while leaving the lightness and saturation untouched in the
-# HUSL colorspace. You can overwrite colors by assigning them colors in HEX.
-# POSTS_SECTION_COLORS = {
-#     DEFAULT_LANG: {
-#         'posts':  '#49b11bf',
-#         'reviews':   '#ffe200',
-#     },
-# }
-
-# Associate a description with a section. For use in meta description on
-# section index pages or elsewhere in themes.
-# POSTS_SECTION_DESCRIPTIONS = {
-#     DEFAULT_LANG: {
-#         'how-to': 'Learn how-to things properly with these amazing tutorials.',
-#     },
-# }
-
-# Sections are determined by their output directory as set in POSTS by default,
-# but can alternatively be determined from file metadata instead.
-# POSTS_SECTION_FROM_META = False
-
-# Names are determined from the output directory name automatically or the
-# metadata label. Unless overwritten below, names will use title cased and
-# hyphens replaced by spaces.
-# POSTS_SECTION_NAME = {
-#    DEFAULT_LANG: {
-#        'posts': 'Blog Posts',
-#        'uncategorized': 'Odds and Ends',
-#    },
-# }
-
-# Titles for per-section index pages. Can be either one string where "{name}"
-# is substituted or the POSTS_SECTION_NAME, or a dict of sections. Note
-# that the INDEX_PAGES option is also applied to section page titles.
-# POSTS_SECTION_TITLE = {
-#     DEFAULT_LANG: {
-#         'how-to': 'How-to and Tutorials',
-#     },
-# }
-
-# A list of dictionaries specifying sections which translate to each other.
-# For example:
-#   [
-#     {'en': 'private', 'de': 'Privat'},
-#     {'en': 'work', 'fr': 'travail', 'de': 'Arbeit'},
-#   ]
-# POSTS_SECTION_TRANSLATIONS = []
-
-# If set to True, a section in a language will be treated as a translation
-# of the literally same section in all other languages. Enable this if you
-# do not translate sections, for example.
-# POSTS_SECTION_TRANSLATIONS_ADD_DEFAULTS = True
+WRITE_TAG_CLOUD = False
 
 # Paths for different autogenerated bits. These are combined with the
 # translation paths.
@@ -398,7 +325,7 @@ POSTS_SECTIONS = True
 # Final locations are:
 # output / TRANSLATION[lang] / TAG_PATH / index.html (list of tags)
 # output / TRANSLATION[lang] / TAG_PATH / tag.html (list of posts for a tag)
-# output / TRANSLATION[lang] / TAG_PATH / tag.xml (RSS feed for a tag)
+# output / TRANSLATION[lang] / TAG_PATH / tag RSS_EXTENSION (RSS feed for a tag)
 # (translatable)
 # TAG_PATH = "categories"
 
@@ -417,7 +344,7 @@ POSTS_SECTIONS = True
 # Set descriptions for tag pages to make them more interesting. The
 # default is no description. The value is used in the meta description
 # and displayed underneath the tag list or index page’s title.
-# TAG_PAGES_DESCRIPTIONS = {
+# TAG_DESCRIPTIONS = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-blog posts about blogging about blogging.",
 #        "open source": "My contributions to my many, varied, ever-changing, and eternal libre software projects."
@@ -425,7 +352,7 @@ POSTS_SECTIONS = True
 # }
 
 # Set special titles for tag pages. The default is "Posts about TAG".
-# TAG_PAGES_TITLES = {
+# TAG_TITLES = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-posts about blogging",
 #        "open source": "Posts about open source software"
@@ -445,7 +372,11 @@ HIDDEN_TAGS = ['mathjax']
 
 # A list of dictionaries specifying tags which translate to each other.
 # Format: a list of dicts {language: translation, language2: translation2, …}
-# See POSTS_SECTION_TRANSLATIONS example above.
+# For example:
+#   [
+#     {'en': 'private', 'de': 'Privat'},
+#     {'en': 'work', 'fr': 'travail', 'de': 'Arbeit'},
+#   ]
 # TAG_TRANSLATIONS = []
 
 # If set to True, a tag in a language will be treated as a translation
@@ -456,7 +387,7 @@ HIDDEN_TAGS = ['mathjax']
 # Final locations are:
 # output / TRANSLATION[lang] / CATEGORY_PATH / index.html (list of categories)
 # output / TRANSLATION[lang] / CATEGORY_PATH / CATEGORY_PREFIX category.html (list of posts for a category)
-# output / TRANSLATION[lang] / CATEGORY_PATH / CATEGORY_PREFIX category.xml (RSS feed for a category)
+# output / TRANSLATION[lang] / CATEGORY_PATH / CATEGORY_PREFIX category RSS_EXTENSION (RSS feed for a category)
 # (translatable)
 # CATEGORY_PATH = "categories"
 # CATEGORY_PREFIX = "cat_"
@@ -486,7 +417,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 # Set descriptions for category pages to make them more interesting. The
 # default is no description. The value is used in the meta description
 # and displayed underneath the category list or index page’s title.
-# CATEGORY_PAGES_DESCRIPTIONS = {
+# CATEGORY_DESCRIPTIONS = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-blog posts about blogging about blogging.",
 #        "open source": "My contributions to my many, varied, ever-changing, and eternal libre software projects."
@@ -494,7 +425,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 # }
 
 # Set special titles for category pages. The default is "Posts about CATEGORY".
-# CATEGORY_PAGES_TITLES = {
+# CATEGORY_TITLES = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-posts about blogging",
 #        "open source": "Posts about open source software"
@@ -508,13 +439,43 @@ HIDDEN_CATEGORIES = []
 
 # A list of dictionaries specifying categories which translate to each other.
 # Format: a list of dicts {language: translation, language2: translation2, …}
-# See POSTS_SECTION_TRANSLATIONS example above.
+# See TAG_TRANSLATIONS example above.
 # CATEGORY_TRANSLATIONS = []
 
 # If set to True, a category in a language will be treated as a translation
 # of the literally same category in all other languages. Enable this if you
 # do not translate categories, for example.
 # CATEGORY_TRANSLATIONS_ADD_DEFAULTS = True
+
+# If no category is specified in a post, the destination path of the post
+# can be used in its place. This replaces the sections feature. Using
+# category hierarchies is recommended.
+# CATEGORY_DESTPATH_AS_DEFAULT = False
+
+# If True, the prefix will be trimmed from the category name, eg. if the
+# POSTS destination is "foo/bar", and the path is "foo/bar/baz/quux",
+# the category will be "baz/quux" (or "baz" if only the first directory is considered).
+# Note that prefixes coming from translations are always ignored.
+# CATEGORY_DESTPATH_TRIM_PREFIX = False
+
+# If True, only the first directory of a path will be used.
+# CATEGORY_DESTPATH_FIRST_DIRECTORY_ONLY = True
+
+# Map paths to prettier category names. (translatable)
+# CATEGORY_DESTPATH_NAMES = {
+#    DEFAULT_LANG: {
+#        'webdev': 'Web Development',
+#        'random': 'Odds and Ends',
+#    },
+# }
+
+# By default, category indexes will appear in CATEGORY_PATH and use
+# CATEGORY_PREFIX. If this is enabled, those settings will be ignored (except
+# for the index) and instead, they will follow destination paths (eg. category
+# 'foo' might appear in 'posts/foo'). If the category does not come from a
+# destpath, first entry in POSTS followed by the category name will be used.
+# For this setting, category hierarchies are required and cannot be flattened.
+# CATEGORY_PAGES_FOLLOW_DESTPATH = False
 
 # If ENABLE_AUTHOR_PAGES is set to True and there is more than one
 # author, author pages are generated.
@@ -523,7 +484,7 @@ HIDDEN_CATEGORIES = []
 # Path to author pages. Final locations are:
 # output / TRANSLATION[lang] / AUTHOR_PATH / index.html (list of authors)
 # output / TRANSLATION[lang] / AUTHOR_PATH / author.html (list of posts by an author)
-# output / TRANSLATION[lang] / AUTHOR_PATH / author.xml (RSS feed for an author)
+# output / TRANSLATION[lang] / AUTHOR_PATH / author RSS_EXTENSION (RSS feed for an author)
 # (translatable)
 # AUTHOR_PATH = "authors"
 
@@ -588,20 +549,29 @@ FRONT_INDEX_HEADER = {
 # absolute: a complete URL (that includes the SITE_URL)
 # URL_TYPE = 'rel_path'
 
-# If USE_BASE_TAG is True, then all HTML files will include
-# something like <base href=http://foo.var.com/baz/bat> to help
-# the browser resolve relative links.
-# Most people don’t need this tag; major websites don’t use it. Use
-# only if you know what you’re doing. If this is True, your website
-# will not be fully usable by manually opening .html files in your web
-# browser (`nikola serve` or `nikola auto` is mandatory). Also, if you
-# have mirrors of your site, they will point to SITE_URL everywhere.
-USE_BASE_TAG = False
+# Extension for RSS feed files
+# RSS_EXTENSION = ".xml"
+
+# RSS filename base (without extension); used for indexes and galleries.
+# (translatable)
+# RSS_FILENAME_BASE = "rss"
 
 # Final location for the blog main RSS feed is:
-# output / TRANSLATION[lang] / RSS_PATH / rss.xml
+# output / TRANSLATION[lang] / RSS_PATH / RSS_FILENAME_BASE RSS_EXTENSION
 # (translatable)
 # RSS_PATH = ""
+
+# Final location for the blog main Atom feed is:
+# output / TRANSLATION[lang] / ATOM_PATH / ATOM_FILENAME_BASE ATOM_EXTENSION
+# (translatable)
+# ATOM_PATH = ""
+
+# Atom filename base (without extension); used for indexes.
+# (translatable)
+ATOM_FILENAME_BASE = "feed"
+
+# Extension for Atom feed files
+# ATOM_EXTENSION = ".atom"
 
 # Slug the Tag URL. Easier for users to type, special characters are
 # often removed or replaced as well.
@@ -731,20 +701,6 @@ GITHUB_COMMIT_SOURCE = True
 # return partial content of another representation for these resources. Do not
 # use this feature if you do not understand what this means.
 
-# Compiler to process LESS files.
-# LESS_COMPILER = 'lessc'
-
-# A list of options to pass to the LESS compiler.
-# Final command is: LESS_COMPILER LESS_OPTIONS file.less
-# LESS_OPTIONS = []
-
-# Compiler to process Sass files.
-# SASS_COMPILER = 'sass'
-
-# A list of options to pass to the Sass compiler.
-# Final command is: SASS_COMPILER SASS_OPTIONS file.s(a|c)ss
-# SASS_OPTIONS = []
-
 # #############################################################################
 # Image Gallery Options
 # #############################################################################
@@ -799,6 +755,10 @@ GITHUB_COMMIT_SOURCE = True
 
 # Embedded thumbnail information:
 # EXIF_WHITELIST['1st'] = ["*"]
+
+# If set to True, any ICC profile will be copied when an image is thumbnailed or
+# resized.
+# PRESERVE_ICC_PROFILES = False
 
 # Folders containing images to be used in normal posts or pages.
 # IMAGE_FOLDERS is a dictionary of the form {"source": "destination"},
@@ -977,7 +937,7 @@ RSS_COPYRIGHT_FORMATS = CONTENT_FOOTER_FORMATS
 
 # To use comments, you can choose between different third party comment
 # systems.  The following comment systems are supported by Nikola:
-#   disqus, facebook, googleplus, intensedebate, isso, livefyre, muut
+#   disqus, facebook, intensedebate, isso, livefyre, muut
 # You can leave this option blank to disable comments.
 COMMENT_SYSTEM = "disqus"
 # And you also need to add your COMMENT_SYSTEM_ID which
@@ -1005,16 +965,7 @@ COMMENT_SYSTEM_ID = "nikolademo"
 # http://mysite/foo/bar/index.html => http://mysite/foo/bar/
 # (Uses the INDEX_FILE setting, so if that is, say, default.html,
 # it will instead /foo/default.html => /foo)
-# (Note: This was briefly STRIP_INDEX_HTML in v 5.4.3 and 5.4.4)
-STRIP_INDEXES = False
-
-# Should the sitemap list directories which only include other directories
-# and no files.
-# Default to True
-# If this is False
-# e.g. /2012 includes only /01, /02, /03, /04, ...: don't add it to the sitemap
-# if /2012 includes any files (including index.html)... add it to the sitemap
-# SITEMAP_INCLUDE_FILELESS_DIRS = True
+STRIP_INDEXES = True
 
 # List of files relative to the server root (!) that will be asked to be excluded
 # from indexing and other robotic spidering. * is supported. Will only be effective
@@ -1027,7 +978,7 @@ STRIP_INDEXES = False
 # This can be disabled on a per-page/post basis by adding
 #    .. pretty_url: False
 # to the metadata.
-PRETTY_URLS = False
+PRETTY_URLS = True
 
 # If True, publish future dated posts right away instead of scheduling them.
 # Defaults to False.
@@ -1043,7 +994,7 @@ PRETTY_URLS = False
 # Allows scheduling of posts using the rule specified here (new_post -s)
 # Specify an iCal Recurrence Rule: http://www.kanzaki.com/docs/ical/rrule.html
 # SCHEDULE_RULE = ''
-# If True, use the scheduling rule to all posts by default
+# If True, use the scheduling rule to all posts (not pages!) by default
 # SCHEDULE_ALL = False
 
 # Do you want a add a Mathjax config file?
@@ -1076,9 +1027,10 @@ PRETTY_URLS = False
 # KATEX_AUTO_RENDER = """
 # delimiters: [
 #     {left: "$$", right: "$$", display: true},
-#     {left: "\\\[", right: "\\\]", display: true},
+#     {left: "\\\\[", right: "\\\\]", display: true},
+#     {left: "\\\\begin{equation*}", right: "\\\\end{equation*}", display: true},
 #     {left: "$", right: "$", display: false},
-#     {left: "\\\(", right: "\\\)", display: false}
+#     {left: "\\\\(", right: "\\\\)", display: false}
 # ]
 # """
 
@@ -1095,6 +1047,11 @@ PRETTY_URLS = False
 #       with the MarkdownExtension class and should not be added here.
 # The default is ['fenced_code', 'codehilite']
 MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.codehilite', 'markdown.extensions.extra']
+
+# Options to be passed to markdown extensions (See https://python-markdown.github.io/reference/)
+# Default is {} (no config at all)
+# MARKDOWN_EXTENSION_CONFIGS = {}
+
 
 # Extra options to pass to the pandoc command.
 # by default, it's empty, is a list of strings, for example
@@ -1122,7 +1079,6 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 # """
 
 # Show link to source for the posts?
-# Formerly known as HIDE_SOURCELINK (inverse)
 # SHOW_SOURCELINK = True
 # Copy the source files for your pages?
 # Setting it to False implies SHOW_SOURCELINK = False
@@ -1154,12 +1110,6 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 
 # Number of posts in Atom and RSS feeds.
 # FEED_LENGTH = 10
-
-# Include preview image as a <figure><img></figure> at the top of the entry.
-# Requires FEED_PLAIN = False. If the preview image is found in the content,
-# it will not be included again. Image will be included as-is, aim to optmize
-# the image source for Feedly, Apple News, Flipboard, and other popular clients.
-# FEED_PREVIEWIMAGE = True
 
 # RSS_LINK is a HTML fragment to link the RSS or Atom feeds. If set to None,
 # the base.tmpl will use the feed Nikola generates. However, you may want to
@@ -1245,6 +1195,9 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 # (Note the '.*\/' in the beginning -- matches source paths relative to conf.py)
 # FILE_METADATA_REGEXP = None
 
+# Should titles fetched from file metadata be unslugified (made prettier?)
+# FILE_METADATA_UNSLUGIFY_TITLES = True
+
 # If enabled, extract metadata from docinfo fields in reST documents
 # USE_REST_DOCINFO_METADATA = False
 
@@ -1262,17 +1215,21 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 # }
 # Other examples: https://getnikola.com/handbook.html#mapping-metadata-from-other-formats
 
-# If you hate "Filenames with Capital Letters and Spaces.md", you should
-# set this to true.
-UNSLUGIFY_TITLES = True
+# Map metadata between types/values. (Runs after METADATA_MAPPING.)
+# Supported formats: nikola, yaml, toml, rest_docinfo, markdown_metadata
+# The value on the right should be a dict of callables.
+# METADATA_VALUE_MAPPING = {}
+# Examples:
+# METADATA_VALUE_MAPPING = {
+#     "yaml": {"keywords": lambda value: ', '.join(value)},  # yaml: 'keywords' list -> str
+#     "nikola": {
+#         "widgets": lambda value: value.split(', '),  # nikola: 'widgets' comma-separated string -> list
+#         "tags": str.lower  # nikola: force lowercase 'tags' (input would be string)
+#      }
+# }
 
 # Additional metadata that is added to a post when creating a new_post
 # ADDITIONAL_METADATA = {}
-
-# Nikola supports Open Graph Protocol data for enhancing link sharing and
-# discoverability of your site on Facebook, Google+, and other services.
-# Open Graph is enabled by default.
-# USE_OPEN_GRAPH = True
 
 # Nikola supports Twitter Card summaries, but they are disabled by default.
 # They make it possible for you to attach media to Tweets that link
@@ -1301,11 +1258,11 @@ UNSLUGIFY_TITLES = True
 # Plugins you don't want to use. Be careful :-)
 # DISABLED_PLUGINS = ["render_galleries"]
 
-# Special settings to disable only parts of the indexes plugin (to allow RSS
-# but no blog indexes, or to allow blog indexes and Atom but no site-wide RSS).
+# Special settings to disable only parts of the indexes plugin.
 # Use with care.
-# DISABLE_INDEXES_PLUGIN_INDEX_AND_ATOM_FEED = False
-# DISABLE_INDEXES_PLUGIN_RSS_FEED = False
+# DISABLE_INDEXES = False
+# DISABLE_MAIN_ATOM_FEED = False
+# DISABLE_MAIN_RSS_FEED = False
 
 # Add the absolute paths to directories containing plugins to use them.
 # For example, the `plugins` directory of your clone of the Nikola plugins
@@ -1345,6 +1302,15 @@ UNSLUGIFY_TITLES = True
 # USE WITH CARE!  This is also not guaranteed to be perfect, and may
 # sometimes crash Nikola, your web server, or eat your cat.
 # USE_SLUGIFY = True
+
+# If set to True, the tags 'draft', 'mathjax' and 'private' have special
+# meaning. If set to False, these tags are handled like regular tags.
+USE_TAG_METADATA = False
+
+# If set to True, a warning is issued if one of the 'draft', 'mathjax'
+# and 'private' tags are found in a post. Useful for checking that
+# migration was successful.
+WARN_ABOUT_TAG_METADATA = False
 
 # Templates will use those filters, along with the defaults.
 # Consult your engine's documentation on filters if you need help defining

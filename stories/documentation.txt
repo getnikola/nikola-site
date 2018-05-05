@@ -25,6 +25,9 @@ current GitHub master, check out `Nikola on ReadTheDocs
     It contains some useful documentation not mentioned in the manual, and can
     be used for people upgrading to compare with their existing config files.
 
+`Upgrading to Nikola v8 </blog/upgrading-to-nikola-v8.html>`_
+    A blog post detailing all the changes from Nikola v7.
+
 `Changelog <changes.html>`_, `Contributors <authors.html>`_, `The MIT License <license.html>`_
     What’s new, who made this, and the rules for distribution.
 

@@ -9,7 +9,7 @@
 Extending Nikola
 ================
 
-:Version: 7.8.14
+:Version: 8.0.0b1
 :Author: Roberto Alsina <ralsina@netmanagers.com.ar>
 
 .. class:: alert alert-primary float-md-right
@@ -383,8 +383,31 @@ If the compiler produces something other than HTML files, it should also impleme
 returns the preferred extension for the output file.
 
 These plugins can also be used to extract metadata from a file. To do so, the
-plugin may implement ``read_metadata`` that will return a dict containing the
-metadata contained in the file.
+plugin must set ``supports_metadata`` to ``True`` and implement ``read_metadata`` that will return a dict containing the
+metadata contained in the file. Optionally, it may list ``metadata_conditions`` (see `MetadataExtractor Plugins`_ below)
+
+MetadataExtractor Plugins
+-------------------------
+
+Plugins that extract metadata from posts. If they are based on post content,
+they must implement ``_extract_metadata_from_text`` (takes source of a post
+returns a dict of metadata).  They may also implement
+``split_metadata_from_text``, ``extract_text``. If they are based on filenames,
+they only need ``extract_filename``. If ``support_write`` is set to True,
+``write_metadata`` must be implemented.
+
+Every extractor must be configured properly. The ``name``, ``source`` (from the
+``MetaSource`` enum in ``metadata_extractors``) and ``priority``
+(``MetaPriority``) fields are mandatory.  There might also be a list of
+``conditions`` (tuples of ``MetaCondition, arg``), used to check if an
+extractor can provide metadata, a compiled regular expression used to split
+metadata (``split_metadata_re``, may be ``None``, used by default
+``split_metadata_from_text``), a list of ``requirements`` (3-tuples: import
+name, pip name, friendly name), ``map_from`` (name of ``METADATA_MAPPING`` to
+use, if any) and ``supports_write`` (whether the extractor supports writing
+metadata in the desired format).
+
+For more details, see the definition in  ``plugin_categories.py`` and default extractors in ``metadata_extractors.py``.
 
 RestExtension Plugins
 ---------------------
@@ -503,7 +526,7 @@ Here's the relevant code from the tag plugin.
     # In set_site
     site.register_path_handler('tag_rss', self.tag_rss_path)
 
-    # And these always take name and lang as arguments and returl a list of
+    # And these always take name and lang as arguments and return a list of
     # path elements.
     def tag_rss_path(self, name, lang):
         return [_f for _f in [self.site.config['TRANSLATIONS'][lang],

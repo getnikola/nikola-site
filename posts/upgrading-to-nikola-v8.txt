@@ -1,0 +1,183 @@
+.. title: Upgrading to Nikola v8
+.. slug: upgrading-to-nikola-v8
+.. date: 2018-05-05 18:55:43 UTC
+.. tags: nikola, documentation
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Chris Warrick
+
+.. class:: lead
+
+Nikola v8 is a huge release with lots of new features and fixed bugs. However,
+a few manual changes are required to upgrade.
+
+.. contents::
+
+How to upgrade
+==============
+
+1. Upgrade to the latest v7 version: ``pip install Nikola==7.8.15`` and make sure
+   there are no outstanding warnings.
+2. Upgrade to v8: ``pip install -U --upgrade-strategy=eager Nikola==8.0.0b1``
+3. Read the upgrade notes below and `the full changelog`__
+4. Upgrade all third-party plugins and themes. (``nikola plugin --upgrade``,
+   ``nikola theme --upgrade``)
+5. Run ``nikola status`` and fix all warnings.
+6. When all warnings are fixed, run ``nikola build``.
+7. Run ``nikola check -l`` and ``nikola check -f``. If there are broken links
+   or orphaned files, take care of them.
+
+__ https://getnikola.com/changes.html
+
+Upgrading post metadata
+=======================
+
+There are a few changes in post metadata you should make:
+
+* ``draft`` and ``private`` tags are now ``status`` metadata values (eg. ``..
+  status: draft``)
+* ``mathjax`` tag is now a ``has_math`` metadata key (eg. ``.. has_math: yes``)
+
+Both changes can be applied by using the `upgrade_metadata_v8`__ plugin.
+
+__ https://plugins.getnikola.com/v8/upgrade_metadata_v8/
+
+Changes to themes and templates
+===============================
+
+The default theme for Nikola was changed to ``bootblog4``, which has a modern,
+clean look.  There’s also ``bootstrap4`` with the classic look.  The
+``bootstrap3`` theme is not included by default, but can still be installed
+(``nikola theme -i bootstrap3``)
+
+.. TODO: bootblog4 featured posts
+
+Moreover, there are a few changes to templates that you must reflect in your
+templates:
+
+* Rename ``crumbs.tmpl`` to ``ui_helper.tmpl`` and the breadcrumbs
+  ``bar`` function to ``breadcrumbs`` (your templates may need
+  changing as well)
+* Rename ``post.is_mathjax`` to ``post.has_math``. Themes using
+  ``post.is_mathjax`` must be updated; it is recommended that they are
+  changed to use ``math_helper.tmpl``.
+* For galeries and images, colorbox was replaced by baguetteBox.
+
+Backwards incompatible changes
+==============================
+
+The following changes may cause issues with blog appearance and links. Please
+
+* Sections are replaced by categories (Issue #2833) — *see below*
+* Reading reST docinfo metadata, including first heading as title,
+  requires ``USE_REST_DOCINFO_METADATA`` now (Issue #2987)
+* RSS feeds might have changed their places due to ``RSS_PATH``
+  behavior changes (you may need to change ``RSS_PATH``,
+  ``RSS_FILENAME_BASE``)
+* Atom feeds for archives and Atom pagination are no longer supported
+  (Issue #3016)
+
+Removed and renamed settings
+============================
+
+The following settings have been removed. Nikola will now always
+behave as if the value was what is displayed afer the setting name.
+
+* ``FEED_PREVIEWIMAGE = True``
+* ``SITEMAP_INCLUDE_FILELESS_DIRS = True``
+* ``USE_OPEN_GRAPH = True``
+* ``USE_BASE_TAG = False``
+
+The following settings were renamed
+
+Sections were replaced by categories
+====================================
+
+`Sections were an unfinished feature.`__ Having both sections and categories at the same time made no sense. The sections feature was removed and replaced by categories. Categories now support using the destination path, with the possibility to ignore common prefixes, and to use subdirectories. Categories can do everything sections used to.
+
+__ https://github.com/getnikola/nikola/issues/2833
+
+The way to migrate depends on what your blog setup was:
+
+* if you were only using categories, you don’t need to do anything (except for
+  the two renamed settings mentioned above)
+* if you were only using sections, read on or details of required changes
+* if you were using both,
+
+PS. the ``section_prevnext`` plugin has been renamed ``category_prevnext`` for
+v8.
+
+Changes to posts
+----------------
+
+If your posts are using the ``section`` metadata field, you should rename it to ``category``.  Nikola will do this conversion automatically if no category is specified, while also issuing a warning.
+
+Changes to configuration
+------------------------
+
+* ``POSTS_SECTION_TITLE`` has been merged into ``CATEGORY_TITLES`` (whose name has changed from ``CATEGORY_PAGES_TITLES``)
+* ``POSTS_SECTION_DESCRIPTIONS`` has been merged into ``CATEGORY_DESCRIPTIONS`` (whose name has changed from ``CATEGORY_PAGES_DESCRPTIONS``)
+* In order to activate the path-based behavior, enable ``CATEGORY_DESTPATH_AS_DEFAULT``
+* To control what is used to generate paths, you can set ``CATEGORY_DESTPATH_TRIM_PREFIX`` and ``CATEGORY_DESTPATH_FIRST_DIRECTORY_ONLY`` (old sections behavior/default values are False and True respectively, but flipping them makes the feature much more flexible)
+* ``POSTS_SECTION_NAME`` is now ``CATEGORY_DESTPATH_NAMES``
+* ``POSTS_SECTION_COLORS`` is not supported by default, but you can replace it with some manual tinkering
+* ``CATEGORY_ALLOW_HIERARCHIES``, ``CATEGORY_OUTPUT_FLAT_HIERARCHY`` are heavily recommended if you use ``CATEGORY_DESTPATH_AS_DEFAULT``, and required if you use ``CATEGORY_PAGES_FOLLOW_DESTPATH``
+
+Recreating the old behavior of sections
+---------------------------------------
+
+.. code:: python
+
+    CATEGORY_ALLOW_HIERARCHIES = True
+    CATEGORY_OUTPUT_FLAT_HIERARCHY = True
+    CATEGORY_DESTPATH_AS_DEFAULT = True
+    CATEGORY_DESTPATH_TRIM_PREFIX = False
+    CATEGORY_DESTPATH_FIRST_DIRECTORY_ONLY = True
+    CATEGORY_PAGES_FOLLOW_DESTPATH = True
+
+Colorizing categories (or anything, really)
+-------------------------------------------
+
+The colorization feature is now available for *anything*, not only sections.
+Templates can use the ``colorize_str(string, base_color, presets)`` function,
+like so:
+
+.. code:: mako
+
+    ${colorize_str(post.meta('category'), theme_color, category_colors)}
+
+You need to add ``category_colors`` to the global context manually — this
+expects a regular (untranslated) dict mapping category names to hex colors.
+
+Plugins
+=======
+
+If you are using ``section_prevnext``, remove it and install
+``category_prevnext`` instead.
+
+If you are using the ``projectpages`` plugin, you can migrate your metadata like this:
+
+.. code:: text
+
+    sed 's/.. status:/.. devstatus:/g' *.rst -i
+    sed '/.. featured: False/d' *.rst -i
+    sed 's/.. featured: True/.. status: featured/g' *.rst -i
+    sed '/.. hidden: False/d' *.rst -i
+    sed 's/.. hidden: True/.. status: private/g' *.rst -i
+
+
+On YAML configuration
+=====================
+
+One of the features we’ve promised for Nikola v8 was YAML config. We’re afraid
+we won’t offer this in the v8.0.0 release just yet. Doing this *right* will require
+substantial amounts of time, and the v8 project has been going for over a year.
+
+Rest assured: we haven’t scrapped this idea. YAML config will appear in a
+future v8.x.0 release. Before that happens, we need to build a configuration
+management framework, with support for `migrations <https://github.com/getnikola/nikola/issues/2475#issuecomment-384064771>`_
+among other things — its main focus will be Nikola config, but we hope
+to make it flexible enough to work anywhere.
+(If you’re aware of a good project that does this, do tell us!)

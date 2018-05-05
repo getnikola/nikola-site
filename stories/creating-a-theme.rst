@@ -18,7 +18,7 @@ create themes. Since I **suck** at designing websites, I asked for opinions on t
 and got some feedback. Since this is **Not So Hard™**, I will try to make time to port a few
 and see what happens.
 
-If you are looking for a reference, check out `Theming reference <theming.html>`_ and `Template variables <https://getnikola.com/template-variables.html>`_.
+If you are looking for a reference, check out :doc:`Theming reference <theming>` and `Template variables <https://getnikola.com/template-variables.html>`_.
 
 Today’s theme is `Lanyon <https://github.com/poole/lanyon>`__ which is written by `@mdo <https://twitter.com/mdo>`__
 and released under a MIT license, which is liberal enough.
@@ -177,7 +177,7 @@ see something fairly similar:
     <meta name="viewport" content="width=device-width">
     <title>My Nikola Site | My Nikola Site</title>
 
-    <link href="assets/css/rst.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/rst_base.css" rel="stylesheet" type="text/css">
     <link href="assets/css/code.css" rel="stylesheet" type="text/css">
     <link href="assets/css/theme.css" rel="stylesheet" type="text/css">
 
@@ -200,10 +200,11 @@ in a particular way, using a setting called ``CODE_COLOR_SCHEME`` where you can 
 what color scheme the syntax highlighter uses. You can use your own ``assets/css/code.css`` if you
 don’t like the provided ones.
 
-Nikola **requires** ``assets/css/rst.css`` and ``assets/css/code.css`` to function properly.
-We will also add themes for IPython Notebook (``assets/css/ipython.min.css``
+Nikola **requires** ``assets/css/rst_base.css`` and ``assets/css/code.css`` to function properly.
+We will also add themes for Jupyter (``assets/css/ipython.min.css``
 and ``assets/css/nikola_ipython.css``) into the template; note that they are
 activated only if you configured your ``POSTS``/``PAGES`` with ipynb support.
+There’s also ``assets/css/nikola_rst.css``, which adds Bootstrap 3-style reST notes etc.
 
 But how do I tell **our** lanyon theme to use those CSS files instead of whatever it’s using now?
 By giving our theme its own base_helper.tmpl.
@@ -227,7 +228,8 @@ The part we want to change is this:
                 <link href="/assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
             %endif
         %else:
-            <link href="/assets/css/rst.css" rel="stylesheet" type="text/css">
+            <link href="/assets/css/rst_base.css" rel="stylesheet" type="text/css">
+            <link href="/assets/css/nikola_rst.css" rel="stylesheet" type="text/css">
             <link href="/assets/css/code.css" rel="stylesheet" type="text/css">
             <link href="/assets/css/theme.css" rel="stylesheet" type="text/css">
             %if has_custom_css:
@@ -248,7 +250,8 @@ And we will change it so it uses the lanyon styles instead of theme.css (again, 
         %if use_bundles:
             <link href="/assets/css/all.css" rel="stylesheet" type="text/css">
         %else:
-            <link href="/assets/css/rst.css" rel="stylesheet" type="text/css">
+            <link href="/assets/css/rst_base.css" rel="stylesheet" type="text/css">
+            <link href="/assets/css/nikola_rst.css" rel="stylesheet" type="text/css">
             <link href="/assets/css/poole.css" rel="stylesheet" type="text/css">
             <link href="/assets/css/lanyon.css" rel="stylesheet" type="text/css">
             <link href="/assets/css/code.css" rel="stylesheet" type="text/css">
@@ -327,7 +330,6 @@ all the interesting stuff:
     <%namespace name="base" file="base_helper.tmpl" import="*"/>
     <%namespace name="header" file="base_header.tmpl" import="*"/>
     <%namespace name="footer" file="base_footer.tmpl" import="*"/>
-    <%namespace name="annotations" file="annotation_helper.tmpl"/>
     ${set_locale(lang)}
     ${base.html_headstart()}
     <%block name="extra_head">
@@ -363,7 +365,6 @@ So, first, lets change that base template to be more lanyon-like:
     <%namespace name="base" file="base_helper.tmpl" import="*"/>
     <%namespace name="header" file="base_header.tmpl" import="*"/>
     <%namespace name="footer" file="base_footer.tmpl" import="*"/>
-    <%namespace name="annotations" file="annotation_helper.tmpl"/>
     ${set_locale(lang)}
     ${base.html_headstart()}
     <%block name="extra_head">
@@ -402,7 +403,7 @@ So, first, lets change that base template to be more lanyon-like:
    And that’s after I exposed the sidebar by clicking on an invisible widget!
 
 One problem, which causes that yellow color in the sidebar is a CSS conflict.
-We are loading ``rst.css`` which specifies
+We are loading ``rst_base.css`` which specifies
 the background color of ``div.sidebar`` which is more specific than
 ``lanyon.css``, which specifies for ``.sidebar`` alone.
 
@@ -506,7 +507,7 @@ and at the bottom a label for the sidebar toggle. Easy to do in ``base.tmpl``
 
    Getting there!
 
-The sidebar looks bad because of yet more CSS conflicts with ``rst.css``. By
+The sidebar looks bad because of yet more CSS conflicts with ``rst_base.css``. By
 adding some extra styling in ``lanyon.css``, it will look better.
 
 .. code:: css
@@ -816,7 +817,7 @@ which makes sites load faster. To do that, your theme needs a ``bundles`` file w
 
 For the Lanyon theme, it should be like this::
 
-    assets/css/all.css=rst.css,code.css,poole.css,lanyon.css,custom.css
+    assets/css/all.css=rst_base.css,nikola_rst.css,code.css,poole.css,lanyon.css,custom.css
 
 **Note:** Some themes also support the ``USE_CDN`` option meaning that in some cases it will load one bundle with all CSS and in other will load some CSS files
 from a CDN and others from a bundle. This is complicated and probably not worth the effort.
@@ -827,3 +828,5 @@ The End
 And that’s it, that’s a whole theme. Eventually, once people start using it, they will notice small broken details, which will need handling one at a time.
 
 This theme should be available in http://themes.getnikola.com/v7/lanyon/ and you can see it in action at https://themes.getnikola.com/v7/lanyon/demo/ .
+
+What if you want to extend other parts of the theme? Check out the :doc:`Theming reference <theming>`. You can also contribute your improvements to the `nikola-themes <https://github.com/getnikola/nikola>` repository on GitHub.

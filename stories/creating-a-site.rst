@@ -52,13 +52,16 @@ configuration file:
     POSTS = ()
     # remove destination directory to generate pages in the root directory
     PAGES = (
-        ("pages/*.rst", "", "story.tmpl"),
-        ("pages/*.txt", "", "story.tmpl"),
-        ("pages/*.html", "", "story.tmpl"),
+        ("pages/*.rst", "", "page.tmpl"),
+        ("pages/*.txt", "", "page.tmpl"),
+        ("pages/*.html", "", "page.tmpl"),
     )
 
     # And to avoid a conflict because blogs try to generate /index.html
     INDEX_PATH = "blog"
+
+    # Or you can disable blog indexes altogether:
+    # DISABLE_INDEXES = True
 
 
 And now we are ready to create our first page:
@@ -116,7 +119,7 @@ people might find it a bit too limiting — if that is the case, try using HTML
 for your pages (Nikola does this on the index page, for example).
 
 So, let's give the page a nicer title, and some fake content. Since the default
-Nikola theme (called ``bootstrap3``) is based on `Bootstrap <http://getbootstrap.com/>`_
+Nikola theme (called ``bootblog4``) is based on `Bootstrap <http://getbootstrap.com/>`_
 you can use anything you like from it:
 
 .. code:: rest

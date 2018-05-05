@@ -9,7 +9,7 @@
 Theming Nikola
 ==============
 
-:Version: 7.8.14
+:Version: 8.0.0b1
 :Author: Roberto Alsina <ralsina@netmanagers.com.ar>
 
 .. class:: alert alert-primary float-md-right
@@ -19,7 +19,7 @@ Theming Nikola
 .. class:: lead
 
 This document is a reference about themes. If you want a tutorial, please read
-`Creating a Theme <creating-a-theme.html>`_. If you’re looking for a ready-made
+:doc:`Creating a Theme <creating-a-theme>`. If you’re looking for a ready-made
 theme for your site, check out the `Themes Index <https://themes.getnikola.com/>`_.
 
 The Structure
@@ -36,9 +36,9 @@ assets
     references to them. The default subdirectories are ``css``, ``js``, ``xml``
     and ``fonts`` (Bootstrap).
 
-    The included themes use `Bootstrap <https://getbootstrap.com/>`_, `Colorbox
-    <http://www.jacklmoore.com/colorbox>`_, `Flowr.js
-    <https://github.com/kalyan02/flowr-js>`_ and `Moment.js
+    The included themes use `Bootstrap <https://getbootstrap.com/>`_,
+    `baguetteBox <https://feimosi.github.io/baguetteBox.js/>`_, `Justified Layout by Flickr
+    <http://flickr.github.io/justified-layout/>`_ and `Moment.js
     <https://momentjs.com/>`_, so they are in assets, along with CSS files for
     syntax highlighting, reStructuredText and Jupyter, as well as a minified
     copy of jQuery.
@@ -78,7 +78,7 @@ bundles
 
     .. code:: text
 
-        assets/css/all.css=bootstrap.css,rst.css,code.css,colorbox.css,custom.css
+        assets/css/all.css=bootstrap.min.css,rst_base.css,nikola_rst.css,code.css,baguetteBox.min.css,theme.css,custom.css
 
     This creates a file called "assets/css/all.css" in your output that is the
     combination of all the other file paths, relative to the output file.
@@ -143,7 +143,7 @@ The following keys are currently supported:
   * ``tags`` — optional list of tags (comma-separated) to describe the theme.
 
 * ``Family`` — contains information about other related themes. All values
-  optional.
+  optional. (Do not use unless you have related themes.)
 
   * ``family`` — the name of the main theme in a family, which is also used as
     the family name.
@@ -158,9 +158,6 @@ The following keys are currently supported:
     defaults to False)
   * ``ignored_assets`` — comma-separated list of assets to ignore (relative to
     the ``assets/`` directory, eg. ``css/theme.css``)
-  * ``ignore_colorbox_i18n`` — prevent copying Colorbox locales. Accepted
-    values: ``all`` (all ignored), ``unused`` (used locales copied),
-    ``none`` (all copied)
 
 Templates
 ---------
@@ -176,10 +173,35 @@ should learn one first. What engine is used by the theme is declared in the ``en
    you can install Beaker and `make templates be cached <http://docs.makotemplates.org/en/latest/caching.html>`__
 
 
-Both template engines have a nifty concept of template inheritance. That means that, a
+Both template engines have a nifty concept of template inheritance. That means that a
 template can inherit from another and only change small bits of the output. For example,
 ``base.tmpl`` defines the whole layout for a page but has only a placeholder for content
 so ``post.tmpl`` only define the content, and the layout is inherited from ``base.tmpl``.
+
+Another concept is theme inheritance. You do not need to duplicate all the
+default templates in your theme — you can just override the ones you want
+changed, and the rest will come from the parent theme. (Every theme needs a
+parent.)
+
+Apart from the `built-in templates`_ listed below, you can add other templates for specific
+pages, which the user can then use in his ``POSTS`` or ``PAGES`` option in
+``conf.py``.  Also, you can specify a custom template to be used by a post or
+page via the ``template`` metadata, and custom templates can be added in the
+``templates/`` folder of your site.
+
+If you want to modify (override) a built-in template, use ``nikola theme -c
+<name>.tmpl``.  This command will copy the specified template file to the
+``templates/`` directory of your currently used theme.
+
+Keep in mind that your theme is *yours*, so you can require whatever data you
+want (eg. you may depend on specific custom ``GLOBAL_CONTEXT`` variables, or
+post meta attributes). You don’t need to keep the same theme structure as the
+default themes do (although many of those names are hardcoded). Inheriting from
+at least ``base`` (or ``base-jinja``) is heavily recommended, but not strictly
+required (unless you want to share it on the Themes Index).
+
+Built-in templates
+------------------
 
 These are the templates that come with the included themes:
 
@@ -195,10 +217,7 @@ These are the templates that come with the included themes:
     Template used to render the multipost indexes. The posts are in a ``posts`` variable.
     Some functionality is in the ``index_helper.tmpl`` helper template.
 
-``annotation_helper.tmpl`` (internal)
-    Code for the optional annotations feature.
-
-``archive_navigation_helper.tmpl``
+``archive_navigation_helper.tmpl`` (internal)
     Code that implements archive navigation (previous/up/next). Included by
     archive templates.
 
@@ -219,7 +238,7 @@ These are the templates that come with the included themes:
     It uses a bunch of helper templates, one for each supported comment system
     (all of which start with ``comments_helper``)
 
-``crumbs.tmpl``, ``slides.tmpl``, ``pagination_helper.tmpl``
+``ui_helper.tmpl``, ``pagination_helper.tmpl``
     These templates help render specific UI items, and can be tweaked as needed.
 
 ``gallery.tmpl``
@@ -237,7 +256,8 @@ These are the templates that come with the included themes:
       + ``title``: The title of the image.
       + ``size``: A dict containing ``w`` and ``h``, the real size of the thumbnail.
 
-    * ``photo_array_json``: a JSON dump of photo_array, used in the bootstrap theme by flowr.js
+    * ``photo_array_json``: a JSON dump of photo_array, used by the
+      ``justified-layout`` script
 
 ``list.tmpl``
     Template used to display generic lists of links, which it gets in ``items``,
@@ -264,7 +284,7 @@ These are the templates that come with the included themes:
     Used to display section indexes, if ``POST_SECTIONS_ARE_INDEXES`` is True.
     By default, it just inherits ``index.tmpl``, with added feeds.
 
-``story.tmpl``
+``page.tmpl``
     Used for pages that are not part of a blog, usually a cleaner, less
     intrusive layout than ``post.tmpl``, but same parameters.
 
@@ -278,15 +298,6 @@ These are the templates that come with the included themes:
 
 ``tags.tmpl``
     Used to display the list of tags and categories.
-
-You can add other templates for specific pages, which the user can then use in his ``POSTS``
-or ``PAGES`` option in ``conf.py``. Also, keep in mind that your theme is
-*yours*, there is no reason why you would need to maintain the inheritance as
-it is, or not require whatever data you want (eg. you may depend on specific
-custom ``GLOBAL_CONTEXT`` variables, or post meta attributes)
-
-Also, you can specify a custom template to be used by a post or page via the ``template`` metadata,
-and custom templates can be added in the ``templates/`` folder of your site.
 
 Variables available in templates
 --------------------------------

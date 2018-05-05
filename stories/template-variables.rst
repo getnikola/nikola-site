@@ -3,7 +3,7 @@
 .. date: 2017-04-13 12:00:00
 .. author: The Nikola Team
 
-:Version: 7.8.14
+:Version: 8.0.0b1
 :Author: Chris Warrick <chris@getnikola.com>
 
 Variables available in templates are listed below.
@@ -39,14 +39,14 @@ Name                                Type                                Descript
 ==================================  ==================================  ================================================================================
 ``_link``                           function                            ``Nikola.link`` function
 ``abs_link``                        function                            ``Nikola.abs_link`` function
-``annotations``                     bool                                ``ANNOTATIONS`` setting
+``atom_path``                       TranslatableSetting<str>            ``ATOM_PATH`` setting
 ``author_pages_generated``          bool                                False
 ``blog_author``                     TranslatableSetting<str>            ``BLOG_AUTHOR`` setting
+``blog_email``                      str                                 ``BLOG_EMAIL`` setting
 ``blog_description``                TranslatableSetting<str>            ``BLOG_DESCRIPTION`` setting
 ``blog_title``                      TranslatableSetting<str>            ``BLOG_TITLE`` setting
 ``blog_url``                        str                                 ``SITE_URL`` setting
 ``body_end``                        TranslatableSetting<str>            ``BODY_END`` setting
-``colorbox_locales``                defaultdict<str, str>               dictionary of available Colorbox locales
 ``colorize_str_from_base_color``    function                            ``utils.colorize_str_from_base_color`` function
 ``color_hsl_adjust_hex``            function                            ``utils.color_hsl_adjust_hex`` function
 ``comment_system_id``               str                                 ``COMMENT_SYSTEM_ID`` setting
@@ -78,7 +78,7 @@ Name                                Type                                Descript
 ``meta_generator_tag``              bool                                ``META_GENERATOR_TAG`` setting
 ``momentjs_locales``                defaultdict<str, str>               dictionary of available Moment.js locales
 ``navigation_links``                TranslatableSetting                 ``NAVIGATION_LINKS`` setting
-``needs_ipython_css``               bool                                whether or not IPython CSS is needed by this site
+``needs_ipython_css``               bool                                whether or not Jupyter CSS is needed by this site
 ``posts_sections``                  bool                                ``POSTS_SECTIONS`` setting
 ``posts_section_are_indexes``       bool                                ``POSTS_SECTIONS_ARE_INDEXES`` setting
 ``posts_sections_are_indexes``      bool                                ``POSTS_SECTIONS_ARE_INDEXES`` setting
@@ -89,16 +89,15 @@ Name                                Type                                Descript
 ``posts_section_title``             TranslatableSetting<str>            ``POSTS_SECTION_TITLE`` setting
 ``rel_link``                        function                            ``Nikola.rel_link`` function
 ``rss_link``                        str                                 ``RSS_LINK`` setting
-``rss_path``                        TranslatableSetting<str>            ``RSS_PATH`` setting
 ``search_form``                     TranslatableSetting<str>            ``SEARCH_FORM`` setting
 ``set_locale``                      function                            ``LocaleBorg.set_locale`` function (or None if not available)
 ``show_blog_title``                 bool                                ``SHOW_BLOG_TITLE`` setting
 ``show_sourcelink``                 bool                                ``SHOW_SOURCELINK`` setting
 ``site_has_comments``               bool                                whether or not a comment system is configured
-``SLUG_AUTHOR_PATH``                bool                                ``SLUG_AUTHOR_PATH`` setting
-``SLUG_TAG_PATH``                   bool                                ``SLUG_TAG_PATH`` setting
 ``social_buttons_code``             TranslatableSetting<str>            ``SOCIAL_BUTTONS_CODE`` setting
 ``sort_posts``                      function                            ``utils.sort_posts`` function
+``smartjoin``                       function                            ``utils.smartjoin`` function
+``colorize_str``                    function                            ``utils.colorize_str`` function
 ``template_hooks``                  dict<str, TemplateHookRegistry>     Template hooks registered by plugins
 ``theme_color``                     str                                 ``THEME_COLOR`` setting
 ``timezone``                        tzinfo                              Timezone object (represents the configured timezone)
@@ -106,11 +105,9 @@ Name                                Type                                Descript
 ``twitter_card``                    dict                                ``TWITTER_CARD`` setting, defaults to an empty dictionary
 ``url_replacer``                    function                            ``Nikola.url_replacer`` function
 ``url_type``                        str                                 ``URL_TYPE`` setting
-``use_base_tag``                    bool                                ``USE_BASE_TAG`` setting
 ``use_bundles``                     bool                                ``USE_BUNDLES`` setting
 ``use_cdn``                         bool                                ``USE_CDN`` setting
 ``use_katex``                       bool                                ``USE_KATEX`` setting
-``use_open_graph``                  bool                                ``USE_OPEN_GRAPH`` setting, defaults to True
 ``subtheme``                        str?                                ``THEME_REVEAL_CONFIG_SUBTHEME`` setting (only if set — deprecated)
 ``transition``                      str?                                ``THEME_REVEAL_CONFIG_TRANSITION`` setting (only if set — deprecated)
 ==================================  ==================================  ================================================================================
@@ -132,12 +129,13 @@ Name                Type        Description
 ``title``           str         Title of the page (taken from post, config, etc.)
 ``formatmsg``       function    Wrapper over ``%`` string formatting
 ``striphtml``       function    Strips HTML tags (Mako only)
+``crumbs``          list        Breadcrumbs for this page
 ==================  ==========  ===============================================================
 
 __ https://getnikola.com/theming.html#identifying-and-customizing-different-kinds-of-pages-with-a-shared-template
 
-Variables available in post pages (``post.tmpl``, ``story.tmpl`` etc.)
-----------------------------------------------------------------------
+Variables available in post pages (``post.tmpl``, ``page.tmpl`` etc.)
+---------------------------------------------------------------------
 
 .. class:: table table-bordered table-striped
 
@@ -253,12 +251,11 @@ Name                 Type            Description
 ``kind``             str             The classification name
 ``items``            list?           List of items for ``list.tmpl`` *(title, permalink, None)*
 ``posts``            list<Post>?     List of items for other templates
-``kind``             str             The classification name
 ``permalink``        str             Permanent link to page
 ``other_languages``  list<tuple>     List of triples ``(other_lang, other_classification, title)``
 ===================  ==============  =============================================================
 
-Index-style classification pages have ``kind`` in addtion to the usual index variables.
+Index-style classification pages have ``kind`` in addition to the usual index variables.
 
 Subclassification page
 ~~~~~~~~~~~~~~~~~~~~~~
