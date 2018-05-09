@@ -13,6 +13,8 @@
 Nikola v8 is a huge release with lots of new features and fixed bugs. However,
 a few manual changes are required to upgrade.
 
+.. class:: alert alert-primary
+
 .. contents::
 
 How to upgrade
