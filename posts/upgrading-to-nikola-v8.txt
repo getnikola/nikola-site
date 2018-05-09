@@ -92,7 +92,16 @@ behave as if the value was what is displayed afer the setting name.
 * ``USE_OPEN_GRAPH = True``
 * ``USE_BASE_TAG = False``
 
-The following settings were renamed
+The following settings were renamed:
+
+* ``UNSLUGIFY_TITLES`` → ``FILE_METADATA_UNSLUGIFY_TITLES``
+* ``TAG_PAGES_TITLES`` → ``TAG_TITLES``
+* ``TAG_PAGES_DESCRIPTIONS`` → ``TAG_DESCRIPTIONS``
+* ``CATEGORY_PAGES_TITLES`` → ``CATEGORY_TITLES``
+* ``CATEGORY_PAGES_DESCRIPTIONS`` → ``CATEGORY_DESCRIPTIONS``
+* ``DISABLE_INDEXES_PLUGIN_INDEX_AND_ATOM_FEED`` → ``DISABLE_INDEXES`` and
+  ``DISABLE_MAIN_ATOM_FEED``
+* ``DISABLE_INDEXES_PLUGIN_RSS_FEED`` → ``DISABLE_MAIN_RSS_FEED``
 
 Sections were replaced by categories
 ====================================
@@ -106,7 +115,8 @@ The way to migrate depends on what your blog setup was:
 * if you were only using categories, you don’t need to do anything (except for
   the two renamed settings mentioned above)
 * if you were only using sections, read on or details of required changes
-* if you were using both,
+* if you were using both, you’ll need to pick one of the two (beware: might
+  break links)
 
 PS. the ``section_prevnext`` plugin has been renamed ``category_prevnext`` for
 v8.
