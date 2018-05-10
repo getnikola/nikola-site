@@ -971,12 +971,17 @@ You can also generate a tag cloud with the `tx3_tag_cloud <https://plugins.getni
 Categories
 ``````````
 
-The next unit for organizing your content are categories. A post can have only one category, specified with the ``category`` meta tag. Those are *deprecated* and replaced by sections. They are displayed alongside tags. You can have categories and tags with the same name (categories’ RSS and HTML files are prefixed with ``cat_`` by default).
+The next unit for organizing your content are categories. A post can have only one category, specified with the ``category`` meta tag. They are displayed alongside tags. You can have categories and tags with the same name (categories’ RSS and HTML files are prefixed with ``cat_`` by default).
 
 Sections
 ````````
 
-Sections are the newest feature for taxonomy, and are not supported in themes by default. There are two ways to assign a section to a post:
+Sections are the newest feature for taxonomy, and are not supported in themes
+by default.  **Sections are deprecated and have been replaced by categories in
+Nikola v8.**
+
+There are two ways to assign a section to a post:
+
 
 * through the directory structure (first directory is the section name, eg. ``/code/my-project/`` is in the `code` category) — your POSTS should have those directories as the second element, eg.
 
