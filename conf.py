@@ -104,6 +104,8 @@ SHOW_BLOG_TITLE = False
 GALLERY_FOLDERS = {'galleries': 'galleries'}
 THUMBNAIL_SIZE = 180
 
+MAX_IMAGE_SIZE = 5000
+
 WRITE_TAG_CLOUD = True
 
 ##############################################################################
