@@ -2,11 +2,12 @@
 .. slug: upgrading-to-nikola-v8
 .. date: 2018-05-05 18:55:43 UTC
 .. tags: nikola, documentation
-.. category: 
-.. link: 
-.. description: 
+.. category:
+.. link:
+.. description: How to upgrade to Nikola v8? This is a list of all things you need to take care of first.
 .. type: text
 .. author: Chris Warrick
+.. updated: 2018-05-13 17:00:00
 
 .. class:: lead
 
@@ -17,12 +18,23 @@ a few manual changes are required to upgrade.
 
 .. contents::
 
+Revisions to this document
+==========================
+
+**2018-05-13:** Beta 2: bootblog4 has featured posts, zen modernized; one new backwards
+incompatible change found and described (``reference`` replaces
+``image-reference`` in thumbnails)
+
+**2018-05-09:** fixes to style and missing sentences
+
+**2018-05-05:** initial version
+
 How to upgrade
 ==============
 
 1. Upgrade to the latest v7 version: ``pip install Nikola==7.8.15`` and make sure
    there are no outstanding warnings.
-2. Upgrade to v8: ``pip install -U --upgrade-strategy=eager Nikola==8.0.0b1``
+2. Upgrade to v8: ``pip install -U --upgrade-strategy=eager Nikola==8.0.0b2``
 3. Read the upgrade notes below and `the full changelog`__
 4. Upgrade all third-party plugins and themes. (``nikola plugin --upgrade``,
    ``nikola theme --upgrade``)
@@ -50,14 +62,15 @@ Changes to themes and templates
 ===============================
 
 The default theme for Nikola was changed to ``bootblog4``, which has a modern,
-clean look.  There’s also ``bootstrap4`` with the classic look.  The
-``bootstrap3`` theme is not included by default, but can still be installed
-(``nikola theme -i bootstrap3``)
+clean look, and can optionally display `featured posts`__.
+There’s also ``bootstrap4`` with the classic look.  The ``bootstrap3`` theme is
+not included by default, but can still be installed (``nikola theme -i
+bootstrap3``)
 
-.. TODO: bootblog4 featured posts
+__ https://getnikola.com/handbook.html#featured-posts
 
-Moreover, there are a few changes to templates that you must reflect in your
-templates:
+Moreover, there are a few changes to templates that you must take care of if
+you’ve customized any:
 
 * Rename ``crumbs.tmpl`` to ``ui_helper.tmpl`` and the breadcrumbs
   ``bar`` function to ``breadcrumbs`` (your templates may need
@@ -67,10 +80,25 @@ templates:
   changed to use ``math_helper.tmpl``.
 * For galeries and images, colorbox was replaced by baguetteBox.
 
+zen modernized and uses new Font Awesome
+----------------------------------------
+
+The Zen theme was thoroughly modernized. The modernization means that:
+
+* Font Awesome v5 is used by default, you can switch to Fork Awesome v1 by
+  installing ``zen-forkawesome``
+* Your ``conf.py`` needs changing to reflect new icon names and classes
+  (Font Awesome v5 examples: ``'fa fa-tags'`` and ``'fab fa-twitter'``)
+* the ``zen-ipython`` theme is not needed anymore, ``zen`` and ``zen-jinja``
+  handle Jupyter posts correctly (as do the built-in themes)
+* the theme internals were rewritten to more closely match built-in themes
+  (notably, galleries Just Work™)
+
 Backwards incompatible changes
 ==============================
 
-The following changes may cause issues with blog appearance and links. Please
+The following changes may cause issues with blog appearance and links.
+Please make sure you’ve taken care of them before deploying.
 
 * Sections are replaced by categories (Issue #2833) — *see below*
 * Reading reST docinfo metadata, including first heading as title,
@@ -80,6 +108,8 @@ The following changes may cause issues with blog appearance and links. Please
   ``RSS_FILENAME_BASE``)
 * Atom feeds for archives and Atom pagination are no longer supported
   (Issue #3016)
+* **(added 2018-05-10)** You need ``<a class="reference">`` (instead of
+  ``image-reference``) to activate the lightbox now
 
 Removed and renamed settings
 ============================

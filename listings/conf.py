@@ -124,7 +124,7 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 #
 # WARNING: Support for submenus is theme-dependent.
 #          Only one level of submenus is supported.
-# WARNING: Some themes, including the default Bootstrap 3 theme,
+# WARNING: Some themes, including the default Bootstrap 4 theme,
 #          may present issues if the menu is too large.
 #          (in Bootstrap, the navbar can grow too large and cover contents.)
 # WARNING: If you link to directories, make sure to follow
@@ -140,12 +140,39 @@ NAVIGATION_LINKS = {
     ),
 }
 
+# Alternative navigation links. Works the same way NAVIGATION_LINKS does,
+# although themes may not always support them. (translatable)
+# (Bootstrap 4: right-side of navbar, Bootblog 4: right side of title)
+NAVIGATION_ALT_LINKS = {
+    DEFAULT_LANG: {}
+}
+
 # Name of the theme to use.
 THEME = "bootblog4"
 
 # Primary color of your theme. This will be used to customize your theme.
 # Must be a HEX value.
 THEME_COLOR = '#5670d4'
+
+# Theme configuration. Fully theme-dependent. (translatable)
+# Examples below are for bootblog4.
+THEME_CONFIG = {
+    DEFAULT_LANG: {
+        # Show the latest featured post in a large box, with the previewimage as its background.
+        'featured_large': False,
+        # Show the first (remaining) two featured posts in small boxes.
+        'featured_small': False,
+        # Show featured posts on mobile.
+        'featured_on_mobile': True,
+        # Show image in `featured_large` on mobile.
+        # `featured_small` displays them only on desktop.
+        'featured_large_image_on_mobile': True,
+        # Strip HTML from featured post text.
+        'featured_strip_html': False,
+        # Contents of the sidebar, If empty, the sidebar is not displayed.
+        'sidebar': ''
+    }
+}
 
 # POSTS and PAGES contains (wildcard, destination, template) tuples.
 # (translatable)
@@ -465,6 +492,7 @@ HIDDEN_CATEGORIES = []
 # CATEGORY_DESTPATH_NAMES = {
 #    DEFAULT_LANG: {
 #        'webdev': 'Web Development',
+#        'webdev/django': 'Web Development/Django',
 #        'random': 'Odds and Ends',
 #    },
 # }
