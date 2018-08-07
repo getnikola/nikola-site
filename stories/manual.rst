@@ -10,13 +10,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 8.0.0b2
-
-.. class:: alert alert-warning
-
-   This handbook is for Nikola v8.0.0b2.  See also: `v7.8.15 handbook
-   <https://getnikola.com/handbook-v7.html>`_, `upgrading to v8
-   <https://getnikola.com/blog/upgrading-to-nikola-v8.html>`_.
+:Version: 8.0.0b3
 
 .. class:: alert alert-primary float-md-right
 
@@ -413,6 +407,14 @@ to your configuration:
     ADDITIONAL_METADATA = {
         'author': 'John Doe'
     }
+
+url_type
+    Change the URL_TYPE setting for the given page only. Useful for eg. error
+    pages which cannot use relative URLs.
+
+    .. code:: restructuredtext
+
+       .. url_type: full_path
 
 Metadata formats
 ~~~~~~~~~~~~~~~~
@@ -1254,13 +1256,38 @@ chart
 
     .. code:: text
 
-        {{% raw %}}{{% chart Bar title='Browser usage evolution (in %)' %}}
-        x_labels='["2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012"]'%}}
+        {{% raw %}}{{% chart Bar title='Browser usage evolution (in %)'
+x_labels='["2002","2003","2004","2005","2006","2007"]' %}}
         'Firefox', [None, None, 0, 16.6, 25, 31]
         'Chrome',  [None, None, None, None, None, None]
         'IE',      [85.8, 84.6, 84.7, 74.5, 66, 58.6]
         'Others',  [14.2, 15.4, 15.3, 8.9, 9, 10.4]
         {{% /chart %}}{{% /raw %}}
+
+    Additionally, you can use a file_data argument which can point to a JSON or YAML file, and will be used for both arguments and data.
+    Example:
+
+    .. code:: json
+
+        {
+            "x_labels": ["2002","2003","2004","2005","2006","2007"],
+            "data": {
+                "Firefox": [null, null, 0, 16.6, 25, 31],
+                "Chrome": [null, null, null, null, null, null],
+                "IE": [85.8, 84.6, 84.7, 74.5, 66, 58.6],
+                "Others": [14.2, 15.4, 15.3, 8.9, 9, 10.4]
+            }
+        }
+
+    Which can be used like this:
+
+    .. code:: text
+
+        {{% raw %}}{{% chart Bar title='Browser usage evolution (in %)' data_file="posts/browsers.json" %}}
+        {{% /chart %}}
+        {{% /raw %}}
+
+    If the data or any option is available in both the ``data_file`` and the document, the document has priority.
 
 doc
     Will link to a document in the page, see `Doc role for details
@@ -1584,7 +1611,7 @@ Fancy Dates
 Nikola can use various styles for presenting dates.
 
 DATE_FORMAT
-    The date format to use if there is no JS or fancy dates are off.  Compatible with Python’s ``strftime()`` syntax.
+    The date format to use if there is no JS or fancy dates are off.  `Compatible with CLDR syntax. <http://cldr.unicode.org/translation/date-time>`_
 
 JS_DATE_FORMAT
     The date format to use if fancy dates are on.  Compatible with ``moment.js`` syntax.
@@ -2653,13 +2680,15 @@ Here's an example of how it works:
 
 The argument passed next to the directive (Bar in that example) is the type of chart, and can be one of
 Line, StackedLine, Bar, StackedBar, HorizontalBar, XY, DateY, Pie, Radar, Dot, Funnel, Gauge, Pyramid. For
-examples of what each kind of graph is, `check here <http://pygal.org/chart_types/>`_
+examples of what each kind of graph is, `check here <http://pygal.org/en/stable/documentation/types/index.html>`_
 
 It can take *a lot* of options to let you customize the charts (in the example, title and x_labels).
-You can use any option described in `the pygal docs <http://pygal.org/basic_customizations/>`_
+You can use any option described in `the pygal docs <http://pygal.org/en/stable/documentation/configuration/chart.html>`_
 
 Finally, the content of the directive is the actual data, in the form of a label and
 a list of values, one series per line.
+
+You can also specify a ``:data_file:`` option as described in the documentation for the chart shortcut.
 
 Doc
 ~~~

@@ -7,7 +7,7 @@
 .. description: How to upgrade to Nikola v8? This is a list of all things you need to take care of first.
 .. type: text
 .. author: Chris Warrick
-.. updated: 2018-05-13 17:00:00
+.. updated: 2018-07-07 17:40:00
 
 .. class:: lead
 
@@ -20,6 +20,8 @@ a few manual changes are required to upgrade.
 
 Revisions to this document
 ==========================
+
+**2018-07-07:** Beta 3: Babel and changes to i18n
 
 **2018-05-13:** Beta 2: bootblog4 has featured posts, zen modernized; one new backwards
 incompatible change found and described (``reference`` replaces
@@ -34,7 +36,7 @@ How to upgrade
 
 1. Upgrade to the latest v7 version: ``pip install Nikola==7.8.15`` and make sure
    there are no outstanding warnings.
-2. Upgrade to v8: ``pip install -U --upgrade-strategy=eager Nikola==8.0.0b2``
+2. Upgrade to v8: ``pip install -U --upgrade-strategy=eager Nikola==8.0.0b3``
 3. Read the upgrade notes below and `the full changelog`__
 4. Upgrade all third-party plugins and themes. (``nikola plugin --upgrade``,
    ``nikola theme --upgrade``)
@@ -110,6 +112,64 @@ Please make sure you’ve taken care of them before deploying.
   (Issue #3016)
 * **(added 2018-05-10)** You need ``<a class="reference">`` (instead of
   ``image-reference``) to activate the lightbox now
+
+Babel and i18n changes (added 2018-08-07)
+=========================================
+
+For a long time, Nikola’s i18n features depended on the system locale support.
+That led to a bunch of issues and strange bugs. We’ve replaced this with the Babel
+library. New features include:
+
+* more flexible date formatting
+* no more strange bugs related to system locale configuration
+* translated dates even if system support was not there
+  (eg. on Alpine Linux, cf. discussion on issue #2606)
+* proper forms for some Slavic languages (eg. marzec vs marca)
+
+DATE_FORMAT changed
+-------------------
+
+DATE_FORMAT uses different tokens. If you customized ``DATE_FORMAT``, you need
+to change it to use `CLDR formats
+<http://cldr.unicode.org/translation/date-time>`_. (Hint: the new default value
+is ``YYYY-MM-dd HH:mm``)
+
+babeldates plugin obsoleted, LocaleBorg internal API changed
+------------------------------------------------------------
+
+The babeldates plugin is obsoleted by the changes. If you were using it, rename
+``BABEL_DATE_FORMAT`` to ``DATE_FORMAT`` and remove the plugin.
+
+In addition, the LocaleBorg extension API was simplified. The new API expects
+extension authors to create functions matching the signatured and assign them
+to the following names:
+
+* ``LocaleBorg.datetime_formatter(date, date_format, lang, locale)``
+* ``LocaleBorg.in_string_formatter(date, mode, custom_format, lang, locale)``
+
+Translation help wanted
+-----------------------
+
+However, this means that we needed to reorganize translations. In order
+to have things in a working state, I used some guessworks and tried to
+produce a working form. However, not all languages will have
+grammatically correct output at this point. This is why we need help
+from our community around the world.
+
+So, if you have the time, please help us check if our translations (on
+`Transifex <https://www.transifex.com/ralsina/nikola/dashboard/>`_
+or `GitHub <https://github.com/getnikola/nikola/tree/master/nikola/data/themes/base/messages>`_) are correct. Specifically, we need to know
+if the date tags (in “Posts for XX” messages) are correctly placed. We
+also need to know if the translation for those fits the required form.
+To find out, you can run the `test script <https://gist.github.com/Kwpolska/3c0d1af8bd641229d4ab64f1b98d88de>`_ and check how all the forms
+look for your locale. If they don't fit, they can be overridden:
+for example, Polish uses “Posty z {month_year:MMMM yyyy}” and takes
+advantage of the last bullet point.
+
+As a bonus, the use of Babel means that it's even easier to use
+"human-friendly" dates on your blog — try setting ``DATE_FORMAT = 'long'``
+on Nikola master. (If you have customized that setting, you will need
+to change it to use CLDR-style date formats.)
 
 Removed and renamed settings
 ============================
