@@ -12,6 +12,12 @@ The Nikola Handbook
 
 :Version: 8.0.0b3
 
+.. class:: alert alert-warning
+
+   This handbook is for Nikola v8.0.0b3.  See also: `v7.8.15 handbook
+   <https://getnikola.com/handbook-v7.html>`_, `upgrading to v8
+   <https://getnikola.com/blog/upgrading-to-nikola-v8.html>`_.
+
 .. class:: alert alert-primary float-md-right
 
 .. contents::
