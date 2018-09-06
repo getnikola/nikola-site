@@ -7,7 +7,7 @@
 .. description: How to upgrade to Nikola v8? This is a list of all things you need to take care of first.
 .. type: text
 .. author: Chris Warrick
-.. updated: 2018-07-07 17:40:00
+.. updated: 2018-09-06 12:50:00
 
 .. class:: lead
 
@@ -20,6 +20,8 @@ a few manual changes are required to upgrade.
 
 Revisions to this document
 ==========================
+
+**2018-09-06:** Removed ``NO_DOCUTILS_TITLE_TRANSFORM`` setting
 
 **2018-07-07:** Beta 3: Babel and changes to i18n
 
@@ -105,6 +107,8 @@ Please make sure you’ve taken care of them before deploying.
 * Sections are replaced by categories (Issue #2833) — *see below*
 * Reading reST docinfo metadata, including first heading as title,
   requires ``USE_REST_DOCINFO_METADATA`` now (Issue #2987)
+* ``NO_DOCUTILS_TITLE_TRANSFORM`` setting removed, behavior now
+  depends on ``USE_REST_DOCINFO_METADATA`` (Issue #3124) **(added 2018-09-06)**
 * RSS feeds might have changed their places due to ``RSS_PATH``
   behavior changes (you may need to change ``RSS_PATH``,
   ``RSS_FILENAME_BASE``)
@@ -226,6 +230,7 @@ Changes to configuration
 * ``POSTS_SECTION_NAME`` is now ``CATEGORY_DESTPATH_NAMES``
 * ``POSTS_SECTION_COLORS`` is not supported by default, but you can replace it with some manual tinkering
 * ``CATEGORY_ALLOW_HIERARCHIES``, ``CATEGORY_OUTPUT_FLAT_HIERARCHY`` are heavily recommended if you use ``CATEGORY_DESTPATH_AS_DEFAULT``, and required if you use ``CATEGORY_PAGES_FOLLOW_DESTPATH``
+* ``NO_DOCUTILS_TITLE_TRANSFORM`` has been removed, behavior now depends on ``USE_REST_DOCINFO_METADATA`` (Issue #3124) **(added 2018-09-06)**
 
 Recreating the old behavior of sections
 ---------------------------------------
