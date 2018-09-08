@@ -9,7 +9,7 @@
 Theming Nikola
 ==============
 
-:Version: 8.0.0b3
+:Version: 8.0.0rc1
 :Author: Roberto Alsina <ralsina@netmanagers.com.ar>
 
 .. class:: alert alert-primary float-md-right
@@ -73,19 +73,26 @@ parent, engine
     older).
 
 bundles
-    A text file containing a list of files to be turned into bundles using WebAssets.
-    For example:
+    A `config <https://docs.python.org/3/library/configparser.html>`_ file
+    containing a list of files to be turned into bundles. For example:
 
-    .. code:: text
+    .. code:: ini
 
-        assets/css/all.css=bootstrap.min.css,rst_base.css,nikola_rst.css,code.css,baguetteBox.min.css,theme.css,custom.css
+        assets/css/all.css=
+            bootstrap.min.css,
+            rst_base.css,
+            nikola_rst.css,
+            code.css,
+            baguetteBox.min.css,
+            theme.css,
+            custom.css,
 
     This creates a file called "assets/css/all.css" in your output that is the
     combination of all the other file paths, relative to the output file.
     This makes the page much more efficient because it avoids multiple connections to the server,
     at the cost of some extra difficult debugging.
 
-    WebAssets supports bundling CSS and JS files.
+    Bundling applies to CSS and JS files.
 
     Templates should use either the bundle or the individual files based on the ``use_bundles``
     variable, which in turn is set by the ``USE_BUNDLES`` option.

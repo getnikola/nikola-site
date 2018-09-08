@@ -10,13 +10,7 @@
 The Nikola Handbook
 ===================
 
-:Version: 8.0.0b3
-
-.. class:: alert alert-warning
-
-   This handbook is for Nikola v8.0.0b3.  See also: `v7.8.15 handbook
-   <https://getnikola.com/handbook-v7.html>`_, `upgrading to v8
-   <https://getnikola.com/blog/upgrading-to-nikola-v8.html>`_.
+:Version: 8.0.0rc1
 
 .. class:: alert alert-primary float-md-right
 
@@ -180,7 +174,6 @@ Nikola provides the following features:
   * Author pages and feeds (not generated if ``ENABLE_AUTHOR_PAGES`` is set to ``False`` or there is only one author)
   * Archives with custom granularity (yearly or monthly)
   * `Comments`_
-  * Client-side tag clouds (needs manual configuration)
 
 * Static pages (not part of the blog)
 * `Math`_ rendering (via MathJax)
@@ -533,7 +526,13 @@ To do this, you need  ``USE_REST_DOCINFO_METADATA = True`` in your ``conf.py``,
 and Nikola will hide the docinfo fields in the output if you set
 ``HIDE_REST_DOCINFO = True``.
 
-Note that keys are converted to lowercase automatically.
+.. note::
+
+    Keys are converted to lowercase automatically.
+
+    This setting also means that the first heading in a post will be removed
+    and considered a title. This is important if you’re mixing metadata
+    styles. This can be solved by putting a reST comment before your title.
 
 Markdown metadata
 `````````````````
@@ -1035,7 +1034,7 @@ Please note that tags are case-sensitive and that you cannot have two tags that 
    ERROR: Nikola: Tag Nikola is used in: posts/second-post.rst
    ERROR: Nikola: Tag nikola is used in: posts/1.rst
 
-You can also generate a tag cloud with the `tx3_tag_cloud <https://plugins.getnikola.com/#tx3_tag_cloud>`_ plugin.
+You can also generate a tag cloud with the `tx3_tag_cloud <https://plugins.getnikola.com/v7/tx3_tag_cloud/>`_ plugin or get a data file for a tag cloud with the `tagcloud <https://plugins.getnikola.com/v7/tagcloud/>`_ plugin.
 
 Categories
 ``````````
@@ -1057,7 +1056,6 @@ There are multiple configuration variables dedicated to each of the two taxonomi
 * ``TAG_DESCRIPTIONS``, ``CATEGORY_DESCRIPTIONS`` to set descriptions for each of the items
 * ``CATEGORY_ALLOW_HIERARCHIES`` and ``CATEGORY_OUTPUT_FLAT_HIERARCHIES`` to allow hierarchical categories
 * ``TAG_PAGES_ARE_INDEXES`` and ``CATEGORY_PAGES_ARE_INDEXES`` to display full-size indexes instead of simple post lists
-* ``WRITE_TAG_CLOUDS`` to enable/disable generating tag cloud files
 * ``HIDDEN_TAGS``. ``HIDDEN_CATEGORIES`` to make some tags/categories invisible in lists
 * ``CATEGORY_DESTPATH_AS_DEFAULT`` to use the destination path as the category if none is specified in the post
 * ``CATEGORY_DESTPATH_TRIM_PREFIX`` to trim the prefix that comes from ``POSTS`` for the destination path
@@ -2348,7 +2346,7 @@ different ones, or about other web servers, please share!
 4. Optionally you can create static compressed copies and save some CPU on your server
    with the GZIP_FILES option in Nikola.
 
-5. The webassets Nikola plugin can drastically decrease the number of CSS and JS files your site fetches.
+5. The bundles Nikola plugin can drastically decrease the number of CSS and JS files your site fetches.
 
 6. Through the filters feature, you can run your files through arbitrary commands, so that images
    are recompressed, JavaScript is minimized, etc.
