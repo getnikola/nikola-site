@@ -7,7 +7,7 @@
 .. description: How to upgrade to Nikola v8? This is a list of all things you need to take care of first.
 .. type: text
 .. author: Chris Warrick
-.. updated: 2018-09-06 12:50:00
+.. updated: 2018-09-08 20:00:00
 
 .. class:: lead
 
@@ -20,6 +20,8 @@ a few manual changes are required to upgrade.
 
 Revisions to this document
 ==========================
+
+**2018-09-08:** moved ``tag_cloud_data.json`` generation to separate plugin
 
 **2018-09-06:** Removed ``NO_DOCUTILS_TITLE_TRANSFORM`` setting
 
@@ -116,6 +118,8 @@ Please make sure you’ve taken care of them before deploying.
   (Issue #3016)
 * **(added 2018-05-10)** You need ``<a class="reference">`` (instead of
   ``image-reference``) to activate the lightbox now
+* **(added 2018-09-08)** ``tag_cloud_data.json`` now requires a separate plugin: ``nikola theme -i
+  tagcloud``
 
 Babel and i18n changes (added 2018-08-07)
 =========================================
