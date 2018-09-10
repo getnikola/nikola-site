@@ -58,6 +58,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # ja        Japanese [NOT jp]
 # ko        Korean
 # lt        Lithuanian
+# ml        Malayalam
 # nb        Norwegian (Bokmål)
 # nl        Dutch
 # pa        Punjabi

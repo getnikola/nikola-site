@@ -1,11 +1,11 @@
-.. title: Nikola v8.0.0rc1 configuration file
+.. title: Nikola v8.0.0 configuration file
 .. slug: conf
 .. date: 2014-11-08 18:51:30 UTC
 .. description: The Nikola configuration file.
 .. type: text
 .. author: The Nikola Team
 
-The default config file for Nikola v8.0.0rc1 is reproduced below.
+The default config file for Nikola v8.0.0 is reproduced below.
 
 .. raw:: html
 
