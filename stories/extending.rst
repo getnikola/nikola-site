@@ -6,10 +6,7 @@
 .. description:
 .. author: The Nikola Team
 
-Extending Nikola
-================
-
-:Version: 8.0.0
+:Version: 8.0.1
 :Author: Roberto Alsina <ralsina@netmanagers.com.ar>
 
 .. class:: alert alert-primary float-md-right

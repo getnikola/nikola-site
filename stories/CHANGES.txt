@@ -1,3 +1,24 @@
+New in v8.0.1
+=============
+
+* Not compatible with Markdown 3.x yet, this release pins the
+  requirement down to 2.x (until we get 3.x support done)
+
+Features
+--------
+
+* Make URL displayed by ``nikola auto`` and ``nikola serve`` clickable
+  (Issue #3166)
+
+Bugfixes
+--------
+
+* Pandoc compiler was passing deleted argument (Issue #3171)
+* Make ``nikola version --check`` work again (Issue #3170)
+* Set logging level for reST to warning in order to limit noise
+* Fix docinfo removal for sites that use reST docinfo metadata
+  (Issue #3167)
+
 New in v8.0.0
 =============
 
