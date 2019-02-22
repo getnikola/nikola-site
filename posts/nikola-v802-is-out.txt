@@ -1,0 +1,68 @@
+.. title: Nikola v8.0.2 is out!
+.. slug: nikola-v802-is-out
+.. date: 2019-02-22 19:34:20 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. author: Chris Warrick
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v8.0.2. This is a quality-of-life release
+with a handful of bug fixes, two new translations and a few extra features.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter Notebooks into blog posts! It also supports image galleries,
+and is multilingual. Nikola is flexible, and page builds are extremely
+fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola``. (Python 3-only since v8.0.0.)
+
+Changes
+=======
+
+* Make ``ARCHIVE_PATH``, ``ARCHIVE_FILENAME`` translatable
+  (Issue #3234)
+* Support configuring Isso via ``GLOBAL_CONTEXT['isso_config']``
+  (Issue #3225)
+* Handle fragments in doc role (Issue #3212)
+* Slugify references in doc role.
+* Add Interlingua translation by Alberto Mardegan
+* Add Afrikaans translation by Friedel Wolff
+* Support for docutils.conf (Issue #3188)
+
+Bugfixes
+--------
+
+* Avoid random rebuilds with sites whose locales are not fullly
+  supported, and random rebuilds on multilingual sites using Python
+  3.4/3.5 (Issue #3216)
+* Apply modifications to ``default_metadata`` before copying it to
+  other languages
+* Make Commento comments work (Issue #3198)
+* Correctly handle separators in the relative path given to
+  "ignored_assets" key in theme meta files (Issue #3210)
+* Fix error when ``nikola new_post`` receives directory name as
+  path (Issue #3207)
+* Add slashes to paths with query strings in ``nikola serve``
+  only if there isn’t one before ``?``
+* Read listings files as UTF-8
+* Set one-file status basing on default language only (Issue #3191)
+* Don’t warn if post status is set to ``published`` explicitly
+  (Issue #3181)
+* Remove mention of Twitter cards requiring an opt-in.
+  This is not true anymore - anyone can use them.
+* fancydates now workwith listdate items (eg. archives)
+* bootstrap4 and bootblog4 themes no longer load moment.js when
+  fancydates are off. (Issue #3231)
