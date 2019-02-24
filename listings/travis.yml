@@ -2,10 +2,6 @@
 language: python
 cache: apt
 sudo: false
-addons:
-  apt:
-    packages:
-    - language-pack-en-base
 branches:
   only:
   - src
@@ -15,7 +11,7 @@ before_install:
 - git config --global user.name 'Travis CI'
 - git config --global user.email 'travis@invalid'
 - git config --global push.default 'simple'
-- pip install --upgrade pip wheel
+- pip install -U --upgrade-strategy=eager pip setuptools wheel
 - echo -e 'Host github.com\n    StrictHostKeyChecking no' >> ~/.ssh/config
 - eval "$(ssh-agent -s)"
 - chmod 600 id_rsa
@@ -25,7 +21,7 @@ before_install:
 - git fetch origin master
 - git branch master FETCH_HEAD
 install:
-- pip install 'Nikola[extras]'
+- pip install -U --upgrade-strategy=eager 'Nikola[extras]'
 script:
 - nikola build && nikola github_deploy -m 'Nikola auto deploy [ci skip]'
 notifications:

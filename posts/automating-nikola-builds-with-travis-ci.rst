@@ -1,7 +1,7 @@
 .. title: Automating Nikola rebuilds with Travis CI
 .. slug: automating-nikola-rebuilds-with-travis-ci
 .. date: 2016-08-24 18:05:25 UTC
-.. updated: 2017-03-17 17:15:00 UTC
+.. updated: 2019-02-24 19:10:00 UTC
 .. tags: Travis CI, GitHub, automation, tips
 .. author: Chris Warrick
 .. type: text
@@ -33,7 +33,8 @@ What you need
 * A computer for the initial setup that can run Nikola and the Travis CI
   command-line tool (written in Ruby) — you need a Unix-like system (Linux,
   macOS, \*BSD, etc.); Windows users should try *Bash on Ubuntu on Windows*
-  (available in Windows 10 starting with Anniversary Update) or a Linux virtual machine.
+  aka *Windows Subsystem for Linux* (available in Windows 10 starting with
+  Anniversary Update) or a Linux virtual machine.
 * A GitHub account (free)
 * A Travis CI account linked to your GitHub account (free)
 
@@ -73,12 +74,10 @@ and ``gem`` tools installed on your system. If you don’t have them, install
 them from your OS package manager.
 
 First, download/copy the ``.travis.yml`` file (note the dot in the beginning;
-the downloaded file doesn’t have it!)
-and adjust the real name, e-mail (used for commits; line 15/16), and the
-username/repo name on line 24. If you want to render your site in another
-language besides English, add the appropriate Ubuntu language pack to the list
-in this file. Likewise, if you need any other Python/apt packages to build your
-site, add them to your config.
+the downloaded file doesn’t have it!) and adjust the real name, e-mail (used
+for commits; line 15/16), and the username/repo name on line 24.  If you need
+any other Python/apt packages to build your site, add them to your config. (For
+``apt`` packages, you will need ``addons: apt: packages:`` keys.)
 
 .. listing:: travis.yml python
    :linenos:
@@ -126,4 +125,5 @@ Hopefully, Travis CI will build your site and deploy. Check the Travis CI
 website or your e-mail for a notification. If there are any errors, make sure
 you followed this guide to the letter.
 
-(Revision 3, 2017-03-17: added master/src branching information, blocked non-src builds, clarified some things)
+(Revision 4, 2019-02-24: updated for Nikola v8 not requiring language packs
+and made sure to upgrade installed pip packages)
