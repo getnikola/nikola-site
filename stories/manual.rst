@@ -531,12 +531,12 @@ and Nikola will hide the docinfo fields in the output if you set
     and considered a title. This is important if you’re mixing metadata
     styles. This can be solved by putting a reST comment before your title.
 
-Markdown metadata
-`````````````````
+Pelican/Markdown metadata
+`````````````````````````
 
-Markdown Metadata only works in Markdown files, and requires the ``markdown.extensions.meta`` extension
+Markdown Metadata (Pelican-style) only works in Markdown files, and requires the ``markdown.extensions.meta`` extension
 (see `MARKDOWN_EXTENSIONS <#markdown>`__). The exact format is described in
-the `markdown metadata extension docs. <https://pythonhosted.org/Markdown/extensions/meta_data.html>`__
+the `markdown metadata extension docs. <https://python-markdown.github.io/extensions/meta_data/>`__
 
 .. code:: text
 
