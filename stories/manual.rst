@@ -1094,7 +1094,7 @@ Supported input formats
 Nikola supports multiple input formats.  Out of the box, we have compilers available for:
 
 * reStructuredText (default and pre-configured)
-* `Markdown`_
+* `Markdown`_ (pre-configured since v7.8.7)
 * `Jupyter Notebook`_
 * `HTML`_
 * `PHP`_
@@ -1117,6 +1117,11 @@ Plus, we have specialized compilers in the Plugins Index for:
 * `txt2tags <https://plugins.getnikola.com/#txt2tags>`_
 * `CreoleWiki <https://plugins.getnikola.com/#wiki>`_
 * `WordPress posts <https://plugins.getnikola.com/#wordpress_compiler>`_
+
+To write posts in a different format, you need to configure the compiler and
+paths. To create a post, use ``nikola new_post -f COMPILER_NAME``, eg. ``nikola
+new_post -f markdown``. The default compiler used is the first entry in POSTS
+or PAGES.
 
 Configuring other input formats
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1324,7 +1329,9 @@ media
 
     .. code:: text
 
-        {{% raw %}}{{% media url="https://www.youtube.com/watch?v=Nck6BZga7TQ" %}}{{% /raw %}}
+        {{% raw %}}{{% media url=https://www.youtube.com/watch?v=Nck6BZga7TQ %}}{{% /raw %}}
+
+    Note that the shortcode won’t work if your compiler turns URLs into clickable links.
 
 post-list
     Will show a list of posts, see the `Post List directive for details <#post-list>`__.
@@ -1487,9 +1494,12 @@ you can't, this will work.
 Configuration
 -------------
 
-The configuration file is called ``conf.py`` and can be used to customize a lot of
-what Nikola does. Its syntax is python, but if you don't know the language, it
-still should not be terribly hard to grasp.
+The configuration file can be used to customize a lot of what Nikola does. Its
+syntax is python, but if you don't know the language, it still should not be
+terribly hard to grasp.
+
+By default, the ``conf.py`` file in the root of the Nikola website will be used.
+You can pass a different configuration file to by using the ``--conf`` command line switch.
 
 The default ``conf.py`` you get with Nikola should be fairly complete, and is quite
 commented.
@@ -1511,10 +1521,6 @@ them.  For those options, two types of values can be provided:
 * a string, which will be used for all languages
 * a dict of language-value pairs, to have different values in each language
 
-.. note:: It is possible to load the configuration from another file by specifying
-          ``--conf=path/to/other.file`` on Nikola's command line. For example, to
-          build your blog using the configuration file ``configurations/test.conf.py``,
-          you have to execute ``nikola build --conf=configurations/test.conf.py``.
 
 Customizing Your Site
 ---------------------
