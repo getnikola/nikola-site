@@ -7,7 +7,7 @@
 .. has_math: true
 .. author: The Nikola Team
 
-:Version: 8.0.2
+:Version: 8.0.3
 
 .. class:: alert alert-primary float-md-right
 
@@ -290,6 +290,17 @@ slug
     Slug of the post. Used as the last component of the page URL.  We recommend
     and default to using a restricted character set (``a-z0-9-_``) because
     other symbols may cause issues in URLs. (required)
+
+    So, if the slug is "the-slug" the page generated would be "the-slug.html" or
+    "the-slug/index.html" (if you have the pretty URLs option enabled) 
+
+    One special case is setting the slug to "index". This means the page generated 
+    would be "some_folder/index.html", which means it will be open for the URL
+    that ends in "some_folder" or "some_folder/".
+
+    This is useful in some cases, in others may cause conflicts with other pages
+    Nikola generates (like blog indexes) and as a side effect it disables 
+    "pretty URLs" for this page. So use with care.
 
 date
     Date of the post, defaults to now. Multiple date formats are accepted.
@@ -827,7 +838,8 @@ If you set the ``status`` metadata field of a post to ``draft``, it will not be 
 in indexes and feeds. It *will* be compiled, and if you deploy it it *will* be made
 available, so use with care. If you wish your drafts to be not available in your
 deployed site, you can set ``DEPLOY_DRAFTS = False`` in your configuration. This will
-not work if lazily include ``nikola build`` in your ``DEPLOY_COMMANDS``.
+not work if you include ``nikola build`` in your ``DEPLOY_COMMANDS``, as the
+option removes the draft posts before any ``DEPLOY_COMMANDS`` are run.
 
 Also if a post has a date in the future, it will not be shown in indexes until
 you rebuild after that date. This behavior can be disabled by setting
@@ -1169,7 +1181,8 @@ The ``-f`` argument to ``new_post`` should be used in the ``ipynb@KERNEL`` forma
 It defaults to Python in the version used by Nikola if not specified.
 
 Jupyter Notebooks are also supported in stand-alone listings, if Jupyter
-support is enabled site-wide.
+support is enabled site-wide. You must have something for ``.ipynb`` in POSTS
+or PAGES for the feature to work.
 
 HTML
 ````
@@ -1521,6 +1534,33 @@ them.  For those options, two types of values can be provided:
 * a string, which will be used for all languages
 * a dict of language-value pairs, to have different values in each language
 
+.. note::
+    As of version 8.0.3 it is possible to create configuration files which inherit values from other Python files.
+    This might be useful if you're working with similar environments.
+
+    Example:
+        conf.py:
+            .. code:: python
+
+                BLOG_AUTHOR = "Your Name"
+                BLOG_TITLE = "Demo Site"
+                SITE_URL = "https://yourname.github.io/demo-site
+                BLOG_EMAIL = "joe@demo.site"
+                BLOG_DESCRIPTION = "This is a demo site for Nikola."
+
+        debug.conf.py:
+            .. code:: python
+
+                import conf
+                globals().update(vars(conf))
+                SITE_URL = "http://localhost:8000/"
+
+            or
+
+            .. code:: python
+
+                from conf import *
+                SITE_URL = "http://localhost:8000/"
 
 Customizing Your Site
 ---------------------
@@ -2596,7 +2636,8 @@ and also create a ``listings/foo.py.html`` page (or in another directory, depend
 ``LISTINGS_FOLDER``) and the listing will have a title linking to it.
 
 The stand-alone ``listings/`` pages also support Jupyter notebooks, if they are
-supported site-wide.
+supported site-wide. You must have something for ``.ipynb`` in POSTS or PAGES
+for the feature to work.
 
 Listings support the same options `reST includes`__ support (including
 various options for controlling which parts of the file are included), and also

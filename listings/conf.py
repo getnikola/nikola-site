@@ -49,6 +49,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # fa        Persian
 # fi        Finnish
 # fr        French
+# fur       Friulian
 # gl        Galician
 # he        Hebrew
 # hi        Hindi
@@ -148,7 +149,7 @@ NAVIGATION_LINKS = {
 # although themes may not always support them. (translatable)
 # (Bootstrap 4: right-side of navbar, Bootblog 4: right side of title)
 NAVIGATION_ALT_LINKS = {
-    DEFAULT_LANG: {}
+    DEFAULT_LANG: ()
 }
 
 # Name of the theme to use.
@@ -283,6 +284,8 @@ TIMEZONE = "UTC"
 # Feel free to add or delete extensions to any list, but don't add any new
 # compilers unless you write the interface for it yourself.
 #
+# The default compiler for `new_post` is the first entry in the POSTS tuple.
+#
 # 'rest' is reStructuredText
 # 'markdown' is Markdown
 # 'html' assumes the file is HTML and just copies it
@@ -304,6 +307,11 @@ COMPILERS = {
     # with many of the others.
     # "pandoc": ('.rst', '.md', '.txt'),
 }
+
+# Enable reST directives that insert the contents of external files such
+# as "include" and "raw." This maps directly to the docutils file_insertion_enabled
+# config. See: http://docutils.sourceforge.net/docs/user/config.html#file-insertion-enabled
+# REST_FILE_INSERTION_ENABLED = True
 
 # Create by default posts in one file format?
 # Set to False for two-file posts, with separate metadata.
@@ -864,13 +872,14 @@ IMAGE_FOLDERS = {'images': 'images'}
 # META_GENERATOR_TAG = True
 
 # Color scheme to be used for code blocks. If your theme provides
-# "assets/css/code.css" this is ignored. Leave empty to disable.
+# "assets/css/code.css" this is ignored. Set to None to disable.
 # Can be any of:
 # algol, algol_nu, autumn, borland, bw, colorful, default, emacs, friendly,
 # fruity, igor, lovelace, manni, monokai, murphy, native, paraiso-dark,
 # paraiso-light, pastie, perldoc, rrt, tango, trac, vim, vs, xcode
 # This list MAY be incomplete since pygments adds styles every now and then.
 # Check with list(pygments.styles.get_all_styles()) in an interpreter.
+#
 # CODE_COLOR_SCHEME = 'default'
 
 # FAVICONS contains (name, file, size) tuples.
