@@ -1,3 +1,36 @@
+New in v8.0.4
+=============
+
+Nikola now supports Python 3.5 or newer. If you are on 3.4, please
+upgrade to a newer release of Python.
+
+Bugfixes
+--------
+
+* Fix hiding future posts in sitemaps for posts without pretty URLs
+  (Issue #3339)
+* Pass the correct parameters to shortcodes in jupyter notebooks
+* Fix handling of conflicts between posts/pages and indexes generated
+  by ``CATEGORY_PAGES_FOLLOW_DESTPATH``
+* Fix default date format to ``yyyy-MM-dd`` to avoid bug with ISO
+  years (Issue #3337)
+* Remove ``extra_header`` and ``extra_footer`` from ``base`` theme
+  due to incompatibility with Mako. The blocks are still available
+  in ``bootstrap4`` and ``bootblog4``. (Issue #3319 via #3291)
+* Show tracebacks when ``conf.py`` cannot be imported
+* Fix loading complex config files that import modules (Issue #3314)
+* Fix behavior of header demotion for negative values
+* If ``FILE_METADATA_REGEXP`` is set, load metadata from the filename
+  first, then continue with the other sources (Issue #3344)
+
+Other compatibility information
+-------------------------------
+
+1. Nikola no longer requires logbook.  You may need to upgrade plugins.
+2. If you receive an error stating that *sitemap is not a package*,
+   you need to remove a leftover ``nikola/plugins/task/sitemap``
+   directory (the full path is in the error message).
+
 New in v8.0.3
 =============
 
