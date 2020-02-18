@@ -29,14 +29,14 @@
 
         <div id="installAny">
             <h3><i class="fab fa-python"></i> Any OS/general instructions</h3>
-            <p>The best way to install Nikola is to use <code class="gs-code gs-command">pip</code> in a virtualenv. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them. <strong>Follow instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>.</strong></p>
-            <p class="small">Hint: don’t use Pipenv. It makes stuff harder than it should be and won’t be a pleasant experience.</p>
+            <p>The best way to install Nikola is to use <code class="gs-code gs-command">pip</code> in a virtual environment. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them. <strong>Follow instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>.</strong></p>
+            <p class="small">Hint: don’t use Pipenv or Poetry. It makes stuff harder than it should be and won’t be a pleasant experience.</p>
         </div>
         <div id="installWindows">
             <h3><i class="fab fa-windows"></i> Windows support</h3>
             <p>Nikola supports Windows! Keep in mind, though, that there are some caveats:</p>
             <ol>
-                <li>You need to install <a href="https://www.python.org/downloads/">Python</a> first.  You also need to install virtualenv if you want to use it: <code class="gs-code gs-command">py -m pip install virtualenv</code></li>
+                <li>You need to install <a href="https://www.python.org/downloads/">Python</a> first.</li>
                 <li>Windows has some differences over POSIX, which may cause some features to work incorrectly under Windows. If any problems occur, please do not hesitate to report them. Some of the differences that can cause problems include:
                     <ul>
                         <li><code class="gs-code">\</code> as path separator (instead of <code class="gs-code">/</code>)</li>
@@ -55,17 +55,16 @@
                         <h5>With <a href="http://brew.sh/">Homebrew</a> (recommended)</h5>
                         <ol>
                             <li>Install <a href="http://brew.sh/">Homebrew</a>.</li>
-                            <li>Install Python (and pip) with <code class="gs-code gs-command">brew install python3</code></li>
-                            <li>Install virtualenv with <code class="gs-code gs-command">sudo pip3 install virtualenv</code></li>
-                            <li>Follow the instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>. The command is <code class="gs-code gs-command">virtualenv</code>. Virtualenvs require <a href="https://github.com/Kwpolska/scripts/blob/master/fix-venvs.sh">fixing</a>, <a href="https://github.com/Kwpolska/scripts/blob/master/venv-set-opt-link.sh">reconfiguration</a> or recreating if you update Python.</li>
+                            <li>Install Python (and venv) with <code class="gs-code gs-command">brew install python3</code></li>
+                            <li>Follow the instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>. Your venvs may require <a href="https://github.com/Kwpolska/scripts/blob/master/fix-venvs.sh">fixing</a>, <a href="https://github.com/Kwpolska/scripts/blob/master/venv-set-opt-link.sh">reconfiguration</a> or recreating if you update Python.</li>
                         </ol>
-                        <p>Other package/port managers, such as MacPorts (py36-pip, py36-virtualenv) or Fink (pip-py36, virtualenv-py36) may be used if you prefer them and have those installed. Make sure to use only one manager to avoid conflicts.</p>
+                        <p>Other package/port managers, such as MacPorts or Fink may be used if you prefer them and have those installed. Make sure to use only one manager to avoid conflicts.</p>
     </div>
     <div id="installLinux">
     <h3><i class="fab fa-linux"></i> Linux packages</h3>
                         <p>Nikola is packaged for some Linux distributions, you may get that instead of installing via <code class="gs-code">pip</code> (which is the recommended way). Keep in mind that those packages might be <strong>outdated</strong> and that we don’t support versions that are too old. Proceed with care!</p>
                         <ul>
-                            <li>Arch Linux (AUR): <a class="reference external" href="https://aur.archlinux.org/packages/nikola/">nikola</a> for the latest stable release or <a class="reference external" href="https://aur.archlinux.org/packages/nikola-git/">nikola-git</a> for the GitHub master. (official Nikola-supported packages)
+                            <li>Arch Linux: <a class="reference external" href="https://www.archlinux.org/packages/community/any/nikola/">nikola</a> ([community] repo) for the latest stable release or <a class="reference external" href="https://aur.archlinux.org/packages/nikola-git/">nikola-git</a> for the GitHub master (AUR)
                             </li>
                             <li>Gentoo: <a class="reference external" href="https://packages.gentoo.org/package/www-apps/nikola">www-apps/nikola</a>
                             </li>
@@ -75,7 +74,7 @@
     </div>
 <div id="installGitHub">
                 <h3><i class="fab fa-github"></i> GitHub (bleeding edge) installs</h3>
-                        <p>You can also install Nikola from GitHub. This will get you the code that is still under development. It probably has bugs, but there are often new features or bugfixes. Start by creating and activating a virtualenv.</p>
+                        <p>You can also install Nikola from GitHub. This will get you the code that is still under development. It probably has bugs, but there are often new features or bugfixes. Start by creating and activating a virtual environment.</p>
                         <pre class="gs-console">
 <code>$ <span class="gs-command">pip install "git+https://github.com/getnikola/nikola#egg=Nikola[extras]"</span></code>
 </pre>
@@ -123,19 +122,8 @@ $ <span class="gs-command">docker pull dragas/<span class="gs-input">rpi-</span>
                     </div>
     <div class="col-md-5 gs-right-col">
         <pre class="gs-console">
-<em>First, make sure Python 3 and virtualenv are installed.</em>
-<code>$ <span class="gs-command">virtualenv3 nikola</span>
-<em><strong>Note:</strong>
-  The command might be different in some environments.
-  You might need to use one of the following instead:
-    <span class="gs-command">virtualenv</span>
-    <span class="gs-command">virtualenv-3.</span><span class="gs-input">x</span> (where <span class="gs-input">x</span> is your Python version)
-    <span class="gs-command">virtualenv -p /usr/bin/python3</span></em>
-
-Using base prefix '/usr'
-New python executable in nikola/bin/python3
-Also creating executable in nikola/bin/python
-Installing setuptools, pip, wheel...done.
+<em>First, make sure <span class="gs-input">Python 3</span> is installed.<br>On Debian/Ubuntu, you also need <span class="gs-input">python3-venv</span>.<br><br>When you are done installing, run:</em>
+<code>$ <span class="gs-command">python3 -m venv nikola</span>
 $ <span class="gs-command">cd nikola</span>
 $ <span class="gs-command">source bin/activate</span>
 $ <span class="gs-command">pip install --upgrade pip setuptools wheel</span>
