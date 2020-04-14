@@ -102,30 +102,15 @@ code.gs-code {
     color: #a6e22e;
 }
 
-.gs-right-col .gs-console {
+a.gs-code-link {
+    color: #a6e22e;
+    text-decoration: underline;
+}
+
+.gs-right-col .gs-sticky {
     -webkit-position: sticky;
     position: sticky;
     top: 10px;
-}
-
-@media (max-width: 767px) {
-    .gs-left-col {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .gs-right-col {
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
-
-@media (min-width: 768px) {
-    .gs-left-col {
-        padding-left: 0;
-    }
-    .gs-right-col {
-        padding-right: 0;
-    }
 }
 
 /* from bootstrap docs.css*/

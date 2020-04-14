@@ -12,7 +12,7 @@
 
 <p class="lead">Setting up a Nikola site is really easy. You will need a few minutes’ time and a Python 3 interpreter.</p>
 <div class="row">
-    <h2 class="col-md-12 p-0" id="install">Step 1. Install Nikola</h2>
+    <h2 class="col-md-12" id="install">Step 1. Install Nikola</h2>
     <div class="col-md-7 gs-left-col">
     <p class="text-muted">Nikola is free open-source software, under the <a href="/license.html">MIT license</a>.</p>
         <ul class="list-inline">
@@ -30,13 +30,13 @@
         <div id="installAny">
             <h3><i class="fab fa-python"></i> Any OS/general instructions</h3>
             <p>The best way to install Nikola is to use <code class="gs-code gs-command">pip</code> in a virtual environment. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them. <strong>Follow instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>.</strong></p>
+            <p>If you’ve never worked with Python virtual environments, you might want to read <a href="https://chriswarrick.com/blog/2018/09/04/python-virtual-environments/">Python Virtual Environments in Five Minutes</a>.</p>
             <p class="small">Hint: don’t use Pipenv or Poetry. It makes stuff harder than it should be and won’t be a pleasant experience.</p>
         </div>
         <div id="installWindows">
             <h3><i class="fab fa-windows"></i> Windows support</h3>
             <p>Nikola supports Windows! Keep in mind, though, that there are some caveats:</p>
             <ol>
-                <li>You need to install <a href="https://www.python.org/downloads/">Python</a> first.</li>
                 <li>Windows has some differences over POSIX, which may cause some features to work incorrectly under Windows. If any problems occur, please do not hesitate to report them. Some of the differences that can cause problems include:
                     <ul>
                         <li><code class="gs-code">\</code> as path separator (instead of <code class="gs-code">/</code>)</li>
@@ -51,13 +51,8 @@
     </div>
         <div id="installMac">
             <h3><i class="fab fa-apple"></i> Installing on macOS</i></h3>
-                        <p>Installing Nikola on macOS is easy. You can use Homebrew, MacPorts or Fink. The system Python interpreter is not supported (as it is Python 2)</p>
-                        <h5>With <a href="http://brew.sh/">Homebrew</a> (recommended)</h5>
-                        <ol>
-                            <li>Install <a href="http://brew.sh/">Homebrew</a>.</li>
-                            <li>Install Python (and venv) with <code class="gs-code gs-command">brew install python3</code></li>
-                            <li>Follow the instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>. Your venvs may require <a href="https://github.com/Kwpolska/scripts/blob/master/fix-venvs.sh">fixing</a>, <a href="https://github.com/Kwpolska/scripts/blob/master/venv-set-opt-link.sh">reconfiguration</a> or recreating if you update Python.</li>
-                        </ol>
+                        <p>Installing Nikola on macOS is easy. You can use Homebrew, MacPorts or Fink. We recommend Homebrew. Catalina offers a Python 3.7 system interpreter, but Apple doesn’t update it often, and it might become too old one day.</p>
+                        <p>We recommend using <a href="http://brew.sh/">Homebrew</a>. After you install it, you can run <code class="gs-code gs-command">brew install python3</code> to install Python 3. You can then follow the instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>. Your venvs may require <a href="https://github.com/Kwpolska/scripts/blob/master/fix-venvs.sh">fixing</a>, <a href="https://github.com/Kwpolska/scripts/blob/master/venv-set-opt-link.sh">reconfiguration</a> or recreating if you update Python.</p>
                         <p>Other package/port managers, such as MacPorts or Fink may be used if you prefer them and have those installed. Make sure to use only one manager to avoid conflicts.</p>
     </div>
     <div id="installLinux">
@@ -121,28 +116,39 @@ $ <span class="gs-command">docker pull dragas/<span class="gs-input">rpi-</span>
                     </div>
                     </div>
     <div class="col-md-5 gs-right-col">
-        <pre class="gs-console">
-<em>First, make sure <span class="gs-input">Python 3</span> is installed.<br>On Debian/Ubuntu, you also need <span class="gs-input">python3-venv</span>.<br><br>When you are done installing, run:</em>
+        <div class="gs-sticky">
+            <h4>Install on Linux/*nix/macOS</h4>
+            <pre class="gs-console">
+<em>First, make sure <span class="gs-input">Python 3</span> is installed.<br>On macOS, we recommend getting Python from <a class="gs-code-link" href="https://brew.sh/">Homebrew</a>.<br>On Debian/Ubuntu, you also need the <span class="gs-input">python3-venv</span> package.<br><br>When you are done installing, run:</em>
 <code>$ <span class="gs-command">python3 -m venv nikola</span>
 $ <span class="gs-command">cd nikola</span>
 $ <span class="gs-command">source bin/activate</span>
-$ <span class="gs-command">pip install --upgrade pip setuptools wheel</span>
-<em><strong>Note:</strong>
-  Updating pip, setuptools, and wheel is recommended.
-  On Windows, use <span class="gs-command">py -m pip install</span> for both steps.</em>
-$ <span class="gs-command">pip install --upgrade "Nikola[extras]"</span>
+$ <span class="gs-command">bin/python -m pip install -U pip setuptools wheel</span>
+$ <span class="gs-command">bin/python -m pip install -U "Nikola[extras]"</span>
 ...snip...
 Successfully installed Nikola</code></pre>
+            <h4>Install on Windows</h4>
+            <pre class="gs-console">
+<em>First, install <a class="gs-code-link" href="https://www.python.org/downloads/">Python 3</a>. Then you can run:</em>
+<code>&gt; <span class="gs-command">py -m venv nikola</span>
+&gt; <span class="gs-command">cd nikola</span>
+&gt; <span class="gs-command">Scripts\activate</span>
+&gt; <span class="gs-command">Scripts\python -m pip install -U pip setuptools wheel</span>
+&gt; <span class="gs-command">Scripts\python -m pip install -U "Nikola[extras]"</span>
+...snip...
+Successfully installed Nikola</code></pre>
+        </div>
     </div>
 </div>
 <div class="row">
-    <h2 class="col-md-12 p-0" id="init">Step 2. Initialize a site</h2>
+    <h2 class="col-md-12" id="init">Step 2. Initialize a site</h2>
     <div class="col-md-7 gs-left-col">
         <p>After installing Nikola, you should create a site. A site is a collection of all assets needed to create your site: configuration, posts, pages, images, and all other files and customizations. This is the important data, so put it where you put that kind of things.</p>
         <p>To create a site, you need to run <code class="gs-code gs-command">nikola init --demo &lt;directory_name&gt;</code>. A friendly wizard will be launched, letting you configure your site easily. The <code class="gs-code">--demo</code> option is used to fill your site with some demo content. (If you do not want the wizard, use the <code class="gs-code">--quiet</code> argument.)</p>
+        <p>Do not store your site inside your virtual environment. Virtual environments are meant to be ephemeral (you should be able to delete and recreate one at any time).</p>
     </div>
     <div class="col-md-5 gs-right-col">
-        <pre class="gs-console">
+        <pre class="gs-console gs-sticky">
 <code>$ <span class="gs-command">nikola init --demo my_first_site</span>
 Creating Nikola Site
 ====================
@@ -161,12 +167,12 @@ INFO: init: See README.txt in that folder for more information.</code></pre>
     </div>
 </div>
 <div class="row">
-    <h2 class="col-md-12 p-0" id="build">Step 3. Build your site</h2>
+    <h2 class="col-md-12" id="build">Step 3. Build your site</h2>
     <div class="col-md-7 gs-left-col">
         <p>You can now build the site you created. Just run <code class="gs-code gs-command">nikola build</code>. The output directory will then be filled with the contents of your site, which is now <strong>ready to deploy</strong>.</p>
     </div>
     <div class="col-md-5 gs-right-col">
-        <pre class="gs-console">
+        <pre class="gs-console gs-sticky">
 <code>$ <span class="gs-command">cd my_first_site</span>
 $ <span class="gs-command">nikola build</span>
 Scanning posts....done!
@@ -188,7 +194,7 @@ Scanning posts....done!
     </div>
 </div>
 <div class="row">
-    <h2 class="col-md-12 p-0" id="newpost">Step 4. Write your first post</h2>
+    <h2 class="col-md-12" id="newpost">Step 4. Write your first post</h2>
     <div class="col-md-7 gs-left-col">
         <p>Your site currently contains demo content — that is, some Nikola documentation, a demo gallery and listing, and a blog post welcoming you.</p>
         <p>You should make it more interesting and personal. Write your own post!</p>
@@ -199,7 +205,7 @@ Scanning posts....done!
         <p>If you want a static site that does not have any blog-related elements, see our <a href="https://getnikola.com/creating-a-site-not-a-blog-with-nikola.html">Creating a Site (Not a Blog) with Nikola</a> guide.
     </div>
     <div class="col-md-5 gs-right-col">
-        <pre class="gs-console">
+        <pre class="gs-console gs-sticky">
 <code>$ <span class="gs-command">nikola new_post -e</span>
 Creating New Post
 -----------------
@@ -210,13 +216,13 @@ INFO: new_post: Your post's text is at: posts/my-first-blog-post.rst</code></pre
     </div>
 </div>
 <div class="row">
-    <h2 class="col-md-12 p-0" id="rebuild">Step 5. Rebuild your site</h2>
+    <h2 class="col-md-12" id="rebuild">Step 5. Rebuild your site</h2>
     <div class="col-md-7 gs-left-col">
         <p>When you’re done writing your post, you must rebuild your site to make it visible on your site. Run <code class="gs-code gs-command">nikola build</code> again.</p>
         <p>Note that the list of files is much <strong>shorter</strong> now: Nikola does <a href="/features/fast.html">fast, incremental rebuilds</a> (courtesy of <a href="http://pydoit.org/">doit</a>). Nikola built only the pages for this post, the indexes, the feeds, and the previous post (to add a <em>Next post</em> navigation button). All the demo pages and assets were left <strong>untouched</strong>, saving you time and resources (it does not have to work on building some larger things, and <code class="gs-code">rsync</code> will not have to upload everything)</p>
     </div>
     <div class="col-md-5 gs-right-col">
-        <pre class="gs-console">
+        <pre class="gs-console gs-sticky">
 <code>$ <span class="gs-command">nikola build</span>
 Scanning posts....done!
 .  render_posts:timeline_changes
@@ -233,21 +239,21 @@ Scanning posts....done!
     </div>
 </div>
 <div class="row">
-    <h2 class="col-md-12 p-0" id="serve">Step 6. Start the development server</h2>
+    <h2 class="col-md-12" id="serve">Step 6. Start the development server</h2>
     <div class="col-md-7 gs-left-col">
         <p>You’re done! You just created a Nikola site, wrote your first post and built your site. Congratulations!</p>
         <p>Run <code class="gs-code gs-command">nikola serve --browser</code> to start the development server and open your site in a web browser. Press <kbd>Ctrl+C</kbd> to stop the server.</p>
         <p>You can also use <a href="/features/auto.html">a server with automatic rebuilds</a> by running <code class="gs-code gs-command">nikola auto --browser</code>.  Note that both servers should be used for development only; use <a href="#deploy">other deployment solutions</a> instead.</p>
     </div>
     <div class="col-md-5 gs-right-col">
-        <pre class="gs-console">
+        <pre class="gs-console gs-sticky">
 <code>$ <span class="gs-command">nikola serve --browser</span>
 INFO: serve: Serving HTTP on 0.0.0.0 port 8000...
 INFO: serve: Opening http://0.0.0.0:8000/ in the default web browser...</code></pre>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12 p-0">
+    <div class="col-md-12">
     <h2 id="nextsteps">Next steps</h2>
     <h3 id="explore">Explore!</h3>
     <ul>
