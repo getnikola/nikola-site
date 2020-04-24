@@ -1,13 +1,15 @@
 .. title: Automating Nikola rebuilds with Travis CI
 .. slug: automating-nikola-rebuilds-with-travis-ci
 .. date: 2016-08-24 18:05:25 UTC
-.. updated: 2019-02-24 19:10:00 UTC
+.. updated: 2020-04-24 22:45:00 UTC
 .. tags: Travis CI, GitHub, automation, tips
 .. author: Chris Warrick
 .. type: text
 
 In this guide, we’ll set up Travis CI to rebuild a `Nikola
 <https://getnikola.com/>`_ website and host it on GitHub Pages.
+
+See also: `GitHub Actions version of this guide <https://getnikola.com/blog/automating-nikola-rebuilds-with-github-actions.html>`_ (easier to set up).
 
 Why?
 ----
@@ -79,7 +81,7 @@ for commits; line 15/16), and the username/repo name on line 24.  If you need
 any other Python/apt packages to build your site, add them to your config. (For
 ``apt`` packages, you will need ``addons: apt: packages:`` keys.)
 
-.. listing:: travis.yml python
+.. listing:: travis.yml yaml
    :linenos:
 
 Next, we need to generate a SSH key for Travis CI.
@@ -125,5 +127,4 @@ Hopefully, Travis CI will build your site and deploy. Check the Travis CI
 website or your e-mail for a notification. If there are any errors, make sure
 you followed this guide to the letter.
 
-(Revision 4, 2019-02-24: updated for Nikola v8 not requiring language packs
-and made sure to upgrade installed pip packages)
+(Revision 4a, 2020-04-24: Add link to GitHub Actions version of this guide)
