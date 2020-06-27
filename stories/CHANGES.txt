@@ -1,3 +1,64 @@
+New in v8.1.0
+=============
+
+Features
+--------
+
+* Support posts without titles (Issue #3408)
+* Support WebP image scaling (Issue #3399)
+* Use Luxon instead of Moment for fancy dates to make it more
+  lightweight, going from 328k to 68k (Issue #3232)
+* New ``nikola console -s script.py`` option to run scripts that
+  access your site (Issue #3385)
+* Allow preview images to be relative to posts for bootblog4 featured
+  posts
+* Change the listings formatting to support word wrap with line
+  numbers and improve appearance
+* Put the current language’s feed links first so that feed readers
+  prefer it (Issue #3248)
+* Added support for default preview image for posts (Issue #3326)
+* Added support for thumbnails in gallery lists (Issue #1771)
+
+Bugfixes
+--------
+
+* Support directory names in ``REDIRECTIONS`` (Issue #3421)
+* Return a non-zero error code when ``nikola github_deploy`` fails
+* Refactored scale_image causing performance increasing in image
+  resizing.
+* Don’t force absolute links for brand/languages (Issue #3229)
+* Fix RTL mirroring in base theme (``:dir()`` pseudo-class is Firefox only)
+  (Issue #3353)
+* Work around Bootstrap 4 alignment bug for RTL languages
+  (Issue #3353)
+* Handle multiple level of inherit/import nesting in Mako templates
+  correctly (Issue #3349)
+* Output a more informative error when files are missing due to
+  broken symlinks or incorrect ``TRANSLATIONS_PATTERN`` values
+* Avoid installing ``tests`` package to site-packages, remove it from
+  your environment if it was inadvertently added (Issue #3348)
+* Sometimes hyphenation added hyphens at the beginning of words
+  (Issue #3362)
+* Mark gallery images as "dirty" if EXIF configuration changes (Issue
+  #3357)
+* Fix regression in gallery titles being "index" if there was a
+  index.txt and no title (Issue #3360)
+* Make gallery indexes depend on destination images to avoid
+  multithreading race condition (Issue #3361)
+* Mark gallery thumbnails as lazy loading (Issue #2918)
+* Don't consider JPEG images with EXIF thumbnails as animated (Issue
+  #3332)
+* Use correct language for hyphenation in posts that are not
+  translated to all languages (Issue #3377)
+
+Internal
+--------
+
+* Added Post.source() method to get a Post's object unprocessed
+  contents.
+* Added Post.save() method to modify Post contents.
+* Made is_two_file a property that uses save()
+
 New in v8.0.4
 =============
 

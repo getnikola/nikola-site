@@ -7,7 +7,7 @@
 .. has_math: true
 .. author: The Nikola Team
 
-:Version: 8.0.4
+:Version: 8.1.0
 
 .. class:: alert alert-primary float-md-right
 
@@ -292,14 +292,14 @@ slug
     other symbols may cause issues in URLs. (required)
 
     So, if the slug is "the-slug" the page generated would be "the-slug.html" or
-    "the-slug/index.html" (if you have the pretty URLs option enabled) 
+    "the-slug/index.html" (if you have the pretty URLs option enabled)
 
-    One special case is setting the slug to "index". This means the page generated 
+    One special case is setting the slug to "index". This means the page generated
     would be "some_folder/index.html", which means it will be open for the URL
     that ends in "some_folder" or "some_folder/".
 
     This is useful in some cases, in others may cause conflicts with other pages
-    Nikola generates (like blog indexes) and as a side effect it disables 
+    Nikola generates (like blog indexes) and as a side effect it disables
     "pretty URLs" for this page. So use with care.
 
 date
@@ -368,10 +368,10 @@ hyphenate
     hyphenation disabled by default.
 
 nocomments
-    Set to "True" to disable comments. Example:
+    Set to "True" to disable comments.
 
 pretty_url
-    Set to "False" to disable pretty URL for this page. Example:
+    Set to "False" to disable pretty URL for this page.
 
 previewimage
     Designate a preview or other representative image path relative to BASE_URL
@@ -381,6 +381,9 @@ previewimage
     .. code:: restructuredtext
 
        .. previewimage: /images/looks_great_on_facebook.png
+
+    If a post has no `previewimage` it will try to use the `DEFAULT_PREVIEW_IMAGE`
+    option from the configuration.
 
     The image can be of any size and dimension (services will crop and adapt)
     but should less than 1 MB and be larger than 300x300 (ideally 600x600).
@@ -1660,8 +1663,11 @@ Nikola can use various styles for presenting dates.
 DATE_FORMAT
     The date format to use if there is no JS or fancy dates are off.  `Compatible with CLDR syntax. <http://cldr.unicode.org/translation/date-time>`_
 
-JS_DATE_FORMAT
-    The date format to use if fancy dates are on.  Compatible with ``moment.js`` syntax.
+LUXON_DATE_FORMAT
+    The date format to use with Luxon. A dictionary of dictionaries: the top level is languages, and the subdictionaries are of the format ``{'preset': False, 'format': 'yyyy-MM-dd HH:mm'}``. `Used by Luxon <https://moment.github.io/luxon/docs/manual/formatting>`_ (format can be the preset name, eg. ``'DATE_LONG'``).
+
+MOMENTJS_DATE_FORMAT (formerly JS_DATE_FORMAT)
+    The date format to use if fancy dates are on, and the theme is using Moment.js.
 
 DATE_FANCINESS = 0
     Fancy dates are off, and DATE_FORMAT is used.
@@ -1679,14 +1685,18 @@ For Mako:
 .. code:: html
 
     % if date_fanciness != 0:
+    %if date_fanciness == 2:
+        <!-- Polyfill for relative dates in Safari -- best handled with a CDN -->
+        <script src="https://polyfill.io/v3/polyfill.js?features=Intl.RelativeTimeFormat.%7Elocale.${luxon_locales[lang]}"></script>
+    %endif
     <!-- required scripts -- best handled with bundles -->
-    <script src="/assets/js/moment-with-locales.min.js"></script>
+    <script src="/assets/js/luxon.min.js"></script>
     <script src="/assets/js/fancydates.js"></script>
 
     <!-- fancy dates code -->
     <script>
-    moment.locale("${momentjs_locales[lang]}");
-    fancydates(${date_fanciness}, ${js_date_format});
+    luxon.Settings.defaultLocale = "${luxon_locales[lang]}";
+    fancydates(${date_fanciness}, ${luxon_date_format});
     </script>
     <!-- end fancy dates code -->
     %endif
@@ -1697,14 +1707,18 @@ For Jinja2:
 .. code:: html
 
     {% if date_fanciness != 0 %}
+    {% if date_fanciness == 2 %}
+        <!-- Polyfill for relative dates in Safari -- best handled with a CDN -->
+        <script src="https://polyfill.io/v3/polyfill.js?features=Intl.RelativeTimeFormat.%7Elocale.{{ luxon_locales[lang] }}"></script>
+    {% endif %}
     <!-- required scripts -- best handled with bundles -->
-    <script src="/assets/js/moment-with-locales.min.js"></script>
+    <script src="/assets/js/luxon.min.js"></script>
     <script src="/assets/js/fancydates.js"></script>
 
     <!-- fancy dates code -->
     <script>
-    moment.locale("{{ momentjs_locales[lang] }}");
-    fancydates({{ date_fanciness }}, {{ js_date_format }});
+    luxon.Settings.defaultLocale = "{{ luxon_locales[lang] }}";
+    fancydates({{ date_fanciness }}, {{ luxon_date_format }});
     </script>
     <!-- end fancy dates code -->
     {% endif %}
@@ -2029,6 +2043,15 @@ The ``conf.py`` options affecting images and gallery pages are these:
     USE_FILENAME_AS_TITLE = True
     EXTRA_IMAGE_EXTENSIONS = []
 
+    # Use a thumbnail (defined by ".. previewimage:" in the gallery's index) in
+    # list of galleries for each gallery
+    GALLERIES_USE_THUMBNAIL = False
+
+    # Image to use as thumbnail for those galleries that don't have one
+    # None: show a grey square
+    # '/url/to/file': show the image in that url
+    GALLERIES_DEFAULT_THUMBNAIL = None
+
     # If set to False, it will sort by filename instead. Defaults to True
     GALLERY_SORT_BY_DATE = True
 
@@ -2048,7 +2071,8 @@ The ``conf.py`` options affecting images and gallery pages are these:
 
 If you add a reST file in ``galleries/gallery_name/index.txt`` its contents will be
 converted to HTML and inserted above the images in the gallery page. The
-format is the same as for posts.
+format is the same as for posts. You can use the ``title`` and ``previewimage``
+metadata fields to change how the gallery is shown.
 
 If you add some image filenames in ``galleries/gallery_name/exclude.meta``, they
 will be excluded in the gallery page.

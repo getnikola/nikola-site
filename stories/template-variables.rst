@@ -3,7 +3,7 @@
 .. date: 2017-04-13 12:00:00
 .. author: The Nikola Team
 
-:Version: 8.0.4
+:Version: 8.1.0
 :Author: Chris Warrick <chris@getnikola.com>
 
 Variables available in templates are listed below.
@@ -71,10 +71,11 @@ Name                                Type                                Descript
 ``hide_sourcelink``                 bool                                ``SHOW_SOURCELINK`` setting, negated
 ``index_display_post_count``        int                                 ``INDEX_DISPLAY_POST_COUNT`` setting
 ``index_file``                      str                                 ``INDEX_FILE`` setting
-``js_date_format``                  TranslatableSetting<str>            ``JS_DATE_FORMAT`` setting
+``js_date_format``                  TranslatableSetting<str>            ``MOMENTJS_DATE_FORMAT`` setting, JSONified
 ``katex_auto_render``               str                                 ``KATEX_AUTO_RENDER`` setting
 ``license``                         TranslatableSetting<str>            ``LICENSE`` setting
 ``logo_url``                        str                                 ``LOGO_URL`` setting
+``luxon_date_format``               TranslatableSetting<str>            ``LUXON_DATE_FORMAT`` setting, JSONified
 ``mathjax_config``                  str                                 ``MATHJAX_CONFIG`` setting
 ``messages``                        dict<dict<str, str>>                translated messages (``{language: {english: translated}}``)
 ``meta_generator_tag``              bool                                ``META_GENERATOR_TAG`` setting

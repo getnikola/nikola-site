@@ -252,14 +252,17 @@ TIMEZONE = "UTC"
 # DATE_FORMAT = 'yyyy-MM-dd HH:mm'
 
 # Date format used to display post dates, if local dates are used. (translatable)
-# Used by moment.js: https://momentjs.com/docs/#/displaying/format/
-# JS_DATE_FORMAT = 'YYYY-MM-DD HH:mm'
+# Used by Luxon: https://moment.github.io/luxon/docs/manual/formatting
+# Example for presets: {'preset': True, 'format': 'DATE_FULL'}
+# LUXON_DATE_FORMAT = {
+#     DEFAULT_LANG: {'preset': False, 'format': 'yyyy-MM-dd HH:mm'},
+# }
 
 # Date fanciness.
 #
-# 0 = using DATE_FORMAT and TIMEZONE
-# 1 = using JS_DATE_FORMAT and local user time (via moment.js)
-# 2 = using a string like “2 days ago”
+# 0 = using DATE_FORMAT and TIMEZONE (without JS)
+# 1 = using LUXON_DATE_FORMAT and local user time (JS, using Luxon)
+# 2 = using a string like “2 days ago” (JS, using Luxon)
 #
 # Your theme must support it, Bootstrap already does.
 # DATE_FANCINESS = 0
@@ -290,22 +293,22 @@ TIMEZONE = "UTC"
 # 'markdown' is Markdown
 # 'html' assumes the file is HTML and just copies it
 COMPILERS = {
-    "rest": ('.rst', '.txt'),
-    "markdown": ('.md', '.mdown', '.markdown'),
-    "textile": ('.textile',),
-    "txt2tags": ('.t2t',),
-    "bbcode": ('.bb',),
-    "wiki": ('.wiki',),
-    "ipynb": ('.ipynb',),
-    "html": ('.html', '.htm'),
+    "rest": ['.rst', '.txt'],
+    "markdown": ['.md', '.mdown', '.markdown'],
+    "textile": ['.textile'],
+    "txt2tags": ['.t2t'],
+    "bbcode": ['.bb'],
+    "wiki": ['.wiki'],
+    "ipynb": ['.ipynb'],
+    "html": ['.html', '.htm'],
     # PHP files are rendered the usual way (i.e. with the full templates).
     # The resulting files have .php extensions, making it possible to run
     # them without reconfiguring your server to recognize them.
-    "php": ('.php',),
+    "php": ['.php'],
     # Pandoc detects the input from the source filename
     # but is disabled by default as it would conflict
     # with many of the others.
-    # "pandoc": ('.rst', '.md', '.txt'),
+    # "pandoc": ['.rst', '.md', '.txt'],
 }
 
 # Enable reST directives that insert the contents of external files such
@@ -343,6 +346,14 @@ COMPILERS = {
 # Final output is <img src="LOGO_URL" id="logo" alt="BLOG_TITLE">.
 # The URL may be relative to the site root.
 # LOGO_URL = ''
+
+# When linking posts to social media, Nikola provides Open Graph metadata
+# which is used to show a nice preview. This includes an image preview
+# taken from the post's previewimage metadata field.
+# This option lets you use an image to be used if the post doesn't have it.
+# The default is None, valid values are URLs or output paths like
+# "/images/foo.jpg"
+# DEFAULT_PREVIEW_IMAGE = None
 
 # If you want to hide the title of your website (for example, if your logo
 # already contains the text), set this to False.
@@ -747,7 +758,16 @@ GITHUB_COMMIT_SOURCE = True
 # MAX_IMAGE_SIZE = 1280
 # USE_FILENAME_AS_TITLE = True
 # EXTRA_IMAGE_EXTENSIONS = []
-#
+
+# Use a thumbnail (defined by ".. previewimage:" in the gallery's index) in
+# list of galleries for each gallery
+GALLERIES_USE_THUMBNAIL = False
+
+# Image to use as thumbnail for those galleries that don't have one
+# None: show a grey square
+# '/url/to/file': show the image in that url
+GALLERIES_DEFAULT_THUMBNAIL = None
+
 # If set to False, it will sort by filename instead. Defaults to True
 # GALLERY_SORT_BY_DATE = True
 
@@ -1029,7 +1049,7 @@ PRETTY_URLS = True
 # If True, use the scheduling rule to all posts (not pages!) by default
 # SCHEDULE_ALL = False
 
-# Do you want a add a Mathjax config file?
+# Do you want to add a Mathjax config file?
 # MATHJAX_CONFIG = ""
 
 # If you want support for the $.$ syntax (which may conflict with running
@@ -1350,4 +1370,8 @@ GLOBAL_CONTEXT = {}
 # GLOBAL_CONTEXT as parameter when the template is about to be
 # rendered
 GLOBAL_CONTEXT_FILLER = []
+
+# Add any post types here that you want to be displayed without a title.
+# Ir your theme supports it, the titles will not be shown.
+TYPES_TO_HIDE_TITLE = []
 
