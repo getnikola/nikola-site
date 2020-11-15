@@ -62,6 +62,7 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # ko        Korean
 # lt        Lithuanian
 # ml        Malayalam
+# mr        Marathi
 # nb        Norwegian (Bokmål)
 # nl        Dutch
 # pa        Punjabi
@@ -155,15 +156,19 @@ NAVIGATION_ALT_LINKS = {
 # Name of the theme to use.
 THEME = "bootblog4"
 
-# Primary color of your theme. This will be used to customize your theme.
-# Must be a HEX value.
+# A theme color. In default themes, it might be displayed by some browsers as
+# the browser UI color (eg. Chrome on Android). Other themes might also use it
+# as an accent color (the default ones don’t). Must be a HEX value.
 THEME_COLOR = '#5670d4'
 
 # Theme configuration. Fully theme-dependent. (translatable)
-# Examples below are for bootblog4.
+# Samples for bootblog4 (enabled) and bootstrap4 (commented) follow.
 # bootblog4 supports: featured_large featured_small featured_on_mobile
 #                     featured_large_image_on_mobile featured_strip_html sidebar
 # bootstrap4 supports: navbar_light (defaults to False)
+#                      navbar_custom_bg (defaults to '')
+
+# Config for bootblog4:
 THEME_CONFIG = {
     DEFAULT_LANG: {
         # Show the latest featured post in a large box, with the previewimage as its background.
@@ -181,6 +186,18 @@ THEME_CONFIG = {
         'sidebar': ''
     }
 }
+# Config for bootstrap4:
+# THEME_CONFIG = {
+#     DEFAULT_LANG: {
+#         # Use a light navbar with dark text. Defaults to False.
+#         'navbar_light': False,
+#         # Use a custom navbar color. If unset, 'navbar_light' sets text +
+#         # background color. If set, navbar_light controls only background
+#         # color. Supported values: bg-dark, bg-light, bg-primary, bg-secondary,
+#         # bg-success, bg-danger, bg-warning, bg-info, bg-white, bg-transparent.
+#         'navbar_custom_bg': '',
+#     }
+# }
 
 # POSTS and PAGES contains (wildcard, destination, template) tuples.
 # (translatable)
@@ -548,6 +565,9 @@ HIDDEN_CATEGORIES = []
 # The author will not be displayed on the author list page and posts.
 # Tag pages will still be generated.
 HIDDEN_AUTHORS = ['Guest']
+
+# Allow multiple, comma-separated authors for a post? (Requires theme support, present in built-in themes)
+# MULTIPLE_AUTHORS_PER_POST = False
 
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
@@ -989,7 +1009,7 @@ RSS_COPYRIGHT_FORMATS = CONTENT_FOOTER_FORMATS
 
 # To use comments, you can choose between different third party comment
 # systems.  The following comment systems are supported by Nikola:
-#   disqus, facebook, intensedebate, isso, muut, commento
+#   disqus, facebook, intensedebate, isso, muut, commento, utterances
 # You can leave this option blank to disable comments.
 COMMENT_SYSTEM = "disqus"
 # And you also need to add your COMMENT_SYSTEM_ID which
@@ -1283,6 +1303,10 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 #      }
 # }
 
+# Add any post types here that you want to be displayed without a title.
+# If your theme supports it, the titles will not be shown.
+# TYPES_TO_HIDE_TITLE = []
+
 # Additional metadata that is added to a post when creating a new_post
 # ADDITIONAL_METADATA = {}
 
@@ -1370,8 +1394,4 @@ GLOBAL_CONTEXT = {}
 # GLOBAL_CONTEXT as parameter when the template is about to be
 # rendered
 GLOBAL_CONTEXT_FILLER = []
-
-# Add any post types here that you want to be displayed without a title.
-# Ir your theme supports it, the titles will not be shown.
-TYPES_TO_HIDE_TITLE = []
 

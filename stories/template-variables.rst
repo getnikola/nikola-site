@@ -3,7 +3,7 @@
 .. date: 2017-04-13 12:00:00
 .. author: The Nikola Team
 
-:Version: 8.1.1
+:Version: 8.1.2
 :Author: Chris Warrick <chris@getnikola.com>
 
 Variables available in templates are listed below.
@@ -80,6 +80,7 @@ Name                                Type                                Descript
 ``messages``                        dict<dict<str, str>>                translated messages (``{language: {english: translated}}``)
 ``meta_generator_tag``              bool                                ``META_GENERATOR_TAG`` setting
 ``momentjs_locales``                defaultdict<str, str>               dictionary of available Moment.js locales
+``multiple_authors_per_post``       bool                                ``MULTIPLE_AUTHORS_PER_POST`` setting
 ``navigation_links``                TranslatableSetting                 ``NAVIGATION_LINKS`` setting
 ``navigation_alt_links``            TranslatableSetting                 ``NAVIGATION_ALT_LINKS`` setting
 ``needs_ipython_css``               bool                                whether or not Jupyter CSS is needed by this site

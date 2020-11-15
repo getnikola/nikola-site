@@ -1,3 +1,47 @@
+New in v8.1.2
+=============
+
+Features
+--------
+
+* Support for multiple authors per post — comma-separated, enabled by
+  ``MULTIPLE_AUTHORS_PER_POST`` setting (Issue #3252)
+* Add ``navbar_custom_bg`` theme option to ``bootstrap4`` and document
+  options for ``bootstrap4`` better (Issue #3443)
+* Add Marathi translation
+* Restore ``caps`` typogrify filter (wraps strings of capital letters
+  with ``<span class="caps">`` (via Issue #3405)
+* Improve ``nikola auto`` performance with rate-limiting, support
+  ``-n`` argument to pass to ``nikola build`` (Issue #3401)
+* Add support for the `Utterances <https://utteranc.es>`_ comment system
+
+Bugfixes
+--------
+
+* Fix previewimages (post- and root-relative) in bootblog4/galleries
+  featured posts for non-server-root sites (Issue #3471)
+* Windows: Also fix symlinks when installing from source with pip; if possible,
+  enable Developer Mode and run ``git config --global core.symlinks true``
+  before cloning the Nikola repo
+* Fix clicking on links to image files. baguetteBox now requires a
+  link (``<a>``) to have an ``<img>`` as a child in order to make the
+  link activate the lightbox. (Issue #3472)
+* Fix ``LINK_CHECK_WHITELIST`` having issues due to mixing Unicode
+  and bytestrings (Issue #3466)
+* Add support for ``nbconvert>=6.0.0`` (Issue #3457)
+* Read files as utf-8-sig to allow BOM in input files
+* Don’t break slugs with slashes in ``doc`` directive (Issue #3450)
+* Avoid warnings from type annotations in ``auto`` caused by missing
+  ``aiohttp`` (Issue #3451)
+* Ensure query strings and fragments are kept with ``URL_TYPE =
+  "full_path"`` (Issue #3448)
+* Don’t run typogrify filters on ``<title>`` tag to avoid adding extra
+  tags (Issue #3405)
+* Fix handling of duplicate plugins on Windows
+* Allow else clause in post-list plugin. (Issue #3436)
+* Ensure ``type`` metadata value from plugins is preserved (Issue 3445)
+* Fix path handlers with slashes on Windows
+
 New in v8.1.1
 =============
 

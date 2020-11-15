@@ -7,7 +7,7 @@
 .. has_math: true
 .. author: The Nikola Team
 
-:Version: 8.1.1
+:Version: 8.1.2
 
 .. class:: alert alert-primary float-md-right
 
@@ -1865,7 +1865,7 @@ sure you have ``nikola`` and ``git`` installed on your PATH.
    * ``GITHUB_REMOTE_NAME`` is the remote to which changes are pushed.
    * ``GITHUB_COMMIT_SOURCE`` controls whether or not the source branch is
      automatically committed to and pushed. We recommend setting it to
-     ``True``, unless you are automating builds with Travis CI.
+     ``True``, unless you are automating builds with CI (eg. GitHub Actions/GitLab CI).
 
 4. Create a ``.gitignore`` file. We recommend adding at least the following entries:
 
@@ -1887,14 +1887,13 @@ If you want to use a custom domain, create your ``CNAME`` file in
 output directory. To add a custom commit message, use the ``-m`` option,
 followed by your message.
 
-Automated rebuilds (GitHub Actions, Travis CI, GitLab)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Automated rebuilds (GitHub Actions, GitLab)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want automated rebuilds and GitHub Pages deployment, allowing you to
 blog from anywhere in the world, you have multiple options:
 
 * `Automating Nikola rebuilds with GitHub Actions <https://getnikola.com/blog/automating-nikola-rebuilds-with-github-actions.html>`_ (easier for GitHub)
-* `Automating Nikola rebuilds with Travis CI <https://getnikola.com/blog/automating-nikola-rebuilds-with-travis-ci.html>`_
 * `Example Nikola site for GitLab Pages <https://gitlab.com/pages/nikola>`_
 
 Comments
@@ -1911,6 +1910,7 @@ Nikola supports several third party comment systems:
 * `Facebook <https://facebook.com/>`_
 * `Isso <https://posativ.org/isso/>`_
 * `Commento <https://github.com/adtac/commento>`_
+* `Utterances <https://utteranc.es/>`_
 
 By default it will use DISQUS, but you can change by setting ``COMMENT_SYSTEM``
 to one of "disqus", "intensedebate", "livefyre", "moot", "facebook", "isso" or "commento"
@@ -1929,9 +1929,14 @@ to one of "disqus", "intensedebate", "livefyre", "moot", "facebook", "isso" or "
    * For Isso, it's the URL of your Isso instance (must be world-accessible, encoded with
      Punycode (if using Internationalized Domain Names) and **have a trailing slash**,
      default ``http://localhost:8080/``). You can add custom config options via
-     GLOBAL_CONTEXT, eg. ``GLOBAL_CONTEXT['isso_config'] = {"require-author": "true"}``
+     ``GLOBAL_CONTEXT``, e.g., ``GLOBAL_CONTEXT['isso_config'] = {"require-author": "true"}``
    * For Commento, it's the URL of the commento instance as required by the ``serverUrl``
      parameter in commento's documentation.
+   * For Utterances, it's the **repo name** (``"org/user"``) on GitHub whose
+     issue tracker is used for comments. Additional Utterances configuration
+     values can be stored in the ``GLOBAL_CONTEXT``, e.g.,
+     ``GLOBAL_CONTEXT['utterances_config'] = {"issue-term": "title",
+     "label": "Comments", "theme": "github-light", "crossorigin": "anonymous")``.
 
 To use comments in a visible site, you should register with the service and
 then set the ``COMMENT_SYSTEM_ID`` option.
@@ -1977,6 +1982,14 @@ You can disable comments for a post by adding a "nocomments" metadata field to i
     You need jQuery, but not because Facebook wants it (see Issue
     #639).
 
+.. admonition:: Utterances Support
+
+   You can copy the configuration options from the `Utterances setup page
+   <https://utteranc.es>`_ into ``GLOBAL_CONTEXT['utterances_config']``,
+   except for ``repo``, which should be set as ``COMMENT_SYSTEM_ID``. Note
+   that the either ``issue-term`` or ``issue-number`` must be provided. All
+   other Utterances configuration options are optional.
+
 Images and Galleries
 --------------------
 
@@ -1986,9 +1999,7 @@ and put images there. Nikola will take care of creating thumbnails, index page, 
 If you click on images on a gallery, or on images with links in post, you will
 see a bigger image, thanks to the excellent `baguetteBox
 <https://feimosi.github.io/baguetteBox.js/>`_.  If don’t want this behavior, add an
-``.islink`` class to your link. (The behavior is caused by ``<a
-class="reference">`` if you need to use it outside of galleries and reST
-thumbnails.)
+``.islink`` class to your link.
 
 The gallery pages are generated using the ``gallery.tmpl`` template, and you can
 customize it there (you could switch to another lightbox instead of baguetteBox, change
@@ -2289,6 +2300,9 @@ filters.typogrify
 filters.typogrify_sans_widont
    Same as typogrify without the widont filter
 
+filters.typogrify_custom
+    Run typogrify with a custom set or filters. Takes ``typogrify_filters`` (a list of callables) and ``ignore_tags`` (defaults to None).
+
 filters.minify_lines
    **THIS FILTER HAS BEEN TURNED INTO A NOOP** and currently does nothing.
 
@@ -2385,7 +2399,10 @@ You can apply filters to specific posts or pages by using the ``filters`` metada
 
 .. code:: restructuredtext
 
-    .. filters: filters.html_tidy_nowrap, "sed s/foo/bar"
+    .. filters: filters.html_tidy_nowrap, "sed s/foo/bar %s"
+
+Please note that applying custom filters (not those provided via Nikola's filter module)
+via metadata only works for filters implemented via external programs like in that `sed` example.
 
 Optimizing Your Website
 -----------------------
