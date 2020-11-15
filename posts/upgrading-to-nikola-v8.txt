@@ -149,7 +149,7 @@ The babeldates plugin is obsoleted by the changes. If you were using it, rename
 ``BABEL_DATE_FORMAT`` to ``DATE_FORMAT`` and remove the plugin.
 
 In addition, the LocaleBorg extension API was simplified. The new API expects
-extension authors to create functions matching the signatured and assign them
+extension authors to create functions matching the signatures and assign them
 to the following names:
 
 * ``LocaleBorg.datetime_formatter(date, date_format, lang, locale)``
@@ -175,9 +175,7 @@ for example, Polish uses “Posty z {month_year:MMMM yyyy}” and takes
 advantage of the last bullet point.
 
 As a bonus, the use of Babel means that it's even easier to use
-"human-friendly" dates on your blog — try setting ``DATE_FORMAT = 'long'``
-on Nikola master. (If you have customized that setting, you will need
-to change it to use CLDR-style date formats.)
+"human-friendly" dates on your blog — try setting ``DATE_FORMAT = 'long'``.
 
 Removed and renamed settings
 ============================
@@ -189,6 +187,7 @@ behave as if the value was what is displayed afer the setting name.
 * ``SITEMAP_INCLUDE_FILELESS_DIRS = True``
 * ``USE_OPEN_GRAPH = True``
 * ``USE_BASE_TAG = False``
+* ``NO_DOCUTILS_TITLE_TRANSFORM`` — behavior now depends on ``USE_REST_DOCINFO_METADATA`` (Issue #3124) **(added 2018-09-06)**
 
 The following settings were renamed:
 
@@ -234,7 +233,6 @@ Changes to configuration
 * ``POSTS_SECTION_NAME`` is now ``CATEGORY_DESTPATH_NAMES``
 * ``POSTS_SECTION_COLORS`` is not supported by default, but you can replace it with some manual tinkering
 * ``CATEGORY_ALLOW_HIERARCHIES``, ``CATEGORY_OUTPUT_FLAT_HIERARCHY`` are heavily recommended if you use ``CATEGORY_DESTPATH_AS_DEFAULT``, and required if you use ``CATEGORY_PAGES_FOLLOW_DESTPATH``
-* ``NO_DOCUTILS_TITLE_TRANSFORM`` has been removed, behavior now depends on ``USE_REST_DOCINFO_METADATA`` (Issue #3124) **(added 2018-09-06)**
 
 Recreating the old behavior of sections
 ---------------------------------------
