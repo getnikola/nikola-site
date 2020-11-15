@@ -7,8 +7,6 @@
 
 In this guide, we’ll set up GitHub Actions to rebuild a `Nikola <https://getnikola.com/>`_ website and host it on GitHub Pages.
 
-See also: `Travis CI version of this guide <https://getnikola.com/blog/automating-nikola-rebuilds-with-travis-ci.html>`_.
-
 Why?
 ----
 

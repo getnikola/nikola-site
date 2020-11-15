@@ -1,7 +1,7 @@
 .. title: Automating Nikola rebuilds with Travis CI
 .. slug: automating-nikola-rebuilds-with-travis-ci
 .. date: 2016-08-24 18:05:25 UTC
-.. updated: 2020-04-24 22:45:00 UTC
+.. updated: 2020-11-15 14:20:00 UTC
 .. tags: Travis CI, GitHub, automation, tips
 .. author: Chris Warrick
 .. type: text
@@ -9,7 +9,7 @@
 In this guide, we’ll set up Travis CI to rebuild a `Nikola
 <https://getnikola.com/>`_ website and host it on GitHub Pages.
 
-See also: `GitHub Actions version of this guide <https://getnikola.com/blog/automating-nikola-rebuilds-with-github-actions.html>`_ (easier to set up).
+.. warning:: Travis CI will no longer be free, starting in 2021. We recommend GitHub Actions or GitLab CI instead — see the `GitHub Actions version of this guide <https://getnikola.com/blog/automating-nikola-rebuilds-with-github-actions.html>`_.
 
 Why?
 ----

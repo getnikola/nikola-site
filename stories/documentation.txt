@@ -52,8 +52,8 @@ current GitHub master, check out `Nikola on ReadTheDocs
 `Using Social Buttons <social_buttons.html>`_
     Replacing AddThis with other solutions.
 
-`Automating Nikola rebuilds with Travis CI </blog/automating-nikola-rebuilds-with-travis-ci.html>`_
-    Blogging anywhere with Nikola, Travis CI and GitHub Pages.
+`Automating Nikola rebuilds with GitHub Actions </blog/automating-nikola-rebuilds-with-github-actions.html>`_
+    Blogging anywhere with Nikola, GitHub Actions and GitHub Pages.
 
 **Community content:**
 
