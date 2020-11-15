@@ -35,8 +35,10 @@
         </div>
         <div id="installWindows">
             <h3><i class="fab fa-windows"></i> Windows support</h3>
-            <p>Nikola supports Windows! Keep in mind, though, that there are some caveats:</p>
+            <p>Nikola supports Windows! Here are a few things to keep in mind:</p>
             <ol>
+                <li>If you are installing from Git, it is recommended to enable Developer Mode and run <code class="gs-code gs-command">git config --global core.symlinks true</code> before cloning the Nikola repo. Nikola will work either way, but if you don’t enable symlinks, Nikola will have to fix them, which changes the working tree.</li>
+                <li>Nikola can work with both the Windows Python install and WSL. Both setups are fully supported, and all Nikola features should work in both setups.</li>
                 <li>Windows has some differences over POSIX, which may cause some features to work incorrectly under Windows. If any problems occur, please do not hesitate to report them. Some of the differences that can cause problems include:
                     <ul>
                         <li><code class="gs-code">\</code> as path separator (instead of <code class="gs-code">/</code>)</li>
@@ -51,9 +53,10 @@
     </div>
         <div id="installMac">
             <h3><i class="fab fa-apple"></i> Installing on macOS</i></h3>
-                        <p>Installing Nikola on macOS is easy. You can use Homebrew, MacPorts or Fink. We recommend Homebrew. Catalina offers a Python 3.7 system interpreter, but Apple doesn’t update it often, and it might become too old one day.</p>
+                        <p>Installing Nikola on macOS is easy. You can use Homebrew, MacPorts, Fink, or the Apple-provided Python 3 interpreted.</p>
                         <p>We recommend using <a href="http://brew.sh/">Homebrew</a>. After you install it, you can run <code class="gs-code gs-command">brew install python3</code> to install Python 3. You can then follow the instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>. Your venvs may require <a href="https://github.com/Kwpolska/scripts/blob/master/fix-venvs.sh">fixing</a>, <a href="https://github.com/Kwpolska/scripts/blob/master/venv-set-opt-link.sh">reconfiguration</a> or recreating if you update Python.</p>
                         <p>Other package/port managers, such as MacPorts or Fink may be used if you prefer them and have those installed. Make sure to use only one manager to avoid conflicts.</p>
+                        <p>The Apple-provided Python 3 will work too. Starting with Catalina, Python 3 is available, and it seems to be updated reasonably often. You might need to install Xcode Command Line Tools (<code class="gs-code gs-command">xcode-select --install</code>), or possibly the full Xcode environment (from the App Store), to use it.</p>
     </div>
     <div id="installLinux">
     <h3><i class="fab fa-linux"></i> Linux packages</h3>
