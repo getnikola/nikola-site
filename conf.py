@@ -129,7 +129,7 @@ LICENSE = """
     src="https://i.creativecommons.org/l/by-nc-sa/2.5/ar/88x31.png"></a>"""
 
 # A small copyright notice for the page footer
-CONTENT_FOOTER = '''Contents © 2012–2020 <a href="/contact.html">Roberto Alsina and the Nikola contributors</a>&nbsp;&nbsp;|&nbsp;&nbsp;Powered by Nikola itself&nbsp;&nbsp;|&nbsp;&nbsp;
+CONTENT_FOOTER = '''Contents © 2012–2021 <a href="/contact.html">Roberto Alsina and the Nikola contributors</a>&nbsp;&nbsp;|&nbsp;&nbsp;Powered by Nikola itself&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="https://twitter.com/intent/user?screen_name=GetNikola">Follow Nikola on Twitter</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme is <a href="https://bootswatch.com/cerulean/">Cerulean</a>
 '''
 
