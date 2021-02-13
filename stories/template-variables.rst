@@ -3,7 +3,7 @@
 .. date: 2017-04-13 12:00:00
 .. author: The Nikola Team
 
-:Version: 8.1.2
+:Version: 8.1.3
 :Author: Chris Warrick <chris@getnikola.com>
 
 Variables available in templates are listed below.
@@ -18,7 +18,7 @@ Variables available in templates are listed below.
 * Templates often create their own functions (macros), and import macros from
   other templates. Those macros are not listed here.
 * This list has a partial documentation of post objects, but no other objects. For full docs, please consult
-  the code, or auto-generated code docs on `ReadTheDocs <http://nikola.readthedocs.io/>`_.
+  the code, or auto-generated code docs on `ReadTheDocs <https://nikola.readthedocs.io/>`_.
 
 Variables and functions come from three places:
 
@@ -473,7 +473,7 @@ Post object attributes
 
 This list only includes variables that make sense for templates. Some function signatures have been shortened to save space, ``?`` means the argument has default value.
 
-More docs: `nikola.post.Post on ReadTheDocs <http://nikola.readthedocs.io/en/latest/nikola/#nikola.post.Post>`_. Check out the source of the Post class as well.
+More docs: `nikola.post.Post on ReadTheDocs <https://nikola.readthedocs.io/en/latest/nikola/#nikola.post.Post>`_. Check out the source of the Post class as well.
 
 ===================================================================  ==========  =============================================================
 Name                                                                 Type        Description

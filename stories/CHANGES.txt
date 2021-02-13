@@ -1,9 +1,37 @@
+New in v8.1.3
+=============
+
+Features
+--------
+
+* Provide the full ``GLOBAL_CONTEXT`` to the post list shortcode plugin
+  (Issue #3481)
+* Add ``BasePlugin.register_auto_watched_folder()``
+* Allow different ``PANDOC_OPTIONS`` values based on input extensions
+  by specifying a dict of ``{".extension": [options]}`` (Issue #3492)
+* Allow boolean/integer ``pretty_url`` post meta values in YAML/TOML
+  (Issue #3503)
+
+Bugfixes
+--------
+
+* Fix an ``UnboundLocalError`` crash in ``nikola deploy`` (Issue
+  #3479)
+
+Other
+-----
+
+* For ``nikola github_deploy``, the ``ghp-import`` PyPI package is now
+  recommended instead of ``ghp-import2``. Both versions should work,
+  but you can’t have both installed at the same time. (Issue #3499)
+
 New in v8.1.2
 =============
 
 Features
 --------
 
+* Fix time zone guessing logic in ``nikola init`` (Issue #3510)
 * Support for multiple authors per post — comma-separated, enabled by
   ``MULTIPLE_AUTHORS_PER_POST`` setting (Issue #3252)
 * Add ``navbar_custom_bg`` theme option to ``bootstrap4`` and document

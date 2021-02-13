@@ -1,0 +1,57 @@
+.. title: Nikola v8.1.3 is out!
+.. slug: nikola-v813-is-out
+.. date: 2021-02-13 16:57:46 UTC
+.. tags: nikola, planet, python, programming, release
+.. author: Chris Warrick
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v8.1.3. This release has some minor fixes, and
+a minor dependency change.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter Notebooks into blog posts! It also supports image galleries,
+and is multilingual. Nikola is flexible, and page builds are extremely
+fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola``.
+
+Changes
+=======
+
+Features
+--------
+
+* Provide the full ``GLOBAL_CONTEXT`` to the post list shortcode plugin
+  (Issue #3481)
+* Add ``BasePlugin.register_auto_watched_folder()``
+* Allow different ``PANDOC_OPTIONS`` values based on input extensions
+  by specifying a dict of ``{".extension": [options]}`` (Issue #3492)
+* Allow boolean/integer ``pretty_url`` post meta values in YAML/TOML
+  (Issue #3503)
+
+Bugfixes
+--------
+
+* Fix an ``UnboundLocalError`` crash in ``nikola deploy`` (Issue
+  #3479)
+
+Other
+-----
+
+* For ``nikola github_deploy``, the ``ghp-import`` PyPI package is now
+  recommended instead of ``ghp-import2``. Both versions should work,
+  but you can’t have both installed at the same time. (Issue #3499)
