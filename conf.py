@@ -210,7 +210,7 @@ NAVIGATION_LINKS = {
                 ('https://github.com/getnikola/nikola/issues', 'Issue Tracker'),
                 ('https://groups.google.com/group/nikola-discuss', 'Mailing List'),
                 ('https://twitter.com/GetNikola', 'Twitter'),
-                ('https://irclogs.getnikola.com/', 'IRC logs (#nikola@freenode, #nikola@libera.chat)'),
+                ('https://irclogs.getnikola.com/', 'IRC logs (#nikola@libera.chat)'),
                 ('/contact.html', '<strong>All support options</strong>'),
             ),
             'Support & Contact'
