@@ -61,10 +61,12 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # ja        Japanese [NOT jp]
 # ko        Korean
 # lt        Lithuanian
+# mi        Maori
 # ml        Malayalam
 # mr        Marathi
 # nb        Norwegian (Bokmål)
 # nl        Dutch
+# oc        Occitan
 # pa        Punjabi
 # pl        Polish
 # pt        Portuguese
@@ -403,6 +405,7 @@ COMPILERS = {
 # Set descriptions for tag pages to make them more interesting. The
 # default is no description. The value is used in the meta description
 # and displayed underneath the tag list or index page’s title.
+# (translatable)
 # TAG_DESCRIPTIONS = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-blog posts about blogging.",
@@ -411,6 +414,7 @@ COMPILERS = {
 # }
 
 # Set special titles for tag pages. The default is "Posts about TAG".
+# (translatable)
 # TAG_TITLES = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-posts about blogging",
@@ -476,6 +480,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 # Set descriptions for category pages to make them more interesting. The
 # default is no description. The value is used in the meta description
 # and displayed underneath the category list or index page’s title.
+# (translatable)
 # CATEGORY_DESCRIPTIONS = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-blog posts about blogging.",
@@ -484,6 +489,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 # }
 
 # Set special titles for category pages. The default is "Posts about CATEGORY".
+# (translatable)
 # CATEGORY_TITLES = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-posts about blogging",
@@ -564,8 +570,8 @@ HIDDEN_CATEGORIES = []
 
 
 # If you do not want to display an author publicly, you can mark it as hidden.
-# The author will not be displayed on the author list page and posts.
-# Tag pages will still be generated.
+# The author will not be displayed on the author list page.
+# Author pages and links to them will still be generated.
 HIDDEN_AUTHORS = ['Guest']
 
 # Allow multiple, comma-separated authors for a post? (Requires theme support, present in built-in themes)
@@ -656,7 +662,7 @@ REDIRECTIONS = []
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
-# "rsync -rav --delete output/ joe@my.site:/srv/www/site"
+# "rsync -rav --delete --delete-after output/ joe@my.site:/srv/www/site"
 # And then do a backup, or run `nikola ping` from the `ping`
 # plugin (`nikola plugin -i ping`).  Or run `nikola check -l`.
 # You may also want to use github_deploy (see below).
@@ -666,7 +672,7 @@ REDIRECTIONS = []
 # in a `nikola deploy` command as you like.
 # DEPLOY_COMMANDS = {
 #     'default': [
-#         "rsync -rav --delete output/ joe@my.site:/srv/www/site",
+#         "rsync -rav --delete --delete-after output/ joe@my.site:/srv/www/site",
 #     ]
 # }
 
@@ -851,6 +857,7 @@ GALLERIES_DEFAULT_THUMBNAIL = None
 # options, but will have to be referenced manually to be visible on the site
 # (the thumbnail has ``.thumbnail`` added before the file extension by default,
 # but a different naming template can be configured with IMAGE_THUMBNAIL_FORMAT).
+# Panoramas (aspect ratio over 3:1) get 4x larger thumbnails due to scaling issues.
 
 IMAGE_FOLDERS = {'images': 'images'}
 # IMAGE_THUMBNAIL_SIZE = 400

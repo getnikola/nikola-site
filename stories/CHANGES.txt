@@ -1,3 +1,40 @@
+New in v8.2.0
+=============
+
+Features
+--------
+
+* Add ``category_titles``, ``category_descriptions``, ``tag_titles``,
+  ``tag_descriptions`` to default context of tags page (Issue #3584)
+* Add Maori translation
+* Add Occitan translation
+* New ``auto_command_starting`` signal when ``nikola auto`` is
+  starting
+* ``typogrify_custom`` filter adds a default value for
+  ``typogrify_filters`` so that ``ignore_tags`` can be specified
+  as the only option.
+* The default ``ignore_tags`` are appended to the user-supplied
+  ``ignore_tags`` added via ``typogrify_custom``.
+* Allow adding comment systems from a plugin (Issue #3544)
+* New ``CommentSystem`` plugin category (Issue #3544)
+
+Bugfixes
+--------
+
+* Fix changes to ``INDEX_READ_MORE_LINK`` and ``FEED_READ_MORE_LINK``
+  not triggering rebuilds
+* Make ``CATEGORY_TITLES``, ``CATEGORY_DESCRIPTIONS``, ``TAG_TITLES``,
+  ``TAG_DESCRIPTIONS`` translatable settings for consistency (Issue #3584)
+* Fix bug with posts after the first one appearing shifted due to a
+  ``<div>`` closed too early (Issue #3573, #3564)
+* Fix support for files outside of site root directory on Windows
+* Support passing ``--backend`` and ``--db-file`` to ``nikola auto``
+* Support blank values in certain WordPress-imported structures
+  (Issue #3535)
+* Typogrify ignores ``div`` elements with ``.math`` CSS class.
+  (Issue #3512)
+* Adjust panorama aspect ratio to 3:1 and document behaviour.
+
 New in v8.1.3
 =============
 

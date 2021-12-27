@@ -22,6 +22,7 @@
 * `Christian Lawson-Perfect <https://github.com/christianp>`_
 * `Christopher Arndt <https:/github.com/SpotlightKid>`_
 * `Claudio Canepa <https://github.com/ccanepa>`_
+* `Clayton A. Davis <https://github.com/clayadavis>`_
 * `Damien Tournoud <https://github.com/damz>`_
 * `Damián Avila <https://github.com/damianavila>`_
 * `Daniel Aleksandersen <https://github.com/Aeyoun>`_
@@ -54,6 +55,7 @@
 * `Hardening <https://github.com/hardening>`_
 * `Hong Xu <https://www.topbug.net>`_
 * `Ivan Teoh <https://github.com/ivanteoh>`_
+* `Jesper Dramsch <https://github.com/jesperdramsch>`_
 * `John Kristensen <https://github.com/jerrykan>`_
 * `Jonathon Anderson <https://github.com/anderbubble>`_
 * `Joshua Barratt <https://github.com/jbarratt>`_
@@ -102,6 +104,7 @@
 * `Pelle Nilsson <https://github.com/pellenilsson>`_
 * `phora <https://github.com/phora>`_
 * `Pierpaolo Da Fieno <https://github.com/numshub>`_
+* `Pieter David <https://github.com/pieterdavid>`_
 * `pmav99 <https://github.com/pmav99>`_
 * `Puneeth Chaganti <https://github.com/punchagan>`_
 * `pwm1234 <https://github.com/pwm1234>`_

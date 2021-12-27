@@ -7,7 +7,7 @@
 .. has_math: true
 .. author: The Nikola Team
 
-:Version: 8.1.3
+:Version: 8.2.0
 
 .. class:: alert alert-primary float-md-right
 
@@ -285,12 +285,12 @@ Basic
 
 title
     Title of the post. Using HTML/math in titles is not supported/recommended.
-    (required)
+    If not specified, the file name will be used.
 
 slug
     Slug of the post. Used as the last component of the page URL.  We recommend
     and default to using a restricted character set (``a-z0-9-_``) because
-    other symbols may cause issues in URLs. (required)
+    other symbols may cause issues in URLs. If not specified, the file name will be used.
 
     So, if the slug is "the-slug" the page generated would be "the-slug.html" or
     "the-slug/index.html" (if you have the pretty URLs option enabled)
@@ -652,14 +652,14 @@ default set to:
 
 In case you translate your posts, you might also want to adjust various
 other settings so that the generated URLs match the translation. You can
-find most places in `conf.py` by searching for `(translatable)`. For example,
-you might want to localize `/categories/` (search for `TAG_PATH`), `/pages/`
-and `/posts/` (search for `POSTS` and `PAGES`, or see the next section), or
+find most places in ``conf.py`` by searching for ``(translatable)``. For example,
+you might want to localize ``/categories/`` (search for ``TAG_PATH``), ``/pages/``
+and ``/posts/`` (search for ``POSTS`` and ``PAGES``, or see the next section), or
 how to adjust the URLs for subsequent pages for indexes (search for
-`INDEXES_PRETTY_PAGE_URL`).
+``INDEXES_PRETTY_PAGE_URL``).
 
 Nikola supports multiple languages for a post (we have almost 50 translations!). If you wish to
-add support for more languages, check out `the Transifex page for Nikola <https://www.transifex.com/projects/p/nikola/>`_
+add support for more languages, check out `the Transifex page for Nikola <https://www.transifex.com/projects/p/nikola/>`_.
 
 How does Nikola decide where posts should go?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1332,10 +1332,14 @@ emoji
 gist
     Show GitHub gists. If you know the gist's ID, this will show it in your site:
 
-    {{% raw %}}{{% gist 2395294 %}} {{% /raw %}}
+    .. code:: text
+
+        {{% raw %}}{{% gist 2395294 %}} {{% /raw %}}
 
 listing
-    Used to show a code listing. Example::
+    Used to show a code listing. Example:
+
+    .. code:: text
 
         {{% raw %}}{{% listing hello.py python linenumbers=True %}}{{% /raw %}}
 
@@ -1913,7 +1917,9 @@ Nikola supports several third party comment systems:
 * `Utterances <https://utteranc.es/>`_
 
 By default it will use DISQUS, but you can change by setting ``COMMENT_SYSTEM``
-to one of "disqus", "intensedebate", "livefyre", "moot", "facebook", "isso" or "commento"
+to one of "disqus", "intensedebate", "livefyre", "moot", "facebook", "isso", "commento" or "utterances".
+It is also possible to use a comment system added by a plugin, see the
+`Cactus Comments plugin <https://plugins.getnikola.com/#cactuscomments>`_ for an example.
 
 .. sidebar:: ``COMMENT_SYSTEM_ID``
 
@@ -2301,7 +2307,33 @@ filters.typogrify_sans_widont
    Same as typogrify without the widont filter
 
 filters.typogrify_custom
-    Run typogrify with a custom set or filters. Takes ``typogrify_filters`` (a list of callables) and ``ignore_tags`` (defaults to None).
+    Run typogrify with a custom set of filters or ignored HTML elements. Takes one or
+    both of the arguments ``typogrify_filters`` or ``ignore_tags``. ``typogrify_filters``
+    must be a list of typogrify filter callables to run. ``ignore_tags`` must be a list
+    of strings specifying HTML tags, CSS classes (prefixed with ``.``), tag ``id`` names
+    (prefixed with ``#``), or a tag and a class or id. The following code should be
+    placed in ``conf.py``.
+
+    .. code-block:: python
+
+      from nikola.filters import typogrify_custom
+      import functools
+      # This filter will ignore HTML elements with the CSS class "typo-ignore"
+      FILTERS = {
+        ".html": [functools.partial(typogrify_custom, ignore_tags=[".typo-ignore"])]
+      }
+      # Alternatively, to specify ``typogrify_filters``
+      import typogrify.filters as typo
+      FILTERS = {
+        ".html": [functools.partial(typogrify_custom, typogrify_filters=[typo.amp])]
+      }
+
+    The default value for ``typogrify_filters`` is
+    ``[typo.amp, typo.widont, typo.smartypants, typo.caps, typo.initial_quotes]`` and the
+    default value for ``ignore_tags`` is ``["title", ".math"]``. If ``ignore_tags`` is
+    specified, the default tags will be appended to the supplied list. See the
+    `documentation <https://github.com/mintchaos/typogrify/blob/master/typogrify/filters.py#L8-L14>`__
+    for the ``process_ignores`` function in typogrify.
 
 filters.minify_lines
    **THIS FILTER HAS BEEN TURNED INTO A NOOP** and currently does nothing.
@@ -2390,9 +2422,10 @@ filters.deduplicate_ids
 
       DEDUPLICATE_IDS_TOP_CLASSES = ('postpage', 'storypage')
 
-    You can also use a file blacklist (``HEADER_PERMALINKS_FILE_BLACKLIST``),
-    useful for some index pages. Paths include the output directory (eg.
-    ``output/index.html``)
+
+   You can also use a file blacklist (``HEADER_PERMALINKS_FILE_BLACKLIST``),
+   useful for some index pages. Paths include the output directory (eg.
+   ``output/index.html``)
 
 
 You can apply filters to specific posts or pages by using the ``filters`` metadata field:
