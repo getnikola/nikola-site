@@ -58,6 +58,7 @@
 * `Jesper Dramsch <https://github.com/jesperdramsch>`_
 * `John Kristensen <https://github.com/jerrykan>`_
 * `Jonathon Anderson <https://github.com/anderbubble>`_
+  `Jonathan Hartley <https://github.com/tartley>`_
 * `Joshua Barratt <https://github.com/jbarratt>`_
 * `Juan Pedro Fisanotti <https://github.com/fisadev>`_
 * `Juanjo Conti <https://github.com/jjconti>`_
@@ -121,6 +122,7 @@
 * `Sean Pue <https://github.com/seanpue>`_
 * `Simon van der Veldt <https://github.com/simonvanderveldt>`_
 * `Stefan Näwe <https://github.com/snaewe>`_
+* `Stefano Rivera <https://github.com/stefanor>`_
 * `Stephan Fitzpatrick <https://github.com/knowsuchagency>`_
 * `Sukil Etxenike <https://github.com/sukiletxe>`_
 * `Ted Timmons <https://github.com/tedder>`_

@@ -1,0 +1,53 @@
+.. title: Nikola v8.2.4 is out!
+.. slug: nikola-v824-is-out
+.. date: 2023-04-30 10:09:56 UTC
+.. tags: nikola, planet, python, programming, release
+.. author: Chris Warrick
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v8.2.4. This release comes with some new features
+and a handful of bug fixes.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter Notebooks into blog posts! It also supports image galleries,
+and is multilingual. Nikola is flexible, and page builds are extremely
+fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola``.
+
+Changes
+=======
+
+Features
+--------
+
+* Add a ``-q``, ``--ignore-query-strings`` option to ignore query strings
+  for internal links, allowing their use for cache busting
+* Update reST stylesheets (Issue #3657)
+* Add a ``--timeout`` parameter to the ``check`` plugin, defaulting to
+  30s. (Issue #3643)
+* GZIP compression is now deterministic for automatic deploys (Issue #3650)
+
+Bugfixes
+--------
+
+* Fix failures to build with a "Document is empty" error in default themes
+  (Issue #3679)
+* Fix ``PAGE_INDEX`` skipping generation when there exists a conflicting post
+* Fix RSS generation of galleries containing WebP images, which caused
+  an unhandled exception due to not having a known MIME type (Issue #3671)
+* Fix ``auto`` command infinite loop (Issue #3677)
+* Fix API URL in CSS and JS minifiers (Issue #3658)
+* Fix ``:align: center`` for images in reST (Issue #3657)
+* ``GZIP_COMMAND`` parsing on ``win32`` platforms (Issue #3649)
