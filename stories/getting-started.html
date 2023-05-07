@@ -31,14 +31,14 @@
             <h3><i class="fab fa-python"></i> Any OS/general instructions</h3>
             <p>The best way to install Nikola is to use <code class="gs-code gs-command">pip</code> in a virtual environment. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them. <strong>Follow instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>.</strong></p>
             <p>If you’ve never worked with Python virtual environments, you might want to read <a href="https://chriswarrick.com/blog/2018/09/04/python-virtual-environments/">Python Virtual Environments in Five Minutes</a>.</p>
-            <p class="small">Hint: don’t use Pipenv or Poetry. It makes stuff harder than it should be and won’t be a pleasant experience.</p>
+            <p class="small">We don’t recommend using Pipenv, Poetry, or PDM to manage Nikola. Those package managers are aimed at people developing software using Python, not running software written in Python, so using them will not offer a good user experience.</p>
         </div>
         <div id="installWindows">
             <h3><i class="fab fa-windows"></i> Windows support</h3>
             <p>Nikola supports Windows! Here are a few things to keep in mind:</p>
             <ol>
-                <li>If you are installing from Git, it is recommended to enable Developer Mode and run <code class="gs-code gs-command">git config --global core.symlinks true</code> before cloning the Nikola repo. Nikola will work either way, but if you don’t enable symlinks, Nikola will have to fix them, which changes the working tree.</li>
-                <li>Nikola can work with both the Windows Python install and WSL. Both setups are fully supported, and all Nikola features should work in both setups.</li>
+                <li>If you are installing from Git, it is recommended to enable Developer Mode in Windows and run <code class="gs-code gs-command">git config --global core.symlinks true</code> before cloning the Nikola repo (recent versions of the git installer offer to do this for you). Nikola will work either way, but if you don’t enable symlinks, Nikola will have to fix them, which changes the working tree.</li>
+                <li>Nikola can work with both the Windows Python install and WSL. Both setups are fully supported and stable, and all Nikola features should work in both setups.</li>
                 <li>Windows has some differences over POSIX, which may cause some features to work incorrectly under Windows. If any problems occur, please do not hesitate to report them. Some of the differences that can cause problems include:
                     <ul>
                         <li><code class="gs-code">\</code> as path separator (instead of <code class="gs-code">/</code>)</li>
@@ -48,12 +48,12 @@
                         <li>Certain OS and Python features being unavailable under Windows</li>
                     </ul>
                 </li>
-                <li>Most of our developers don’t run Windows on a daily basis and may not have the full knowledge required to resolve issues relating to Windows. That said, we <em>do</em> run the test suite on Linux, macOS and Windows on a regular basis.</li>
+                <li>We run our test suite on Windows (as well as Linux and macOS), but not all Windows-specific bugs might be caught by it.</li>
             </ol>
     </div>
         <div id="installMac">
             <h3><i class="fab fa-apple"></i> Installing on macOS</i></h3>
-                        <p>Installing Nikola on macOS is easy. You can use Homebrew, MacPorts, Fink, or the Apple-provided Python 3 interpreted.</p>
+                        <p>Installing Nikola on macOS is easy. You can use Homebrew, MacPorts, Fink, or the Apple-provided Python 3 interpreter.</p>
                         <p>We recommend using <a href="http://brew.sh/">Homebrew</a>. After you install it, you can run <code class="gs-code gs-command">brew install python3</code> to install Python 3. You can then follow the instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>. Your venvs may require <a href="https://github.com/Kwpolska/scripts/blob/master/fix-venvs.sh">fixing</a>, <a href="https://github.com/Kwpolska/scripts/blob/master/venv-set-opt-link.sh">reconfiguration</a> or recreating if you update Python.</p>
                         <p>Other package/port managers, such as MacPorts or Fink may be used if you prefer them and have those installed. Make sure to use only one manager to avoid conflicts.</p>
                         <p>The Apple-provided Python 3 will work too. Starting with Catalina, Python 3 is available, and it seems to be updated reasonably often. You might need to install Xcode Command Line Tools (<code class="gs-code gs-command">xcode-select --install</code>), or possibly the full Xcode environment (from the App Store), to use it.</p>
@@ -103,14 +103,14 @@ $ <span class="gs-command">pip install -e ".[extras]"</span></code>
                     </div>
                         <div id="installDocker">
             <h3><i class="fab fa-docker"></i> Docker (unofficial)</h3>
-                        <p>There are unofficial <a href="https://hub.docker.com/r/dragas/nikola/">Docker images by Stefano Marinelli</a> (available in Debian, Alpine, bleeding-edge and ARM flavors)</p>
+                        <p>There are unofficial <a href="https://gitlab.com/paddy-hack/nikola">Docker images by Olaf Meeuwissen</a> (based on Alpine Linux) available:</p>
                         <pre class="gs-console">
-$ <span class="gs-command">docker pull dragas/nikola</span><span class="gs-input">:alpine</span>  # recommended
-$ <span class="gs-command">docker pull dragas/nikola</span><span class="gs-input">:dev</span>     # bleeding-edge (GitHub master)
-<code>$ <span class="gs-command">docker pull dragas/nikola</span>         # Debian version
-$ <span class="gs-command">docker pull dragas/<span class="gs-input">rpi-</span>nikola</span>     # RPi/ARM version
+$ <span class="gs-command">docker pull registry.gitlab.com/paddy-hack/nikola</span>
+$ <span class="gs-command">docker run --rm -it -v $PWD:/site -w /site -u $(id -u):$(id -g) \
+    registry.gitlab.com/paddy-hack/nikola</span> <span class="gs-input">nikola init .</span>
 </code></pre>
-                        <p>and also, a <a href="https://github.com/rbrewer123/docker_nikola">Dockerfile by Rob Brewer</a>, based on Arch Linux and official Arch packages.</p>
+<p>Check out <a href="https://gitlab.com/paddy-hack/nikola">the image’s README</a> for details and usage hints.</p>
+<p>There is also a <a href="https://github.com/rbrewer123/docker_nikola">Dockerfile by Rob Brewer</a>, based on Arch Linux and official Arch packages.</p>
                     </div>
 
                     <div id="installOthers">
@@ -123,23 +123,37 @@ $ <span class="gs-command">docker pull dragas/<span class="gs-input">rpi-</span>
             <h4>Install on Linux/*nix/macOS</h4>
             <pre class="gs-console">
 <em>First, make sure <span class="gs-input">Python 3</span> is installed.<br>On macOS, we recommend getting Python from <a class="gs-code-link" href="https://brew.sh/">Homebrew</a>.<br>On Debian/Ubuntu, you also need the <span class="gs-input">python3-venv</span> package.<br><br>When you are done installing, run:</em>
-<code>$ <span class="gs-command">python3 -m venv nikola</span>
-$ <span class="gs-command">cd nikola</span>
-$ <span class="gs-command">source bin/activate</span>
+<code>$ <span class="gs-command">python3 -m venv nikola-env</span>
+$ <span class="gs-command">cd nikola-env</span>
 $ <span class="gs-command">bin/python -m pip install -U pip setuptools wheel</span>
 $ <span class="gs-command">bin/python -m pip install -U "Nikola[extras]"</span>
 ...snip...
-Successfully installed Nikola</code></pre>
+Successfully installed Nikola</code>
+
+<em>You can now use Nikola by launching the script directly:</em>
+$ <span class="gs-command">bin/nikola</span>
+
+<em>Or you can activate the environment before working
+with Nikola and use the <span class="gs-command">nikola</span> command:</em>
+$ <span class="gs-command">source bin/activate</span>
+$ <span class="gs-command">nikola</span></pre>
             <h4>Install on Windows</h4>
             <pre class="gs-console">
 <em>First, install <a class="gs-code-link" href="https://www.python.org/downloads/">Python 3</a>. Then you can run:</em>
-<code>&gt; <span class="gs-command">py -m venv nikola</span>
-&gt; <span class="gs-command">cd nikola</span>
-&gt; <span class="gs-command">Scripts\activate</span>
+<code>&gt; <span class="gs-command">py -m venv nikola-env</span>
+&gt; <span class="gs-command">cd nikola-env</span>
 &gt; <span class="gs-command">Scripts\python -m pip install -U pip setuptools wheel</span>
 &gt; <span class="gs-command">Scripts\python -m pip install -U "Nikola[extras]"</span>
 ...snip...
-Successfully installed Nikola</code></pre>
+Successfully installed Nikola</code>
+
+<em>You can now use Nikola by launching the script directly:</em>
+> <span class="gs-command">Scripts\nikola</span>
+
+<em>Or you can activate the environment before working
+with Nikola and use the <span class="gs-command">nikola</span> command:</em>
+> <span class="gs-command">Scripts\activate</span>
+> <span class="gs-command">nikola</span></pre>
         </div>
     </div>
 </div>
@@ -148,7 +162,8 @@ Successfully installed Nikola</code></pre>
     <div class="col-md-7 gs-left-col">
         <p>After installing Nikola, you should create a site. A site is a collection of all assets needed to create your site: configuration, posts, pages, images, and all other files and customizations. This is the important data, so put it where you put that kind of things.</p>
         <p>To create a site, you need to run <code class="gs-code gs-command">nikola init --demo &lt;directory_name&gt;</code>. A friendly wizard will be launched, letting you configure your site easily. The <code class="gs-code">--demo</code> option is used to fill your site with some demo content. (If you do not want the wizard, use the <code class="gs-code">--quiet</code> argument.)</p>
-        <p>Do not store your site inside your virtual environment. Virtual environments are meant to be ephemeral (you should be able to delete and recreate one at any time).</p>
+        <p>If you’re using a <strong>virtual environment</strong>, you should use the path to the Nikola script in your virtual environment (<code class="gs-code gs-command">bin/nikola <span class="gs-input">init</span></code> on *nix, <code class="gs-code gs-command">Scripts\nikola <span class="gs-input">init</span></code> on Windows), or alternatively, you can activate the environment (<code class="gs-code gs-command">source bin/activate</code> on *nix, <code class="gs-code gs-command">Scripts\activate</code> on Windows) and use the <code class="gs-code gs-command">nikola</code> command directly.</p>
+        <p><strong>Do not</strong> store your site inside your virtual environment. Virtual environments are meant to be ephemeral (you should be able to delete and recreate one at any time).</p>
     </div>
     <div class="col-md-5 gs-right-col">
         <pre class="gs-console gs-sticky">
@@ -203,7 +218,9 @@ Scanning posts....done!
         <p>You should make it more interesting and personal. Write your own post!</p>
         <p>To do that, you can just use <code class="gs-code gs-command">nikola new_post -e</code>. (The <code class="gs-code">-e</code> option will open the post in your text editor of choice; many more options are available)</p>
         <p>The command will create the file for you in the right place, with the metadata headers and a writing prompt.</p>
-        <p>By default, Nikola creates posts in reStructuredText. You can read <a href="https://getnikola.com/quickstart.html">the reStructuredText Primer</a> to get accustomed to the syntax. You can also use many other input formats; to do this, your site needs <a href="#markup">some special configuration</a>.</p>
+        <p>By default, Nikola creates posts in reStructuredText. You can read <a href="https://getnikola.com/quickstart.html">the reStructuredText Primer</a> to get accustomed to the syntax.</p>
+        <p>If you prefer Markdown, it is also available and configured by default: run <code class="gs-code gs-command">nikola new_post -e -f markdown</code> to create a new Markdown post.</p>
+        <p>You can also use many other input formats; to do this, your site needs <a href="#markup">some special configuration</a>.</p>
         <h4>What if I don’t want a blog?</h4>
         <p>If you want a static site that does not have any blog-related elements, see our <a href="https://getnikola.com/creating-a-site-not-a-blog-with-nikola.html">Creating a Site (Not a Blog) with Nikola</a> guide.
     </div>
@@ -268,7 +285,7 @@ INFO: serve: Opening http://0.0.0.0:8000/ in the default web browser...</code></
         </li>
     </ul>
     <h3 id="markup">Configuring other markup formats</h3>
-    <p>Input formats other than reStructuredText need some configuration, which has been described in <a href="/handbook.html#configuring-other-input-formats">The Nikola Handbook</a>.</p>
+    <p>Input formats other than reStructuredText, Markdown, and raw HTML need some configuration, which has been described in <a href="/handbook.html#configuring-other-input-formats">The Nikola Handbook</a>.</p>
     <h3 id="rm-demo">Removing demo content</h3>
     <p>When you’re done exploring, you should remove the demo content before deploying it to your server. Remove the demo stories, welcome post, demo gallery and listing manually. Run <code class="gs-code gs-command">nikola build</code> to make them disappear from the archives. Note that this is not enough; you need to delete the now orphaned files. Nikola can do it for you — run <code class="gs-code gs-command">nikola check --clean-files</code>. Note that this command will delete all files in the output directory it does not know about, which can be dangerous — please back up your files or find out what will be deleted by using <code class="gs-code gs-command">nikola orphans</code>.</p>
     <p><em>Hint:</em> files in the <code class="gs-code">files/</code> directory are copied to the output directory as-is.</p>
