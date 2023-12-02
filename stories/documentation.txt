@@ -74,3 +74,6 @@ current GitHub master, check out `Nikola on ReadTheDocs
 
 `Moving from Octopress to Nikola <http://serialized.net/2013/03/moving-from-octopress-to-nikola/>`_
     Since we don't have an automated tool...
+
+`ikiwiki to nikola: the script <https://www.grulic.org.ar/~mdione/glob/posts/ikiwiki-to-nikola-the-script/>`_
+    A tool to migrate Markdown posts from ikiwiki to Nikola (with support for footnotes, tags, images and code snippets)
