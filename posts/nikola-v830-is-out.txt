@@ -1,0 +1,69 @@
+.. title: Nikola v8.3.0 is out!
+.. slug: nikola-v830-is-out
+.. date: 2024-01-10 20:34:26 UTC
+.. tags: nikola, planet, python, programming, release
+.. author: Chris Warrick
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce the immediate
+availability of Nikola v8.3.0. This release adds support for Python 3.12,
+with some other features and bugfixes.
+
+Note that Nikola v8.3.0 no longer uses the Yapsy plugin manager,
+which has been replaced by a custom, minimal manager.
+The new Nikola Plugin Manager was tested with some typical plugins,
+but there might be issues if your plugins have an unusual structure
+or are outdated. Please update your plugins and report any bugs
+you may encounter.
+
+The Nikola developers would also like to express discontent with Python’s
+efforts to remove features from the standard library, causing breakage
+without a solid reason, other than “it’s old”.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter Notebooks into blog posts! It also supports image galleries,
+and is multilingual. Nikola is flexible, and page builds are extremely
+fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola``.
+
+Changes
+=======
+
+Features
+--------
+
+* Implement a new plugin manager from scratch to replace Yapsy,
+  which does not work on Python 3.12 due to Python 3.12 carelessly
+  removing parts of the standard library (Issue #3719)
+* Support for Discourse as comment system (Issue #3689)
+
+Bugfixes
+--------
+
+* Fix loading of templates from plugins with ``__init__.py`` files
+  (Issue #3725)
+* Fix margins of paragraphs at the end of sections (Issue #3704)
+* Ignore ``.DS_Store`` files in listing indexes (Issue #3698)
+* Fix baguetteBox.js invoking in the base theme (Issue #3687)
+* Fix development (preview) server ``nikola auto``
+  for non-root SITE_URL, in particular when URL_TYPE is full_path.
+  (Issue #3715)
+
+For plugin developers
+---------------------
+
+Nikola now requires the ``.plugin`` file to contain a ``[Nikola]``
+section with a ``PluginCategory`` entry set to the name of the plugin
+category class. This was already required by ``plugins.getnikola.com``,
+but you may have custom plugins that don’t have this set.
