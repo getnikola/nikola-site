@@ -29,8 +29,9 @@
 
         <div id="installAny">
             <h3><i class="fab fa-python"></i> Any OS/general instructions</h3>
-            <p>The best way to install Nikola is to use <code class="gs-code gs-command">pip</code> in a virtual environment. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access some extra features, but you can drop the <code class="gs-code">[extras]</code> specifier if you don’t want them. <strong>Follow instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>.</strong></p>
+            <p>The best way to install Nikola is to use <code class="gs-code gs-command">pip</code> in a virtual environment. We recommend installing the <code class="gs-code">"Nikola[extras]"</code> distribution to access all built-in Nikola features. <strong>Follow instructions <span class="d-print-none d-none d-md-inline">on the right</span><span class="d-none">/</span><span class="d-inline d-md-none">below</span>.</strong></p>
             <p>If you’ve never worked with Python virtual environments, you might want to read <a href="https://chriswarrick.com/blog/2018/09/04/python-virtual-environments/">Python Virtual Environments in Five Minutes</a>.</p>
+            <p class="small">Installing <code class="gs-code">"Nikola[extras]"</code> as explained above installs software that Nikola <em>might</em> use.  This is quite a lot of software.  Alternatively, you can drop the <code class="gs-code">[extras]</code> specifier and install such software later, as you find out you want it. Nikola makes this reasonably convenient, as explained <a href="#extrasExplained">below</a>.</p>
             <p class="small">We don’t recommend using Pipenv, Poetry, or PDM to manage Nikola. Those package managers are aimed at people developing software using Python, not running software written in Python, so using them will not offer a good user experience.</p>
         </div>
         <div id="installWindows">
@@ -117,7 +118,17 @@ $ <span class="gs-command">docker run --rm -it -v $PWD:/site -w /site -u $(id -u
                     <h3>Other options</h3>
                     <p>There are also <a href="https://snapcraft.io/">Snapcraft</a> packages (<code class="gs-code gs-command">snap install nikola --edge</code>), but those inherit many limitations of the platform and are not recommended for daily use.</p>
                     </div>
-                    </div>
+
+
+        <h3 id="extrasExplained">What is this [extras]?</h3>
+        <p>The easy way to install Nikola is to include, in the installation, a lot of additional software that you may or may not need.  This is what happens when installing <code class="gs-code">Nikola[extras]</code> as mentioned above, and is recommended for casual and first-time users.</p>
+        <p>Maybe you have reason to be careful about which packages you download and install. If so, you can choose to install plain <code class="gs-code">Nikola</code> without <code class="gs-code">[extras]</code>.  This will get you going.  When, later, you ask Nikola to provide functionality that needs a dependency (i.e., additional software on which that Nikola functionality depends), and that dependency has not yet been installed, you will receive a helpful error message telling you what is missing. E.g., when using <code class="gs-code gs-command">nikola auto --browser</code> for the first time, you might see error message text telling you <code class="gs-code">aiohttp</code> and <code class="gs-code">watchdog</code> are needed to proceed:</p>
+        <pre class="gs-console">
+<code>In order to use the "auto" command, you must install the "aiohttp" and "watchdog" Python packages.
+Exiting due to missing dependencies.</code></pre>
+
+        <p>In this situation, run <code class="gs-code gs-command">pip install aiohttp watchdog</code> and then repeat your original <code class="gs-code gs-command">nikola auto --browser</code>.</p>
+    </div>
     <div class="col-md-5 gs-right-col">
         <div class="gs-sticky">
             <h4>Install on Linux/*nix/macOS</h4>
