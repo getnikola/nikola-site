@@ -3,6 +3,6 @@ __pycache__
 cache
 output
 .doit.db
-.doit.db.db
+.doit.db*
 .venv
 nikolaserve.pid
