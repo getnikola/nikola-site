@@ -55,6 +55,9 @@ current GitHub master, check out `Nikola on ReadTheDocs
 `Automating Nikola rebuilds with GitHub Actions </blog/automating-nikola-rebuilds-with-github-actions.html>`_
     Blogging anywhere with Nikola, GitHub Actions and GitHub Pages.
 
+`Python Version Support Policy <python-version-support-policy.html>`_
+    How we decide which Python versions are supported.
+
 **Community content:**
 
 `Writing Task Plugins <https://bryanwweber.com/writing/personal/2018/12/22/writing-task-plugins-for-nikola/>`_ and `Controlling plugin task execution order <https://bryanwweber.com/writing/personal/2018/12/20/controlling-plugin-task-execution-order-in-nikola/>`_
