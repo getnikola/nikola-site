@@ -7,7 +7,7 @@
 .. has_math: true
 .. author: The Nikola Team
 
-:Version: 8.3.1
+:Version: 8.3.3
 
 .. class:: alert alert-primary float-md-right
 
@@ -21,6 +21,8 @@ After you have Nikola `installed <https://getnikola.com/getting-started.html>`_:
 
 Create an empty site (with a setup wizard):
     ``nikola init mysite``
+
+    .. _demo site:
 
     You can create a site with demo files in it with ``nikola init --demo mysite``
 
@@ -1596,6 +1598,10 @@ CSS tweaking
 .. _Sass: https://sass-lang.com/
 
 Template tweaking and creating themes
+    For tweaking an existing template or adding new ones,
+    you can put the respective file under ``templates/``.
+    The `demo site`_ provides an example.
+
     If you really want to change the pages radically, you will want to do a
     :doc:`custom theme <theming>`.
 
@@ -2277,19 +2283,19 @@ The currently available filters are:
       }
 
 filters.html_tidy_nowrap
-   Prettify HTML 5 documents with `tidy5 <https://www.html-tidy.org/>`_
+   Prettify HTML 5 documents with `tidy <https://www.html-tidy.org/>`_
 
 filters.html_tidy_wrap
-   Prettify HTML 5 documents wrapped at 80 characters with `tidy5 <https://www.html-tidy.org/>`_
+   Prettify HTML 5 documents wrapped at 80 characters with `tidy <https://www.html-tidy.org/>`_
 
 filters.html_tidy_wrap_attr
-   Prettify HTML 5 documents and wrap lines and attributes with `tidy5 <https://www.html-tidy.org/>`_
+   Prettify HTML 5 documents and wrap lines and attributes with `tidy <https://www.html-tidy.org/>`_
 
 filters.html_tidy_mini
-   Minify HTML 5 into smaller documents with `tidy5 <https://www.html-tidy.org/>`_
+   Minify HTML 5 into smaller documents with `tidy <https://www.html-tidy.org/>`_
 
 filters.html_tidy_withconfig
-   Run `tidy5 <https://www.html-tidy.org/>`_ with ``tidy5.conf`` as the config file (supplied by user)
+   Run `tidy <https://www.html-tidy.org/>`_ with ``tidy.conf`` as the config file (supplied by user)
 
 filters.html5lib_minify
    Minify HTML5 using html5lib_minify
@@ -2298,7 +2304,7 @@ filters.html5lib_xmllike
    Format using html5lib
 
 filters.typogrify
-   Improve typography using `typogrify <https://github.com/mintchaos/typogrify>`__
+   Improve typography using `typogrify <https://github.com/justinmayer/typogrify>`__
 
 filters.typogrify_sans_widont
    Same as typogrify without the widont filter
@@ -2329,7 +2335,7 @@ filters.typogrify_custom
     ``[typo.amp, typo.widont, typo.smartypants, typo.caps, typo.initial_quotes]`` and the
     default value for ``ignore_tags`` is ``["title", ".math"]``. If ``ignore_tags`` is
     specified, the default tags will be appended to the supplied list. See the
-    `documentation <https://github.com/mintchaos/typogrify/blob/master/typogrify/filters.py#L8-L14>`__
+    `documentation <https://github.com/justinmayer/typogrify/blob/master/typogrify/filters.py>`__
     for the ``process_ignores`` function in typogrify.
 
 filters.minify_lines

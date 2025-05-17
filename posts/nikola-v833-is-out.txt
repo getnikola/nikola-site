@@ -1,0 +1,63 @@
+.. title: Nikola v8.3.3 is out!
+.. slug: nikola-v833-is-out
+.. date: 2025-05-17 17:16:57 UTC
+.. tags: nikola, planet, python, programming, release
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+On behalf of the Nikola team, I am pleased to announce
+the immediate availability of Nikola v8.3.3. This is a bugfix release.
+
+We’ve had to release Nikola v8.3.3 immediately after releasing
+Nikola v8.3.2, as it is broken on Python 3.8. We would like to thank
+the Python packaging ecosystem for being an incomprehensible and
+incompatible trainwreck.
+
+What is Nikola?
+===============
+
+Nikola is a static site and blog generator, written in Python.
+It can use Mako and Jinja2 templates, and input in many popular markup
+formats, such as reStructuredText and Markdown — and can even turn
+Jupyter Notebooks into blog posts! It also supports image galleries,
+and is multilingual. Nikola is flexible, and page builds are extremely
+fast, courtesy of doit (which is rebuilding only what has been changed).
+
+Find out more at the website: https://getnikola.com/
+
+Downloads
+=========
+
+Install using ``pip install Nikola``.
+
+Changes from v8.3.1
+===================
+
+Features
+--------
+
+* Trace template usage when an environment variable ``NIKOLA_TEMPLATES_TRACE``
+  is set to any non-empty value.
+* Give user control over the raw underlying template engine
+  (either ``mako.lookup.TemplateLookup`` or ``jinja2.Environment``)
+  via an optional ``conf.py`` method ``TEMPLATE_ENGINE_FACTORY``.
+* Switch to pyproject.toml
+* Add path handler ``slug_source`` linking to source of post.
+
+Bugfixes
+--------
+
+* Ignore errors in parsing SVG files for shrinking them, copy original file to output instead
+  (Issue #3785)
+* Restore ``annotation_helper.tmpl`` with dummy content - fix themes still mentioning it
+  (Issue #3764, #3773)
+* Fix compatibility with watchdog 4 (Issue #3766)
+* ``nikola serve`` now works with non-root SITE_URL.
+* Stack traces meaningless for end users now more reliably suppressed (Issue #3838).
+
+Other
+-----
+
+* Changed filter for tidy from  ``tidy5`` to ``tidy``.

@@ -266,7 +266,9 @@ TIMEZONE = "UTC"
 # FORCE_ISO8601 = False
 
 # Date format used to display post dates. (translatable)
-# Used by babel.dates, CLDR style: http://cldr.unicode.org/translation/date-time-1/date-time
+# Used by babel.dates, CLDR style..
+# https://cldr.unicode.org/translation/date-time/date-time-symbols
+# https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
 # You can also use 'full', 'long', 'medium', or 'short'
 # DATE_FORMAT = 'yyyy-MM-dd HH:mm'
 
@@ -743,8 +745,8 @@ GITHUB_COMMIT_SOURCE = True
 
 # Executable for the "html_tidy_withconfig", "html_tidy_nowrap",
 # "html_tidy_wrap", "html_tidy_wrap_attr" and "html_tidy_mini" filters
-# (defaults to 'tidy5').
-# HTML_TIDY_EXECUTABLE = 'tidy5'
+# (defaults to 'tidy').
+# HTML_TIDY_EXECUTABLE = 'tidy'
 
 # List of XPath expressions which should be used for finding headers
 # ({hx} is replaced by headers h1 through h6).
@@ -1404,6 +1406,20 @@ WARN_ABOUT_TAG_METADATA = False
 # Consult your engine's documentation on filters if you need help defining
 # those.
 # TEMPLATE_FILTERS = {}
+
+# If you want to, you can augment or change Nikola's configuration
+# of the underlying template engine used
+# in any way you please, by defining this function:
+# def TEMPLATE_ENGINE_FACTORY(**args):
+#    pass
+# This should return either a jinja2.Environment or a mako.lookup.TemplateLookup
+# object that have been configured with the args received plus any additional configuration wanted.
+#
+# E.g., to configure Jinja2 to bark on non-existing values instead of silently omitting:
+# def TEMPLATE_ENGINE_FACTORY(**args) -> jinja2.Environment:
+#     augmented_args = dict(args)
+#     augmented_args['undefined'] = jinja2.DebugUndefined
+#     return jinja2.Environment(**augmented_args)
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
